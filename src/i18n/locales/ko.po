@@ -1,0 +1,546 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language: ko\n"
+"MIME-Version: 1.0\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Home"
+msgstr "홈"
+
+msgid "About"
+msgstr "소개"
+
+msgid "Jobs"
+msgstr "채용 공고"
+
+msgid "Companies"
+msgstr "회사"
+
+msgid "Categories"
+msgstr "카테고리"
+
+msgid "Dashboard"
+msgstr "대시보드"
+
+msgid "Find Jobs"
+msgstr "채용 공고 찾기"
+
+msgid "Favorite Jobs"
+msgstr "관심 공고"
+
+msgid "Find Companies"
+msgstr "회사 찾기"
+
+msgid "Your First Step to a Big Future: Find a Job That Matches Your Passion & Skills."
+msgstr "더 큰 미래를 향한 첫 걸음: 당신의 열정과 역량에 맞는 일을 찾아보세요."
+
+msgid "Discover opportunities that fit you perfectly—from your first job to a successful career ahead."
+msgstr "첫 직장에서 성공적인 커리어까지, 당신에게 꼭 맞는 기회를 찾아보세요."
+
+msgid "Featured job"
+msgstr "추천 채용"
+
+msgid "View All"
+msgstr "전체 보기"
+
+msgid "Top companies"
+msgstr "인기 기업"
+
+msgid "How JobHuntly work"
+msgstr "JobHuntly는 어떻게 작동하나요"
+
+msgid "Create account"
+msgstr "계정 만들기"
+
+msgid "Sign up in just a few steps and start your journey toward a brighter career."
+msgstr "몇 단계만에 가입하고 더 밝은 커리어 여정을 시작하세요."
+
+msgid "Upload CV/Resume"
+msgstr "이력서 업로드"
+
+msgid "Add your resume to help employers understand your skills and experience."
+msgstr "이력서를 추가해 보유 기술과 경력을 기업에 알리세요."
+
+msgid "Find suitable job"
+msgstr "맞춤 채용 찾기"
+
+msgid "Browse through thousands of job listings tailored to your profile and interests."
+msgstr "프로필과 관심사에 맞춘 수천 개의 공고를 둘러보세요."
+
+msgid "Apply job"
+msgstr "지원하기"
+
+msgid "Submit your application with one click and get ready for new opportunities."
+msgstr "한 번의 클릭으로 지원하고 새로운 기회를 준비하세요."
+
+msgid "Register Now"
+msgstr "지금 가입"
+
+msgid "Become a Candidate"
+msgstr "구직자 되기"
+
+msgid "Become a Recruiter"
+msgstr "채용담당자 되기"
+
+msgid ""
+"Join thousands of job seekers building their careers. Discover the right opportunities, apply with ease, and grow your future."
+msgstr ""
+"수천 명의 구직자와 함께 커리어를 구축하세요. 맞는 기회를 발견하고, 쉽게 지원하며, 미래를 성장시키세요."
+
+msgid ""
+"Find the talent that drives your business forward. Post jobs, manage applications, and connect with the right candidates faster."
+msgstr ""
+"비즈니스를 성장시킬 인재를 찾아보세요. 공고 등록, 지원서 관리, 그리고 적합한 후보자와 더 빠르게 연결하세요."
+
+msgid "Popular category"
+msgstr "인기 카테고리"
+
+msgid "Clients Testimonial"
+msgstr "고객 후기"
+
+msgid "About JobHuntly: from First job to Big future"
+msgstr "JobHuntly 소개: 첫 직장에서 큰 미래로"
+
+msgid ""
+"JobHuntly was born from a simple idea: to create a job search platform that is honest, effective, and easy to use. We know that finding the right first job can feel overwhelming, so our focus is on building a clean, straightforward space where new job seekers and growing companies can connect. We're on a mission to help you find more than just a job—we're here to help you build a career."
+msgstr ""
+"JobHuntly는 정직하고 효율적이며 사용하기 쉬운 채용 플랫폼을 만들겠다는 단순한 생각에서 시작되었습니다. 첫 직장을 찾는 일은 벅차게 느껴질 수 있기에, 우리는 신입 구직자와 성장 중인 기업이 연결될 수 있는 깔끔하고 직관적인 공간을 만들고자 합니다. 단순한 일자리를 넘어, 여러분의 커리어를 만들어가도록 돕는 것이 우리의 사명입니다."
+
+msgid ""
+"As a new platform, we're building this community one connection at a time. Our mission is to foster a space where meaningful careers can begin. Your feedback and participation are the most important part of our growth. We are here to evolve with you and for you, helping turn your first step into a great future."
+msgstr ""
+"새로운 플랫폼으로서 우리는 한 번의 연결을 통해 커뮤니티를 만들어가고 있습니다. 의미 있는 커리어가 시작되는 공간을 만들고자 하며, 여러분의 피드백과 참여가 우리의 성장에 가장 중요합니다. 여러분과 함께, 여러분을 위해 발전하며 첫걸음을 위대한 미래로 이어가겠습니다."
+
+msgid "Honesty & Quality"
+msgstr "정직함 & 품질"
+
+msgid "We focus on a curated selection of verified and high-quality job listings."
+msgstr "검증된 고품질 채용 공고만 선별해 제공합니다."
+
+msgid "Simplicity"
+msgstr "단순함"
+
+msgid "A streamlined, minimalist interface to make your search fast and stress-free."
+msgstr "간결하고 직관적인 인터페이스로 빠르고 편안한 검색을 제공합니다."
+
+msgid "Community-Driven"
+msgstr "커뮤니티 중심"
+
+msgid "We're building a valuable recruitment community with you."
+msgstr "여러분과 함께 가치 있는 채용 커뮤니티를 만들어갑니다."
+
+msgid "Feedback Matters"
+msgstr "피드백의 가치"
+
+msgid "Our platform evolves based on the insights you share."
+msgstr "여러분이 주신 인사이트를 바탕으로 플랫폼은 계속 발전합니다."
+
+msgid "Call now"
+msgstr "지금 전화"
+
+msgid "Quick Link"
+msgstr "빠른 링크"
+
+msgid "Home"
+msgstr "홈"
+
+msgid "About Us"
+msgstr "소개"
+
+msgid "Statistics"
+msgstr "통계"
+
+msgid "Categories"
+msgstr "카테고리"
+
+msgid "Candidate"
+msgstr "지원자"
+
+msgid "Browse Companies"
+msgstr "회사 둘러보기"
+
+msgid "Browse Jobs"
+msgstr "채용 공고 둘러보기"
+
+msgid "Candidate Dashboard"
+msgstr "지원자 대시보드"
+
+msgid "Saved Jobs"
+msgstr "저장한 공고"
+
+msgid "Recruiter"
+msgstr "채용담당자"
+
+msgid "Post a Job"
+msgstr "공고 등록"
+
+msgid "Recruiter Dashboard"
+msgstr "채용담당자 대시보드"
+
+msgid "Applications"
+msgstr "지원서"
+
+msgid "Company Profile"
+msgstr "회사 프로필"
+
+msgid "2025 JobHuntly. All rights Reserved"
+msgstr "2025 JobHuntly. 모든 권리 보유"
+
+msgid "Register"
+msgstr "회원가입"
+
+msgid "Login"
+msgstr "로그인"
+
+msgid "Work Type"
+msgstr "근무 형태"
+
+msgid "Levels"
+msgstr "직급"
+
+msgid "Skills"
+msgstr "기술"
+
+msgid "Job Description"
+msgstr "직무 설명"
+
+msgid "Requirements"
+msgstr "자격 요건"
+
+msgid "Benefits"
+msgstr "복지 혜택"
+
+msgid "Work Location"
+msgstr "근무지"
+
+msgid "Similar Jobs"
+msgstr "유사 공고"
+
+msgid "See More"
+msgstr "더 보기"
+
+msgid "Show less"
+msgstr "접기"
+
+msgid "Search for a company"
+msgstr "회사 검색"
+
+msgid "Discover companies that match your interests and skills. Search by name, location, industry, or size."
+msgstr "관심사와 역량에 맞는 회사를 찾아보세요. 이름, 위치, 산업, 규모로 검색하세요."
+
+msgid "Filter"
+msgstr "필터"
+
+msgid "Clear all"
+msgstr "모두 지우기"
+
+msgid "Industry"
+msgstr "산업"
+
+msgid "Company size"
+msgstr "회사 규모"
+
+msgid "Founded year"
+msgstr "설립 연도"
+
+msgid "Unfollow"
+msgstr "언팔로우"
+
+msgid "Follow Company"
+msgstr "회사 팔로우"
+
+msgid "You need to log in"
+msgstr "로그인이 필요합니다"
+
+msgid "Please log in to continue."
+msgstr "계속하려면 로그인하세요."
+
+msgid "Close"
+msgstr "닫기"
+
+msgid "Logout"
+msgstr "로그아웃"
+
+msgid "Company Introduction"
+msgstr "회사 소개"
+
+msgid "Contact Information"
+msgstr "연락처 정보"
+
+msgid "Job Openings"
+msgstr "채용 공고"
+
+msgid "Representative brands in the same field"
+msgstr "동일 분야 대표 브랜드"
+
+msgid "The brands that have established their position on the market."
+msgstr "시장에서 입지를 구축한 브랜드입니다."
+
+msgid "Share company with friends"
+msgstr "회사를 친구에게 공유"
+
+msgid "Share on social media"
+msgstr "소셜 미디어에 공유"
+
+msgid "Link your account to continue using Job Huntly's services."
+msgstr "Job Huntly의 서비스를 계속 이용하려면 계정을 연동하세요."
+
+msgid "This account uses Google Sign-In. Do you want to set a password so you can log in with email/password too?"
+msgstr "이 계정은 Google 로그인을 사용합니다. 이메일/비밀번호로도 로그인할 수 있도록 비밀번호를 설정하시겠어요?"
+
+msgid "We sent a set-password link to your email. Click the link to continue here."
+msgstr "비밀번호 설정 링크를 이메일로 보냈습니다. 링크를 클릭하여 여기에서 계속 진행하세요."
+
+msgid "Forgot password?"
+msgstr "비밀번호를 잊으셨나요?"
+
+msgid "Don't have an account yet?"
+msgstr "아직 계정이 없으신가요?"
+
+msgid "Create one"
+msgstr "계정 만들기"
+
+msgid "Create your Candidate account"
+msgstr "지원자 계정 만들기"
+
+msgid "Find jobs, track applications, and connect with recruiters."
+msgstr "채용 공고를 찾고 지원 내역을 추적하며 채용 담당자와 연결하세요."
+
+msgid "Create your Recruiter account"
+msgstr "채용담당자 계정 만들기"
+
+msgid "Post jobs, manage applicants, and hire faster."
+msgstr "공고를 등록하고 지원자를 관리하여 더 빠르게 채용하세요."
+
+msgid "Welcome to"
+msgstr "환영합니다"
+
+msgid "If you have trouble logging in or creating an account, please contact Job Huntly via"
+msgstr "로그인 또는 계정 생성에 문제가 있으면 다음을 통해 Job Huntly에 문의하세요"
+
+msgid "I have read and agree to the"
+msgstr "다음을 읽고 동의합니다"
+
+msgid "Terms of Service"
+msgstr "서비스 약관"
+
+msgid "and"
+msgstr "및"
+
+msgid "Privacy Policy"
+msgstr "개인정보 처리방침"
+
+msgid "of JobHuntly"
+msgstr "JobHuntly의"
+
+msgid "Already have an account?"
+msgstr "이미 계정이 있으신가요?"
+
+msgid "Login Now"
+msgstr "지금 로그인"
+
+msgid "Job title, Keyword..."
+msgstr "직무명, 키워드..."
+
+msgid "Find Job"
+msgstr "채용 검색"
+
+msgid "Company Events"
+msgstr "회사 이벤트"
+
+msgid "Experience highlights from recent events, conferences, and workshops — where we bring innovation to life and connect with community."
+msgstr "최근 이벤트, 컨퍼런스, 워크숍의 하이라이트를 만나보세요 — 혁신을 실현하고 커뮤니티와 소통하는 자리입니다."
+
+msgid "Recap Korean Insight Trip 2025"
+msgstr "Korean Insight Trip 2025 다시보기"
+
+msgid "A special journey bringing K-Tech College 2025 candidates closer to Korean enterprises and global work culture. Memorable experiences and clearer views of a global career path."
+msgstr "K-Tech College 2025 지원자들이 한국 기업과 글로벌 업무 문화에 더 가까워지는 특별한 여정. 잊지 못할 경험과 글로벌 커리어 경로에 대한 더 선명한 시야를 제공합니다."
+
+msgid "August"
+msgstr "8월"
+
+msgid "July"
+msgstr "7월"
+
+msgid "June"
+msgstr "6월"
+
+msgid "May"
+msgstr "5월"
+
+msgid "Korea"
+msgstr "한국"
+
+msgid "Event Highlight"
+msgstr "행사 하이라이트"
+
+msgid "Mentoring Day — What Korean Mentors Think"
+msgstr "멘토링 데이 — 한국 멘토들의 생각"
+
+msgid "Honest sharing from mentors about working with Vietnamese candidates and what stands out in the eyes of employers. Don’t miss K-Tech Fest 2025 for more 1:1 mentor sessions!"
+msgstr "베트남 지원자와의 협업, 그리고 채용 담당자의 시선에서 돋보이는 점에 대한 멘토들의 솔직한 이야기. 1:1 멘토 세션이 더 많은 K-Tech Fest 2025도 놓치지 마세요!"
+
+msgid "Ho Chi Minh City"
+msgstr "호치민시"
+
+msgid "Mentoring Day"
+msgstr "멘토링 데이"
+
+msgid "Recap Offline Interview"
+msgstr "오프라인 인터뷰 다시보기"
+
+msgid "Korean tech companies praised the potential of Vietnamese candidates and the role of K-Tech College in global talent matching. Hear their reflections from the on-site interviews."
+msgstr "한국 IT 기업들은 베트남 지원자의 잠재력과 글로벌 인재 매칭에서 K-Tech College의 역할을 높이 평가했습니다. 현장 인터뷰 소감을 직접 들어보세요."
+
+msgid "Interview Series"
+msgstr "인터뷰 시리즈"
+
+msgid "Customer Success Stories"
+msgstr "고객 성공 스토리"
+
+msgid "Direct stories from clients about their transformation journeys and results achieved with our programs and partners."
+msgstr "프로그램 및 파트너와 함께 달성한 변화의 여정을 고객이 직접 들려드립니다."
+
+msgid "Virtual Event"
+msgstr "온라인 이벤트"
+
+msgid "Success Stories"
+msgstr "성공 사례"
+
+msgid "Open Positions"
+msgstr "모집 중 공고"
+
+msgid "Search"
+msgstr "검색"
+
+msgid "Not found"
+msgstr "찾을 수 없습니다"
+
+msgid "Reset"
+msgstr "재설정"
+
+msgid "See Detail"
+msgstr "자세히 보기"
+
+msgid "Please select at least 1 Category to display the list Skills."
+msgstr "기술 목록을 표시하려면 최소 1개의 카테고리를 선택하세요."
+
+msgid "City"
+msgstr "도시"
+
+msgid "Re-applying"
+msgstr "재지원 중"
+
+msgid "Submitting"
+msgstr "제출 중"
+
+msgid "Re-apply"
+msgstr "재지원"
+
+msgid "Apply"
+msgstr "지원하기"
+
+msgid "Cancel"
+msgstr "취소"
+
+msgid "Cover Letter"
+msgstr "자기소개서"
+
+msgid "Phone Number"
+msgstr "전화번호"
+
+msgid "Full Name"
+msgstr "성명"
+
+msgid "Selected File"
+msgstr "선택된 파일"
+
+msgid "Change CV"
+msgstr "이력서 변경"
+
+msgid "Upload CV"
+msgstr "이력서 업로드"
+
+msgid "Upload New CV"
+msgstr "새 이력서 업로드"
+
+msgid "Keep Current CV"
+msgstr "현재 이력서 유지"
+
+msgid "Download"
+msgstr "다운로드"
+
+msgid "View"
+msgstr "보기"
+
+msgid "Previously Submitted CV"
+msgstr "이전에 제출한 이력서"
+
+msgid "Your previous information has been filled in. You can edit if needed."
+msgstr "이전 정보가 자동으로 입력되었습니다. 필요 시 수정할 수 있습니다."
+
+msgid "Loading application details"
+msgstr "지원서 상세 불러오는 중"
+
+msgid "Re-application submitted successfully!"
+msgstr "재지원이 성공적으로 제출되었습니다!"
+
+msgid "Application submitted successfully!"
+msgstr "지원이 성공적으로 제출되었습니다!"
+
+msgid "Please upload a new CV."
+msgstr "새 이력서를 업로드해 주세요."
+
+msgid "Please upload your CV."
+msgstr "이력서를 업로드해 주세요."
+
+msgid "Job saved successfully"
+msgstr "공고가 저장되었습니다"
+
+msgid "Job unsaved"
+msgstr "공고 저장 취소됨"
+
+msgid "You have reached the re-application limit (2 times)."
+msgstr "재지원 한도(2회)에 도달했습니다."
+
+msgid "You re-applied 30 minutes ago. Please wait to try again."
+msgstr "30분 전에 재지원했습니다. 잠시 후 다시 시도해 주세요."
+
+msgid "View Details"
+msgstr "자세히 보기"
+
+msgid "Loading"
+msgstr "로딩 중"
+
+msgid "Profile"
+msgstr "프로필"
+
+msgid "Manage CV"
+msgstr "이력서 관리"
+
+msgid "My Interviews"
+msgstr "내 인터뷰"
+
+msgid "Company Follows"
+msgstr "팔로우한 회사"
+
+msgid "My Jobs"
+msgstr "내 공고"
+
+msgid "Settings"
+msgstr "설정"
+
+msgid "Manage Jobs"
+msgstr "공고 관리"
+
+msgid "Candidates"
+msgstr "지원자"
+
+msgid "Payment History"
+msgstr "결제 내역"
+
+msgid "Upgrade Vip"
+msgstr "VIP 업그레이드"

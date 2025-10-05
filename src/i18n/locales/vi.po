@@ -1,0 +1,546 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Home"
+msgstr "Trang chủ"
+
+msgid "About"
+msgstr "Giới thiệu"
+
+msgid "Jobs"
+msgstr "Việc làm"
+
+msgid "Companies"
+msgstr "Công ty"
+
+msgid "Categories"
+msgstr "Danh mục"
+
+msgid "Dashboard"
+msgstr "Trang tổng quan"
+
+msgid "Find Jobs"
+msgstr "Tìm việc làm"
+
+msgid "Favorite Jobs"
+msgstr "Việc làm yêu thích"
+
+msgid "Find Companies"
+msgstr "Tìm công ty"
+
+msgid "Your First Step to a Big Future: Find a Job That Matches Your Passion & Skills."
+msgstr "Bước đầu tiên cho tương lai lớn: Tìm công việc phù hợp với đam mê & kỹ năng của bạn."
+
+msgid "Discover opportunities that fit you perfectly—from your first job to a successful career ahead."
+msgstr "Khám phá những cơ hội phù hợp hoàn hảo với bạn — từ công việc đầu tiên đến một sự nghiệp thành công phía trước."
+
+msgid "Featured job"
+msgstr "Việc làm nổi bật"
+
+msgid "View All"
+msgstr "Xem tất cả"
+
+msgid "Top companies"
+msgstr "Công ty hàng đầu"
+
+msgid "How JobHuntly work"
+msgstr "JobHuntly hoạt động như thế nào"
+
+msgid "Create account"
+msgstr "Tạo tài khoản"
+
+msgid "Sign up in just a few steps and start your journey toward a brighter career."
+msgstr "Đăng ký chỉ với vài bước và bắt đầu hành trình hướng tới sự nghiệp tươi sáng."
+
+msgid "Upload CV/Resume"
+msgstr "Tải CV/Sơ yếu lý lịch"
+
+msgid "Add your resume to help employers understand your skills and experience."
+msgstr "Thêm hồ sơ để nhà tuyển dụng hiểu rõ kỹ năng và kinh nghiệm của bạn."
+
+msgid "Find suitable job"
+msgstr "Tìm công việc phù hợp"
+
+msgid "Browse through thousands of job listings tailored to your profile and interests."
+msgstr "Duyệt qua hàng nghìn tin tuyển dụng được cá nhân hóa theo hồ sơ và sở thích của bạn."
+
+msgid "Apply job"
+msgstr "Ứng tuyển công việc"
+
+msgid "Submit your application with one click and get ready for new opportunities."
+msgstr "Nộp hồ sơ chỉ với một lần nhấp và sẵn sàng cho cơ hội mới."
+
+msgid "Register Now"
+msgstr "Đăng ký ngay"
+
+msgid "Become a Candidate"
+msgstr "Trở thành ứng viên"
+
+msgid "Become a Recruiter"
+msgstr "Trở thành nhà tuyển dụng"
+
+msgid ""
+"Join thousands of job seekers building their careers. Discover the right opportunities, apply with ease, and grow your future."
+msgstr ""
+"Tham gia cùng hàng nghìn người tìm việc đang xây dựng sự nghiệp. Khám phá cơ hội phù hợp, ứng tuyển dễ dàng và phát triển tương lai của bạn."
+
+msgid ""
+"Find the talent that drives your business forward. Post jobs, manage applications, and connect with the right candidates faster."
+msgstr ""
+"Tìm kiếm nhân tài thúc đẩy doanh nghiệp tiến lên. Đăng tin tuyển dụng, quản lý hồ sơ và kết nối nhanh hơn với ứng viên phù hợp."
+
+msgid "Popular category"
+msgstr "Danh mục phổ biến"
+
+msgid "Clients Testimonial"
+msgstr "Cảm nhận từ khách hàng"
+
+msgid "About JobHuntly: from First job to Big future"
+msgstr "Về JobHuntly: từ công việc đầu tiên đến tương lai lớn"
+
+msgid ""
+"JobHuntly was born from a simple idea: to create a job search platform that is honest, effective, and easy to use. We know that finding the right first job can feel overwhelming, so our focus is on building a clean, straightforward space where new job seekers and growing companies can connect. We're on a mission to help you find more than just a job—we're here to help you build a career."
+msgstr ""
+"JobHuntly ra đời từ một ý tưởng đơn giản: tạo ra nền tảng tìm việc làm trung thực, hiệu quả và dễ sử dụng. Chúng tôi hiểu rằng việc tìm được công việc đầu tiên phù hợp có thể khiến bạn bối rối, vì vậy chúng tôi tập trung xây dựng một không gian sạch, rõ ràng để người tìm việc mới và các công ty đang phát triển có thể kết nối. Sứ mệnh của chúng tôi là giúp bạn tìm hơn cả một công việc — chúng tôi ở đây để giúp bạn xây dựng sự nghiệp."
+
+msgid ""
+"As a new platform, we're building this community one connection at a time. Our mission is to foster a space where meaningful careers can begin. Your feedback and participation are the most important part of our growth. We are here to evolve with you and for you, helping turn your first step into a great future."
+msgstr ""
+"Là một nền tảng mới, chúng tôi xây dựng cộng đồng này từ từng kết nối một. Sứ mệnh của chúng tôi là nuôi dưỡng một không gian nơi những sự nghiệp ý nghĩa có thể bắt đầu. Phản hồi và sự đồng hành của bạn là phần quan trọng nhất trong sự phát triển của chúng tôi. Chúng tôi ở đây để cùng bạn tiến bộ, biến bước đi đầu tiên thành một tương lai rực rỡ."
+
+msgid "Honesty & Quality"
+msgstr "Trung thực & Chất lượng"
+
+msgid "We focus on a curated selection of verified and high-quality job listings."
+msgstr "Chúng tôi tập trung vào danh sách việc làm đã xác minh và chọn lọc chất lượng cao."
+
+msgid "Simplicity"
+msgstr "Đơn giản"
+
+msgid "A streamlined, minimalist interface to make your search fast and stress-free."
+msgstr "Giao diện tinh gọn, tối giản giúp việc tìm kiếm nhanh và không căng thẳng."
+
+msgid "Community-Driven"
+msgstr "Lấy cộng đồng làm trung tâm"
+
+msgid "We're building a valuable recruitment community with you."
+msgstr "Chúng tôi cùng bạn xây dựng một cộng đồng tuyển dụng giá trị."
+
+msgid "Feedback Matters"
+msgstr "Phản hồi là quan trọng"
+
+msgid "Our platform evolves based on the insights you share."
+msgstr "Nền tảng phát triển dựa trên những góp ý bạn chia sẻ."
+
+msgid "Call now"
+msgstr "Gọi ngay"
+
+msgid "Quick Link"
+msgstr "Liên kết nhanh"
+
+msgid "Home"
+msgstr "Trang chủ"
+
+msgid "About Us"
+msgstr "Giới thiệu"
+
+msgid "Statistics"
+msgstr "Thống kê"
+
+msgid "Categories"
+msgstr "Danh mục"
+
+msgid "Candidate"
+msgstr "Ứng viên"
+
+msgid "Browse Companies"
+msgstr "Duyệt công ty"
+
+msgid "Browse Jobs"
+msgstr "Duyệt việc làm"
+
+msgid "Candidate Dashboard"
+msgstr "Trang tổng quan ứng viên"
+
+msgid "Saved Jobs"
+msgstr "Việc làm đã lưu"
+
+msgid "Recruiter"
+msgstr "Nhà tuyển dụng"
+
+msgid "Post a Job"
+msgstr "Đăng tin tuyển dụng"
+
+msgid "Recruiter Dashboard"
+msgstr "Trang tổng quan nhà tuyển dụng"
+
+msgid "Applications"
+msgstr "Đơn ứng tuyển"
+
+msgid "Company Profile"
+msgstr "Hồ sơ công ty"
+
+msgid "2025 JobHuntly. All rights Reserved"
+msgstr "2025 JobHuntly. Bảo lưu mọi quyền"
+
+msgid "Register"
+msgstr "Đăng ký"
+
+msgid "Login"
+msgstr "Đăng nhập"
+
+msgid "Work Type"
+msgstr "Hình thức làm việc"
+
+msgid "Levels"
+msgstr "Cấp bậc"
+
+msgid "Skills"
+msgstr "Kỹ năng"
+
+msgid "Job Description"
+msgstr "Mô tả công việc"
+
+msgid "Requirements"
+msgstr "Yêu cầu"
+
+msgid "Benefits"
+msgstr "Phúc lợi"
+
+msgid "Work Location"
+msgstr "Địa điểm làm việc"
+
+msgid "Similar Jobs"
+msgstr "Việc làm tương tự"
+
+msgid "See More"
+msgstr "Xem thêm"
+
+msgid "Show less"
+msgstr "Thu gọn"
+
+msgid "Search for a company"
+msgstr "Tìm kiếm công ty"
+
+msgid "Discover companies that match your interests and skills. Search by name, location, industry, or size."
+msgstr "Khám phá các công ty phù hợp với sở thích và kỹ năng của bạn. Tìm theo tên, địa điểm, ngành hoặc quy mô."
+
+msgid "Filter"
+msgstr "Lọc"
+
+msgid "Clear all"
+msgstr "Xoá tất cả"
+
+msgid "Industry"
+msgstr "Ngành nghề"
+
+msgid "Company size"
+msgstr "Quy mô công ty"
+
+msgid "Founded year"
+msgstr "Năm thành lập"
+
+msgid "Unfollow"
+msgstr "Bỏ theo dõi"
+
+msgid "Follow Company"
+msgstr "Theo dõi công ty"
+
+msgid "You need to log in"
+msgstr "Bạn cần đăng nhập"
+
+msgid "Please log in to continue."
+msgstr "Vui lòng đăng nhập để tiếp tục."
+
+msgid "Close"
+msgstr "Đóng"
+
+msgid "Logout"
+msgstr "Đăng xuất"
+
+msgid "Company Introduction"
+msgstr "Giới thiệu công ty"
+
+msgid "Contact Information"
+msgstr "Thông tin liên hệ"
+
+msgid "Job Openings"
+msgstr "Tin tuyển dụng"
+
+msgid "Representative brands in the same field"
+msgstr "Thương hiệu tiêu biểu trong cùng lĩnh vực"
+
+msgid "The brands that have established their position on the market."
+msgstr "Những thương hiệu đã tạo dựng vị thế trên thị trường."
+
+msgid "Share company with friends"
+msgstr "Chia sẻ công ty với bạn bè"
+
+msgid "Share on social media"
+msgstr "Chia sẻ lên mạng xã hội"
+
+msgid "Link your account to continue using Job Huntly's services."
+msgstr "Liên kết tài khoản của bạn để tiếp tục sử dụng dịch vụ của Job Huntly."
+
+msgid "This account uses Google Sign-In. Do you want to set a password so you can log in with email/password too?"
+msgstr "Tài khoản này đang dùng đăng nhập Google. Bạn có muốn đặt mật khẩu để cũng có thể đăng nhập bằng email/mật khẩu không?"
+
+msgid "We sent a set-password link to your email. Click the link to continue here."
+msgstr "Chúng tôi đã gửi liên kết đặt mật khẩu đến email của bạn. Nhấp liên kết để tiếp tục tại đây."
+
+msgid "Forgot password?"
+msgstr "Quên mật khẩu?"
+
+msgid "Don't have an account yet?"
+msgstr "Chưa có tài khoản?"
+
+msgid "Create one"
+msgstr "Tạo tài khoản"
+
+msgid "Create your Candidate account"
+msgstr "Tạo tài khoản Ứng viên"
+
+msgid "Find jobs, track applications, and connect with recruiters."
+msgstr "Tìm việc làm, theo dõi đơn ứng tuyển và kết nối với nhà tuyển dụng."
+
+msgid "Create your Recruiter account"
+msgstr "Tạo tài khoản Nhà tuyển dụng"
+
+msgid "Post jobs, manage applicants, and hire faster."
+msgstr "Đăng tin tuyển dụng, quản lý ứng viên và tuyển dụng nhanh hơn."
+
+msgid "Welcome to"
+msgstr "Chào mừng đến với"
+
+msgid "If you have trouble logging in or creating an account, please contact Job Huntly via"
+msgstr "Nếu bạn gặp khó khăn khi đăng nhập hoặc tạo tài khoản, vui lòng liên hệ Job Huntly qua"
+
+msgid "I have read and agree to the"
+msgstr "Tôi đã đọc và đồng ý với"
+
+msgid "Terms of Service"
+msgstr "Điều khoản dịch vụ"
+
+msgid "and"
+msgstr "và"
+
+msgid "Privacy Policy"
+msgstr "Chính sách quyền riêng tư"
+
+msgid "of JobHuntly"
+msgstr "của JobHuntly"
+
+msgid "Already have an account?"
+msgstr "Đã có tài khoản?"
+
+msgid "Login Now"
+msgstr "Đăng nhập ngay"
+
+msgid "Job title, Keyword..."
+msgstr "Tên công việc, Từ khóa..."
+
+msgid "Find Job"
+msgstr "Tìm việc"
+
+msgid "Company Events"
+msgstr "Sự kiện công ty"
+
+msgid "Experience highlights from recent events, conferences, and workshops — where we bring innovation to life and connect with community."
+msgstr "Trải nghiệm những điểm nhấn từ các sự kiện, hội thảo và workshop gần đây — nơi chúng tôi hiện thực hóa đổi mới và kết nối cộng đồng."
+
+msgid "Recap Korean Insight Trip 2025"
+msgstr "Tổng kết Korean Insight Trip 2025"
+
+msgid "A special journey bringing K-Tech College 2025 candidates closer to Korean enterprises and global work culture. Memorable experiences and clearer views of a global career path."
+msgstr "Hành trình đặc biệt đưa các ứng viên K-Tech College 2025 đến gần hơn với doanh nghiệp Hàn Quốc và văn hóa làm việc toàn cầu. Trải nghiệm đáng nhớ và cái nhìn rõ ràng hơn về lộ trình sự nghiệp quốc tế."
+
+msgid "August"
+msgstr "Tháng Tám"
+
+msgid "July"
+msgstr "Tháng Bảy"
+
+msgid "June"
+msgstr "Tháng Sáu"
+
+msgid "May"
+msgstr "Tháng Năm"
+
+msgid "Korea"
+msgstr "Hàn Quốc"
+
+msgid "Event Highlight"
+msgstr "Điểm nhấn sự kiện"
+
+msgid "Mentoring Day — What Korean Mentors Think"
+msgstr "Ngày Mentoring — Góc nhìn của các mentor Hàn Quốc"
+
+msgid "Honest sharing from mentors about working with Vietnamese candidates and what stands out in the eyes of employers. Don’t miss K-Tech Fest 2025 for more 1:1 mentor sessions!"
+msgstr "Chia sẻ thẳng thắn từ các mentor về việc làm việc với ứng viên Việt Nam và điều nổi bật trong mắt nhà tuyển dụng. Đừng bỏ lỡ K-Tech Fest 2025 để có thêm các buổi mentor 1:1!"
+
+msgid "Ho Chi Minh City"
+msgstr "TP. Hồ Chí Minh"
+
+msgid "Mentoring Day"
+msgstr "Ngày Mentoring"
+
+msgid "Recap Offline Interview"
+msgstr "Tổng kết buổi phỏng vấn trực tiếp"
+
+msgid "Korean tech companies praised the potential of Vietnamese candidates and the role of K-Tech College in global talent matching. Hear their reflections from the on-site interviews."
+msgstr "Các công ty công nghệ Hàn Quốc đánh giá cao tiềm năng của ứng viên Việt Nam và vai trò của K-Tech College trong kết nối nhân tài toàn cầu. Cùng lắng nghe chia sẻ của họ từ các buổi phỏng vấn trực tiếp."
+
+msgid "Interview Series"
+msgstr "Chuỗi phỏng vấn"
+
+msgid "Customer Success Stories"
+msgstr "Câu chuyện thành công của khách hàng"
+
+msgid "Direct stories from clients about their transformation journeys and results achieved with our programs and partners."
+msgstr "Những câu chuyện trực tiếp từ khách hàng về hành trình chuyển đổi và kết quả đạt được cùng chương trình và đối tác của chúng tôi."
+
+msgid "Virtual Event"
+msgstr "Sự kiện trực tuyến"
+
+msgid "Success Stories"
+msgstr "Câu chuyện thành công"
+
+msgid "Open Positions"
+msgstr "Vị trí đang tuyển"
+
+msgid "Search"
+msgstr "Tìm kiếm"
+
+msgid "Not found"
+msgstr "Không tìm thấy"
+
+msgid "Reset"
+msgstr "Đặt lại"
+
+msgid "See Detail"
+msgstr "Xem chi tiết"
+
+msgid "Please select at least 1 Category to display the list Skills."
+msgstr "Vui lòng chọn ít nhất 1 Danh mục để hiển thị danh sách Kỹ năng."
+
+msgid "City"
+msgstr "Thành phố"
+
+msgid "Re-applying"
+msgstr "Đang ứng tuyển lại"
+
+msgid "Submitting"
+msgstr "Đang ứng tuyển"
+
+msgid "Re-apply"
+msgstr "Ứng tuyển lại"
+
+msgid "Apply"
+msgstr "Ứng tuyển"
+
+msgid "Cancel"
+msgstr "Hủy"
+
+msgid "Cover Letter"
+msgstr "Thư giới thiệu"
+
+msgid "Phone Number"
+msgstr "Số điện thoại"
+
+msgid "Full Name"
+msgstr "Họ và tên"
+
+msgid "Selected File"
+msgstr "Chọn tệp"
+
+msgid "Change CV"
+msgstr "Đổi CV"
+
+msgid "Upload CV"
+msgstr "Tải CV"
+
+msgid "Upload New CV"
+msgstr "Tải CV mới"
+
+msgid "Keep Current CV"
+msgstr "Giữ CV hiện tại"
+
+msgid "Download"
+msgstr "Tải xuống"
+
+msgid "View"
+msgstr "Xem"
+
+msgid "Previously Submitted CV"
+msgstr "CV đã nộp trước đó"
+
+msgid "Your previous information has been filled in. You can edit if needed."
+msgstr "Thông tin trước đó của bạn đã được điền. Bạn có thể chỉnh sửa nếu cần."
+
+msgid "Loading application details"
+msgstr "Đang tải chi tiết đơn ứng tuyển"
+
+msgid "Re-application submitted successfully!"
+msgstr "Ứng tuyển lại thành công!"
+
+msgid "Application submitted successfully!"
+msgstr "Nộp đơn thành công!"
+
+msgid "Please upload a new CV."
+msgstr "Vui lòng tải lên một CV mới."
+
+msgid "Please upload your CV."
+msgstr "Vui lòng tải lên CV của bạn."
+
+msgid "Job saved successfully"
+msgstr "Đã lưu việc làm thành công"
+
+msgid "Job unsaved"
+msgstr "Đã bỏ lưu việc làm"
+
+msgid "You have reached the re-application limit (2 times)."
+msgstr "Bạn đã đạt giới hạn ứng tuyển lại (2 lần)."
+
+msgid "You re-applied 30 minutes ago. Please wait to try again."
+msgstr "Bạn vừa ứng tuyển lại cách đây 30 phút. Vui lòng chờ để thử lại."
+
+msgid "View Details"
+msgstr "Xem chi tiết"
+
+msgid "Loading"
+msgstr "Đang tải"
+
+msgid "Profile"
+msgstr "Hồ sơ"
+
+msgid "Manage CV"
+msgstr "Quản lý CV"
+
+msgid "My Interviews"
+msgstr "Phỏng vấn của tôi"
+
+msgid "Company Follows"
+msgstr "Công ty đang theo dõi"
+
+msgid "My Jobs"
+msgstr "Việc làm của tôi"
+
+msgid "Settings"
+msgstr "Cài đặt"
+
+msgid "Manage Jobs"
+msgstr "Quản lý tin tuyển dụng"
+
+msgid "Candidates"
+msgstr "Ứng viên"
+
+msgid "Payment History"
+msgstr "Lịch sử thanh toán"
+
+msgid "Upgrade Vip"
+msgstr "Nâng cấp VIP"
