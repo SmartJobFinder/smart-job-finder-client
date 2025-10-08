@@ -13,30 +13,30 @@ export default function TestimonialsSection() {
         {
             rating: 5,
             text: "JobHuntly has a clean, modern interface that makes job searching feel effortless. I found exactly what I was looking for in just a few days!",
-            name: "Vo Hoang Phuc",
+            name: "Võ Nhật Hào",
             title: "UI/UX Designer",
-            avatar: "https://ca.slack-edge.com/T092B4T8XTN-U092ZEL3C3A-65ccc92316e4-512",
+            avatar: "https://bom.so/rD4H7y",
         },
         {
             rating: 5,
             text: "The job search and application process is incredibly smooth. JobHuntly helped me connect with companies that truly match my creative vision.",
-            name: "Nguyen Anh Huy",
+            name: "Phạm Văn Phúc",
             title: "Creative Director",
-            avatar: "https://ca.slack-edge.com/T092B4T8XTN-U092ZEMP5CG-1fb35ba9101d-512",
+            avatar: "https://bom.so/SWDHPF",
         },
         {
             rating: 5,
             text: "As an intern looking for my first opportunity, JobHuntly gave me access to real openings and helpful tips. I landed my first internship thanks to this platform!",
-            name: "Nguyen Thanh Trong",
+            name: "Ngô Đức Huy",
             title: "Intern",
-            avatar: "https://ca.slack-edge.com/T092B4T8XTN-U092WU8NMGF-44471c1e6caf-72",
+            avatar: "https://bom.so/J6LqYg",
         },
         {
             rating: 5,
             text: "Over 1,000 users – including myself – have found jobs through JobHuntly. It's not just a platform; it's a launchpad for your career.",
-            name: "Do Phi Lau",
+            name: "Nguyễn Đức Huy",
             title: "Software Engineer",
-            avatar: "https://ca.slack-edge.com/T092B4T8XTN-U093TVABR3R-48c4f710a858-72",
+            avatar: "https://bom.so/9r1EGX",
         },
     ];
 

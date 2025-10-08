@@ -1,23 +1,44 @@
 "use client";
 
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import useCompanyDetailStore from "../store/companyDetailStore";
 import Link from "next/link";
-import {parse} from "date-fns";
-import {getImageUrl} from "@/lib/utils";
-import {t} from "@/i18n/i18n";
+import { parse } from "date-fns";
+import { getImageUrl } from "@/lib/utils";
+import { t } from "@/i18n/i18n";
 
 const CompanyJobs = () => {
-    const {company, jobs} = useCompanyDetailStore();
+    const { company, jobs } = useCompanyDetailStore();
     const [searchTerm, setSearchTerm] = useState("");
     const [location, setLocation] = useState("");
 
     if (!company) return null;
 
+    // const calculateRemainingDays = (expiredDate) => {
+    //     try {
+    //         // Format: DD-MM-YYYY
+    //         const date = parse(expiredDate, "dd-MM-yyyy", new Date());
+    //         const now = new Date();
+
+    //         // Calculate remaining days
+    //         const diffTime = date.getTime() - now.getTime();
+    //         const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+    //         return diffDays > 0 ? diffDays : 0;
+    //     } catch (error) {
+    //         console.error("Error calculating remaining days:", error);
+    //         return 0;
+    //     }
+    // };
+
     const calculateRemainingDays = (expiredDate) => {
         try {
             // Format: DD-MM-YYYY
+            if (!expiredDate || typeof expiredDate !== "string") {
+                return 0; // Nếu không có expiredDate, trả về 0
+            }
+
             const date = parse(expiredDate, "dd-MM-yyyy", new Date());
             const now = new Date();
 
@@ -94,8 +115,11 @@ const CompanyJobs = () => {
                                         </span>
                                     )}
                                 </h3>
-                                <p className="text-sm font-semibold text-[#FF8A00]">
+                                {/* <p className="text-sm font-semibold text-[#FF8A00]">
                                     {company.companyName.toUpperCase()}
+                                </p> */}
+                                <p className="text-sm font-semibold text-[#FF8A00]">
+                                    {(company.companyName || "").toUpperCase()}
                                 </p>
                                 <div className="flex flex-wrap items-center gap-2 text-xs text-[#1F2937]">
                                     <span className="px-2 py-1 rounded bg-[#F5F7FA]">
@@ -116,8 +140,7 @@ const CompanyJobs = () => {
                                 <Link
                                     href={`/job-detail/${job.id}/applicationJob`}
                                 >
-                                    <button
-                                        className="px-4 py-1 text-sm text-white rounded bg-blue-700 hover:bg-[#085aab]">
+                                    <button className="px-4 py-1 text-sm text-white rounded bg-blue-700 hover:bg-[#085aab]">
                                         Apply Now
                                     </button>
                                 </Link>
