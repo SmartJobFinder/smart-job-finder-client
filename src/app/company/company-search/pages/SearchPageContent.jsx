@@ -44,7 +44,7 @@ const SearchPageContent = () => {
     return (
         <div className="py-12">
             <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-                <div className="mb-16 text-center">
+                {/* <div className="mb-16 text-center">
                     <h1 className="mb-4 text-4xl font-bold text-gray-900">
                         Search for a company
                     </h1>
@@ -52,7 +52,7 @@ const SearchPageContent = () => {
                         Discover companies that match your interests and skills.
                         Search by name, location, industry, or size.
                     </p>
-                </div>
+                </div> */}
 
                 <div className="mb-16">
                     <SearchBar onSearch={handleSearch} />
