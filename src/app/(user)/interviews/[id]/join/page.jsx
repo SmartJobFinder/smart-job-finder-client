@@ -23,7 +23,7 @@ export default function InterviewDetailPage({ params }) {
     useEffect(() => {
         if (meta) document.title = `${meta.jobTitle} — ${meta.companyName}`;
         return () => {
-            document.title = "JobHuntly";
+            document.title = "JobFind";
         };
     }, [meta]);
 

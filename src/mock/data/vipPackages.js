@@ -11,7 +11,7 @@ export const vipPackages = [
         priceLabel: "500,000 VND",
         features: [
             "Tag VIP Company",
-            "Your company will be recommended by JobHuntly",
+            "Your company will be recommended by JobFind",
             "Your job will stand out more on search page",
             "Get more jobs posted than normal companies every month",
             "24/7 Support",
@@ -29,7 +29,7 @@ export const vipPackages = [
         priceLabel: "1,350,000 VND",
         features: [
             "Tag VIP Company",
-            "Your company will be recommended by JobHuntly",
+            "Your company will be recommended by JobFind",
             "Your job will stand out more on search page",
             "Get more jobs posted than normal companies every month",
             "24/7 Support",
@@ -48,7 +48,7 @@ export const vipPackages = [
         priceLabel: "2,400,000 VND",
         features: [
             "Tag VIP Company",
-            "Your company will be recommended by JobHuntly",
+            "Your company will be recommended by JobFind",
             "Your job will stand out more on search page",
             "Get more jobs posted than normal companies every month",
             "24/7 Support",

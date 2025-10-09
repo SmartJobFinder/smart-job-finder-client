@@ -95,7 +95,7 @@ const LoginPage = () => {
                                     </h1>
                                     <p className={`mt-1 text-sm ${theme[activeTab].secondary}`}>
                                         {view === "login" &&
-                                            t`Link your account to continue using Job Huntly's services.`}
+                                            t`Link your account to continue using Job Find's services.`}
                                         {view === "ask_setpw" &&
                                             t`This account uses Google Sign-In. Do you want to set a password so you can log in with email/password too?`}
                                         {view === "setpw_email_sent" &&

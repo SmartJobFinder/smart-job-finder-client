@@ -160,7 +160,7 @@ export default function SetPasswordEmailSent({email, onBack}) {
             </div>
 
             <p className="text-xs text-gray-500 text-center">
-                Tip: If you can’t find the email, check Spam or search for “JobHuntly”.
+                Tip: If you can’t find the email, check Spam or search for “JobFind”.
             </p>
         </CardContent>
     );

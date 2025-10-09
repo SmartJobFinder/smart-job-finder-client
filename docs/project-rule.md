@@ -1,4 +1,4 @@
-# Project Rule – JobHuntly User Site
+# Project Rule – JobFind User Site
 
 ## ✅ Quy tắc viết mã
 

@@ -150,7 +150,7 @@ export const Header = () => {
                         <div className="flex-shrink-0">
                             <Image
                                 src={logo}
-                                alt="JobHuntly Logo"
+                                alt="JobFind Logo"
                                 width={120}
                                 height={40}
                                 className="w-auto h-10"

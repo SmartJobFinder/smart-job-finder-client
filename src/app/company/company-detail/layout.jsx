@@ -1,7 +1,7 @@
 import React from 'react';
 
 export const metadata = {
-  title: "Company Details | JobHuntly",
+  title: "Company Details | JobFind",
   description: "Detailed information about the company and job opportunities",
 };
 export default function CompanyDetailLayout({ children }) {

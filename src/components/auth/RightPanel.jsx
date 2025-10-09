@@ -1,18 +1,16 @@
 "use client";
 
 import Image from "next/image";
-import {Card, CardContent} from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import logoTitle from "@/assets/images/logo-title.png";
 import banner from "@/assets/images/login-banner.png";
 import recruiterBanner from "@/assets/images/recruiter-banner.jpg";
-import {t} from "@/i18n/i18n";
+import { t } from "@/i18n/i18n";
 
-export default function RightPanel({activeTab}) {
+export default function RightPanel({ activeTab }) {
     const tab = String(activeTab).toUpperCase();
     const isCandidate = tab === "CANDIDATE";
-    const jobHuntlyColorClass = isCandidate
-        ? "text-blue-600"
-        : "text-blue-600";
+    const jobFindColorClass = isCandidate ? "text-blue-600" : "text-blue-600";
 
     return (
         <div className="w-full lg:w-1/2">
@@ -20,16 +18,14 @@ export default function RightPanel({activeTab}) {
                 <CardContent className="p-6">
                     <h3 className="mb-4 text-lg font-semibold">
                         {t`Welcome to`}{" "}
-                        <strong className={jobHuntlyColorClass}>
-                            Job Huntly
-                        </strong>
+                        <strong className={jobFindColorClass}>Job Find</strong>
                     </h3>
                     {isCandidate ? (
                         <div>
                             <div className="flex items-center mb-6">
                                 <Image
                                     src={logoTitle}
-                                    alt="Job Huntly"
+                                    alt="Job Find"
                                     width={120}
                                     height={32}
                                     className="mr-2"
@@ -49,8 +45,8 @@ export default function RightPanel({activeTab}) {
                             <div className="mb-6">
                                 <h4 className="mb-2 font-semibold">
                                     Log in now to get the most out of Job
-                                    Huntly&apos;s tools and increase your
-                                    chances of finding the hottest jobs.
+                                    Find&apos;s tools and increase your chances
+                                    of finding the hottest jobs.
                                 </h4>
                                 <ul className="mt-4 space-y-2">
                                     {[
@@ -78,7 +74,7 @@ export default function RightPanel({activeTab}) {
                             <div className="flex items-center mb-6">
                                 <Image
                                     src={logoTitle}
-                                    alt="Job Huntly"
+                                    alt="Job Find"
                                     width={120}
                                     height={32}
                                     className="mr-2"
@@ -120,12 +116,12 @@ export default function RightPanel({activeTab}) {
                         </div>
                     )}
                     <p className="text-sm text-gray-500">
-                        {t`If you have trouble logging in or creating an account, please contact Job Huntly via`}{" "}
+                        {t`If you have trouble logging in or creating an account, please contact Job Find via`}{" "}
                         <a
-                            href={`mailto:${"help.jobhuntly@gmail.com"}`}
+                            href={`mailto:${"help.jobfind@gmail.com"}`}
                             className="text-blue-500 underline"
                         >
-                            help.jobhuntly@gmail.com
+                            help.jobfind@gmail.com
                         </a>
                     </p>
                 </CardContent>
