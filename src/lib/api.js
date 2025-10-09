@@ -79,10 +79,7 @@ const api = {
     get: (url, config = {}) => {
         console.log(`[API giả] GET ${url}`);
 
-        if (url.includes("/job") || url === "/jobs") {
-            return mockApi.getJobs(config.params || {});
-        }
-
+        // This pattern should match URLs like /job/1
         if (url.match(/\/job\/\d+$/)) {
             const id = url.split("/").pop();
             return mockApi.getJobById(id);
