@@ -292,7 +292,7 @@ export default function RecruiterRegisterForm({role, onRegistered}) {
                                       className="font-medium text-blue-600 hover:text-blue-700 hover:underline">
                                     {t`Privacy Policy`}
                                 </Link>{" "}
-                                {t`of JobHuntly`}
+                                {t`of JobFind`}
                             </Label>
                         </div>
                     </div>

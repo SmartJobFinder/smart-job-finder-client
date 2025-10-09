@@ -35,7 +35,7 @@ export default function RecruiterLayout({ children }) {
                 <Link href="/recruiter" className="flex items-center space-x-2">
                     <Image
                         src={logo}
-                        alt="JobHuntly Logo"
+                        alt="JobFind Logo"
                         width={120}
                         height={48}
                         className="max-w-[120px] h-auto object-contain"

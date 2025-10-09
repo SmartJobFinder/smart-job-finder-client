@@ -129,7 +129,7 @@ export default function RecruiterSidebar() {
                 <Link href="/recruiter" className="flex items-center">
                     <Image
                         src={logo}
-                        alt="JobHuntly Logo"
+                        alt="JobFind Logo"
                         width={120}
                         height={48}
                         className="max-w-[120px] h-auto object-contain"

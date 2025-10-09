@@ -48,8 +48,8 @@ msgstr "Xem tất cả"
 msgid "Top companies"
 msgstr "Công ty hàng đầu"
 
-msgid "How JobHuntly work"
-msgstr "JobHuntly hoạt động như thế nào"
+msgid "How JobFind work"
+msgstr "JobFind hoạt động như thế nào"
 
 msgid "Create account"
 msgstr "Tạo tài khoản"
@@ -185,8 +185,8 @@ msgstr "Đơn ứng tuyển"
 msgid "Company Profile"
 msgstr "Hồ sơ công ty"
 
-msgid "2025 JobHuntly. All rights Reserved"
-msgstr "2025 JobHuntly. Bảo lưu mọi quyền"
+msgid "2025 JobFind. All rights Reserved"
+msgstr "2025 JobFind. Bảo lưu mọi quyền"
 
 msgid "Register"
 msgstr "Đăng ký"
@@ -332,8 +332,8 @@ msgstr "và"
 msgid "Privacy Policy"
 msgstr "Chính sách quyền riêng tư"
 
-msgid "of JobHuntly"
-msgstr "của JobHuntly"
+msgid "of JobFind"
+msgstr "của JobFind"
 
 msgid "Already have an account?"
 msgstr "Đã có tài khoản?"

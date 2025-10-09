@@ -33,7 +33,7 @@ const HowItWorksSection = () => {
             <div className="container px-2 mx-auto sm:px-4">
                 <div className="mb-8 text-center sm:mb-12">
                     <h2 className="text-xl font-bold text-gray-900 sm:text-2xl lg:text-3xl">
-                        {t`How JobHuntly work`}
+                        {t`How JobFind work`}
                     </h2>
                 </div>
 

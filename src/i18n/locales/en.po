@@ -48,8 +48,8 @@ msgstr "View All"
 msgid "Top companies"
 msgstr "Top companies"
 
-msgid "How JobHuntly work"
-msgstr "How JobHuntly work"
+msgid "How JobFind work"
+msgstr "How JobFind work"
 
 msgid "Create account"
 msgstr "Create account"
@@ -185,8 +185,8 @@ msgstr "Applications"
 msgid "Company Profile"
 msgstr "Company Profile"
 
-msgid "2025 JobHuntly. All rights Reserved"
-msgstr "2025 JobHuntly. All rights Reserved"
+msgid "2025 JobFind. All rights Reserved"
+msgstr "2025 JobFind. All rights Reserved"
 
 msgid "Register"
 msgstr "Register"
@@ -332,8 +332,8 @@ msgstr "and"
 msgid "Privacy Policy"
 msgstr "Privacy Policy"
 
-msgid "of JobHuntly"
-msgstr "of JobHuntly"
+msgid "of JobFind"
+msgstr "of JobFind"
 
 msgid "Already have an account?"
 msgstr "Already have an account?"

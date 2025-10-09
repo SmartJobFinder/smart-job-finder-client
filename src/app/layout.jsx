@@ -7,7 +7,7 @@ export const metadata = {
     metadataBase: new URL("https://jobhuntly.io.vn"),
     title: {
         default: "JobFind — Find quality jobs fast",
-        template: "%s | JobHuntly",
+        template: "%s | JobFind",
     },
     description:
         "JobFind connects candidates and employers with fast, reliable hiring.",
@@ -18,7 +18,7 @@ export const metadata = {
         url: "https://jobhuntly.io.vn",
         title: "JobFind — Find quality jobs fast",
         description:
-            "JobHuntly connects candidates and employers with fast, reliable hiring.",
+            "JobFind connects candidates and employers with fast, reliable hiring.",
     },
     twitter: {
         card: "summary_large_image",

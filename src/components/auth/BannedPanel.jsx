@@ -8,7 +8,7 @@ import {AlertTriangle, Ban, Info, Mail} from "lucide-react";
 
 export default function BannedPanel({
                                         email = "",
-                                        contactEmail = "help.jobhuntly@gmail.com",
+                                        contactEmail = "help.jobfind@gmail.com",
                                         reason = "",
                                         onDismiss,
                                         className = "",
@@ -40,10 +40,10 @@ Thank you.`
                         </CardTitle>
                         <CardDescription className="text-red-900/80">
                             If you believe this is a mistake, please contact our support team: <a
-                            href={`mailto:${"help.jobhuntly@gmail.com"}`}
+                            href={`mailto:${"help.jobfind@gmail.com"}`}
                             className="text-blue-500 underline"
                         >
-                            help.jobhuntly@gmail.com
+                            help.jobfind@gmail.com
                         </a>
                         </CardDescription>
                     </div>

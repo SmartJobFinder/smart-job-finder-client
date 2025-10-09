@@ -48,8 +48,8 @@ msgstr "전체 보기"
 msgid "Top companies"
 msgstr "인기 기업"
 
-msgid "How JobHuntly work"
-msgstr "JobHuntly는 어떻게 작동하나요"
+msgid "How JobFind work"
+msgstr "JobFind는 어떻게 작동하나요"
 
 msgid "Create account"
 msgstr "계정 만들기"
@@ -185,8 +185,8 @@ msgstr "지원서"
 msgid "Company Profile"
 msgstr "회사 프로필"
 
-msgid "2025 JobHuntly. All rights Reserved"
-msgstr "2025 JobHuntly. 모든 권리 보유"
+msgid "2025 JobFind. All rights Reserved"
+msgstr "2025 JobFind. 모든 권리 보유"
 
 msgid "Register"
 msgstr "회원가입"
@@ -332,8 +332,8 @@ msgstr "및"
 msgid "Privacy Policy"
 msgstr "개인정보 처리방침"
 
-msgid "of JobHuntly"
-msgstr "JobHuntly의"
+msgid "of JobFind"
+msgstr "JobFind의"
 
 msgid "Already have an account?"
 msgstr "이미 계정이 있으신가요?"
