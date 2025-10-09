@@ -56,6 +56,7 @@
 // export default api;
 
 import mockApi from "@/mock/api";
+import { vipPackages } from "@/mock/data/vipPackages";
 
 // Tạo một hàm làm wrapper cho API object
 const apiFunction = (method, url, data, config) => {
@@ -78,6 +79,13 @@ const apiFunction = (method, url, data, config) => {
 const api = {
     get: (url, config = {}) => {
         console.log(`[API giả] GET ${url}`);
+
+        // Handle VIP packages endpoint
+        if (url === "/packages" || url.includes("/packages/")) {
+            return Promise.resolve({
+                data: vipPackages,
+            });
+        }
 
         // This pattern should match URLs like /job/1
         if (url.match(/\/job\/\d+$/)) {
@@ -115,6 +123,21 @@ const api = {
 
     post: (url, data, config = {}) => {
         console.log(`[API giả] POST ${url}`, data);
+
+        // Handle VIP package payment endpoint
+        if (
+            url.includes("/payments/create") ||
+            url.includes("/packages/purchase")
+        ) {
+            return Promise.resolve({
+                data: {
+                    success: true,
+                    paymentId: "PM" + Math.random().toString(36).substr(2, 9),
+                    paymentUrl: "https://example.com/payment-gateway",
+                    message: "Payment initiated successfully",
+                },
+            });
+        }
 
         if (url.includes("/auth/login")) {
             return mockApi.login(data);

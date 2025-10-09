@@ -3,7 +3,13 @@
 import { useEffect, useMemo, useState, useCallback } from "react";
 import { useSelector } from "react-redux";
 import { getMyCompany } from "@/services/companyService";
-import { Check, ArrowRight, Briefcase, Loader2, ChevronDown } from "lucide-react";
+import {
+    Check,
+    ArrowRight,
+    Briefcase,
+    Loader2,
+    ChevronDown,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
     Card,
@@ -573,7 +579,7 @@ export default function CompanyVip() {
             </div>
 
             {/* Status & Error */}
-            {(err || resolvingCompany) && (
+            {/* {(err || resolvingCompany) && (
                 <div className="p-4 bg-white border border-gray-200 rounded-lg">
                     <div className="flex items-center gap-2 text-sm">
                         {resolvingCompany ? (
@@ -590,7 +596,7 @@ export default function CompanyVip() {
                         )}
                     </div>
                 </div>
-            )}
+            )} */}
 
             {/* Why Choose VIP Section */}
             <div className="p-6 border border-blue-100 rounded-lg bg-gradient-to-r from-blue-50 to-indigo-50">
