@@ -195,7 +195,7 @@ export default function CandidateSidebar() {
                                 Welcome
                             </p>
                             <h3 className="text-2xl font-bold text-gray-900">
-                                {personalDetail?.fullName || "Nguyễn Văn Minh"}
+                                {personalDetail?.fullName || "Võ Nhật Hào"}
                             </h3>
                         </div>
                     </div>

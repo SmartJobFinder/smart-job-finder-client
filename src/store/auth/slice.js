@@ -5,8 +5,8 @@ import { loginThunk, logoutThunk, getMeThunk, registerThunk } from "./thunks";
 export const initialState = {
     user: {
         id: 1,
-        name: "Nguyễn Văn Minh",
-        email: "nguyen.minh@example.com",
+        name: "Võ Nhật Hào",
+        email: "vo.nhat.hao@example.com",
         role: "CANDIDATE",
         avatar: "/mock-images/avatars/user1.jpg",
         isActive: true,

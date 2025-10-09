@@ -2,8 +2,8 @@ export const combinedProfile = {
     personalDetail: {
         id: 1,
         userId: 1,
-        fullName: "Nguyễn Văn Minh",
-        email: "nguyen.minh@example.com",
+        fullName: "Võ Nhật Hào",
+        email: "vo.nhat.hao@example.com",
         phone: "0901234567",
         birthDate: "1995-05-15",
         address: "123 Lê Lợi, Quận 1, TP.HCM",

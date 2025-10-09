@@ -1,7 +1,7 @@
 export const settings = {
     account: {
-        name: "Nguyễn Văn Minh",
-        email: "nguyen.minh@example.com",
+        name: "Võ Nhật Hào",
+        email: "vo.nhat.hao@example.com",
         phoneNumber: "0901234567",
         currentPassword: "password",
         twoFactorEnabled: false,
