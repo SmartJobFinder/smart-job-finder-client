@@ -12,28 +12,28 @@ export default function TestimonialsSection() {
     const testimonials = [
         {
             rating: 5,
-            text: "JobHuntly has a clean, modern interface that makes job searching feel effortless. I found exactly what I was looking for in just a few days!",
+            text: "JobFind has a clean, modern interface that makes job searching feel effortless. I found exactly what I was looking for in just a few days!",
             name: "Võ Nhật Hào",
             title: "UI/UX Designer",
             avatar: "https://bom.so/rD4H7y",
         },
         {
             rating: 5,
-            text: "The job search and application process is incredibly smooth. JobHuntly helped me connect with companies that truly match my creative vision.",
+            text: "The job search and application process is incredibly smooth. JobFind helped me connect with companies that truly match my creative vision.",
             name: "Phạm Văn Phúc",
             title: "Creative Director",
             avatar: "https://bom.so/SWDHPF",
         },
         {
             rating: 5,
-            text: "As an intern looking for my first opportunity, JobHuntly gave me access to real openings and helpful tips. I landed my first internship thanks to this platform!",
+            text: "As an intern looking for my first opportunity, JobFind gave me access to real openings and helpful tips. I landed my first internship thanks to this platform!",
             name: "Ngô Đức Huy",
             title: "Intern",
             avatar: "https://bom.so/J6LqYg",
         },
         {
             rating: 5,
-            text: "Over 1,000 users – including myself – have found jobs through JobHuntly. It's not just a platform; it's a launchpad for your career.",
+            text: "Over 1,000 users – including myself – have found jobs through JobFind. It's not just a platform; it's a launchpad for your career.",
             name: "Nguyễn Đức Huy",
             title: "Software Engineer",
             avatar: "https://bom.so/9r1EGX",

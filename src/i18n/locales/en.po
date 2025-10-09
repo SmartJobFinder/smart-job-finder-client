@@ -100,13 +100,13 @@ msgstr "Popular category"
 msgid "Clients Testimonial"
 msgstr "Clients Testimonial"
 
-msgid "About JobHuntly: from First job to Big future"
-msgstr "About JobHuntly: from First job to Big future"
+msgid "About JobFind: from First job to Big future"
+msgstr "About JobFind: from First job to Big future"
 
 msgid ""
-"JobHuntly was born from a simple idea: to create a job search platform that is honest, effective, and easy to use. We know that finding the right first job can feel overwhelming, so our focus is on building a clean, straightforward space where new job seekers and growing companies can connect. We're on a mission to help you find more than just a job—we're here to help you build a career."
+"JobFind was born from a simple idea: to create a job search platform that is honest, effective, and easy to use. We know that finding the right first job can feel overwhelming, so our focus is on building a clean, straightforward space where new job seekers and growing companies can connect. We're on a mission to help you find more than just a job—we're here to help you build a career."
 msgstr ""
-"JobHuntly was born from a simple idea: to create a job search platform that is honest, effective, and easy to use. We know that finding the right first job can feel overwhelming, so our focus is on building a clean, straightforward space where new job seekers and growing companies can connect. We're on a mission to help you find more than just a job—we're here to help you build a career."
+"JobFind was born from a simple idea: to create a job search platform that is honest, effective, and easy to use. We know that finding the right first job can feel overwhelming, so our focus is on building a clean, straightforward space where new job seekers and growing companies can connect. We're on a mission to help you find more than just a job—we're here to help you build a career."
 
 msgid ""
 "As a new platform, we're building this community one connection at a time. Our mission is to foster a space where meaningful careers can begin. Your feedback and participation are the most important part of our growth. We are here to evolve with you and for you, helping turn your first step into a great future."
