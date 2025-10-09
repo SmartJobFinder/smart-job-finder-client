@@ -100,13 +100,13 @@ msgstr "Danh mục phổ biến"
 msgid "Clients Testimonial"
 msgstr "Cảm nhận từ khách hàng"
 
-msgid "About JobHuntly: from First job to Big future"
-msgstr "Về JobHuntly: từ công việc đầu tiên đến tương lai lớn"
+msgid "About JobFind: from First job to Big future"
+msgstr "Về JobFind: từ công việc đầu tiên đến tương lai lớn"
 
 msgid ""
-"JobHuntly was born from a simple idea: to create a job search platform that is honest, effective, and easy to use. We know that finding the right first job can feel overwhelming, so our focus is on building a clean, straightforward space where new job seekers and growing companies can connect. We're on a mission to help you find more than just a job—we're here to help you build a career."
+"JobFind was born from a simple idea: to create a job search platform that is honest, effective, and easy to use. We know that finding the right first job can feel overwhelming, so our focus is on building a clean, straightforward space where new job seekers and growing companies can connect. We're on a mission to help you find more than just a job—we're here to help you build a career."
 msgstr ""
-"JobHuntly ra đời từ một ý tưởng đơn giản: tạo ra nền tảng tìm việc làm trung thực, hiệu quả và dễ sử dụng. Chúng tôi hiểu rằng việc tìm được công việc đầu tiên phù hợp có thể khiến bạn bối rối, vì vậy chúng tôi tập trung xây dựng một không gian sạch, rõ ràng để người tìm việc mới và các công ty đang phát triển có thể kết nối. Sứ mệnh của chúng tôi là giúp bạn tìm hơn cả một công việc — chúng tôi ở đây để giúp bạn xây dựng sự nghiệp."
+"JobFind ra đời từ một ý tưởng đơn giản: tạo ra nền tảng tìm việc làm trung thực, hiệu quả và dễ sử dụng. Chúng tôi hiểu rằng việc tìm được công việc đầu tiên phù hợp có thể khiến bạn bối rối, vì vậy chúng tôi tập trung xây dựng một không gian sạch, rõ ràng để người tìm việc mới và các công ty đang phát triển có thể kết nối. Sứ mệnh của chúng tôi là giúp bạn tìm hơn cả một công việc — chúng tôi ở đây để giúp bạn xây dựng sự nghiệp."
 
 msgid ""
 "As a new platform, we're building this community one connection at a time. Our mission is to foster a space where meaningful careers can begin. Your feedback and participation are the most important part of our growth. We are here to evolve with you and for you, helping turn your first step into a great future."

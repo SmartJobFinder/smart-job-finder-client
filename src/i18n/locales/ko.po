@@ -100,13 +100,13 @@ msgstr "인기 카테고리"
 msgid "Clients Testimonial"
 msgstr "고객 후기"
 
-msgid "About JobHuntly: from First job to Big future"
-msgstr "JobHuntly 소개: 첫 직장에서 큰 미래로"
+msgid "About JobFind: from First job to Big future"
+msgstr "JobFind 소개: 첫 직장에서 큰 미래로"
 
 msgid ""
-"JobHuntly was born from a simple idea: to create a job search platform that is honest, effective, and easy to use. We know that finding the right first job can feel overwhelming, so our focus is on building a clean, straightforward space where new job seekers and growing companies can connect. We're on a mission to help you find more than just a job—we're here to help you build a career."
+"JobFind was born from a simple idea: to create a job search platform that is honest, effective, and easy to use. We know that finding the right first job can feel overwhelming, so our focus is on building a clean, straightforward space where new job seekers and growing companies can connect. We're on a mission to help you find more than just a job—we're here to help you build a career."
 msgstr ""
-"JobHuntly는 정직하고 효율적이며 사용하기 쉬운 채용 플랫폼을 만들겠다는 단순한 생각에서 시작되었습니다. 첫 직장을 찾는 일은 벅차게 느껴질 수 있기에, 우리는 신입 구직자와 성장 중인 기업이 연결될 수 있는 깔끔하고 직관적인 공간을 만들고자 합니다. 단순한 일자리를 넘어, 여러분의 커리어를 만들어가도록 돕는 것이 우리의 사명입니다."
+"JobFind 정직하고 효율적이며 사용하기 쉬운 채용 플랫폼을 만들겠다는 단순한 생각에서 시작되었습니다. 첫 직장을 찾는 일은 벅차게 느껴질 수 있기에, 우리는 신입 구직자와 성장 중인 기업이 연결될 수 있는 깔끔하고 직관적인 공간을 만들고자 합니다. 단순한 일자리를 넘어, 여러분의 커리어를 만들어가도록 돕는 것이 우리의 사명입니다."
 
 msgid ""
 "As a new platform, we're building this community one connection at a time. Our mission is to foster a space where meaningful careers can begin. Your feedback and participation are the most important part of our growth. We are here to evolve with you and for you, helping turn your first step into a great future."

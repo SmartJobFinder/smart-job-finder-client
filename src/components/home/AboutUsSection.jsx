@@ -15,10 +15,10 @@ export default function AboutUsSection() {
                 {/* Text Content */}
                 <div className="container px-6 py-8 mx-auto sm:px-8 lg:px-12">
                     <h2 className="mb-6 text-3xl font-bold text-gray-900 sm:text-4xl">
-                        {t`About JobHuntly: from First job to Big future`}
+                        {t`About JobFind: from First job to Big future`}
                     </h2>
                     <p className="mb-4 text-base leading-relaxed text-gray-600 sm:text-lg">
-                        {t`JobHuntly was born from a simple idea: to create a job search platform that is honest, effective, and easy to use. We know that finding the right first job can feel overwhelming, so our focus is on building a clean, straightforward space where new job seekers and growing companies can connect. We're on a mission to help you find more than just a job—we're here to help you build a career.`}
+                        {t`JobFind was born from a simple idea: to create a job search platform that is honest, effective, and easy to use. We know that finding the right first job can feel overwhelming, so our focus is on building a clean, straightforward space where new job seekers and growing companies can connect. We're on a mission to help you find more than just a job—we're here to help you build a career.`}
                     </p>
                     <p className="mb-6 text-base leading-relaxed text-gray-600 sm:text-lg">
                         {t`As a new platform, we're building this community one connection at a time. Our mission is to foster a space where meaningful careers can begin. Your feedback and participation are the most important part of our growth. We are here to evolve with you and for you, helping turn your first step into a great future.`}

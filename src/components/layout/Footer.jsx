@@ -21,13 +21,14 @@ export const Footer = () => {
                 <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
                     {/* Company Info */}
                     <div>
-                        <h3 className="mb-4 text-xl font-bold">JobHuntly</h3>
+                        <h3 className="mb-4 text-xl font-bold">JobFind</h3>
                         <p className="mb-4 text-gray-400">
                             {t`Call now`}:{" "}
-                            <span className="text-white">(012) 345-6789</span>
+                            <span className="text-white">(028) 37 755 055</span>
                         </p>
                         <p className="text-sm text-gray-400">
-                            475A Dien Bien Phu Street, Ward 25, Binh Thanh District, Ho Chi Minh City, Vietnam
+                            19 Nguyen Huu Tho, Tan Hung Ward, Ho Chi Minh City,
+                            Vietnam
                         </p>
                     </div>
 
@@ -148,7 +149,7 @@ export const Footer = () => {
 
                 <div className="flex flex-col items-center justify-between pt-8 mt-8 border-t border-gray-800 md:flex-row">
                     <p className="text-sm text-gray-400">
-                        © {t`2025 JobHuntly. All rights Reserved`}
+                        © {t`2025 JobFind. All rights Reserved`}
                     </p>
 
                     <div className="flex mt-4 space-x-4 md:mt-0">

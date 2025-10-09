@@ -1,33 +1,36 @@
 import "@/styles/globals.css";
-import "flag-icons/css/flag-icons.min.css"; 
+import "flag-icons/css/flag-icons.min.css";
 import ClientRootLayout from "./ClientRootLayout";
 import Script from "next/script";
 
 export const metadata = {
-  metadataBase: new URL('https://jobhuntly.io.vn'),
-  title: {
-    default: 'JobHuntly — Find quality jobs fast',
-    template: '%s | JobHuntly'
-  },
-  description: 'JobHuntly connects candidates and employers with fast, reliable hiring.',
-  robots: { index: true, follow: true },
-  openGraph: {
-    type: 'website',
-    siteName: 'JobHuntly',
-    url: 'https://jobhuntly.io.vn',
-    title: 'JobHuntly — Find quality jobs fast',
-    description: 'JobHuntly connects candidates and employers with fast, reliable hiring.'
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'JobHuntly — Find quality jobs fast',
-    description: 'JobHuntly connects candidates and employers with fast, reliable hiring.'
-  },
-  alternates: { canonical: 'https://jobhuntly.io.vn' },
-  
-  icons: {
-    icon: '/logo.svg',
-  }
+    metadataBase: new URL("https://jobhuntly.io.vn"),
+    title: {
+        default: "JobFind — Find quality jobs fast",
+        template: "%s | JobHuntly",
+    },
+    description:
+        "JobFind connects candidates and employers with fast, reliable hiring.",
+    robots: { index: true, follow: true },
+    openGraph: {
+        type: "website",
+        siteName: "JobFind",
+        url: "https://jobhuntly.io.vn",
+        title: "JobFind — Find quality jobs fast",
+        description:
+            "JobHuntly connects candidates and employers with fast, reliable hiring.",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "JobFind — Find quality jobs fast",
+        description:
+            "JobFind connects candidates and employers with fast, reliable hiring.",
+    },
+    alternates: { canonical: "https://jobhuntly.io.vn" },
+
+    icons: {
+        icon: "/logo.svg",
+    },
 };
 
 export const viewport = {
