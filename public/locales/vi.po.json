@@ -279,10 +279,10 @@
         "msgid": "Share on social media",
         "msgstr": ["Chia sẻ lên mạng xã hội"]
       },
-      "Link your account to continue using Job Huntly's services.": {
-        "msgid": "Link your account to continue using Job Huntly's services.",
+      "Link your account to continue using Job Find's services.": {
+        "msgid": "Link your account to continue using Job Find's services.",
         "msgstr": [
-          "Liên kết tài khoản của bạn để tiếp tục sử dụng dịch vụ của Job Huntly."
+          "Liên kết tài khoản của bạn để tiếp tục sử dụng dịch vụ của Job Find."
         ]
       },
       "This account uses Google Sign-In. Do you want to set a password so you can log in with email/password too?": {
@@ -327,10 +327,10 @@
         ]
       },
       "Welcome to": { "msgid": "Welcome to", "msgstr": ["Chào mừng đến với"] },
-      "If you have trouble logging in or creating an account, please contact Job Huntly via": {
-        "msgid": "If you have trouble logging in or creating an account, please contact Job Huntly via",
+      "If you have trouble logging in or creating an account, please contact Job Find via": {
+        "msgid": "If you have trouble logging in or creating an account, please contact Job Find via",
         "msgstr": [
-          "Nếu bạn gặp khó khăn khi đăng nhập hoặc tạo tài khoản, vui lòng liên hệ Job Huntly qua"
+          "Nếu bạn gặp khó khăn khi đăng nhập hoặc tạo tài khoản, vui lòng liên hệ Job Find qua"
         ]
       },
       "I have read and agree to the": {

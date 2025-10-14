@@ -284,8 +284,8 @@ msgstr "Share company with friends"
 msgid "Share on social media"
 msgstr "Share on social media"
 
-msgid "Link your account to continue using Job Huntly's services."
-msgstr "Link your account to continue using Job Huntly's services."
+msgid "Link your account to continue using Job Find's services."
+msgstr "Link your account to continue using Job Find's services."
 
 msgid "This account uses Google Sign-In. Do you want to set a password so you can log in with email/password too?"
 msgstr "This account uses Google Sign-In. Do you want to set a password so you can log in with email/password too?"
@@ -317,8 +317,8 @@ msgstr "Post jobs, manage applicants, and hire faster."
 msgid "Welcome to"
 msgstr "Welcome to"
 
-msgid "If you have trouble logging in or creating an account, please contact Job Huntly via"
-msgstr "If you have trouble logging in or creating an account, please contact Job Huntly via"
+msgid "If you have trouble logging in or creating an account, please contact Job Find via"
+msgstr "If you have trouble logging in or creating an account, please contact Job Find via"
 
 msgid "I have read and agree to the"
 msgstr "I have read and agree to the"

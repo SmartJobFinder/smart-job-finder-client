@@ -1,5 +1,5 @@
 export function siteUrl() {
-  return 'https://jobhuntly.io.vn';
+  return 'https://jobfind.io.vn';
 }
 
 export function canonicalOf(path = '/') {

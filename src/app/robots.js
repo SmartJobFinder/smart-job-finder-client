@@ -1,5 +1,5 @@
 export default function robots() {
-  const site = 'https://jobhuntly.io.vn';
+  const site = 'https://jobfind.io.vn';
   return {
     rules: [
       { userAgent: '*', allow: '/' },

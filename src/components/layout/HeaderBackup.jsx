@@ -258,7 +258,7 @@
 //     const premiumContent = (
 //         <div>
 //             <div className="mb-2 text-xs font-medium tracking-wide text-gray-500 uppercase">
-//                 JobHuntly Pro
+//                 JobFind Pro
 //             </div>
 //             <div className="mb-4 text-sm text-gray-600">
 //                 Upgrade your account to access premium features
@@ -311,7 +311,7 @@
 //         { key: "cv", label: "Create CV" },
 //         { key: "tools", label: "Tools" },
 //         { key: "guide", label: "Career Guide" },
-//         { key: "premium", label: "JobHuntly" },
+//         { key: "premium", label: "JobFind" },
 //     ];
 //
 //     return (
@@ -335,7 +335,7 @@
 //                         <div className="flex-shrink-0">
 //                             <Image
 //                                 src={logo}
-//                                 alt="JobHuntly Logo"
+//                                 alt="JobFind Logo"
 //                                 width={120}
 //                                 height={40}
 //                                 className="w-auto h-10"

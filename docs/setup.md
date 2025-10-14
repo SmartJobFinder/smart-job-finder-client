@@ -3,7 +3,7 @@
 ## 1. Clone project
 
 ```
-git clone https://github.com/Group-3-KTC/job-huntly-user-app.git
+git clone https://github.com/Group-3-KTC/job-find-user-app.git
 ```
 
 ## 2. Install dependencies
