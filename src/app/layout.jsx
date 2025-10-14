@@ -4,7 +4,7 @@ import ClientRootLayout from "./ClientRootLayout";
 import Script from "next/script";
 
 export const metadata = {
-    metadataBase: new URL("https://jobhuntly.io.vn"),
+    metadataBase: new URL("https://jobfind.io.vn"),
     title: {
         default: "JobFind — Find quality jobs fast",
         template: "%s | JobFind",
@@ -15,7 +15,7 @@ export const metadata = {
     openGraph: {
         type: "website",
         siteName: "JobFind",
-        url: "https://jobhuntly.io.vn",
+        url: "https://jobfind.io.vn",
         title: "JobFind — Find quality jobs fast",
         description:
             "JobFind connects candidates and employers with fast, reliable hiring.",
@@ -26,7 +26,7 @@ export const metadata = {
         description:
             "JobFind connects candidates and employers with fast, reliable hiring.",
     },
-    alternates: { canonical: "https://jobhuntly.io.vn" },
+    alternates: { canonical: "https://jobfind.io.vn" },
 
     icons: {
         icon: "/logo.svg",

@@ -284,8 +284,8 @@ msgstr "Chia sẻ công ty với bạn bè"
 msgid "Share on social media"
 msgstr "Chia sẻ lên mạng xã hội"
 
-msgid "Link your account to continue using Job Huntly's services."
-msgstr "Liên kết tài khoản của bạn để tiếp tục sử dụng dịch vụ của Job Huntly."
+msgid "Link your account to continue using Job Find's services."
+msgstr "Liên kết tài khoản của bạn để tiếp tục sử dụng dịch vụ của Job Find."
 
 msgid "This account uses Google Sign-In. Do you want to set a password so you can log in with email/password too?"
 msgstr "Tài khoản này đang dùng đăng nhập Google. Bạn có muốn đặt mật khẩu để cũng có thể đăng nhập bằng email/mật khẩu không?"
@@ -317,8 +317,8 @@ msgstr "Đăng tin tuyển dụng, quản lý ứng viên và tuyển dụng nha
 msgid "Welcome to"
 msgstr "Chào mừng đến với"
 
-msgid "If you have trouble logging in or creating an account, please contact Job Huntly via"
-msgstr "Nếu bạn gặp khó khăn khi đăng nhập hoặc tạo tài khoản, vui lòng liên hệ Job Huntly qua"
+msgid "If you have trouble logging in or creating an account, please contact Job Find via"
+msgstr "Nếu bạn gặp khó khăn khi đăng nhập hoặc tạo tài khoản, vui lòng liên hệ Job Find qua"
 
 msgid "I have read and agree to the"
 msgstr "Tôi đã đọc và đồng ý với"

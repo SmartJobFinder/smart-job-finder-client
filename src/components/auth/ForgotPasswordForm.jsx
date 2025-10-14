@@ -195,7 +195,7 @@ export default function ForgotPasswordForm({onBack, activeTab = "CANDIDATE"}) {
                     theme.gradient
                 )}
             >
-                Tip: If you don’t see the email, check your spam folder or search for “JobHuntly”.
+                Tip: If you don’t see the email, check your spam folder or search for “JobFind”.
             </div>
         </div>
     );

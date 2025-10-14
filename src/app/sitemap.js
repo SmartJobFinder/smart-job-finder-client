@@ -1,5 +1,5 @@
 export default async function sitemap() {
-  const site = 'https://jobhuntly.io.vn';
+  const site = 'https://jobfind.io.vn';
 
   return [
     { url: `${site}/`, changefreq: 'daily', priority: 1.0 },

@@ -102,7 +102,7 @@ export default function InterviewDetailPage({ params }) {
             </div>
         );
 
-    const room = meta.meetingRoom; // jobhuntly-uuid
+    const room = meta.meetingRoom; // jobfind-uuid
     const JITSI_BASE = "https://meet.jit.si";
 
     // Build portal URL: if meetingRoom looks like a full URL, use it; otherwise join with Jitsi domain.
