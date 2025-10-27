@@ -1,14 +1,14 @@
-import { jobs } from "@/mock/data/jobs";
-import { companies } from "@/mock/data/companies";
-import { categories } from "@/mock/data/categories";
-import { applications } from "@/mock/data/applications";
-import { savedJobs } from "@/mock/data/savedJobs";
-import { followedCompanies } from "@/mock/data/followedCompanies";
-import { interviews } from "@/mock/data/interviews";
-import { cvTemplates } from "@/mock/data/cvTemplates";
-import { combinedProfile } from "@/mock/data/combinedProfile";
-import { settings } from "@/mock/data/settings";
-import { users } from "@/mock/data/users";
+// import { jobs } from "@/mock/data/jobs";
+// import { companies } from "@/mock/data/companies";
+// import { categories } from "@/mock/data/categories";
+// import { applications } from "@/mock/data/applications";
+// import { savedJobs } from "@/mock/data/savedJobs";
+// import { followedCompanies } from "@/mock/data/followedCompanies";
+// import { interviews } from "@/mock/data/interviews";
+// import { cvTemplates } from "@/mock/data/cvTemplates";
+// import { combinedProfile } from "@/mock/data/combinedProfile";
+// import { settings } from "@/mock/data/settings";
+// import { users } from "@/mock/data/users";
 
 // Mock implementation of axiosBaseQuery
 const mockBaseQuery =
