@@ -98,11 +98,22 @@ export default function ListCompanyFollowed() {
                                     width={72}
                                     height={72}
                                     src={
-                                        company.companyAvatar ||
-                                        "https://static.topcv.vn/company_logos/default-logo.png"
+                                        company.companyAvatar &&
+                                        (company.companyAvatar.startsWith(
+                                            "http://"
+                                        ) ||
+                                            company.companyAvatar.startsWith(
+                                                "https://"
+                                            ) ||
+                                            company.companyAvatar.startsWith(
+                                                "/"
+                                            ))
+                                            ? company.companyAvatar
+                                            : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7NnXia5DWq6qfBisS5mDI7r8xa5sT8cuvnA&s"
                                     }
                                     alt={`${company.companyName} logo`}
                                     className="object-cover transition-shadow duration-300 rounded-xl group-hover:shadow-md"
+                                    unoptimized
                                 />
                             </div>
 
@@ -155,183 +166,3 @@ export default function ListCompanyFollowed() {
         </div>
     );
 }
-// "use client";
-// import { useState } from "react";
-// import {
-//     Eye,
-//     Trash2,
-//     Building2,
-//     Users,
-//     Briefcase,
-//     Bell,
-//     MapPin,
-// } from "lucide-react";
-// import LoadingScreen from "@/components/ui/loadingScreen";
-// import Image from "next/image";
-// import Link from "next/link";
-// import { Button } from "@/components/ui/button";
-// import { companyUpdates } from "@/mock/data/companyUpdates";
-// import { followedCompanies } from "@/mock/data/followedCompanies";
-
-// export default function ListCompanyFollowed() {
-//     const [loading, setLoading] = useState(false);
-
-//     const handleUnfollow = (companyId) => {
-//         // Mock unfollowing functionality
-//         console.log("Unfollowing company:", companyId);
-//     };
-
-//     if (loading) return <LoadingScreen message="Loading ..." />;
-
-//     return (
-//         <div className="p-6 space-y-8">
-//             <div className="flex justify-between items-center">
-//                 <h1 className="text-2xl font-bold">Companies You Follow</h1>
-//                 <span className="bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full">
-//                     {followedCompanies.length} Companies
-//                 </span>
-//             </div>
-
-//             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-//                 {followedCompanies.map((company) => (
-//                     <div
-//                         key={company.id}
-//                         className="border rounded-lg shadow-sm hover:shadow-md transition-shadow"
-//                     >
-//                         <div className="p-6">
-//                             <div className="flex items-center justify-between mb-4">
-//                                 <div className="flex items-center">
-//                                     <div className="w-12 h-12 rounded-md bg-gray-100 flex items-center justify-center mr-3">
-//                                         <Image
-//                                             src={company.logo}
-//                                             alt={company.name}
-//                                             width={40}
-//                                             height={40}
-//                                             className="object-contain"
-//                                         />
-//                                     </div>
-//                                     <div>
-//                                         <h3 className="font-medium">
-//                                             {company.name}
-//                                         </h3>
-//                                         <p className="text-sm text-gray-500">
-//                                             {company.industry}
-//                                         </p>
-//                                     </div>
-//                                 </div>
-//                                 <Button
-//                                     size="sm"
-//                                     variant="ghost"
-//                                     onClick={() => handleUnfollow(company.id)}
-//                                     className="text-gray-500 hover:text-red-600"
-//                                 >
-//                                     <Trash2 className="h-4 w-4" />
-//                                 </Button>
-//                             </div>
-
-//                             <div className="space-y-2 mb-4">
-//                                 <div className="flex items-center text-gray-600 text-sm">
-//                                     <MapPin className="h-4 w-4 mr-2" />
-//                                     <span>{company.location}</span>
-//                                 </div>
-//                                 <div className="flex items-center text-gray-600 text-sm">
-//                                     <Users className="h-4 w-4 mr-2" />
-//                                     <span>{company.size} employees</span>
-//                                 </div>
-//                                 <div className="flex items-center text-gray-600 text-sm">
-//                                     <Briefcase className="h-4 w-4 mr-2" />
-//                                     <span>
-//                                         {company.openJobs} open positions
-//                                     </span>
-//                                 </div>
-//                             </div>
-
-//                             <div className="flex space-x-2 pt-3 border-t">
-//                                 <Link
-//                                     href={`/company/company-detail/${company.id}`}
-//                                     className="flex-1"
-//                                 >
-//                                     <Button
-//                                         variant="outline"
-//                                         size="sm"
-//                                         className="w-full"
-//                                     >
-//                                         <Eye className="h-4 w-4 mr-1" /> View
-//                                     </Button>
-//                                 </Link>
-//                                 <Link
-//                                     href={`/company/company-detail/${company.id}#jobs`}
-//                                     className="flex-1"
-//                                 >
-//                                     <Button
-//                                         size="sm"
-//                                         className="w-full bg-blue-600 hover:bg-blue-700"
-//                                     >
-//                                         View Jobs
-//                                     </Button>
-//                                 </Link>
-//                             </div>
-//                         </div>
-//                     </div>
-//                 ))}
-//             </div>
-
-//             <div className="mt-10 border-t pt-6">
-//                 <div className="flex items-center mb-4">
-//                     <Bell className="h-5 w-5 mr-2 text-blue-600" />
-//                     <h2 className="text-xl font-semibold">Recent Updates</h2>
-//                 </div>
-
-//                 <div className="space-y-4">
-//                     {companyUpdates.updates.map((update, index) => (
-//                         <div
-//                             key={index}
-//                             className="p-4 border rounded-lg bg-gray-50"
-//                         >
-//                             <div className="flex items-center">
-//                                 <div className="h-10 w-10 bg-blue-100 rounded-full flex items-center justify-center mr-3">
-//                                     <Building2 className="h-5 w-5 text-blue-600" />
-//                                 </div>
-//                                 <div className="flex-1">
-//                                     <p className="font-medium">
-//                                         {update.companyName}
-//                                     </p>
-//                                     <p className="text-sm text-gray-700">
-//                                         {update.content}
-//                                     </p>
-//                                     <p className="text-xs text-gray-500 mt-1">
-//                                         {new Date(
-//                                             update.date
-//                                         ).toLocaleDateString()}
-//                                     </p>
-//                                 </div>
-//                             </div>
-//                             {update.updateType === "hiring_event" && (
-//                                 <div className="mt-3 pt-3 border-t">
-//                                     <p className="text-sm font-medium">
-//                                         {update.eventDetails.title}
-//                                     </p>
-//                                     <p className="text-xs text-gray-700">
-//                                         {new Date(
-//                                             update.eventDetails.date
-//                                         ).toLocaleDateString()}{" "}
-//                                         at{" "}
-//                                         {new Date(
-//                                             update.eventDetails.date
-//                                         ).toLocaleTimeString()}
-//                                     </p>
-//                                     <Button
-//                                         size="sm"
-//                                         className="mt-2 bg-blue-600 hover:bg-blue-700 text-xs"
-//                                     >
-//                                         Register for Event
-//                                     </Button>
-//                                 </div>
-//                             )}
-//                         </div>
-//                     ))}
-//                 </div>
-//             </div>
-//         </div>
-//     );
-// }

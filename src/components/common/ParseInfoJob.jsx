@@ -88,9 +88,25 @@ const parseBenefits = (benefits) => {
     if (!benefits) return [];
     try {
         if (typeof benefits === "string") {
-            return JSON.parse(benefits);
+            const trimmed = benefits.trim();
+            // Nếu là JSON array
+            if (trimmed.startsWith("[") && trimmed.endsWith("]")) {
+                return JSON.parse(benefits);
+            }
+            // Nếu là string, tách theo từng dòng
+            return trimmed
+                .split("\n")
+                .filter((line) => line.trim() !== "")
+                .map((line, idx) => ({
+                    id: idx,
+                    icon: "heart", // hoặc có thể random tuỳ ý, mặc định icon trái tim
+                    title: line.replace(/^[-•–]\s*/, ""),
+                    description: "",
+                }));
         }
-        return Array.isArray(benefits) ? benefits : [];
+        // Nếu là array object như mong muốn
+        if (Array.isArray(benefits)) return benefits;
+        return [];
     } catch (error) {
         console.error("Error parsing benefits:", error);
         return [];
@@ -178,7 +194,12 @@ const ParseInfoJob = ({
                                             <div
                                                 className={`${contentClassName} text-gray-700 leading-relaxed parse-info-job`}
                                             >
-                                                {parse(benefit.description)}
+                                                {parse(
+                                                    typeof benefit.description ===
+                                                        "string"
+                                                        ? benefit.description
+                                                        : ""
+                                                )}
                                             </div>
                                         </div>
                                     </div>
