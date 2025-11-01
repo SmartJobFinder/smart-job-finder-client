@@ -176,6 +176,11 @@
         "msgid": "Browse Companies",
         "msgstr": ["Browse Companies"]
       },
+      "Address": {
+        "msgid": "Address",
+        "msgstr": ["19 Nguyen Huu Tho, Tan Hung Ward, Ho Chi Minh City, Vietnam"]
+      },
+
       "Browse Jobs": { "msgid": "Browse Jobs", "msgstr": ["Browse Jobs"] },
       "Candidate Dashboard": {
         "msgid": "Candidate Dashboard",

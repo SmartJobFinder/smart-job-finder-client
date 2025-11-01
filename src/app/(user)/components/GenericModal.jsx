@@ -42,13 +42,24 @@ export default function GenericModal({
             !transformed.startDate &&
             !transformed.endDate
         ) {
-            const [startStr, endStr] = transformed.duration.split(" - ");
+            const parts = transformed.duration.split(" - ");
+            const startStr = parts[0];
+            const endStr = parts[1]; // Có thể undefined nếu không có " - "
+
+            // Parse ngày bắt đầu
             const startParsed = parse(startStr, "MM/yyyy", new Date());
             transformed.startDate = isValid(startParsed) ? startParsed : null;
-            if (endStr && endStr.toUpperCase() !== "NOW") {
-                const endParsed = parse(endStr, "MM/yyyy", new Date());
-                transformed.endDate = isValid(endParsed) ? endParsed : null;
-            } else if (endStr.toUpperCase() === "NOW") {
+
+            // Chỉ parse ngày kết thúc nếu endStr tồn tại
+            if (endStr) {
+                if (endStr.toUpperCase() !== "NOW") {
+                    const endParsed = parse(endStr, "MM/yyyy", new Date());
+                    transformed.endDate = isValid(endParsed) ? endParsed : null;
+                } else {
+                    transformed.endDate = null;
+                }
+            } else {
+                // Không có ngày kết thúc trong chuỗi duration
                 transformed.endDate = null;
             }
         }
@@ -188,7 +199,7 @@ export default function GenericModal({
 
     const isDurationSection =
         sectionId === "education" || sectionId === "workExperience";
-    const currentYear = new Date().getFullYear(); 
+    const currentYear = new Date().getFullYear();
     const months = Array.from({ length: 12 }, (_, i) =>
         String(i + 1).padStart(2, "0")
     );
@@ -208,7 +219,6 @@ export default function GenericModal({
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-900/50 backdrop-blur-sm">
             <div className="w-full max-w-2xl p-4 bg-white rounded-lg shadow-lg">
-                
                 <div className="flex items-center justify-between pb-3 mb-4 border-b">
                     <h2 className="text-xl font-semibold text-gray-800">
                         {Object.keys(initialData).length > 0 ? "Edit" : "Add"}{" "}

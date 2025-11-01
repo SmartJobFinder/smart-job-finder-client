@@ -179,6 +179,10 @@
         "msgid": "Browse Companies",
         "msgstr": ["Duyệt công ty"]
       },
+      "Address": {
+        "msgid": "Address",
+        "msgstr": ["19 Nguyễn Hữu Thọ, Phường Tân Hưng, Thành phố Hồ Chí Minh, Việt Nam"]
+      },
       "Browse Jobs": { "msgid": "Browse Jobs", "msgstr": ["Duyệt việc làm"] },
       "Candidate Dashboard": {
         "msgid": "Candidate Dashboard",

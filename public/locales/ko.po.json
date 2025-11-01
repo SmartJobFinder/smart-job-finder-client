@@ -159,6 +159,10 @@
         "msgid": "Browse Companies",
         "msgstr": ["회사 둘러보기"]
       },
+      "Address": {
+        "msgid": "Address",
+        "msgstr": ["베트남 호찌민시 떤흥동 응우옌후토 거리 19번지"]
+      },
       "Browse Jobs": {
         "msgid": "Browse Jobs",
         "msgstr": ["채용 공고 둘러보기"]

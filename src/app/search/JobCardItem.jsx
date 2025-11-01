@@ -163,7 +163,7 @@ export default function JobCardItem({ job, onToast, isGrid = false }) {
                         src={imageSrc}
                         alt={job.company?.company_name || "Company Logo"}
                         fill
-                        className="bg-white object-inherit"
+                        className="bg-white object-contain p-2"
                         sizes="(max-width: 768px) 100vw, 128px"
                         priority={false}
                     />
