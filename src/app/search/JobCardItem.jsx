@@ -1,17 +1,29 @@
 "use client";
 
-import {Bookmark, BookmarkCheck, Building2, CalendarDays, Clock, Crown, Eye, MapPin,} from "lucide-react";
-import {useRouter} from "next/navigation";
-import {useCallback, useEffect, useState} from "react";
-import {useSaveJobMutation, useUnsaveJobMutation,} from "@/services/savedJobService";
-import {useDispatch, useSelector} from "react-redux";
-import {showLoginPrompt} from "@/features/auth/loginPromptSlice";
+import {
+    Bookmark,
+    BookmarkCheck,
+    Building2,
+    CalendarDays,
+    Clock,
+    Crown,
+    Eye,
+    MapPin,
+} from "lucide-react";
+import { useRouter } from "next/navigation";
+import { useCallback, useEffect, useState } from "react";
+import {
+    useSaveJobMutation,
+    useUnsaveJobMutation,
+} from "@/services/savedJobService";
+import { useDispatch, useSelector } from "react-redux";
+import { showLoginPrompt } from "@/features/auth/loginPromptSlice";
 import ApplicationBadge from "@/components/ui/ApplicationBadge";
-import {selectIsLoggedIn} from "@/features/auth/authSelectors";
+import { selectIsLoggedIn } from "@/features/auth/authSelectors";
 import Image from "next/image";
-import {t} from "@/i18n/i18n";
+import { t } from "@/i18n/i18n";
 
-export default function JobCardItem({job, onToast, isGrid = false}) {
+export default function JobCardItem({ job, onToast, isGrid = false }) {
     const isLoggedIn = useSelector(selectIsLoggedIn);
     const router = useRouter();
     const dispatch = useDispatch();
@@ -84,7 +96,7 @@ export default function JobCardItem({job, onToast, isGrid = false}) {
                     if (!liked) {
                         // optimistic update
                         setLiked(true);
-                        await saveJob({jobId: job.id}).unwrap();
+                        await saveJob({ jobId: job.id }).unwrap();
                         onToast?.(t`Job saved successfully`, "success");
                     } else {
                         setLiked(false);
@@ -110,8 +122,19 @@ export default function JobCardItem({job, onToast, isGrid = false}) {
     const companyName = job?.company?.company_name || "Unknown Company";
 
     const avatar = job?.company?.avatar;
-    const imageSrc =
-        typeof avatar === "string" && avatar.trim() !== "" ? avatar : undefined;
+
+    // Hàm kiểm tra URL hợp lệ
+    const isValidUrl = (str) => {
+        if (!str || typeof str !== "string" || str.trim() === "") return false;
+        // Kiểm tra xem có bắt đầu bằng http://, https://, hoặc /
+        return (
+            str.startsWith("http://") ||
+            str.startsWith("https://") ||
+            str.startsWith("/")
+        );
+    };
+
+    const imageSrc = isValidUrl(avatar) ? avatar : undefined;
 
     const isProCompany = !!job?.company?.isProCompany;
 
@@ -140,21 +163,19 @@ export default function JobCardItem({job, onToast, isGrid = false}) {
                         src={imageSrc}
                         alt={job.company?.company_name || "Company Logo"}
                         fill
-                        className="bg-white object-inherit"
+                        className="bg-white object-contain p-2"
                         sizes="(max-width: 768px) 100vw, 128px"
                         priority={false}
                     />
                 ) : (
-                    <div
-                        className="absolute inset-0 flex items-center justify-center bg-gray-50 text-gray-400 text-xs border">
+                    <div className="absolute inset-0 flex items-center justify-center bg-gray-50 text-gray-400 text-xs border">
                         No Logo
                     </div>
                 )}
 
                 {isProCompany && (
-                    <div
-                        className="absolute top-2 left-2 z-10 flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold text-white bg-gradient-to-r from-blue-600 to-sky-500 shadow">
-                        <Crown size={12} className="text-white"/>
+                    <div className="absolute top-2 left-2 z-10 flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold text-white bg-gradient-to-r from-blue-600 to-sky-500 shadow">
+                        <Crown size={12} className="text-white" />
                         VIP
                     </div>
                 )}
@@ -177,7 +198,7 @@ export default function JobCardItem({job, onToast, isGrid = false}) {
                         {job.title}
                     </h3>
                     <div className="flex items-center gap-1 text-gray-600 cursor-pointer">
-                        <Building2 className="w-4 h-4 text-gray-500"/>
+                        <Building2 className="w-4 h-4 text-gray-500" />
                         <span
                             onClick={() =>
                                 router.push(
@@ -189,9 +210,8 @@ export default function JobCardItem({job, onToast, isGrid = false}) {
                             {companyName}
                         </span>
                         {isProCompany && (
-                            <span
-                                className="ml-2 inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full text-[10px] font-semibold text-blue-700 bg-blue-50 border border-blue-200">
-                                <Crown size={12} className="text-blue-600"/>
+                            <span className="ml-2 inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full text-[10px] font-semibold text-blue-700 bg-blue-50 border border-blue-200">
+                                <Crown size={12} className="text-blue-600" />
                                 VIP COMPANY
                             </span>
                         )}
@@ -210,7 +230,7 @@ export default function JobCardItem({job, onToast, isGrid = false}) {
                             <div className="flex flex-col items-start gap-1 text-xs text-gray-500">
                                 {job.location && (
                                     <span className="flex items-center gap-1">
-                                        <MapPin size={12}/>
+                                        <MapPin size={12} />
                                         {job.location
                                             .split(", ")
                                             .find((part) =>
@@ -223,7 +243,7 @@ export default function JobCardItem({job, onToast, isGrid = false}) {
 
                                 {job.work_type_names?.length > 0 && (
                                     <span className="flex items-center gap-1">
-                                        <MapPin size={12}/>
+                                        <MapPin size={12} />
                                         {job.work_type_names.join(", ")}
                                     </span>
                                 )}
@@ -269,13 +289,13 @@ export default function JobCardItem({job, onToast, isGrid = false}) {
                     >
                         {job.date_post && (
                             <span className="flex items-center gap-1 leading-none">
-                                <CalendarDays className="w-4 h-4 shrink-0"/>
+                                <CalendarDays className="w-4 h-4 shrink-0" />
                                 <span>{getPostedAgo(job.date_post)}</span>
                             </span>
                         )}
                         {job.expired_date && (
                             <span className="flex items-center gap-1 font-semibold leading-none text-red-600">
-                                <Clock className="w-4 h-4 shrink-0"/>
+                                <Clock className="w-4 h-4 shrink-0" />
                                 <span>{getExpiredIn(job.expired_date)}</span>
                             </span>
                         )}
@@ -291,13 +311,13 @@ export default function JobCardItem({job, onToast, isGrid = false}) {
                                     className="text-blue-700 fill-blue-700"
                                 />
                             ) : (
-                                <Bookmark size={20} className="text-blue-700"/>
+                                <Bookmark size={20} className="text-blue-700" />
                             )}
                         </button>
                     </div>
 
                     {isLoggedIn && applied && (
-                        <ApplicationBadge status="Applied"/>
+                        <ApplicationBadge status="Applied" />
                     )}
 
                     {!isGrid && (
@@ -308,7 +328,7 @@ export default function JobCardItem({job, onToast, isGrid = false}) {
                             }}
                             className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-white transition bg-blue-700 rounded-md hovr:bg-blue-700"
                         >
-                            <Eye size={18} className="text-white"/>
+                            <Eye size={18} className="text-white" />
                             {t`See Detail`}
                         </button>
                     )}

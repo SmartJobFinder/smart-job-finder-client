@@ -26,7 +26,8 @@ const NoCompanyMessage = () => {
                     No Company Found
                 </h2>
                 <p className="mb-6 text-gray-600">
-                    You don't have any company yet. Would you like to create a new one?
+                    You don't have any company yet. Would you like to create a
+                    new one?
                 </p>
                 <div className="space-y-3">
                     <Link

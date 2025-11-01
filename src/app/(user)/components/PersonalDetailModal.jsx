@@ -16,10 +16,10 @@ const PersonalDetailModal = ({
     onSave,
 }) => {
     const [hasChanges, setHasChanges] = useState(false);
-    const [imageError, setImageError] = useState(false); 
+    const [imageError, setImageError] = useState(false);
     const [previewAvatar, setPreviewAvatar] = useState(
         initialData.avatar || ""
-    ); 
+    );
     const fileInputRef = useRef(null);
 
     const transformInitialData = () => {
