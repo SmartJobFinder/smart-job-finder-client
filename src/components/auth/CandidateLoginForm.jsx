@@ -1,27 +1,28 @@
 "use client";
 
-import {useForm} from "react-hook-form";
-import {yupResolver} from "@hookform/resolvers/yup";
-import React, {useState} from "react";
-import {Label} from "@/components/ui/label";
-import {Input} from "@/components/ui/input";
-import {loginSchema} from "@/validation/loginSchema";
-import {Button} from "@/components/ui/button";
-import {Eye, EyeOff, Lock, Mail} from "lucide-react";
-import {useRouter} from "next/navigation";
-import {toast} from "react-toastify";
-import {useDispatch, useSelector} from "react-redux";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import React, { useState } from "react";
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
+import { loginSchema } from "@/validation/loginSchema";
+import { Button } from "@/components/ui/button";
+import { Eye, EyeOff, Lock, Mail } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
+import { useDispatch, useSelector } from "react-redux";
 import LoadingScreen from "../ui/loadingScreen";
-import {loginThunk, meThunk} from "@/features/auth/authSlice";
-import {selectAuthLoading} from "@/features/auth/authSelectors";
+import { loginThunk, meThunk } from "@/features/auth/authSlice";
+import { selectAuthLoading } from "@/features/auth/authSelectors";
 import GoogleSignIn from "@/components/auth/GoogleSignIn";
-import {clearNormalizedProfile} from "@/features/profile/profileSlice";
-import {profileApi} from "@/services/profileService";
+import { clearNormalizedProfile } from "@/features/profile/profileSlice";
+import { profileApi } from "@/services/profileService";
 import clsx from "clsx";
 import BannedPanel from "@/components/auth/BannedPanel";
-import {Dialog, DialogContent} from "@/components/ui/dialog";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { t } from "@/i18n/i18n";
 
-const CandidateLoginForm = ({role, onGoogleNeedsPassword, onForgot}) => {
+const CandidateLoginForm = ({ role, onGoogleNeedsPassword, onForgot }) => {
     const dispatch = useDispatch();
     const [showPassword, setShowPassword] = useState(false);
     const [showSetPwPanel, setShowSetPwPanel] = useState(false);
@@ -29,13 +30,12 @@ const CandidateLoginForm = ({role, onGoogleNeedsPassword, onForgot}) => {
     const [bannedInfo, setBannedInfo] = useState(null);
 
     const isAuthLoading = useSelector(selectAuthLoading);
-
     const router = useRouter();
 
     const {
         register,
         handleSubmit,
-        formState: {errors, isSubmitting},
+        formState: { errors, isSubmitting },
     } = useForm({
         resolver: yupResolver(loginSchema),
     });
@@ -65,17 +65,14 @@ const CandidateLoginForm = ({role, onGoogleNeedsPassword, onForgot}) => {
             );
 
             const roleRes = result?.user?.role;
-
             const okMsg = result?.message || "Login successful!";
 
             router.replace("/");
-
-            toast.success(okMsg, {
-                autoClose: 3000,
-            });
+            toast.success(okMsg, { autoClose: 3000 });
         } catch (err) {
             if (err?.status === 403 && err?.code === "ACCOUNT_BANNED") {
-                const contact = err?.extra?.contactEmail || "help.jobfind@gmail.com";
+                const contact =
+                    err?.extra?.contactEmail || "help.jobfind@gmail.com";
                 setBannedInfo({
                     email: payload.email,
                     contactEmail: contact,
@@ -83,7 +80,10 @@ const CandidateLoginForm = ({role, onGoogleNeedsPassword, onForgot}) => {
                 });
                 return;
             }
-            if (err?.status === 409 && (err?.code === "GOOGLE_ACCOUNT_NEEDS_PASSWORD")) {
+            if (
+                err?.status === 409 &&
+                err?.code === "GOOGLE_ACCOUNT_NEEDS_PASSWORD"
+            ) {
                 onGoogleNeedsPassword?.(err?.extra?.email || payload.email);
                 return;
             }
@@ -98,7 +98,7 @@ const CandidateLoginForm = ({role, onGoogleNeedsPassword, onForgot}) => {
     };
 
     if (isAuthLoading) {
-        return <LoadingScreen message="Logging in..."/>;
+        return <LoadingScreen message="Logging in..." />;
     }
 
     return (
@@ -109,12 +109,7 @@ const CandidateLoginForm = ({role, onGoogleNeedsPassword, onForgot}) => {
                     if (!open) setBannedInfo(null);
                 }}
             >
-                <DialogContent
-                    className="sm:max-w-md p-0 border-none bg-transparent shadow-none"
-                    // Nếu muốn **chặn** đóng khi click outside / ESC, dùng 2 handler dưới:
-                    // onInteractOutside={(e) => e.preventDefault()}
-                    // onEscapeKeyDown={(e) => e.preventDefault()}
-                >
+                <DialogContent className="sm:max-w-md p-0 border-none bg-transparent shadow-none">
                     <BannedPanel
                         email={bannedInfo?.email}
                         contactEmail={bannedInfo?.contactEmail}
@@ -124,35 +119,14 @@ const CandidateLoginForm = ({role, onGoogleNeedsPassword, onForgot}) => {
                 </DialogContent>
             </Dialog>
 
-            <div className="w-full">
-
-
-                {/* Social */}
-                <div className="space-y-3">
-                    <GoogleSignIn role={role ?? "CANDIDATE"} onBanned={(info) => {
-                        setBannedInfo({
-                            email: info.email || "",
-                            contactEmail: info.contactEmail,
-                            reason: info.reason || "",
-                        });
-                    }}/>
-                </div>
-
-                {/* Separator */}
-                <div className="relative my-6">
-                    <div className="absolute inset-0 flex items-center">
-                        <span className="w-full border-t border-blue-100"/>
-                    </div>
-                    <div className="relative flex justify-center">
-          <span className="px-3 text-xs font-medium tracking-wider text-blue-500 bg-white">
-            OR
-          </span>
-                    </div>
-                </div>
-
+            <div className="w-full space-y-6">
                 {/* Form Card */}
                 <div className="p-5 bg-white border border-blue-100 shadow-sm rounded-2xl">
-                    <form className="space-y-4" onSubmit={handleSubmit(onSubmit)} noValidate>
+                    <form
+                        className="space-y-4"
+                        onSubmit={handleSubmit(onSubmit)}
+                        noValidate
+                    >
                         {/* Email */}
                         <div>
                             <Label
@@ -162,8 +136,7 @@ const CandidateLoginForm = ({role, onGoogleNeedsPassword, onForgot}) => {
                                 Email
                             </Label>
                             <div className="relative mt-1">
-                                <Mail
-                                    className="absolute w-4 h-4 text-blue-300 -translate-y-1/2 pointer-events-none left-3 top-1/2"/>
+                                <Mail className="absolute w-4 h-4 text-blue-300 -translate-y-1/2 pointer-events-none left-3 top-1/2" />
                                 <Input
                                     id="email"
                                     type="email"
@@ -171,13 +144,15 @@ const CandidateLoginForm = ({role, onGoogleNeedsPassword, onForgot}) => {
                                     autoComplete="email"
                                     className={clsx(
                                         "pl-10",
-                                        "focus-visible:ring-blue-500 focus-visible:ring-2",
+                                        "focus-visible:ring-blue-500 focus-visible:ring-2"
                                     )}
                                     {...register("email")}
                                 />
                             </div>
                             {errors.email && (
-                                <p className="mt-1 text-sm text-red-500">{errors.email.message}</p>
+                                <p className="mt-1 text-sm text-red-500">
+                                    {errors.email.message}
+                                </p>
                             )}
                         </div>
 
@@ -190,8 +165,7 @@ const CandidateLoginForm = ({role, onGoogleNeedsPassword, onForgot}) => {
                                 Password
                             </Label>
                             <div className="relative mt-1">
-                                <Lock
-                                    className="absolute w-4 h-4 text-blue-300 -translate-y-1/2 pointer-events-none left-3 top-1/2"/>
+                                <Lock className="absolute w-4 h-4 text-blue-300 -translate-y-1/2 pointer-events-none left-3 top-1/2" />
                                 <Input
                                     id="password"
                                     type={showPassword ? "text" : "password"}
@@ -199,21 +173,31 @@ const CandidateLoginForm = ({role, onGoogleNeedsPassword, onForgot}) => {
                                     autoComplete="current-password"
                                     className={clsx(
                                         "pl-10 pr-10",
-                                        "focus-visible:ring-blue-500 focus-visible:ring-2",
+                                        "focus-visible:ring-blue-500 focus-visible:ring-2"
                                     )}
                                     {...register("password")}
                                 />
                                 <button
                                     type="button"
-                                    aria-label={showPassword ? "Hide password" : "Show password"}
+                                    aria-label={
+                                        showPassword
+                                            ? "Hide password"
+                                            : "Show password"
+                                    }
                                     onClick={() => setShowPassword((s) => !s)}
                                     className="absolute text-blue-400 transition -translate-y-1/2 right-3 top-1/2 hover:text-blue-600"
                                 >
-                                    {showPassword ? <EyeOff className="w-4 h-4"/> : <Eye className="w-4 h-4"/>}
+                                    {showPassword ? (
+                                        <EyeOff className="w-4 h-4" />
+                                    ) : (
+                                        <Eye className="w-4 h-4" />
+                                    )}
                                 </button>
                             </div>
                             {errors.password && (
-                                <p className="mt-1 text-sm text-red-500">{errors.password.message}</p>
+                                <p className="mt-1 text-sm text-red-500">
+                                    {errors.password.message}
+                                </p>
                             )}
                         </div>
 
@@ -223,12 +207,38 @@ const CandidateLoginForm = ({role, onGoogleNeedsPassword, onForgot}) => {
                             className={clsx(
                                 "w-full",
                                 "bg-blue-600 hover:bg-blue-700",
-                                "focus-visible:ring-2 focus-visible:ring-blue-500",
+                                "focus-visible:ring-2 focus-visible:ring-blue-500"
                             )}
                         >
                             {isSubmitting ? "Signing in..." : "Login"}
                         </Button>
                     </form>
+                </div>
+
+                {/* Separator */}
+                <div className="relative my-6">
+                    <div className="absolute inset-0 flex items-center">
+                        <span className="w-full border-t border-blue-100" />
+                    </div>
+                    <div className="relative flex justify-center">
+                        <span className="px-3 text-xs font-medium tracking-wider text-blue-500 bg-white">
+                            {t`Or`}
+                        </span>
+                    </div>
+                </div>
+
+                {/* Social  */}
+                <div className="space-y-3">
+                    <GoogleSignIn
+                        role={role ?? "CANDIDATE"}
+                        onBanned={(info) => {
+                            setBannedInfo({
+                                email: info.email || "",
+                                contactEmail: info.contactEmail,
+                                reason: info.reason || "",
+                            });
+                        }}
+                    />
                 </div>
             </div>
         </>

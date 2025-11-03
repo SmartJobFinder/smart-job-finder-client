@@ -178,7 +178,14 @@
       },
       "Address": {
         "msgid": "Address",
-        "msgstr": ["19 Nguyen Huu Tho, Tan Hung Ward, Ho Chi Minh City, Vietnam"]
+        "msgstr": [
+          "19 Nguyen Huu Tho, Tan Hung Ward, Ho Chi Minh City, Vietnam"
+        ]
+      },
+
+      "Or": {
+        "msgid": "Or",
+        "msgstr": ["OR"]
       },
 
       "Browse Jobs": { "msgid": "Browse Jobs", "msgstr": ["Browse Jobs"] },
