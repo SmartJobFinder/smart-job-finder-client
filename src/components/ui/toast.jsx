@@ -51,7 +51,7 @@ export default function ToastProvider() {
                 <div
                     key={toast.id}
                     className={`max-w-sm w-full border rounded-lg shadow-lg p-4 transition-all duration-300 ease-in-out ${getToastStyles(
-                        toast.variant,
+                        toast.variant
                     )}`}
                 >
                     <div className="flex items-start gap-3">

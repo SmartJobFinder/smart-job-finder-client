@@ -28,7 +28,6 @@ import NotificationBell from "@/components/ui/NotificationBell";
 import LanguageSelector from "@/components/ui/LanguageSelector";
 import { t } from "@/i18n/i18n";
 
-
 export const Header = () => {
     const dispatch = useDispatch();
     const [activeDropdown, setActiveDropdown] = useState(null);
@@ -110,12 +109,12 @@ export const Header = () => {
     };
 
     const navItems = [
-        { key: "home",       label: t`Home`,       href: "/" },
-        { key: "about",      label: t`About`,      href: "/#aboutUs" },
-        { key: "jobs",       label: t`Jobs`,       hasDropdown: true },
-        { key: "companies",  label: t`Companies`,  hasDropdown: true },
+        { key: "home", label: t`Home`, href: "/" },
+        { key: "about", label: t`About`, href: "/#aboutUs" },
+        { key: "jobs", label: t`Jobs`, hasDropdown: true },
+        { key: "companies", label: t`Companies`, hasDropdown: true },
         { key: "categories", label: t`Categories`, href: "/#categories" },
-        { key: "dashboard",  label: t`Dashboard`,  href: "/dashboard" },
+        { key: "dashboard", label: t`Dashboard`, href: "/dashboard" },
     ];
 
     // take 2 initials from user name if no avatar (align with HeaderBackup)
@@ -214,7 +213,7 @@ export const Header = () => {
                 {/* Right actions */}
                 <ul className="flex items-center space-x-2">
                     <li className="hidden lg:block">
-                         <LanguageSelector />
+                        <LanguageSelector />
                     </li>
                     {isLoggedIn && (
                         <>
@@ -365,7 +364,7 @@ export const Header = () => {
                                     }}
                                     className="block w-full py-3 font-semibold text-center text-red-600 border border-red-600 rounded"
                                 >
-                                   {t`Logout`}
+                                    {t`Logout`}
                                 </button>
                             )}
                         </div>

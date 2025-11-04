@@ -1,12 +1,16 @@
 "use client";
 
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import ReportModal from "@/components/ui/report";
-import { MessageSquareWarning } from "lucide-react";
+import { MessageSquareWarning, User2 } from "lucide-react";
 import { selectIsLoggedIn } from "@/features/auth/authSelectors";
 import { showLoginPrompt } from "@/features/auth/loginPromptSlice";
 import { useDispatch, useSelector } from "react-redux";
+import Image from "next/image";
+import { toast } from "react-toastify";
+import { batchGetCandidateProfiles } from "@/services/candidateService";
+
 export default function ApplicantsTable({
     data,
     loading,
@@ -18,13 +22,42 @@ export default function ApplicantsTable({
     onPageChange,
     pageSize = 10,
     onPageSizeChange,
-    companyId, 
+    companyId,
     onCreateInterviewClick,
 }) {
     const [openReport, setOpenReport] = useState(false);
     const [selectedUserId, setSelectedUserId] = useState(null);
     const isLoggedIn = useSelector(selectIsLoggedIn);
     const dispatch = useDispatch();
+
+    // Cache profiles để tránh fetch lại nhiều lần
+    const [profileCache, setProfileCache] = useState(new Map());
+
+    // Fetch profiles cho tất cả applicants
+    useEffect(() => {
+        const fetchProfiles = async () => {
+            if (!data?.content || data.content.length === 0) return;
+
+            // Lọc ra những userId chưa có trong cache
+            const userIds = data.content
+                .map((item) => item.userId)
+                .filter((id) => id && !profileCache.has(id));
+
+            if (userIds.length === 0) return;
+
+            try {
+                const profiles = await batchGetCandidateProfiles(userIds);
+                setProfileCache(
+                    (prevCache) => new Map([...prevCache, ...profiles])
+                );
+            } catch (error) {
+                console.error("Failed to fetch candidate profiles:", error);
+            }
+        };
+
+        fetchProfiles();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [data?.content]);
 
     const renderStatusPill = (status) => {
         const base = "px-2.5 py-1 rounded-full text-xs border ";
@@ -96,6 +129,7 @@ export default function ApplicantsTable({
         toast.success("Report submitted successfully");
         setOpenReport(false);
     };
+
     return (
         <div className="bg-white border rounded-xl">
             <div className="flex items-center justify-between px-4 py-3 border-b">
@@ -153,102 +187,129 @@ export default function ApplicantsTable({
                                 </td>
                             </tr>
                         ) : (
-                            (data?.content || []).map((item) => (
-                                <tr
-                                    key={item.id}
-                                    className="border-t hover:bg-gray-50"
-                                >
-                                    <td className="px-6 py-4 align-middle">
-                                        <input type="checkbox" />
-                                    </td>
-                                    <td className="px-6 py-4 align-middle">
-                                        <div className="flex items-center gap-3">
-                                            <img
-                                                src={`https://i.pravatar.cc/40?u=${item.userId}`}
-                                                className="w-8 h-8 rounded-full"
-                                                alt="avatar"
-                                            />
-                                            <div className="font-medium">
-                                                {item.candidateName ||
-                                                    item.email ||
-                                                    "Unknown"}
+                            (data?.content || []).map((item) => {
+                                const profile = profileCache.get(item.userId);
+                                const avatar = profile?.avatar;
+
+                                return (
+                                    <tr
+                                        key={item.id}
+                                        className="border-t hover:bg-gray-50"
+                                    >
+                                        <td className="px-6 py-4 align-middle">
+                                            <input type="checkbox" />
+                                        </td>
+                                        <td className="px-6 py-4 align-middle">
+                                            <div className="flex items-center gap-3">
+                                                <div className="relative w-8 h-8 rounded-full overflow-hidden bg-gray-100">
+                                                    {avatar ? (
+                                                        <Image
+                                                            src={avatar}
+                                                            alt={`${
+                                                                item.candidateName ||
+                                                                "Candidate"
+                                                            } avatar`}
+                                                            fill
+                                                            className="object-cover"
+                                                            unoptimized
+                                                        />
+                                                    ) : (
+                                                        <div className="flex items-center justify-center w-full h-full bg-gray-200">
+                                                            <User2
+                                                                size={16}
+                                                                className="text-gray-400"
+                                                            />
+                                                        </div>
+                                                    )}
+                                                </div>
+                                                <div className="font-medium">
+                                                    {profile?.fullName ||
+                                                        item.candidateName ||
+                                                        item.email ||
+                                                        "Unknown"}
+                                                </div>
                                             </div>
-                                        </div>
-                                    </td>
-                                    <td className="px-6 py-4 align-middle">
-                                        {renderStatusPill(item.status)}
-                                    </td>
-                                    <td className="px-6 py-4 align-middle whitespace-nowrap">
-                                        {new Date(
-                                            item.createdAt
-                                        ).toLocaleDateString()}
-                                    </td>
-                                    <td className="px-6 py-4 align-middle">
-                                        {jobNameMap?.[item.jobId] ?? "—"}
-                                    </td>
-                                    <td className="px-6 py-4 align-middle">
-                                        <div className="flex items-center gap-2">
-                                            <Button
-                                                variant="outline"
-                                                size="sm"
-                                                onClick={() =>
-                                                    onSeeApplication?.(item)
-                                                }
-                                            >
-                                                See Application
-                                            </Button>
-                                            <Button
-                                                variant="secondary"
-                                                size="sm"
-                                                onClick={() =>
-                                                    onDetails?.(item)
-                                                }
-                                            >
-                                                Details
-                                            </Button>
-                                            <Button
-                                                variant="default"
-                                                size="sm"
-                                                onClick={() =>
-                                                    onCreateInterviewClick?.({
-                                                        companyId,
-                                                        jobId: item.jobId,
-                                                        // gửi sẵn text hiển thị để tránh chờ fetch map
-                                                        jobTitle:
-                                                            jobNameMap?.[
-                                                                item.jobId
-                                                            ] ||
-                                                            item.jobTitle ||
-                                                            `Job #${item.jobId}`,
-                                                        // lưu ý: dùng đúng candidateId của item (đừng lẫn userId nếu API có field riêng)
-                                                        candidateId:
-                                                            item.candidateId ??
-                                                            item.userId,
-                                                        candidateName:
-                                                            item.candidateName ||
-                                                            item.fullName ||
-                                                            item.email ||
-                                                            "Unknown",
-                                                        candidateEmail:
-                                                            item.email,
-                                                    })
-                                                }
-                                            >
-                                                Create Interview
-                                            </Button>
-                                            <button
-                                                onClick={() =>
-                                                    handleReport(item.userId)
-                                                }
-                                                className="p-2 text-red-600 transition bg-white border rounded hover:bg-red-50"
-                                                title="Report Company"
-                                            >
-                                                <MessageSquareWarning className="w-5 h-5" />
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                            ))
+                                        </td>
+                                        <td className="px-6 py-4 align-middle">
+                                            {renderStatusPill(item.status)}
+                                        </td>
+                                        <td className="px-6 py-4 align-middle whitespace-nowrap">
+                                            {new Date(
+                                                item.createdAt
+                                            ).toLocaleDateString()}
+                                        </td>
+                                        <td className="px-6 py-4 align-middle">
+                                            {jobNameMap?.[item.jobId] ?? "—"}
+                                        </td>
+                                        <td className="px-6 py-4 align-middle">
+                                            <div className="flex items-center gap-2">
+                                                <Button
+                                                    variant="outline"
+                                                    size="sm"
+                                                    onClick={() =>
+                                                        onSeeApplication?.(item)
+                                                    }
+                                                >
+                                                    See Application
+                                                </Button>
+                                                <Button
+                                                    variant="secondary"
+                                                    size="sm"
+                                                    onClick={() =>
+                                                        onDetails?.(item)
+                                                    }
+                                                >
+                                                    Details
+                                                </Button>
+                                                <Button
+                                                    variant="default"
+                                                    size="sm"
+                                                    onClick={() =>
+                                                        onCreateInterviewClick?.(
+                                                            {
+                                                                companyId,
+                                                                jobId: item.jobId,
+                                                                jobTitle:
+                                                                    jobNameMap?.[
+                                                                        item
+                                                                            .jobId
+                                                                    ] ||
+                                                                    item.jobTitle ||
+                                                                    `Job #${item.jobId}`,
+                                                                candidateId:
+                                                                    item.candidateId ??
+                                                                    item.userId,
+                                                                candidateName:
+                                                                    profile?.fullName ||
+                                                                    item.candidateName ||
+                                                                    item.fullName ||
+                                                                    item.email ||
+                                                                    "Unknown",
+                                                                candidateEmail:
+                                                                    profile?.email ||
+                                                                    item.email,
+                                                            }
+                                                        )
+                                                    }
+                                                >
+                                                    Create Interview
+                                                </Button>
+                                                <button
+                                                    onClick={() =>
+                                                        handleReport(
+                                                            item.userId
+                                                        )
+                                                    }
+                                                    className="p-2 text-red-600 transition bg-white border rounded hover:bg-red-50"
+                                                    title="Report Company"
+                                                >
+                                                    <MessageSquareWarning className="w-5 h-5" />
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                );
+                            })
                         )}
                         {!loading && (data?.content?.length ?? 0) === 0 && (
                             <tr>

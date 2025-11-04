@@ -1,33 +1,41 @@
 "use client";
-import React, {useEffect, useRef, useState} from "react";
-import {Dialog} from "@headlessui/react";
-import {Download, Eye, FileText, X} from "lucide-react";
-import {Button} from "@/components/ui/button";
-import {useForm} from "react-hook-form";
-import {yupResolver} from "@hookform/resolvers/yup";
-import {toast} from "react-toastify";
+import React, { useEffect, useRef, useState } from "react";
+import { Dialog } from "@headlessui/react";
+import { Download, Eye, FileText, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { toast } from "react-toastify";
 import applicationSchema from "@/validation/applicationSchema";
 import {
     useCreateApplicationMutation,
     useGetApplicationDetailByJobQuery,
     useReapplyApplicationMutation,
 } from "@/services/applicationService";
-import {t} from "@/i18n/i18n";
+import { t } from "@/i18n/i18n";
+import { useSelector } from "react-redux";
+import { useGetCombinedProfileQuery } from "@/services/profileService";
 
 const ApplicationModal = ({
-                              onClose,
-                              jobTitle = "",
-                              jobId,
-                              isReapply = false,
-                          }) => {
+    onClose,
+    jobTitle = "",
+    jobId,
+    isReapply = false,
+}) => {
     const fileInputRef = useRef(null);
     const [keepCurrentCV, setKeepCurrentCV] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false);
 
+    // Get user info from Redux store
+    const user = useSelector((state) => state.auth.user);
+
+    // Get combined profile for phone number
+    const { data: combinedProfile } = useGetCombinedProfileQuery();
+
     const [createApplication] = useCreateApplicationMutation();
     const [reapplyApplication] = useReapplyApplicationMutation();
-    const {data: applicationDetail, isLoading: isLoadingDetail} =
-        useGetApplicationDetailByJobQuery(jobId, {skip: !isReapply});
+    const { data: applicationDetail, isLoading: isLoadingDetail } =
+        useGetApplicationDetailByJobQuery(jobId, { skip: !isReapply });
 
     const {
         register,
@@ -35,7 +43,7 @@ const ApplicationModal = ({
         setValue,
         watch,
         reset,
-        formState: {errors, isDirty},
+        formState: { errors, isDirty },
     } = useForm({
         resolver: yupResolver(applicationSchema),
         defaultValues: {
@@ -45,20 +53,31 @@ const ApplicationModal = ({
             cvFile: null,
             coverLetter: "",
         },
-        context: {isReapply, keepCurrentCV},
+        context: { isReapply, keepCurrentCV },
     });
 
     const selectedFile = watch("cvFile");
 
+    // Auto-fill user information
     useEffect(() => {
         if (isReapply && applicationDetail) {
+            // If re-applying, use previous application data
             setValue("fullName", applicationDetail.candidateName || "");
             setValue("email", applicationDetail.email || "");
             setValue("phoneNumber", applicationDetail.phoneNumber || "");
             setValue("coverLetter", applicationDetail.description || "");
             setKeepCurrentCV(true);
+        } else {
+            // For new application, use current user data
+            if (user) {
+                setValue("fullName", user.fullName || "");
+                setValue("email", user.email || "");
+            }
+            if (combinedProfile?.personalDetail?.phone) {
+                setValue("phoneNumber", combinedProfile.personalDetail.phone);
+            }
         }
-    }, [isReapply, applicationDetail, setValue]);
+    }, [isReapply, applicationDetail, user, combinedProfile, setValue]);
 
     const handleCVSelection = (keepCurrent = false, file = null) => {
         setKeepCurrentCV(keepCurrent);
@@ -125,7 +144,7 @@ const ApplicationModal = ({
         try {
             const mutation = isReapply ? reapplyApplication : createApplication;
             const result = await mutation(
-                isReapply ? {jobId, formData} : formData
+                isReapply ? { jobId, formData } : formData
             ).unwrap();
             toast.success(
                 isReapply
@@ -155,7 +174,7 @@ const ApplicationModal = ({
     if (isReapply && isLoadingDetail) {
         return (
             <Dialog open={true} onClose={onClose} className="relative z-50">
-                <div className="fixed inset-0 bg-black/30" aria-hidden="true"/>
+                <div className="fixed inset-0 bg-black/30" aria-hidden="true" />
                 <div className="fixed inset-0 flex items-center justify-center p-4">
                     <Dialog.Panel className="w-full max-w-lg p-6 bg-white shadow-xl rounded-xl">
                         <p className="text-center">
@@ -169,10 +188,9 @@ const ApplicationModal = ({
 
     return (
         <Dialog open={true} onClose={onClose} className="relative z-50">
-            <div className="fixed inset-0 bg-black/30" aria-hidden="true"/>
+            <div className="fixed inset-0 bg-black/30" aria-hidden="true" />
             <div className="fixed inset-0 flex items-center justify-center p-4">
-                <Dialog.Panel
-                    className="w-full max-w-lg rounded-xl bg-white p-6 shadow-xl space-y-5 max-h-[90vh] overflow-y-auto scrollbar-hide">
+                <Dialog.Panel className="w-full max-w-lg rounded-xl bg-white p-6 shadow-xl space-y-5 max-h-[90vh] overflow-y-auto scrollbar-hide">
                     <div className="flex items-start justify-between">
                         <div>
                             <Dialog.Title className="mb-1 text-lg font-semibold text-blue-600">
@@ -180,9 +198,14 @@ const ApplicationModal = ({
                                     ? `Re-apply for ${jobTitle}`
                                     : `Apply for ${jobTitle}`}
                             </Dialog.Title>
-                            {isReapply && (
+                            {isReapply ? (
                                 <p className="text-sm text-gray-600">
                                     {t`Your previous information has been filled in. You can edit if needed.`}
+                                </p>
+                            ) : (
+                                <p className="text-sm text-gray-600">
+                                    Your information has been pre-filled. Please
+                                    review and edit if needed.
                                 </p>
                             )}
                         </div>
@@ -190,7 +213,7 @@ const ApplicationModal = ({
                             onClick={onClose}
                             className="text-gray-400 hover:text-gray-600"
                         >
-                            <X className="w-5 h-5"/>
+                            <X className="w-5 h-5" />
                         </button>
                     </div>
                     <form onSubmit={handleSubmit(onSubmit)}>
@@ -203,7 +226,7 @@ const ApplicationModal = ({
                                 {isReapply && applicationDetail?.cv && (
                                     <div className="p-3 mb-3 rounded-lg bg-gray-50">
                                         <div className="flex items-center gap-2 mb-2">
-                                            <FileText className="w-4 h-4 text-blue-600"/>
+                                            <FileText className="w-4 h-4 text-blue-600" />
                                             <span className="flex-1 text-sm text-gray-700">
                                                 {t`Previously Submitted CV`}
                                             </span>
@@ -214,7 +237,7 @@ const ApplicationModal = ({
                                                     handleCVAction("view")
                                                 }
                                             >
-                                                <Eye className="w-3 h-3 mr-1"/>{" "}
+                                                <Eye className="w-3 h-3 mr-1" />{" "}
                                                 {t`View`}
                                             </Button>
                                             {applicationDetail.cvDownload && (
@@ -227,7 +250,7 @@ const ApplicationModal = ({
                                                         )
                                                     }
                                                 >
-                                                    <Download className="w-3 h-3 mr-1"/>{" "}
+                                                    <Download className="w-3 h-3 mr-1" />{" "}
                                                     {t`Download`}
                                                 </Button>
                                             )}
@@ -308,7 +331,7 @@ const ApplicationModal = ({
                                     <input
                                         {...register("fullName")}
                                         type="text"
-                                        className="w-full p-2 text-sm border rounded-md"
+                                        className="w-full p-2 text-sm border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
                                         placeholder="Enter your full name"
                                         disabled={isSubmitting}
                                     />
@@ -325,7 +348,7 @@ const ApplicationModal = ({
                                     <input
                                         {...register("email")}
                                         type="email"
-                                        className="w-full p-2 text-sm border rounded-md"
+                                        className="w-full p-2 text-sm border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
                                         placeholder="Enter your email"
                                         disabled={isSubmitting}
                                     />
@@ -342,7 +365,7 @@ const ApplicationModal = ({
                                     <input
                                         {...register("phoneNumber")}
                                         type="tel"
-                                        className="w-full p-2 text-sm border rounded-md"
+                                        className="w-full p-2 text-sm border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
                                         placeholder="Enter your phone number"
                                         disabled={isSubmitting}
                                     />
@@ -396,8 +419,8 @@ const ApplicationModal = ({
                                         ? t`Re-applying` + "..."
                                         : t`Submitting` + "..."
                                     : isReapply
-                                        ? t`Re-apply`
-                                        : t`Apply`}
+                                    ? t`Re-apply`
+                                    : t`Apply`}
                             </Button>
                         </div>
                     </form>

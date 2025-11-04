@@ -1,9 +1,9 @@
 "use client";
 
-import {useEffect, useRef, useState} from "react";
-import {Card, CardContent} from "@/components/ui/card";
-import {Calendar, MapPin, Users} from "lucide-react";
-import {t} from "@/i18n/i18n";
+import { useEffect, useRef, useState } from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Calendar, MapPin, Users } from "lucide-react";
+import { t } from "@/i18n/i18n";
 
 const COMPANY = {
     name: "Like Lion",
@@ -29,26 +29,23 @@ function cloudinaryPosterFromVideo(url) {
     }
 }
 
-
 export default function EventsSection() {
     const events = [
         {
             id: 1,
             title: t`Recap Korean Insight Trip 2025` + " ✈️🌏",
-            description:
-                t`A special journey bringing K-Tech College 2025 candidates closer to Korean enterprises and global work culture. Memorable experiences and clearer views of a global career path.`,
+            description: t`A special journey bringing K-Tech College 2025 candidates closer to Korean enterprises and global work culture. Memorable experiences and clearer views of a global career path.`,
             date: t`August` + " 2025",
             location: t`Korea`,
             attendees: "100+",
             videoSrc:
                 "https://res.cloudinary.com/dvgp7ezzc/video/upload/v1758794035/FSave.com_Facebook_Media_002_1289109009583421v_rn1t9y.mp4",
-            highlight: t`Event Highlight`
+            highlight: t`Event Highlight`,
         },
         {
             id: 2,
             title: t`Mentoring Day — What Korean Mentors Think`,
-            description:
-                t`Honest sharing from mentors about working with Vietnamese candidates and what stands out in the eyes of employers. Don’t miss K-Tech Fest 2025 for more 1:1 mentor sessions!`,
+            description: t`Honest sharing from mentors about working with Vietnamese candidates and what stands out in the eyes of employers. Don’t miss K-Tech Fest 2025 for more 1:1 mentor sessions!`,
             date: t`July` + " 2025",
             location: t`Ho Chi Minh City`,
             attendees: "300+",
@@ -59,8 +56,7 @@ export default function EventsSection() {
         {
             id: 3,
             title: t`Recap Offline Interview` + "💫",
-            description:
-                t`Korean tech companies praised the potential of Vietnamese candidates and the role of K-Tech College in global talent matching. Hear their reflections from the on-site interviews.`,
+            description: t`Korean tech companies praised the potential of Vietnamese candidates and the role of K-Tech College in global talent matching. Hear their reflections from the on-site interviews.`,
             date: t`June` + " 2025",
             location: t`Ho Chi Minh City`,
             attendees: "200+",
@@ -71,8 +67,7 @@ export default function EventsSection() {
         {
             id: 4,
             title: t`Customer Success Stories`,
-            description:
-                t`Direct stories from clients about their transformation journeys and results achieved with our programs and partners.`,
+            description: t`Direct stories from clients about their transformation journeys and results achieved with our programs and partners.`,
             date: t`May` + " 2025",
             location: t`Virtual Event`,
             attendees: "1000+",
@@ -92,9 +87,9 @@ export default function EventsSection() {
                     const id = Number(e.target.getAttribute("data-id"));
                     next[id] = e.isIntersecting;
                 }
-                setInView((prev) => ({...prev, ...next}));
+                setInView((prev) => ({ ...prev, ...next }));
             },
-            {rootMargin: "200px"}
+            { rootMargin: "200px" }
         );
         Object.values(cardsRef.current).forEach((el) => el && io.observe(el));
         return () => io.disconnect();
@@ -102,8 +97,7 @@ export default function EventsSection() {
 
     const handleEnter = (id) => {
         const v = cardsRef.current[id]?.querySelector("video");
-        if (v) v.play().catch(() => {
-        });
+        if (v) v.play().catch(() => {});
     };
 
     const handleLeave = (id) => {
@@ -174,8 +168,7 @@ export default function EventsSection() {
                                             </div>
                                         </div>
 
-                                        <div
-                                            className="px-3 py-1 text-sm font-medium text-white bg-blue-700 rounded-full whitespace-nowrap">
+                                        <div className="px-3 py-1 text-sm font-medium text-white bg-blue-700 rounded-full whitespace-nowrap">
                                             {event.highlight ||
                                                 "Event Highlight"}
                                         </div>
@@ -187,15 +180,15 @@ export default function EventsSection() {
 
                                     <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
                                         <div className="flex items-center gap-1">
-                                            <Calendar className="w-4 h-4"/>
+                                            <Calendar className="w-4 h-4" />
                                             {event.date}
                                         </div>
                                         <div className="flex items-center gap-1">
-                                            <MapPin className="w-4 h-4"/>
+                                            <MapPin className="w-4 h-4" />
                                             {event.location}
                                         </div>
                                         <div className="flex items-center gap-1">
-                                            <Users className="w-4 h-4"/>
+                                            <Users className="w-4 h-4" />
                                             {event.attendees} attendees
                                         </div>
                                     </div>

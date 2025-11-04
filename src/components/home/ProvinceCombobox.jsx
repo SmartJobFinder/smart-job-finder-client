@@ -43,7 +43,7 @@ const ProvinceCombobox = () => {
             return provinces.filter((p) => featuredCities.includes(p.name));
         }
         return provinces.filter((p) =>
-            p.name.toLowerCase().includes(searchTerm.toLowerCase()),
+            p.name.toLowerCase().includes(searchTerm.toLowerCase())
         );
     }, [searchTerm, provinces]);
 
@@ -82,7 +82,7 @@ const ProvinceCombobox = () => {
                                         "mr-2 h-4 w-4",
                                         selected === province.name
                                             ? "opacity-100"
-                                            : "opacity-0",
+                                            : "opacity-0"
                                     )}
                                 />
                                 {province.name}
