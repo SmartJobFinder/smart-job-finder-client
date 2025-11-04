@@ -1,12 +1,12 @@
 "use client";
 
-import React, {useEffect, useState} from "react";
-import {useDispatch} from "react-redux";
-import {Button} from "@/components/ui/button";
-import {Input} from "@/components/ui/input";
-import {Label} from "@/components/ui/label";
-import {sendSetPasswordLinkThunk} from "@/features/auth/authSlice";
-import {Clock, Loader2, Mail, RefreshCw} from "lucide-react";
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { sendSetPasswordLinkThunk } from "@/features/auth/authSlice";
+import { Clock, Loader2, Mail, RefreshCw } from "lucide-react";
 
 const formatMMSS = (sec) => {
     const s = Math.max(0, Math.floor(sec));
@@ -19,9 +19,9 @@ const isValidEmail = (v) =>
     !!v && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(v).trim());
 
 export default function ResendSetPwLink({
-                                            email: defaultEmail = "",
-                                            fallbackCooldownSec = 120,
-                                        }) {
+    email: defaultEmail = "",
+    fallbackCooldownSec = 120,
+}) {
     const dispatch = useDispatch();
 
     const [email, setEmail] = useState(defaultEmail);
@@ -39,14 +39,16 @@ export default function ResendSetPwLink({
             const elapsed = Math.floor((Date.now() - last) / 1000);
             const remain = Math.max(0, fallbackCooldownSec - elapsed);
             if (remain > 0) setCooldown(remain);
-        } catch {
-        }
+        } catch {}
     }, [email, fallbackCooldownSec]);
 
     // Tick đếm ngược
     useEffect(() => {
         if (cooldown <= 0) return;
-        const id = setInterval(() => setCooldown((s) => Math.max(0, s - 1)), 1000);
+        const id = setInterval(
+            () => setCooldown((s) => Math.max(0, s - 1)),
+            1000
+        );
         return () => clearInterval(id);
     }, [cooldown]);
 
@@ -57,22 +59,30 @@ export default function ResendSetPwLink({
         setSending(true);
         setNote("");
         try {
-            const res = await dispatch(sendSetPasswordLinkThunk(email)).unwrap();
+            const res = await dispatch(
+                sendSetPasswordLinkThunk(email)
+            ).unwrap();
             const nextCd =
-                Number(res?.cooldownSec) > 0 ? Number(res.cooldownSec) : fallbackCooldownSec;
+                Number(res?.cooldownSec) > 0
+                    ? Number(res.cooldownSec)
+                    : fallbackCooldownSec;
 
             try {
-                localStorage.setItem(`setPwResendAt:${email}`, String(Date.now()));
-            } catch {
-            }
+                localStorage.setItem(
+                    `setPwResendAt:${email}`,
+                    String(Date.now())
+                );
+            } catch {}
 
             setNote(
                 res?.message ||
-                "If the email is valid, a new set-password link has been sent.",
+                    "If the email is valid, a new set-password link has been sent."
             );
             setCooldown(nextCd);
         } catch (err) {
-            setNote(err?.message || "Failed to send the request. Please try again.");
+            setNote(
+                err?.message || "Failed to send the request. Please try again."
+            );
         } finally {
             setSending(false);
         }
@@ -82,13 +92,15 @@ export default function ResendSetPwLink({
         <div className="space-y-3">
             {/* Email input (luôn hiện, prefill nếu có) */}
             <div>
-                <Label htmlFor="resend-setpw-email" className="text-blue-900/80 font-medium">
+                <Label
+                    htmlFor="resend-setpw-email"
+                    className="text-blue-900/80 font-medium"
+                >
                     Email
                 </Label>
                 <div className="mt-1 flex items-center gap-2">
                     <div className="relative flex-1">
-                        <Mail
-                            className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-blue-300"/>
+                        <Mail className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-blue-300" />
                         <Input
                             id="resend-setpw-email"
                             type="email"
@@ -108,23 +120,22 @@ export default function ResendSetPwLink({
                     >
                         {sending ? (
                             <>
-                                <Loader2 className="mr-2 h-4 w-4 animate-spin"/>
+                                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                                 Sending…
                             </>
                         ) : cooldown > 0 ? (
                             <>
-                                <Clock className="mr-2 h-4 w-4"/>
+                                <Clock className="mr-2 h-4 w-4" />
                                 {formatMMSS(cooldown)}
                             </>
                         ) : (
                             <>
-                                <RefreshCw className="mr-2 h-4 w-4"/>
+                                <RefreshCw className="mr-2 h-4 w-4" />
                                 Resend link
                             </>
                         )}
                     </Button>
                 </div>
-
             </div>
 
             {note && <p className="text-sm text-gray-600">{note}</p>}

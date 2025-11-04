@@ -1,12 +1,12 @@
 "use client";
 
-import React, {useEffect, useState} from "react";
-import {useDispatch} from "react-redux";
-import {resendActivationThunk} from "@/features/auth/authSlice";
-import {Button} from "@/components/ui/button";
-import {Input} from "@/components/ui/input";
-import {Label} from "@/components/ui/label";
-import {Clock, Loader2, Mail, RefreshCw} from "lucide-react";
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { resendActivationThunk } from "@/features/auth/authSlice";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Clock, Loader2, Mail, RefreshCw } from "lucide-react";
 
 const formatMMSS = (sec) => {
     const s = Math.max(0, Math.floor(sec));
@@ -16,9 +16,9 @@ const formatMMSS = (sec) => {
 };
 
 export default function ResendActivationForm({
-                                                 fallbackCooldownSec = 120,
-                                                 ttlSec = 300,
-                                             }) {
+    fallbackCooldownSec = 120,
+    ttlSec = 300,
+}) {
     const dispatch = useDispatch();
     const [email, setEmail] = useState("");
     const [sending, setSending] = useState(false);
@@ -28,7 +28,10 @@ export default function ResendActivationForm({
     // countdown tick
     useEffect(() => {
         if (cooldown <= 0) return;
-        const id = setInterval(() => setCooldown((s) => Math.max(0, s - 1)), 1000);
+        const id = setInterval(
+            () => setCooldown((s) => Math.max(0, s - 1)),
+            1000
+        );
         return () => clearInterval(id);
     }, [cooldown]);
 
@@ -41,15 +44,19 @@ export default function ResendActivationForm({
         try {
             const res = await dispatch(resendActivationThunk(email)).unwrap();
             const nextCd =
-                Number(res?.cooldownSec) > 0 ? Number(res.cooldownSec) : fallbackCooldownSec;
+                Number(res?.cooldownSec) > 0
+                    ? Number(res.cooldownSec)
+                    : fallbackCooldownSec;
 
             setNote(
                 res?.message ||
-                "If the email is valid and the account is not activated, a new activation link has been sent.",
+                    "If the email is valid and the account is not activated, a new activation link has been sent."
             );
             setCooldown(nextCd);
         } catch (err) {
-            setNote(err?.message || "Failed to send the request. Please try again.");
+            setNote(
+                err?.message || "Failed to send the request. Please try again."
+            );
         } finally {
             setSending(false);
         }
@@ -58,7 +65,10 @@ export default function ResendActivationForm({
     return (
         <form onSubmit={onSubmit} className="space-y-3">
             <div>
-                <Label htmlFor="resend-email" className="text-blue-900/80 font-medium">
+                <Label
+                    htmlFor="resend-email"
+                    className="text-blue-900/80 font-medium"
+                >
                     Email
                 </Label>
                 <Input
@@ -81,23 +91,22 @@ export default function ResendActivationForm({
                 >
                     {sending ? (
                         <>
-                            <Loader2 className="mr-2 h-4 w-4 animate-spin"/>
+                            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                             Sending…
                         </>
                     ) : cooldown > 0 ? (
                         <>
-                            <Clock className="mr-2 h-4 w-4"/>
+                            <Clock className="mr-2 h-4 w-4" />
                             Resend in {formatMMSS(cooldown)}
                         </>
                     ) : (
                         <>
-                            <RefreshCw className="mr-2 h-4 w-4"/>
+                            <RefreshCw className="mr-2 h-4 w-4" />
                             Resend Activation Link
                         </>
                     )}
                 </Button>
             </div>
-
 
             <div className="text-center">
                 <a
@@ -106,7 +115,7 @@ export default function ResendActivationForm({
                     rel="noreferrer"
                     className="inline-flex items-center gap-2 text-sm text-blue-600 hover:text-blue-700 hover:underline underline-offset-2"
                 >
-                    <Mail className="h-4 w-4"/>
+                    <Mail className="h-4 w-4" />
                     Open Gmail
                 </a>
             </div>

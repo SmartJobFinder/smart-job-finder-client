@@ -43,8 +43,7 @@ export default function LanguageSelector({ isRecruiter = false }) {
 
     const btnBase =
         "flex items-center gap-2 px-3 py-2 text-sm rounded-md transition-all disabled:opacity-50 active:scale-95";
-    const btnRecruiter =
-        "w-full bg-white text-gray-700 px-0 hover:bg-gray-50";
+    const btnRecruiter = "w-full bg-white text-gray-700 px-0 hover:bg-gray-50";
     const btnDefault =
         "text-white bg-blue-500 border border-blue-300 hover:bg-blue-600";
 
@@ -66,9 +65,7 @@ export default function LanguageSelector({ isRecruiter = false }) {
             >
                 <div className="flex items-center min-w-0 gap-2">
                     <span className={`fi ${current.flag} w-5 h-5 rounded-sm`} />
-                    <span className="truncate sm:inline">
-                        {current.name}
-                    </span>
+                    <span className="truncate sm:inline">{current.name}</span>
                 </div>
 
                 <svg

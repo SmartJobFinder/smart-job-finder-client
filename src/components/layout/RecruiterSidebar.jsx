@@ -1,11 +1,11 @@
 "use client";
 
-import {useState} from "react";
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import {usePathname, useRouter} from "next/navigation";
-import {Button} from "@/components/ui/button";
-import {Badge} from "@/components/ui/badge";
+import { usePathname, useRouter } from "next/navigation";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import logo from "@/assets/images/logo-title.png";
 import {
     BarChart3,
@@ -36,7 +36,7 @@ export default function RecruiterSidebar() {
     const [expandedSections, setExpandedSections] = useState({});
 
     const navItems = [
-        {href: "/recruiter/dashboard", label: "Dashboard", icon: BarChart3},
+        { href: "/recruiter/dashboard", label: "Dashboard", icon: BarChart3 },
         {
             label: t`Manage Jobs`,
             icon: Briefcase,
@@ -100,9 +100,9 @@ export default function RecruiterSidebar() {
             label: t`Upgrade Vip`,
             icon: Crown,
         },
-        {href: "/recruiter/profile", label: t`Profile`, icon: User},
-        {href: "/recruiter/company", label: "Company", icon: Building},
-        {href: "/recruiter/settings", label: t`Settings`, icon: Settings},
+        { href: "/recruiter/profile", label: t`Profile`, icon: User },
+        { href: "/recruiter/company", label: "Company", icon: Building },
+        { href: "/recruiter/settings", label: t`Settings`, icon: Settings },
     ];
 
     const handleLogout = async () => {
@@ -140,9 +140,8 @@ export default function RecruiterSidebar() {
 
             <div className="p-4">
                 <Link href="/recruiter/create-job">
-                    <Button
-                        className="flex items-center w-full gap-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700">
-                        <Plus className="w-4 h-4"/>
+                    <Button className="flex items-center w-full gap-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700">
+                        <Plus className="w-4 h-4" />
                         <span>{t`Post a Job`}</span>
                     </Button>
                 </Link>

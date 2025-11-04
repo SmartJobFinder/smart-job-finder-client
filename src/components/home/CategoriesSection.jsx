@@ -1,9 +1,19 @@
 "use client";
 
 import React from "react";
-import {ArrowRight, Calculator, Code, Database, Heart, Megaphone, Music, Palette, Video,} from "lucide-react";
+import {
+    ArrowRight,
+    Calculator,
+    Code,
+    Database,
+    Heart,
+    Megaphone,
+    Music,
+    Palette,
+    Video,
+} from "lucide-react";
 import Link from "next/link";
-import {t} from "@/i18n/i18n";
+import { t } from "@/i18n/i18n";
 
 const CategoriesSection = () => {
     const categories = [
@@ -77,7 +87,7 @@ const CategoriesSection = () => {
                         className="flex items-center text-sm font-medium text-blue-600 hover:text-blue-700 sm:text-base"
                     >
                         {t`View All`}{" "}
-                        <ArrowRight className="w-3 h-3 ml-2 sm:w-4 sm:h-4"/>
+                        <ArrowRight className="w-3 h-3 ml-2 sm:w-4 sm:h-4" />
                     </Link>
                 </div>
 

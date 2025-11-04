@@ -20,6 +20,9 @@ import {
 } from "lucide-react";
 import { useUpdateApplicationStatusMutation } from "@/services/applicationService";
 import { toast } from "react-toastify";
+import Image from "next/image";
+import api from "@/lib/api";
+import { getCandidateProfileByUserId } from "@/services/candidateService";
 
 export default function ApplicationDetailModal({
     open,
@@ -27,13 +30,10 @@ export default function ApplicationDetailModal({
     application,
     jobName,
 }) {
-    const avatarSrc = useMemo(
-        () =>
-            application
-                ? `https://i.pravatar.cc/80?u=${application.userId}`
-                : "",
-        [application]
-    );
+    const [candidateProfile, setCandidateProfile] = useState(null);
+    const [loadingProfile, setLoadingProfile] = useState(false);
+    const [imageError, setImageError] = useState(false);
+
     const appliedAt = useMemo(
         () =>
             application ? new Date(application.createdAt).toLocaleString() : "",
@@ -45,6 +45,30 @@ export default function ApplicationDetailModal({
     const [confirmOpen, setConfirmOpen] = useState(false);
     const [updateStatus, { isLoading: updating }] =
         useUpdateApplicationStatusMutation();
+
+    // Fetch candidate profile khi có userId
+    useEffect(() => {
+        const fetchCandidateProfile = async () => {
+            if (!application?.userId) return;
+
+            setLoadingProfile(true);
+            setImageError(false);
+
+            try {
+                const profile = await getCandidateProfileByUserId(
+                    application.userId
+                );
+                setCandidateProfile(profile);
+            } catch (error) {
+                console.error("Failed to fetch candidate profile:", error);
+                setImageError(true);
+            } finally {
+                setLoadingProfile(false);
+            }
+        };
+
+        fetchCandidateProfile();
+    }, [application?.userId]);
 
     useEffect(() => {
         const s = application?.status || "APPLIED";
@@ -68,7 +92,19 @@ export default function ApplicationDetailModal({
         }
     };
 
+    const handleImageError = () => {
+        setImageError(true);
+    };
+
     if (!application) return null;
+
+    // Lấy avatar từ profile hoặc fallback
+    const displayAvatar = candidateProfile?.avatar;
+    const displayName =
+        candidateProfile?.fullName ||
+        application.candidateName ||
+        application.email ||
+        "Candidate";
 
     return (
         <Dialog open={open} onOpenChange={onOpenChange}>
@@ -80,17 +116,33 @@ export default function ApplicationDetailModal({
                 {/* Header modern */}
                 <div className="bg-gradient-to-r from-blue-600 to-blue-700 px-6 py-5 text-white">
                     <div className="flex items-center gap-4">
-                        <img
-                            src={avatarSrc}
-                            alt="avatar"
-                            className="w-14 h-14 rounded-full ring-2 ring-white/30"
-                        />
+                        <div className="relative w-14 h-14 rounded-full ring-2 ring-white/30 overflow-hidden bg-white/10">
+                            {loadingProfile ? (
+                                <div className="flex items-center justify-center w-full h-full">
+                                    <div className="w-6 h-6 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                                </div>
+                            ) : !imageError && displayAvatar ? (
+                                <Image
+                                    src={displayAvatar}
+                                    alt={`${displayName} avatar`}
+                                    fill
+                                    className="object-cover"
+                                    onError={handleImageError}
+                                    unoptimized
+                                />
+                            ) : (
+                                <div className="flex items-center justify-center w-full h-full bg-white/20">
+                                    <User2
+                                        size={24}
+                                        className="text-white/60"
+                                    />
+                                </div>
+                            )}
+                        </div>
                         <div className="flex-1 min-w-0">
                             <div className="flex items-center gap-3 flex-wrap">
                                 <h3 className="text-xl font-semibold truncate">
-                                    {application.candidateName ||
-                                        application.email ||
-                                        "Candidate"}
+                                    {displayName}
                                 </h3>
                                 <span className="px-2.5 py-1 rounded-full text-xs bg-white/15 border border-white/25">
                                     {currentStatus}
@@ -117,9 +169,7 @@ export default function ApplicationDetailModal({
                                     Full Name
                                 </span>
                             </div>
-                            <div className="font-medium">
-                                {application.candidateName || "—"}
-                            </div>
+                            <div className="font-medium">{displayName}</div>
                         </div>
                         <div className="rounded-lg border p-4 bg-gray-50">
                             <div className="flex items-center gap-2 text-gray-600 mb-2">
@@ -138,7 +188,9 @@ export default function ApplicationDetailModal({
                                 </span>
                             </div>
                             <div className="font-medium break-all">
-                                {application.email || "—"}
+                                {candidateProfile?.email ||
+                                    application.email ||
+                                    "—"}
                             </div>
                         </div>
                         <div className="rounded-lg border p-4 bg-gray-50">
@@ -149,7 +201,9 @@ export default function ApplicationDetailModal({
                                 </span>
                             </div>
                             <div className="font-medium">
-                                {application.phoneNumber || "—"}
+                                {candidateProfile?.phone ||
+                                    application.phoneNumber ||
+                                    "—"}
                             </div>
                         </div>
                     </div>
@@ -167,6 +221,51 @@ export default function ApplicationDetailModal({
                         </div>
                     </div>
 
+                    {/* Thông tin bổ sung từ profile */}
+                    {candidateProfile && (
+                        <div className="rounded-lg border p-4 bg-blue-50">
+                            <div className="flex items-center gap-2 text-blue-700 mb-2">
+                                <User2 size={16} />
+                                <span className="text-xs uppercase tracking-wider font-semibold">
+                                    Profile Information
+                                </span>
+                            </div>
+                            <div className="space-y-2 text-sm">
+                                {candidateProfile.title && (
+                                    <div>
+                                        <span className="font-medium">
+                                            Title:{" "}
+                                        </span>
+                                        <span>{candidateProfile.title}</span>
+                                    </div>
+                                )}
+                                {candidateProfile.aboutMe && (
+                                    <div>
+                                        <span className="font-medium">
+                                            About:{" "}
+                                        </span>
+                                        <span>{candidateProfile.aboutMe}</span>
+                                    </div>
+                                )}
+                                {candidateProfile.personalLink && (
+                                    <div>
+                                        <span className="font-medium">
+                                            Website:{" "}
+                                        </span>
+                                        <a
+                                            href={candidateProfile.personalLink}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="text-blue-600 hover:underline"
+                                        >
+                                            {candidateProfile.personalLink}
+                                        </a>
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+                    )}
+
                     {/* Update status */}
                     <div className="rounded-lg border p-4 bg-gray-50">
                         <div className="flex flex-col sm:flex-row sm:items-center gap-3">
@@ -181,7 +280,6 @@ export default function ApplicationDetailModal({
                                         setSelectedStatus(e.target.value)
                                     }
                                 >
-                                    {/* <option value="APPLIED">APPLIED</option> */}
                                     <option value="REVIEWED">REVIEWED</option>
                                     <option value="REJECTED">REJECTED</option>
                                 </select>
@@ -265,4 +363,3 @@ export default function ApplicationDetailModal({
         </Dialog>
     );
 }
-
