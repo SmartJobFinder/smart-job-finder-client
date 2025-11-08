@@ -1,99 +1,111 @@
 "use client";
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { Dialog } from "@headlessui/react";
-import { X, FileText, Trash2 } from "lucide-react";
-import { uploadAndGetMatchScore } from "@/services/aiService";
+import { X, CheckCircle, AlertTriangle, XCircle, Loader2 } from "lucide-react";
 
 const AiMatchModal = ({ onClose, jobId }) => {
-    const [file, setFile] = useState(null);
-    const [error, setError] = useState("");
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     const [result, setResult] = useState(null);
-    const fileRef = useRef(null);
 
-    const validatePdf = (f) => {
-        if (!f) return "Please select a PDF file.";
-        if (f.type !== "application/pdf") return "Please select a PDF file.";
-        if (f.size > 5 * 1024 * 1024) return "Maximum file size is 5MB.";
-        return null;
+    // Mock data cho 3 trường hợp
+    const getMockResult = () => {
+        const mockScenarios = [
+            // Trường hợp 1: 0-39% - Không phù hợp
+            {
+                score: 28,
+                reasons: [
+                    "Lack of required programming language experience (Python, Java).",
+                    "No mention of database management skills (SQL, MongoDB).",
+                    "Missing project management experience.",
+                    "Educational background doesn't align with job requirements.",
+                    "No relevant work experience in the industry.",
+                ],
+            },
+            // Trường hợp 2: 40-69% - Phù hợp một phần
+            {
+                score: 55,
+                reasons: [
+                    "Has basic knowledge of required technologies but lacks depth.",
+                    "Some relevant projects mentioned but not enough detail.",
+                    "Educational background is suitable.",
+                    "Missing some key skills like Docker and CI/CD.",
+                    "Communication skills need improvement.",
+                ],
+            },
+            // Trường hợp 3: 70-100% - Rất phù hợp
+            {
+                score: 86,
+                reasons: [
+                    "Strong match on Python and REST API experience.",
+                    "Has knowledge of Django which aligns with the job description.",
+                    "Machine learning experience is a plus and was mentioned.",
+                    "Overall, a very good fit for this role.",
+                    "Excellent communication and teamwork skills demonstrated.",
+                ],
+            },
+        ];
+
+        // Random chọn 1 trong 3 trường hợp
+        return mockScenarios[Math.floor(Math.random() * 3)];
     };
 
-    const applyFile = (f) => {
-        setResult(null);
-        const err = validatePdf(f);
-        if (err) {
-            setError(err);
-            setFile(null);
-            return;
-        }
-        setError("");
-        setFile(f);
-    };
-
-    const onFileChange = (e) => {
-        const f = e.target.files?.[0] || null;
-        if (!f) return;
-        applyFile(f);
-    };
-
-    const onDrop = (e) => {
-        e.preventDefault();
-        if (loading) return;
-        const f = e.dataTransfer.files?.[0];
-        if (!f) return;
-        applyFile(f);
-    };
-
-    const onDragOver = (e) => {
-        e.preventDefault();
-    };
-
-    const removeFile = () => {
-        setFile(null);
-        setResult(null);
-        setError("");
-        if (fileRef.current) fileRef.current.value = "";
-    };
-
-    const formatSize = (bytes) => {
-        if (!bytes && bytes !== 0) return "";
-        const units = ["B", "KB", "MB", "GB"];
-        let i = 0;
-        let b = bytes;
-        while (b >= 1024 && i < units.length - 1) {
-            b /= 1024;
-            i++;
-        }
-        return `${b.toFixed(1)} ${units[i]}`;
-    };
-
-    const onEvaluate = async () => {
-        if (!file) {
-            setError("Please select a PDF file.");
-            return;
-        }
-        try {
+    // Auto evaluate khi modal mở
+    useEffect(() => {
+        const evaluate = async () => {
             setLoading(true);
-            setError("");
-            const data = await uploadAndGetMatchScore({
-                jobId,
-                file,
-                useFileApi: false,
-            });
-            setResult(data);
-        } catch (e) {
-            setError("Cannot evaluate. Please try again.");
-        } finally {
+
+            // Giả lập độ trễ như gọi API thật
+            await new Promise((resolve) => setTimeout(resolve, 2000));
+
+            // Mock kết quả
+            const mockResult = getMockResult();
+            setResult(mockResult);
             setLoading(false);
-        }
-    };
+        };
+
+        evaluate();
+    }, []);
 
     const onCloseModal = () => {
-        setFile(null);
-        setResult(null);
-        setError("");
-        if (fileRef.current) fileRef.current.value = "";
         onClose?.();
+    };
+
+    // Hàm xác định icon và màu sắc dựa trên điểm số
+    const getScoreStatus = (score) => {
+        if (score >= 70) {
+            return {
+                icon: CheckCircle,
+                color: "text-green-600",
+                bgColor: "bg-green-50",
+                borderColor: "border-green-200",
+                label: "Excellent Match",
+                textColor: "text-green-700",
+                buttonColor: "bg-green-600 hover:bg-green-700",
+                buttonText: "Proceed to Apply",
+            };
+        } else if (score >= 40) {
+            return {
+                icon: AlertTriangle,
+                color: "text-yellow-600",
+                bgColor: "bg-yellow-50",
+                borderColor: "border-yellow-200",
+                label: "Partial Match",
+                textColor: "text-yellow-700",
+                buttonColor: "bg-yellow-600 hover:bg-yellow-700",
+                buttonText: "Improve Your CV",
+            };
+        } else {
+            return {
+                icon: XCircle,
+                color: "text-red-600",
+                bgColor: "bg-red-50",
+                borderColor: "border-red-200",
+                label: "Poor Match",
+                textColor: "text-red-700",
+                buttonColor: "bg-gray-600 hover:bg-gray-700",
+                buttonText: "Explore Other Opportunities",
+            };
+        }
     };
 
     return (
@@ -101,112 +113,107 @@ const AiMatchModal = ({ onClose, jobId }) => {
             <div className="fixed inset-0 bg-black/30" aria-hidden="true" />
             <div className="fixed inset-0 flex items-center justify-center p-4">
                 <Dialog.Panel className="w-full max-w-lg rounded-xl bg-white p-6 shadow-xl space-y-5 max-h-[85vh] overflow-y-auto">
+                    {/* Header */}
                     <div className="flex items-center justify-between">
                         <Dialog.Title className="text-lg font-semibold text-blue-600">
-                            CV suitability assessment
+                            CV Suitability Assessment
                         </Dialog.Title>
                         <button
                             onClick={onCloseModal}
-                            className="text-gray-400 hover:text-gray-600"
+                            className="text-gray-400 hover:text-gray-600 transition"
                         >
                             <X className="w-5 h-5" />
                         </button>
                     </div>
 
-                    <div className="space-y-3">
-                        {/* Hidden native input */}
-                        <input
-                            ref={fileRef}
-                            type="file"
-                            accept="application/pdf"
-                            onChange={onFileChange}
-                            disabled={loading}
-                            className="hidden"
-                        />
-
-                        {/* Dropzone / Picker */}
-                        <div
-                            onClick={() => !loading && fileRef.current?.click()}
-                            onDrop={onDrop}
-                            onDragOver={onDragOver}
-                            className={`w-full border-2 border-dashed rounded-lg p-4 cursor-pointer transition bg-gray-50 hover:bg-gray-100 ${
-                                loading ? "opacity-60 cursor-not-allowed" : ""
-                            }`}
-                        >
-                            {!file ? (
-                                <div className="flex items-center gap-3 text-gray-600">
-                                    <FileText className="w-6 h-6 text-blue-600" />
-                                    <div>
-                                        <div className="font-medium">
-                                            Drop or click to upload PDF
-                                        </div>
-                                        <div className="text-sm">
-                                            Max size 5MB
-                                        </div>
-                                    </div>
-                                </div>
-                            ) : (
-                                <div className="flex items-center justify-between">
-                                    <div className="flex items-center gap-3">
-                                        <FileText className="w-6 h-6 text-blue-600" />
-                                        <div>
-                                            <div className="font-medium break-all">
-                                                {file.name}
-                                            </div>
-                                            <div className="text-sm text-gray-500">
-                                                {formatSize(file.size)}
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <button
-                                        type="button"
-                                        onClick={removeFile}
-                                        disabled={loading}
-                                        className="inline-flex items-center gap-1 px-2 py-1 text-sm text-gray-600 border rounded hover:bg-gray-100"
-                                    >
-                                        <Trash2 className="w-4 h-4" /> Remove
-                                    </button>
-                                </div>
-                            )}
-                        </div>
-
-                        <div className="flex items-center gap-3">
-                            <button
-                                className="px-4 py-2 rounded bg-blue-600 text-white disabled:opacity-50"
-                                onClick={onEvaluate}
-                                disabled={loading || !file}
-                            >
-                                {loading ? "Evaluating..." : "Evaluate this CV"}
-                            </button>
-                            {loading && (
-                                <div className="flex-1 h-1 bg-gray-200 rounded overflow-hidden">
-                                    <div className="h-1 w-1/2 bg-blue-600 animate-pulse" />
-                                </div>
-                            )}
-                        </div>
-
-                        {error && (
-                            <p className="text-red-600 text-sm">{error}</p>
-                        )}
-                    </div>
-
-                    {result && (
-                        <div className="mt-2">
-                            <div className="text-3xl font-bold">
-                                {result.score}%
-                            </div>
-                            {Array.isArray(result.reasons) &&
-                                result.reasons.length > 0 && (
-                                    <div className="max-h-64 md:max-h-80 overflow-y-auto pr-2 mt-2">
-                                        <ul className="list-disc ml-5 text-sm text-gray-700">
-                                            {result.reasons.map((r, i) => (
-                                                <li key={i}>{r}</li>
-                                            ))}
-                                        </ul>
-                                    </div>
-                                )}
+                    {/* Loading State */}
+                    {loading && (
+                        <div className="flex flex-col items-center justify-center py-12 space-y-4">
+                            <Loader2 className="w-12 h-12 text-blue-600 animate-spin" />
+                            <p className="text-gray-600 font-medium">
+                                Analyzing your CV...
+                            </p>
+                            <p className="text-sm text-gray-500">
+                                This may take a few moments
+                            </p>
                         </div>
                     )}
+
+                    {/* Result Section */}
+                    {!loading &&
+                        result &&
+                        (() => {
+                            const status = getScoreStatus(result.score);
+                            const StatusIcon = status.icon;
+
+                            return (
+                                <div
+                                    className={`rounded-lg border-2 ${status.borderColor} ${status.bgColor} p-6 space-y-4`}
+                                >
+                                    {/* Score Display */}
+                                    <div className="flex items-center gap-4">
+                                        <StatusIcon
+                                            className={`w-12 h-12 ${status.color} flex-shrink-0`}
+                                        />
+                                        <div>
+                                            <div className="text-4xl font-bold text-gray-800">
+                                                {result.score}%
+                                            </div>
+                                            <div
+                                                className={`text-sm font-medium ${status.textColor}`}
+                                            >
+                                                {status.label}
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {/* Reasons List */}
+                                    {Array.isArray(result.reasons) &&
+                                        result.reasons.length > 0 && (
+                                            <div className="space-y-2">
+                                                <h3 className="font-semibold text-gray-800 text-sm">
+                                                    Assessment Details:
+                                                </h3>
+                                                <div className="max-h-64 overflow-y-auto pr-2">
+                                                    <ul className="space-y-2">
+                                                        {result.reasons.map(
+                                                            (r, i) => (
+                                                                <li
+                                                                    key={i}
+                                                                    className="flex gap-2 text-sm text-gray-700"
+                                                                >
+                                                                    <span className="text-gray-400 font-medium">
+                                                                        •
+                                                                    </span>
+                                                                    <span>
+                                                                        {r}
+                                                                    </span>
+                                                                </li>
+                                                            )
+                                                        )}
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        )}
+
+                                    {/* Action Button */}
+                                    <div className="pt-2">
+                                        <button
+                                            className={`w-full px-4 py-2.5 ${status.buttonColor} text-white rounded-lg transition font-medium shadow-sm`}
+                                            onClick={() => {
+                                                console.log(
+                                                    "Button clicked:",
+                                                    status.buttonText
+                                                );
+                                                onCloseModal();
+                                            }}
+                                        >
+                                            {status.buttonText}
+                                        </button>
+                                    </div>
+                                </div>
+                            );
+                        })()}
                 </Dialog.Panel>
             </div>
         </Dialog>
