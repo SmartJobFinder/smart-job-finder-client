@@ -263,7 +263,7 @@ export default function DetailJob({job}) {
                                         }`}
                                         onClick={handleApply}
                                     >
-                                        Apply
+                                        {t`Apply`}
                                     </Button>
                                 ) : (
                                     <div className="flex gap-2">
@@ -290,8 +290,8 @@ export default function DetailJob({job}) {
                                             {reachedLimit
                                                 ? "Re-apply (Limit reached)"
                                                 : remainingMs > 0
-                                                    ? `Re-apply in 30 minutes please`
-                                                    : "Re-Applications"}
+                                                ? `Re-apply in 30 minutes please`
+                                                : t`Re-apply`}
                                         </Button>
 
                                         <Button
@@ -337,7 +337,7 @@ export default function DetailJob({job}) {
                                         <Bookmark className="w-5 h-5 text-blue-600"/>
                                     )}
                                     <span className="ml-2 text-xs font-medium text-blue-700">
-                                        {liked ? "Saved" : "Save"}
+                                        {liked ? t`Saved` : t`Save`}
                                     </span>
                                 </button>
                             </div>
@@ -351,7 +351,7 @@ export default function DetailJob({job}) {
                                 >
                                     <MessageSquareWarning className="w-5 h-5 text-red-600"/>
                                     <span className="ml-2 text-xs font-medium text-red-700">
-                                        Report
+                                        {t`Report`}
                                     </span>
                                 </button>
                             </div>
@@ -419,7 +419,7 @@ export default function DetailJob({job}) {
                             className="w-10 h-10 transition-transform duration-200 group-hover:scale-110 drop-shadow-[0_2px_6px_rgba(59,130,246,0.6)]"
                         />
                         <span className="font-semibold tracking-wide">
-                            Are you suitable?
+                            {t`Are you suitable?`}
                         </span>
                         <span
                             className="ml-1 text-xs font-bold bg-white/20 text-white px-2 py-0.5 rounded-full border border-white/30">

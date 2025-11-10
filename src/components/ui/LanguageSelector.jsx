@@ -10,7 +10,7 @@ import {
 const LANGS = [
     { code: "en", name: "English", flag: "fi-us" },
     { code: "vi", name: "Tiếng Việt", flag: "fi-vn" },
-    { code: "ko", name: "한국어", flag: "fi-kr" },
+    // { code: "ko", name: "한국어", flag: "fi-kr" },
 ];
 
 export default function LanguageSelector({ isRecruiter = false }) {

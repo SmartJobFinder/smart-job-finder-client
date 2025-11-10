@@ -26,6 +26,10 @@
         "msgid": "Favorite Jobs",
         "msgstr": ["Favorite Jobs"]
       },
+      "Companies Follow": {
+        "msgid": "Companies Follow",
+        "msgstr": ["Companies Follow"]
+      },
       "Find Companies": {
         "msgid": "Find Companies",
         "msgstr": ["Find Companies"]
@@ -219,6 +223,37 @@
         "msgid": "Search for a company",
         "msgstr": ["Search for a company"]
       },
+      "Recommended companies": {
+        "msgid": "Recommended companies",
+        "msgstr": ["Recommended companies"]
+      },
+      "Based on your profile, interests, and recent activity": {
+        "msgid": "Based on your profile, interests, and recent activity",
+        "msgstr": ["Based on your profile, interests, and recent activity"]
+      },
+      "Are you a recruiter?": {
+        "msgid": "Are you a recruiter?",
+        "msgstr": ["Are you a recruiter?"]
+      },
+      "Register for free to advertise your company and reach thousands of potential candidates!": {
+        "msgid": "Register for free to advertise your company and reach thousands of potential candidates!",
+        "msgstr": [
+          "Register for free to advertise your company and reach thousands of potential candidates!"
+        ]
+      },
+      "Post a job": {
+        "msgid": "Post a job",
+        "msgstr": ["Post a job"]
+      },
+      "View service packages": {
+        "msgid": "View service packages",
+        "msgstr": ["View service packages"]
+      },
+      "Popular searches": {
+        "msgid": "Popular searches",
+        "msgstr": ["Popular searches"]
+      },
+      "Search": { "msgid": "Search", "msgstr": ["Search"] },
       "Discover companies that match your interests and skills. Search by name, location, industry, or size.": {
         "msgid": "Discover companies that match your interests and skills. Search by name, location, industry, or size.",
         "msgstr": [
@@ -429,7 +464,53 @@
         "msgid": "Open Positions",
         "msgstr": ["Open Positions"]
       },
-      "Search": { "msgid": "Search", "msgstr": ["Search"] },
+      "All companies": {
+        "msgid": "All companies",
+        "msgstr": ["All companies"]
+      },
+      "Sort by:": { "msgid": "Sort by:", "msgstr": ["Sort by:"] },
+      "Default (A-Z)": {
+        "msgid": "Default (A-Z)",
+        "msgstr": ["Default (A-Z)"]
+      },
+      "Hide filter": {
+        "msgid": "Hide filter",
+        "msgstr": ["Hide filter"]
+      },
+      "Show filter": {
+        "msgid": "Show filter",
+        "msgstr": ["Show filter"]
+      },
+      "Page": {
+        "msgid": "Page",
+        "msgstr": ["Page"]
+      },
+
+      "Company Name (A-Z)": {
+        "msgid": "Company Name (A-Z)",
+        "msgstr": ["Company Name (A-Z)"]
+      },
+      "Company Name (Z-A)": {
+        "msgid": "Company Name (Z-A)",
+        "msgstr": ["Company Name (Z-A)"]
+      },
+      "Location (A-Z)": {
+        "msgid": "Location (A-Z)",
+        "msgstr": ["Location (A-Z)"]
+      },
+      "Location (Z-A)": {
+        "msgid": "Location (Z-A)",
+        "msgstr": ["Location (Z-A)"]
+      },
+      "Founded Year (Newest)": {
+        "msgid": "Founded Year (Newest)",
+        "msgstr": ["Founded Year (Newest)"]
+      },
+      "Founded Year (Oldest)": {
+        "msgid": "Founded Year (Oldest)",
+        "msgstr": ["Founded Year (Oldest)"]
+      },
+      "Searching": { "msgid": "Searching", "msgstr": ["Searching"] },
       "Not found": { "msgid": "Not found", "msgstr": ["Not found"] },
       "Reset": { "msgid": "Reset", "msgstr": ["Reset"] },
       "See Detail": { "msgid": "See Detail", "msgstr": ["See Detail"] },
@@ -444,6 +525,22 @@
       "Submitting": { "msgid": "Submitting", "msgstr": ["Submitting"] },
       "Re-apply": { "msgid": "Re-apply", "msgstr": ["Re-apply"] },
       "Apply": { "msgid": "Apply", "msgstr": ["Apply"] },
+      "Re-Applications": {
+        "msgid": "Re-Applications",
+        "msgstr": ["Re-Applications"]
+      },
+      "Company name": {
+        "msgid": "Company name",
+        "msgstr": ["Company name"]
+      },
+      "Select industry": {
+        "msgid": "Select industry",
+        "msgstr": ["Select industry"]
+      },
+      "Location": { "msgid": "Location", "msgstr": ["Location"] },
+      "Saved": { "msgid": "Saved", "msgstr": ["Saved"] },
+      "Save": { "msgid": "Save", "msgstr": ["Save"] },
+      "Report": { "msgid": "Report", "msgstr": ["Report"] },
       "Cancel": { "msgid": "Cancel", "msgstr": ["Cancel"] },
       "Cover Letter": { "msgid": "Cover Letter", "msgstr": ["Cover Letter"] },
       "Phone Number": { "msgid": "Phone Number", "msgstr": ["Phone Number"] },
@@ -527,7 +624,43 @@
         "msgid": "Payment History",
         "msgstr": ["Payment History"]
       },
-      "Upgrade Vip": { "msgid": "Upgrade Vip", "msgstr": ["Upgrade Vip"] }
+      "Upgrade Vip": { "msgid": "Upgrade Vip", "msgstr": ["Upgrade Vip"] },
+      "General": {
+        "msgid": "General",
+        "msgstr": ["General"]
+      },
+      "Salary:": {
+        "msgid": "Salary:",
+        "msgstr": ["Salary:"]
+      },
+      "Post Date:": {
+        "msgid": "Post Date:",
+        "msgstr": ["Post Date:"]
+      },
+      "Expired Date:": {
+        "msgid": "Expired Date:",
+        "msgstr": ["Expired Date:"]
+      },
+      "Skills Requirements": {
+        "msgid": "Skills Requirements",
+        "msgstr": ["Skills Requirements"]
+      },
+      "Are you suitable?": {
+        "msgid": "Are you suitable?",
+        "msgstr": ["Are you suitable?"]
+      },
+      "N/A": {
+        "msgid": "N/A",
+        "msgstr": ["N/A"]
+      },
+      "Applied Jobs": {
+        "msgid": "Applied Jobs",
+        "msgstr": ["Applied Jobs"]
+      },
+      "Welcome": {
+        "msgid": "Welcome",
+        "msgstr": ["Welcome"]
+      }
     }
   }
 }
