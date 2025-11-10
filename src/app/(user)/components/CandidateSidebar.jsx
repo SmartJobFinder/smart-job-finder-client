@@ -80,7 +80,7 @@ export default function CandidateSidebar() {
                     <div className="flex flex-row items-center my-2 ">
                         <div className="flex flex-col ml-2">
                             <p className="text-sm font-medium text-blue-800">
-                                Welcome
+                                {t`Welcome`}
                             </p>
                             <h3 className="text-2xl font-bold text-gray-900">
                                 {personalDetail?.fullName}

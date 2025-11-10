@@ -283,7 +283,7 @@ export default function DetailJob({ job }) {
                                         }`}
                                         onClick={handleApply}
                                     >
-                                        Apply
+                                        {t`Apply`}
                                     </Button>
                                 ) : (
                                     <div className="flex gap-2">
@@ -311,7 +311,7 @@ export default function DetailJob({ job }) {
                                                 ? "Re-apply (Limit reached)"
                                                 : remainingMs > 0
                                                 ? `Re-apply in 30 minutes please`
-                                                : "Re-Applications"}
+                                                : t`Re-Applications`}
                                         </Button>
 
                                         <Button
@@ -347,9 +347,9 @@ export default function DetailJob({ job }) {
                                             : ""
                                     }`}
                                     aria-label={
-                                        liked ? "Unsave job" : "Save job"
+                                        liked ? t`Unsave job` : t`Save job`
                                     }
-                                    title={liked ? "Unsave" : "Save job"}
+                                    title={liked ? t`Unsave job` : t`Save job`}
                                 >
                                     {liked ? (
                                         <BookmarkCheck className="w-5 h-5 text-blue-600" />
@@ -357,7 +357,7 @@ export default function DetailJob({ job }) {
                                         <Bookmark className="w-5 h-5 text-blue-600" />
                                     )}
                                     <span className="ml-2 text-xs font-medium text-blue-700">
-                                        {liked ? "Saved" : "Save"}
+                                        {liked ? t`Saved` : t`Save`}
                                     </span>
                                 </button>
                             </div>
@@ -371,7 +371,7 @@ export default function DetailJob({ job }) {
                                 >
                                     <MessageSquareWarning className="w-5 h-5 text-red-600" />
                                     <span className="ml-2 text-xs font-medium text-red-700">
-                                        Report
+                                        {t`Report`}
                                     </span>
                                 </button>
                             </div>
@@ -403,7 +403,7 @@ export default function DetailJob({ job }) {
                         {dj.location ? (
                             <p>- {dj.location}</p>
                         ) : (
-                            <p>Location not specified</p>
+                            <p>{t`Location not specified`}</p>
                         )}
                     </Section>
                 </div>
@@ -428,8 +428,8 @@ export default function DetailJob({ job }) {
                         onClick={handleOpenAiMatch}
                         title={
                             isLoggedIn
-                                ? "Check suitability with AI"
-                                : "Please log in to use AI"
+                                ? t`Check suitability with AI`
+                                : t`Please log in to use AI`
                         }
                     >
                         <span className="pointer-events-none absolute inset-0 rounded-xl animate-pulse bg-cyan-400/0 group-hover:bg-cyan-400/0" />
@@ -442,7 +442,7 @@ export default function DetailJob({ job }) {
                             className="w-10 h-10 transition-transform duration-200 group-hover:scale-110 drop-shadow-[0_2px_6px_rgba(59,130,246,0.6)]"
                         />
                         <span className="font-semibold tracking-wide">
-                            Are you suitable?
+                            {t`Are you suitable?`}
                         </span>
                         <span className="ml-1 text-xs font-bold bg-white/20 text-white px-2 py-0.5 rounded-full border border-white/30">
                             AI

@@ -207,7 +207,7 @@ const ResultPage = () => {
                 <div className="lg:w-3/4">
                     <div className="mb-6">
                         <h2 className="text-2xl font-bold text-gray-800 mb-2">
-                            All companies
+                            {t`All companies`}
                         </h2>
                         <p className="text-gray-600">
                             {isLoading || isLoadingPage
