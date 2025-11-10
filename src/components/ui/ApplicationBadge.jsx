@@ -22,7 +22,7 @@ function getStatusColor(status) {
 }
 
 export default function ApplicationBadge({ status, className = "" }) {
-    if (!status) return null; 
+    if (!status) return null;
 
     return (
         <Badge

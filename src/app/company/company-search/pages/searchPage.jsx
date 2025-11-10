@@ -63,4 +63,3 @@ const SearchCompanyPage = () => {
 };
 
 export default SearchCompanyPage;
-

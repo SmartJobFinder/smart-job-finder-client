@@ -144,6 +144,10 @@
         "msgid": "Feedback Matters",
         "msgstr": ["피드백의 가치"]
       },
+      "Or": {
+        "msgid": "Or",
+        "msgstr": ["또는"]
+      },
       "Our platform evolves based on the insights you share.": {
         "msgid": "Our platform evolves based on the insights you share.",
         "msgstr": [
@@ -158,6 +162,10 @@
       "Browse Companies": {
         "msgid": "Browse Companies",
         "msgstr": ["회사 둘러보기"]
+      },
+      "Address": {
+        "msgid": "Address",
+        "msgstr": ["베트남 호찌민시 떤흥동 응우옌후토 거리 19번지"]
       },
       "Browse Jobs": {
         "msgid": "Browse Jobs",

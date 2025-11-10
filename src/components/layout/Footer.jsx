@@ -26,10 +26,7 @@ export const Footer = () => {
                             {t`Call now`}:{" "}
                             <span className="text-white">(028) 37 755 055</span>
                         </p>
-                        <p className="text-sm text-gray-400">
-                            19 Nguyen Huu Tho, Tan Hung Ward, Ho Chi Minh City,
-                            Vietnam
-                        </p>
+                        <p className="text-sm text-gray-400">{t`Address`} </p>
                     </div>
 
                     {/* Quick Links */}

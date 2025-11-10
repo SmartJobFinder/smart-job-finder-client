@@ -1,13 +1,13 @@
 "use client";
 
-import {useEffect, useRef} from "react";
-import {useRouter} from "next/navigation";
-import {toast} from "react-toastify";
-import {useDispatch} from "react-redux";
-import {meThunk} from "@/features/auth/authSlice";
-import {API_CONFIG} from "@/lib/config";
+import { useEffect, useRef } from "react";
+import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
+import { useDispatch } from "react-redux";
+import { meThunk } from "@/features/auth/authSlice";
+import { API_CONFIG } from "@/lib/config";
 
-export default function GoogleSignIn({role = "CANDIDATE", onBanned}) {
+export default function GoogleSignIn({ role = "CANDIDATE", onBanned }) {
     const btnRef = useRef(null);
     const router = useRouter();
     const dispatch = useDispatch();
@@ -23,16 +23,16 @@ export default function GoogleSignIn({role = "CANDIDATE", onBanned}) {
 
         window.google.accounts.id.initialize({
             client_id: clientId,
-            callback: async ({credential}) => {
+            callback: async ({ credential }) => {
                 try {
                     const res = await fetch(
                         `${API_CONFIG.BASE_URL}/auth/google`,
                         {
                             method: "POST",
-                            headers: {"Content-Type": "application/json"},
+                            headers: { "Content-Type": "application/json" },
                             credentials: "include",
-                            body: JSON.stringify({idToken: credential}),
-                        },
+                            body: JSON.stringify({ idToken: credential }),
+                        }
                     );
 
                     const data = await res.json().catch(() => ({}));
@@ -41,12 +41,14 @@ export default function GoogleSignIn({role = "CANDIDATE", onBanned}) {
                     await dispatch(meThunk()).unwrap();
 
                     toast.success(
-                        data?.message || "Google sign-in successful!",
+                        data?.message || "Google sign-in successful!"
                     );
                     router.replace("/");
                 } catch (err) {
                     if (err?.status === 403 && err?.code === "ACCOUNT_BANNED") {
-                        const contact = err?.extra?.contactEmail || "help.jobfind@gmail.com";
+                        const contact =
+                            err?.extra?.contactEmail ||
+                            "help.jobfind@gmail.com";
                         onBanned({
                             email: err?.extra?.email,
                             contactEmail: contact,
@@ -82,5 +84,5 @@ export default function GoogleSignIn({role = "CANDIDATE", onBanned}) {
         window.google.accounts.id.prompt();
     }, [role, dispatch, router, onBanned]);
 
-    return <div ref={btnRef} className="w-full flex justify-center"/>;
+    return <div ref={btnRef} className="w-full flex justify-center" />;
 }

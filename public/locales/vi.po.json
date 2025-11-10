@@ -51,6 +51,12 @@
         "msgid": "Founded Year (Oldest)",
         "msgstr": ["Năm thành lập (Cũ nhất)"]
       },
+      "Register for free to advertise your company and reach thousands of potential candidates!": {
+        "msgid": "Register for free to advertise your company and reach thousands of potential candidates!",
+        "msgstr": [
+          "Đăng ký miễn phí để quảng cáo công ty của bạn và tiếp cận hàng nghìn ứng viên tiềm năng!"
+        ]
+      },
       "Companies": { "msgid": "Companies", "msgstr": ["Công ty"] },
       "Categories": { "msgid": "Categories", "msgstr": ["Danh mục"] },
       "Dashboard": { "msgid": "Dashboard", "msgstr": ["Trang tổng quan"] },
@@ -265,6 +271,14 @@
         "msgid": "Popular searches",
         "msgstr": ["Tìm kiếm phổ biến"]
       },
+      "jobs": {
+        "msgid": "jobs",
+        "msgstr": ["việc làm"]
+      },
+      "employees": {
+        "msgid": "employees",
+        "msgstr": ["nhân viên"]
+      },
       "Requirements": { "msgid": "Requirements", "msgstr": ["Yêu cầu"] },
       "Benefits": { "msgid": "Benefits", "msgstr": ["Phúc lợi"] },
       "Work Location": {
@@ -302,12 +316,6 @@
       "Are you a recruiter?": {
         "msgid": "Are you a recruiter?",
         "msgstr": ["Bạn là nhà tuyển dụng?"]
-      },
-      "Register for free to advertise your company and reach thousands of potential candidates!": {
-        "msgid": "Register for free to advertise your company and reach thousands of potential candidates!",
-        "msgstr": [
-          "Đăng ký miễn phí để quảng bá công ty của bạn và tiếp cận hàng nghìn ứng viên tiềm năng!"
-        ]
       },
       "Post a job": {
         "msgid": "Post a job",
@@ -603,6 +611,21 @@
       },
       "View Details": { "msgid": "View Details", "msgstr": ["Xem chi tiết"] },
       "Loading": { "msgid": "Loading", "msgstr": ["Đang tải"] },
+      "Unsaved": { "msgid": "Unsave", "msgstr": ["Bỏ lưu"] },
+      "Save job": { "msgid": "Save job", "msgstr": ["Lưu việc làm"] },
+      "Unsave job": { "msgid": "Unsave job", "msgstr": ["Bỏ lưu việc làm"] },
+      "Check suitability with AI": {
+        "msgid": "Check suitability with AI",
+        "msgstr": ["Kiểm tra sự phù hợp với AI"]
+      },
+      "Location not specified": {
+        "msgid": "Location not specified",
+        "msgstr": ["Chưa xác định địa điểm"]
+      },
+      "Please log in to use AI": {
+        "msgid": "Please log in to use AI",
+        "msgstr": ["Vui lòng đăng nhập để sử dụng AI"]
+      },
       "Profile": { "msgid": "Profile", "msgstr": ["Hồ sơ"] },
       "Manage CV": { "msgid": "Manage CV", "msgstr": ["Quản lý CV"] },
       "My Interviews": {

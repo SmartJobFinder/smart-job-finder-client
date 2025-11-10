@@ -498,7 +498,7 @@ const SearchBar = ({
                                 ) : (
                                     <Search className="w-4 h-4 md:w-5 md:h-5" />
                                 )}
-                                {isLoading ? t`Searching` + "..." : t`Search`}
+                                {isLoading ? t`Searching...` : t`Search`}
                             </button>
                         </div>
                     </div>

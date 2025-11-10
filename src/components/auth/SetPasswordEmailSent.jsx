@@ -1,12 +1,12 @@
 "use client";
 
-import React, {useEffect, useRef, useState} from "react";
-import {useDispatch} from "react-redux";
-import {sendSetPasswordLinkThunk} from "@/features/auth/authSlice";
-import {toast} from "react-toastify";
-import {CardContent} from "@/components/ui/card";
-import {Button} from "@/components/ui/button";
-import {ArrowLeft, Clock, Loader2, Mail, RefreshCw} from "lucide-react";
+import React, { useEffect, useRef, useState } from "react";
+import { useDispatch } from "react-redux";
+import { sendSetPasswordLinkThunk } from "@/features/auth/authSlice";
+import { toast } from "react-toastify";
+import { CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { ArrowLeft, Clock, Loader2, Mail, RefreshCw } from "lucide-react";
 
 const COOLDOWN_SEC = 120;
 
@@ -17,7 +17,7 @@ const formatMMSS = (sec) => {
     return `${mm}:${ss}`;
 };
 
-export default function SetPasswordEmailSent({email, onBack}) {
+export default function SetPasswordEmailSent({ email, onBack }) {
     const dispatch = useDispatch();
     const [phase, setPhase] = useState("sending"); // 'sending' | 'cooldown' | 'ready'
     const [cooldown, setCooldown] = useState(0);
@@ -38,8 +38,7 @@ export default function SetPasswordEmailSent({email, onBack}) {
                     sentOnce.current = true; // Đừng gửi lại nữa nếu vẫn trong cooldown
                 }
             }
-        } catch {
-        }
+        } catch {}
     }, [email]);
 
     // Auto-send nếu chưa gửi và không trong cooldown
@@ -51,15 +50,23 @@ export default function SetPasswordEmailSent({email, onBack}) {
             setPhase("sending");
             try {
                 await dispatch(sendSetPasswordLinkThunk(email)).unwrap();
-                toast.success("A set-password link has been sent to your email.", {autoClose: 3000});
+                toast.success(
+                    "A set-password link has been sent to your email.",
+                    { autoClose: 3000 }
+                );
                 setCooldown(COOLDOWN_SEC);
                 setPhase("cooldown");
                 try {
-                    localStorage.setItem(`setPasswordLinkAt:${email}`, String(Date.now()));
-                } catch {
-                }
+                    localStorage.setItem(
+                        `setPasswordLinkAt:${email}`,
+                        String(Date.now())
+                    );
+                } catch {}
             } catch (err) {
-                toast.error(err?.message || "Failed to send the email. Please try again.");
+                toast.error(
+                    err?.message ||
+                        "Failed to send the email. Please try again."
+                );
                 setPhase("ready");
             }
         })();
@@ -68,7 +75,10 @@ export default function SetPasswordEmailSent({email, onBack}) {
     // Tick đếm ngược
     useEffect(() => {
         if (phase !== "cooldown" || cooldown <= 0) return;
-        const id = setInterval(() => setCooldown((s) => Math.max(0, s - 1)), 1000);
+        const id = setInterval(
+            () => setCooldown((s) => Math.max(0, s - 1)),
+            1000
+        );
         return () => clearInterval(id);
     }, [phase, cooldown]);
 
@@ -81,15 +91,21 @@ export default function SetPasswordEmailSent({email, onBack}) {
         setPhase("sending");
         try {
             await dispatch(sendSetPasswordLinkThunk(email)).unwrap();
-            toast.success("A set-password link has been sent to your email.", {autoClose: 3000});
+            toast.success("A set-password link has been sent to your email.", {
+                autoClose: 3000,
+            });
             setCooldown(COOLDOWN_SEC);
             setPhase("cooldown");
             try {
-                localStorage.setItem(`setPasswordLinkAt:${email}`, String(Date.now()));
-            } catch {
-            }
+                localStorage.setItem(
+                    `setPasswordLinkAt:${email}`,
+                    String(Date.now())
+                );
+            } catch {}
         } catch (err) {
-            toast.error(err?.message || "Failed to send the email. Please try again.");
+            toast.error(
+                err?.message || "Failed to send the email. Please try again."
+            );
             setPhase("ready");
         }
     };
@@ -97,14 +113,14 @@ export default function SetPasswordEmailSent({email, onBack}) {
     return (
         <CardContent className="space-y-4">
             {/* Email chip */}
-            <div
-                className="mx-auto flex w-fit items-center gap-2 rounded-xl bg-blue-50 px-3 py-2 text-sm text-blue-800">
-                <Mail className="h-4 w-4"/>
+            <div className="mx-auto flex w-fit items-center gap-2 rounded-xl bg-blue-50 px-3 py-2 text-sm text-blue-800">
+                <Mail className="h-4 w-4" />
                 <span className="font-medium">{email}</span>
             </div>
 
             <p className="text-sm text-blue-900/80 text-center">
-                Click the link in your inbox to set a password. You can still keep using Google Sign-In.
+                Click the link in your inbox to set a password. You can still
+                keep using Google Sign-In.
             </p>
 
             {/* Actions */}
@@ -116,21 +132,30 @@ export default function SetPasswordEmailSent({email, onBack}) {
                         onClick={onBack}
                         className="rounded-xl border-blue-200 text-blue-700 hover:bg-blue-50"
                     >
-                        <ArrowLeft className="mr-2 h-4 w-4"/>
+                        <ArrowLeft className="mr-2 h-4 w-4" />
                         Back
                     </Button>
                 )}
 
                 {phase === "sending" && (
-                    <Button type="button" disabled className="rounded-xl border border-blue-200">
-                        <Loader2 className="mr-2 h-4 w-4 animate-spin"/>
+                    <Button
+                        type="button"
+                        disabled
+                        className="rounded-xl border border-blue-200"
+                    >
+                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                         Sending…
                     </Button>
                 )}
 
                 {phase === "cooldown" && (
-                    <Button type="button" disabled variant="outline" className="rounded-xl">
-                        <Clock className="mr-2 h-4 w-4"/>
+                    <Button
+                        type="button"
+                        disabled
+                        variant="outline"
+                        className="rounded-xl"
+                    >
+                        <Clock className="mr-2 h-4 w-4" />
                         Resend in {formatMMSS(cooldown)}
                     </Button>
                 )}
@@ -141,7 +166,7 @@ export default function SetPasswordEmailSent({email, onBack}) {
                         onClick={resend}
                         className="rounded-xl bg-blue-600 hover:bg-blue-700 focus-visible:ring-2 focus-visible:ring-blue-500"
                     >
-                        <RefreshCw className="mr-2 h-4 w-4"/>
+                        <RefreshCw className="mr-2 h-4 w-4" />
                         Resend email
                     </Button>
                 )}
@@ -160,7 +185,8 @@ export default function SetPasswordEmailSent({email, onBack}) {
             </div>
 
             <p className="text-xs text-gray-500 text-center">
-                Tip: If you can’t find the email, check Spam or search for “JobFind”.
+                Tip: If you can’t find the email, check Spam or search for
+                “JobFind”.
             </p>
         </CardContent>
     );

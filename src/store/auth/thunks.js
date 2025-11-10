@@ -1,17 +1,16 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import mockApi from "@/mock/api";
+import authService from "@/services/authService";
 
 export const loginThunk = createAsyncThunk(
     "auth/login",
     async (credentials, { rejectWithValue }) => {
         try {
-            // Sử dụng API giả
-            const response = await mockApi.login(credentials);
-            return response.data;
+            const response = await authService.login(credentials);
+            return response.user;
         } catch (err) {
             return rejectWithValue({
-                status: 401,
-                message: err.message || "Đăng nhập thất bại",
+                status: err.response?.status || 401,
+                message: err.response?.data?.message || "Đăng nhập thất bại",
                 email: credentials?.email,
             });
         }
@@ -22,8 +21,8 @@ export const registerThunk = createAsyncThunk(
     "auth/register",
     async (userData, { rejectWithValue }) => {
         try {
-            const response = await mockApi.register(userData);
-            return response.data;
+            const response = await authService.register(userData);
+            return response;
         } catch (err) {
             return rejectWithValue({
                 status: err.response?.status || 500,
@@ -37,8 +36,8 @@ export const logoutThunk = createAsyncThunk(
     "auth/logout",
     async (_, { rejectWithValue }) => {
         try {
-            const response = await mockApi.logout();
-            return response.data;
+            await authService.logout();
+            return { message: "Đăng xuất thành công" };
         } catch (err) {
             return rejectWithValue({
                 status: err.response?.status || 500,
@@ -52,8 +51,8 @@ export const getMeThunk = createAsyncThunk(
     "auth/me",
     async (_, { rejectWithValue }) => {
         try {
-            const response = await mockApi.me();
-            return response.data;
+            const response = await authService.me();
+            return response.user;
         } catch (err) {
             return rejectWithValue({
                 status: err.response?.status || 500,

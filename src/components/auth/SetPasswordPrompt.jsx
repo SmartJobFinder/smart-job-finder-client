@@ -1,30 +1,37 @@
 "use client";
 
 import React from "react";
-import {CardContent} from "@/components/ui/card";
-import {Button} from "@/components/ui/button";
-import {Key, Mail, ShieldCheck} from "lucide-react";
+import { CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Key, Mail, ShieldCheck } from "lucide-react";
 
-export default function SetPasswordPrompt({email, onYes, onNo, loading = false}) {
+export default function SetPasswordPrompt({
+    email,
+    onYes,
+    onNo,
+    loading = false,
+}) {
     return (
-
         <CardContent>
             {/* Email chip */}
-            <div
-                className="mb-4 flex items-center justify-center gap-2 rounded-xl bg-blue-50 px-3 py-2 text-sm text-blue-800">
-                <Mail className="h-4 w-4"/>
+            <div className="mb-4 flex items-center justify-center gap-2 rounded-xl bg-blue-50 px-3 py-2 text-sm text-blue-800">
+                <Mail className="h-4 w-4" />
                 <span className="font-medium">{email}</span>
             </div>
 
             {/* Benefits */}
             <ul className="mb-6 space-y-2 text-sm text-blue-900/80">
                 <li className="flex items-start gap-2">
-                    <ShieldCheck className="mt-0.5 h-4 w-4 text-blue-500"/>
-                    <span>Keep Google Sign-In. This only adds a password option.</span>
+                    <ShieldCheck className="mt-0.5 h-4 w-4 text-blue-500" />
+                    <span>
+                        Keep Google Sign-In. This only adds a password option.
+                    </span>
                 </li>
                 <li className="flex items-start gap-2">
-                    <Key className="mt-0.5 h-4 w-4 text-blue-500"/>
-                    <span>Use email + password when Google isn’t available.</span>
+                    <Key className="mt-0.5 h-4 w-4 text-blue-500" />
+                    <span>
+                        Use email + password when Google isn’t available.
+                    </span>
                 </li>
             </ul>
 

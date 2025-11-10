@@ -325,7 +325,7 @@ export default function NotificationBell({ className = "" }) {
         } catch {}
         stompRef.current = null;
 
-        connectStomp(); 
+        connectStomp();
         fetchUnreadCount();
         if (openRef.current) fetchFeed(0, false);
     }, [connectStomp, fetchUnreadCount, fetchFeed]);

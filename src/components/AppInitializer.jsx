@@ -8,49 +8,49 @@ import { initI18n, subscribeToLanguageChange } from "@/i18n/i18n";
 const STORAGE_KEY = "authState";
 
 const safeParse = (raw) => {
-  try {
-    return JSON.parse(raw);
-  } catch {
-    return null;
-  }
+    try {
+        return JSON.parse(raw);
+    } catch {
+        return null;
+    }
 };
 
 const AppInitializer = () => {
-  const dispatch = useDispatch();
-  const { hydrated, user } = useSelector((s) => s.auth);
-  const didInit = useRef(false);
+    const dispatch = useDispatch();
+    const { hydrated, user } = useSelector((s) => s.auth);
+    const didInit = useRef(false);
 
-  const [, force] = useState(0);
+    const [, force] = useState(0);
 
-  useEffect(() => {
-    if (didInit.current) return;
-    didInit.current = true;
+    useEffect(() => {
+        if (didInit.current) return;
+        didInit.current = true;
 
-    (async () => {
-      await initI18n();
-      force((x) => x + 1);
-    })();
+        (async () => {
+            await initI18n();
+            force((x) => x + 1);
+        })();
 
-    dispatch(meThunk());
-  }, [dispatch]);
+        dispatch(meThunk());
+    }, [dispatch]);
 
-  useEffect(() => {
-    const unsub = subscribeToLanguageChange(() => force((x) => x + 1));
-    return () => unsub?.();
-  }, []);
+    useEffect(() => {
+        const unsub = subscribeToLanguageChange(() => force((x) => x + 1));
+        return () => unsub?.();
+    }, []);
 
-  useEffect(() => {
-    if (!hydrated) return;
-    try {
-      if (user) {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify({ user }));
-      } else {
-        localStorage.removeItem(STORAGE_KEY);
-      }
-    } catch {}
-  }, [hydrated, user]);
+    useEffect(() => {
+        if (!hydrated) return;
+        try {
+            if (user) {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify({ user }));
+            } else {
+                localStorage.removeItem(STORAGE_KEY);
+            }
+        } catch {}
+    }, [hydrated, user]);
 
-  return null;
+    return null;
 };
 
 export default AppInitializer;

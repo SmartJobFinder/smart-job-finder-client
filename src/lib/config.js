@@ -5,7 +5,9 @@ const BASE_PATH = process.env.NEXT_PUBLIC_API_BASE_URL || "/api/v1";
 
 const ABSOLUTE_BASE = isDev
     ? BASE_PATH
-    : `${PROXY_TARGET.replace(/\/$/, "")}${BASE_PATH.startsWith("/") ? BASE_PATH : `/${BASE_PATH}`}`;
+    : `${PROXY_TARGET.replace(/\/$/, "")}${
+          BASE_PATH.startsWith("/") ? BASE_PATH : `/${BASE_PATH}`
+      }`;
 
 export const API_CONFIG = {
     BASE_URL: ABSOLUTE_BASE,

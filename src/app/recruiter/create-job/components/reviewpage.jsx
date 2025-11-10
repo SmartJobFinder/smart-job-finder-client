@@ -12,6 +12,8 @@ import JobDetailCard from "@/app/recruiter/create-job/components/JobDetailCard";
 import JobSidebar from "@/app/recruiter/create-job/components/JobSidebar";
 import PublishingSettings from "@/app/recruiter/create-job/components/PublishingSettings";
 import SuccessDialog from "@/app/recruiter/create-job/components/SuccessDialog";
+import JobValidationDialog from "@/app/recruiter/create-job/components/JobValidationDialog";
+import { validateJobPosting } from "@/app/recruiter/create-job/utils/jobValidation";
 
 export default function JobReviewPage({
     formData,
@@ -30,6 +32,8 @@ export default function JobReviewPage({
     const [datePostError, setDatePostError] = useState("");
     const [expiredDateError, setExpiredDateError] = useState("");
     const [showSuccessDialog, setShowSuccessDialog] = useState(false);
+    const [showValidationDialog, setShowValidationDialog] = useState(false);
+    const [validationResult, setValidationResult] = useState(null);
 
     const formatDate = (dateString) => {
         if (!dateString) return "";
@@ -133,6 +137,31 @@ export default function JobReviewPage({
             return;
         }
 
+        // Show loading state
+        setShowValidationDialog(true);
+        setValidationResult({
+            score: 0,
+            status: "loading",
+            issues: null,
+            suggestions: null,
+        });
+
+        try {
+            // Validate job posting for scam/fraud (NOW ASYNC!)
+            const validation = await validateJobPosting(formData);
+            setValidationResult(validation);
+        } catch (error) {
+            console.error("Validation error:", error);
+            toast.error("Failed to validate job posting", {
+                position: "top-center",
+            });
+            setShowValidationDialog(false);
+        }
+    };
+
+    const handleProceedWithSubmit = async () => {
+        setShowValidationDialog(false);
+
         // Update parent form data with review data
         if (setParentFormData) {
             setParentFormData((prev) => ({
@@ -146,7 +175,6 @@ export default function JobReviewPage({
         if (onSubmit) {
             try {
                 const result = await onSubmit();
-                // Only show success dialog if the submission was actually successful
                 if (result !== false) {
                     setShowSuccessDialog(true);
                 }
@@ -261,6 +289,15 @@ export default function JobReviewPage({
                     </Button>
                 </div>
             </div>
+
+            {/* Validation Dialog */}
+            {showValidationDialog && validationResult && (
+                <JobValidationDialog
+                    validationResult={validationResult}
+                    onClose={() => setShowValidationDialog(false)}
+                    onProceed={handleProceedWithSubmit}
+                />
+            )}
 
             {/* Success Dialog */}
             {showSuccessDialog && (
