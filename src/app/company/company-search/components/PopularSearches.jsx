@@ -4,6 +4,7 @@ import React, { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Building } from "lucide-react";
 import useCompanySearchStore from "../store/companySearchStore";
+import { t } from "@/i18n/i18n";
 
 const PopularSearches = () => {
     const router = useRouter();
@@ -27,7 +28,7 @@ const PopularSearches = () => {
     return (
         <section>
             <h2 className="text-2xl font-bold text-gray-900 mb-6">
-                Popular searches
+                {t`Popular searches`}
             </h2>
 
             <div className="space-y-6">
@@ -35,7 +36,7 @@ const PopularSearches = () => {
                 <div>
                     <h3 className="text-lg font-medium text-gray-900 mb-3 flex items-center">
                         <Building className="mr-2 h-5 w-5 text-[#0A66C2]" />
-                        Industry
+                        {t`Industry`}
                     </h3>
                     <div className="flex flex-wrap gap-2">
                         {popularIndustries.map((industry) => (

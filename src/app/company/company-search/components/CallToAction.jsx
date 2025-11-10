@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import { t } from "@/i18n/i18n";
 
 const CallToAction = () => {
     return (
@@ -9,24 +10,23 @@ const CallToAction = () => {
             <div className="relative z-10 px-8 py-12 md:py-16 md:px-12">
                 <div className="max-w-3xl mx-auto text-center">
                     <h2 className="mb-4 text-3xl font-bold md:text-4xl">
-                        Are you a recruiter?
+                        {t`Are you a recruiter?`}
                     </h2>
                     <p className="mb-8 text-xl text-blue-100">
-                        Register for free to advertise your company and reach
-                        thousands of potential candidates!
+                        {t`Register for free to advertise your company and reach thousands of potential candidates!`}
                     </p>
                     <div className="flex flex-col justify-center gap-4 sm:flex-row">
                         <Link
                             href="/src/app/recruiter/create-job"
                             className="px-8 py-3 bg-white text-[#0A66C2] hover:bg-blue-50 font-medium rounded-lg transition-colors"
                         >
-                            Post a job
+                            {t`Post a job`}
                         </Link>
                         <Link
                             href="/recruiter/paymoney"
                             className="px-8 py-3 bg-[#085aab] text-white hover:bg-[#064884] font-medium rounded-lg transition-colors border border-blue-500"
                         >
-                            View service packages
+                            {t`View service packages`}
                         </Link>
                     </div>
                 </div>

@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import Link from "next/link";
+import { t } from "@/i18n/i18n";
 import {
     Building,
     MapPin,
@@ -372,13 +372,13 @@ const ResultPageContent = () => {
                         <div className="flex items-center justify-between mb-4">
                             <h2 className="text-2xl font-bold text-gray-800 flex items-center">
                                 <Building className="mr-2 h-6 w-6 text-[#0A66C2]" />
-                                All companies
+                                {t`All companies`}
                             </h2>
 
                             {/* Sắp xếp */}
                             <div className="flex items-center gap-2">
                                 <span className="text-sm text-gray-600">
-                                    Sort by:
+                                    {t`Sort by:`}
                                 </span>
                                 <select
                                     value={`${sort.field},${sort.direction}`}
@@ -390,25 +390,25 @@ const ResultPageContent = () => {
                                     className="px-3 py-1 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                                 >
                                     <option value="id,asc">
-                                        Default (A-Z)
+                                        {t`Default (A-Z)`}
                                     </option>
                                     <option value="companyName,asc">
-                                        Company Name (A-Z)
+                                        {t`Company Name (A-Z)`}
                                     </option>
                                     <option value="companyName,desc">
-                                        Company Name (Z-A)
+                                        {t`Company Name (Z-A)`}
                                     </option>
                                     <option value="locationCity,asc">
-                                        Location (A-Z)
+                                        {t`Location (A-Z)`}
                                     </option>
                                     <option value="locationCity,desc">
-                                        Location (Z-A)
+                                        {t`Location (Z-A)`}
                                     </option>
                                     <option value="foundedYear,desc">
-                                        Founded Year (Newest)
+                                        {t`Founded Year (Newest)`}
                                     </option>
                                     <option value="foundedYear,asc">
-                                        Founded Year (Oldest)
+                                        {t`Founded Year (Oldest)`}
                                     </option>
                                 </select>
                             </div>
@@ -416,12 +416,14 @@ const ResultPageContent = () => {
 
                         {/* Thông tin kết quả */}
                         <div className="text-sm text-gray-600 mb-4">
-                            Displaying {pagination.page * pagination.size + 1} -{" "}
+                            {t`Displaying`}{" "}
+                            {pagination.page * pagination.size + 1} -{" "}
                             {Math.min(
                                 (pagination.page + 1) * pagination.size,
                                 pagination.totalElements
                             )}{" "}
-                            out of {pagination.totalElements} companies
+                            {t`out of`} {pagination.totalElements}{" "}
+                            {t`companies`}
                         </div>
                     </div>
 
@@ -446,10 +448,10 @@ const ResultPageContent = () => {
                                 <div className="text-center py-12">
                                     <Building className="mx-auto h-12 w-12 text-gray-400 mb-4" />
                                     <h3 className="text-lg font-medium text-gray-900 mb-2">
-                                        No companies found
+                                        {t`No companies found`}
                                     </h3>
                                     <p className="text-gray-500">
-                                        Try changing your search or filter
+                                        {t`Try changing your search or filter`}
                                     </p>
                                 </div>
                             ) : (
@@ -534,7 +536,7 @@ const ResultPageContent = () => {
                                     </div>
 
                                     <div className="text-sm text-gray-700">
-                                        Page {pagination.page + 1} /{" "}
+                                        {t`Page`} {pagination.page + 1} /{" "}
                                         {pagination.totalPages}
                                     </div>
                                 </div>

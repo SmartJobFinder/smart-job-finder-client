@@ -1,5 +1,5 @@
 "use client";
-
+import { t } from "@/i18n/i18n";
 import React, {
     useState,
     useEffect,
@@ -329,11 +329,10 @@ const SearchBar = ({
                     {/* Header */}
                     <div className="mb-4 text-center md:mb-6">
                         <h1 className="mb-2 text-2xl font-bold text-gray-900 md:text-3xl">
-                            Search for a company
+                            {t`Search for a company`}
                         </h1>
                         <p className="text-sm text-gray-600 md:text-base">
-                            Discover companies that match your interests and
-                            skills. Search by name, location, industry, or size.
+                            {t`Discover companies that match your interests and skills. Search by name, location, industry, or size.`}
                         </p>
                     </div>
 
@@ -347,7 +346,7 @@ const SearchBar = ({
                             <input
                                 ref={companyRef}
                                 type="text"
-                                placeholder="Company name..."
+                                placeholder={t`Company name` + "..."}
                                 value={searchParams.company}
                                 onChange={(e) => {
                                     handleInputChange(
@@ -372,7 +371,7 @@ const SearchBar = ({
                             <input
                                 ref={locationRef}
                                 type="text"
-                                placeholder="Location..."
+                                placeholder={t`Location` + "..."}
                                 value={searchParams.location}
                                 onChange={(e) => {
                                     handleInputChange(
@@ -425,7 +424,7 @@ const SearchBar = ({
                             <input
                                 ref={categoryRef}
                                 type="text"
-                                placeholder="Select industry..."
+                                placeholder={t`Select industry` + "..."}
                                 value={getCategoryInputValue()}
                                 onChange={(e) => {
                                     handleCategorySearch(e.target.value);
@@ -487,7 +486,7 @@ const SearchBar = ({
                                 onClick={handleClearAll}
                                 className="px-4 md:px-6 py-2.5 md:py-3 border-2 border-gray-300 text-gray-700 rounded-xl hover:bg-gray-50 hover:border-gray-400 focus:outline-none focus:ring-4 focus:ring-gray-200 transition-all duration-200 font-semibold text-sm md:text-base whitespace-nowrap"
                             >
-                                Clear all
+                                {t`Clear all`}
                             </button>
                             <button
                                 type="submit"
@@ -499,7 +498,7 @@ const SearchBar = ({
                                 ) : (
                                     <Search className="w-4 h-4 md:w-5 md:h-5" />
                                 )}
-                                {isLoading ? "Searching..." : "Search"}
+                                {isLoading ? t`Searching...` : t`Search`}
                             </button>
                         </div>
                     </div>

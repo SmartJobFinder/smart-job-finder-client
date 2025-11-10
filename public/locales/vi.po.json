@@ -18,6 +18,45 @@
       "Home": { "msgid": "Home", "msgstr": ["Trang chủ"] },
       "About": { "msgid": "About", "msgstr": ["Giới thiệu"] },
       "Jobs": { "msgid": "Jobs", "msgstr": ["Việc làm"] },
+      "All companies": {
+        "msgid": "All companies",
+        "msgstr": ["Tất cả công ty"]
+      },
+      "Sort by:": { "msgid": "Sort by:", "msgstr": ["Sắp xếp theo:"] },
+      "Default (A-Z)": {
+        "msgid": "Default (A-Z)",
+        "msgstr": ["Mặc định (A-Z)"]
+      },
+      "Company Name (A-Z)": {
+        "msgid": "Company Name (A-Z)",
+        "msgstr": ["Tên công ty (A-Z)"]
+      },
+      "Company Name (Z-A)": {
+        "msgid": "Company Name (Z-A)",
+        "msgstr": ["Tên công ty (Z-A)"]
+      },
+      "Location (A-Z)": {
+        "msgid": "Location (A-Z)",
+        "msgstr": ["Địa điểm (A-Z)"]
+      },
+      "Location (Z-A)": {
+        "msgid": "Location (Z-A)",
+        "msgstr": ["Địa điểm (Z-A)"]
+      },
+      "Founded Year (Newest)": {
+        "msgid": "Founded Year (Newest)",
+        "msgstr": ["Năm thành lập (Mới nhất)"]
+      },
+      "Founded Year (Oldest)": {
+        "msgid": "Founded Year (Oldest)",
+        "msgstr": ["Năm thành lập (Cũ nhất)"]
+      },
+      "Register for free to advertise your company and reach thousands of potential candidates!": {
+        "msgid": "Register for free to advertise your company and reach thousands of potential candidates!",
+        "msgstr": [
+          "Đăng ký miễn phí để quảng cáo công ty của bạn và tiếp cận hàng nghìn ứng viên tiềm năng!"
+        ]
+      },
       "Companies": { "msgid": "Companies", "msgstr": ["Công ty"] },
       "Categories": { "msgid": "Categories", "msgstr": ["Danh mục"] },
       "Dashboard": { "msgid": "Dashboard", "msgstr": ["Trang tổng quan"] },
@@ -86,6 +125,10 @@
         ]
       },
       "Apply job": { "msgid": "Apply job", "msgstr": ["Ứng tuyển công việc"] },
+      "Re-Applications": {
+        "msgid": "Re-Applications",
+        "msgstr": ["Ứng tuyển lại"]
+      },
       "Submit your application with one click and get ready for new opportunities.": {
         "msgid": "Submit your application with one click and get ready for new opportunities.",
         "msgstr": ["Nộp hồ sơ chỉ với một lần nhấp và sẵn sàng cho cơ hội mới."]
@@ -179,22 +222,16 @@
         "msgid": "Browse Companies",
         "msgstr": ["Duyệt công ty"]
       },
-      "Address": {
-        "msgid": "Address",
-        "msgstr": [
-          "19 Nguyễn Hữu Thọ, Phường Tân Hưng, Thành phố Hồ Chí Minh, Việt Nam"
-        ]
-      },
-      "Or": {
-        "msgid": "Or",
-        "msgstr": ["Hoặc"]
-      },
       "Browse Jobs": { "msgid": "Browse Jobs", "msgstr": ["Duyệt việc làm"] },
       "Candidate Dashboard": {
         "msgid": "Candidate Dashboard",
         "msgstr": ["Trang tổng quan ứng viên"]
       },
       "Saved Jobs": { "msgid": "Saved Jobs", "msgstr": ["Việc làm đã lưu"] },
+      "Saved": { "msgid": "Saved", "msgstr": ["Đã lưu"] },
+      "Save": { "msgid": "Save", "msgstr": ["Lưu"] },
+      "Report": { "msgid": "Report", "msgstr": ["Báo cáo"] },
+
       "Recruiter": { "msgid": "Recruiter", "msgstr": ["Nhà tuyển dụng"] },
       "Post a Job": {
         "msgid": "Post a Job",
@@ -222,11 +259,36 @@
         "msgid": "Job Description",
         "msgstr": ["Mô tả công việc"]
       },
+      "Recommended companies": {
+        "msgid": "Recommended companies",
+        "msgstr": ["Công ty được đề xuất"]
+      },
+      "Based on your profile, interests, and recent activity": {
+        "msgid": "Based on your profile, interests, and recent activity",
+        "msgstr": ["Dựa trên hồ sơ, sở thích và hoạt động gần đây của bạn"]
+      },
+      "Popular searches": {
+        "msgid": "Popular searches",
+        "msgstr": ["Tìm kiếm phổ biến"]
+      },
+      "jobs": {
+        "msgid": "jobs",
+        "msgstr": ["việc làm"]
+      },
+      "employees": {
+        "msgid": "employees",
+        "msgstr": ["nhân viên"]
+      },
       "Requirements": { "msgid": "Requirements", "msgstr": ["Yêu cầu"] },
       "Benefits": { "msgid": "Benefits", "msgstr": ["Phúc lợi"] },
       "Work Location": {
         "msgid": "Work Location",
         "msgstr": ["Địa điểm làm việc"]
+      },
+      "Location": { "msgid": "Location", "msgstr": ["Địa điểm"] },
+      "Select industry": {
+        "msgid": "Select industry",
+        "msgstr": ["Chọn ngành nghề"]
       },
       "Similar Jobs": {
         "msgid": "Similar Jobs",
@@ -238,6 +300,10 @@
         "msgid": "Search for a company",
         "msgstr": ["Tìm kiếm công ty"]
       },
+      "Company name": {
+        "msgid": "Company name",
+        "msgstr": ["Tên công ty"]
+      },
       "Discover companies that match your interests and skills. Search by name, location, industry, or size.": {
         "msgid": "Discover companies that match your interests and skills. Search by name, location, industry, or size.",
         "msgstr": [
@@ -247,6 +313,18 @@
       "Filter": { "msgid": "Filter", "msgstr": ["Lọc"] },
       "Clear all": { "msgid": "Clear all", "msgstr": ["Xoá tất cả"] },
       "Industry": { "msgid": "Industry", "msgstr": ["Ngành nghề"] },
+      "Are you a recruiter?": {
+        "msgid": "Are you a recruiter?",
+        "msgstr": ["Bạn là nhà tuyển dụng?"]
+      },
+      "Post a job": {
+        "msgid": "Post a job",
+        "msgstr": ["Đăng tin tuyển dụng"]
+      },
+      "View service packages": {
+        "msgid": "View service packages",
+        "msgstr": ["Xem các gói dịch vụ"]
+      },
       "Company size": { "msgid": "Company size", "msgstr": ["Quy mô công ty"] },
       "Founded year": { "msgid": "Founded year", "msgstr": ["Năm thành lập"] },
       "Unfollow": { "msgid": "Unfollow", "msgstr": ["Bỏ theo dõi"] },
@@ -451,6 +529,7 @@
         "msgstr": ["Vị trí đang tuyển"]
       },
       "Search": { "msgid": "Search", "msgstr": ["Tìm kiếm"] },
+      "Searching": { "msgid": "Searching", "msgstr": ["Đang tìm kiếm"] },
       "Not found": { "msgid": "Not found", "msgstr": ["Không tìm thấy"] },
       "Reset": { "msgid": "Reset", "msgstr": ["Đặt lại"] },
       "See Detail": { "msgid": "See Detail", "msgstr": ["Xem chi tiết"] },
@@ -532,6 +611,21 @@
       },
       "View Details": { "msgid": "View Details", "msgstr": ["Xem chi tiết"] },
       "Loading": { "msgid": "Loading", "msgstr": ["Đang tải"] },
+      "Unsaved": { "msgid": "Unsave", "msgstr": ["Bỏ lưu"] },
+      "Save job": { "msgid": "Save job", "msgstr": ["Lưu việc làm"] },
+      "Unsave job": { "msgid": "Unsave job", "msgstr": ["Bỏ lưu việc làm"] },
+      "Check suitability with AI": {
+        "msgid": "Check suitability with AI",
+        "msgstr": ["Kiểm tra sự phù hợp với AI"]
+      },
+      "Location not specified": {
+        "msgid": "Location not specified",
+        "msgstr": ["Chưa xác định địa điểm"]
+      },
+      "Please log in to use AI": {
+        "msgid": "Please log in to use AI",
+        "msgstr": ["Vui lòng đăng nhập để sử dụng AI"]
+      },
       "Profile": { "msgid": "Profile", "msgstr": ["Hồ sơ"] },
       "Manage CV": { "msgid": "Manage CV", "msgstr": ["Quản lý CV"] },
       "My Interviews": {
@@ -541,6 +635,10 @@
       "Company Follows": {
         "msgid": "Company Follows",
         "msgstr": ["Công ty đang theo dõi"]
+      },
+      "Companies Follow": {
+        "msgid": "Companies Follow",
+        "msgstr": ["Công ty đã theo dõi"]
       },
       "My Jobs": { "msgid": "My Jobs", "msgstr": ["Việc làm của tôi"] },
       "Settings": { "msgid": "Settings", "msgstr": ["Cài đặt"] },
@@ -553,7 +651,75 @@
         "msgid": "Payment History",
         "msgstr": ["Lịch sử thanh toán"]
       },
-      "Upgrade Vip": { "msgid": "Upgrade Vip", "msgstr": ["Nâng cấp VIP"] }
+      "Upgrade Vip": { "msgid": "Upgrade Vip", "msgstr": ["Nâng cấp VIP"] },
+      "General": {
+        "msgid": "General",
+        "msgstr": ["Thông tin chung"]
+      },
+      "Salary:": {
+        "msgid": "Salary:",
+        "msgstr": ["Mức lương:"]
+      },
+      "Post Date:": {
+        "msgid": "Post Date:",
+        "msgstr": ["Ngày đăng:"]
+      },
+      "Expired Date:": {
+        "msgid": "Expired Date:",
+        "msgstr": ["Ngày hết hạn:"]
+      },
+      "Skills Requirements": {
+        "msgid": "Skills Requirements",
+        "msgstr": ["Yêu cầu kỹ năng"]
+      },
+      "Are you suitable?": {
+        "msgid": "Are you suitable?",
+        "msgstr": ["Bạn có phù hợp?"]
+      },
+      "N/A": {
+        "msgid": "N/A",
+        "msgstr": ["Không có"]
+      },
+      "Displaying": {
+        "msgid": "Displaying",
+        "msgstr": ["Hiển thị"]
+      },
+      "out of": {
+        "msgid": "out of",
+        "msgstr": ["trên tổng"]
+      },
+      "companies": {
+        "msgid": "companies",
+        "msgstr": ["công ty"]
+      },
+      "No companies found": {
+        "msgid": "No companies found",
+        "msgstr": ["Không tìm thấy công ty"]
+      },
+      "Try changing your search or filter": {
+        "msgid": "Try changing your search or filter",
+        "msgstr": ["Thử thay đổi tìm kiếm hoặc bộ lọc của bạn"]
+      },
+      "Hide filter": {
+        "msgid": "Hide filter",
+        "msgstr": ["Ẩn bộ lọc"]
+      },
+      "Show filter": {
+        "msgid": "Show filter",
+        "msgstr": ["Hiện bộ lọc"]
+      },
+      "Page": {
+        "msgid": "Page",
+        "msgstr": ["Trang"]
+      },
+      "Applied Jobs": {
+        "msgid": "Applied Jobs",
+        "msgstr": ["Việc làm đã ứng tuyển"]
+      },
+      "Welcome": {
+        "msgid": "Welcome",
+        "msgstr": ["Chào mừng"]
+      }
     }
   }
 }
