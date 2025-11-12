@@ -26,6 +26,12 @@
         "msgid": "Favorite Jobs",
         "msgstr": ["Favorite Jobs"]
       },
+      "Address": {
+        "msgid": "Address",
+        "msgstr": [
+          "19 Nguyen Huu Tho, Tan Hung Ward, Ho Chi Minh City, Vietnam"
+        ]
+      },
       "Companies Follow": {
         "msgid": "Companies Follow",
         "msgstr": ["Companies Follow"]

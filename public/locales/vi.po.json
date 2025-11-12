@@ -626,6 +626,12 @@
         "msgid": "Please log in to use AI",
         "msgstr": ["Vui lòng đăng nhập để sử dụng AI"]
       },
+      "Address": {
+        "msgid": "Address",
+        "msgstr": [
+          "19 Nguyễn Hữu Thọ, Phường Tân Hưng, Thành phố Hồ Chí Minh, Việt Nam"
+        ]
+      },
       "Profile": { "msgid": "Profile", "msgstr": ["Hồ sơ"] },
       "Manage CV": { "msgid": "Manage CV", "msgstr": ["Quản lý CV"] },
       "My Interviews": {

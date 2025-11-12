@@ -1,3 +1,4 @@
+"use client";
 import SidebarHorizontal from "@/components/layout/SidebarHorizontal";
 import { t } from "@/i18n/i18n";
 
