@@ -15,6 +15,7 @@ import LoadingScreen from "@/components/ui/loadingScreen";
 import ApplicationBadge from "@/components/ui/ApplicationBadge";
 import ApplicationDetail from "@/app/job-detail/[id]/_components/ApplicationDetail";
 import { useRouter } from "next/navigation";
+import { t } from "@/i18n/i18n";
 
 function formatDate(dateTimeString) {
     if (!dateTimeString) return "";
@@ -51,7 +52,6 @@ export default function AppliedPage() {
 
             {data?.content?.map((job) => (
                 <div key={job.applicationId} className="space-y-2">
-
                     <div className="flex-col items-stretch w-full overflow-hidden bg-white border border-gray-200 shadow-sm md:flex md:flex-row rounded-xl hover:shadow-md hover:border-blue-300">
                         <div className="flex-shrink-0 w-full h-40 md:w-32 md:h-auto">
                             <img
@@ -63,7 +63,6 @@ export default function AppliedPage() {
 
                         <div className="flex flex-col justify-between flex-1 p-4 sm:flex-row sm:items-center">
                             <div className="flex flex-col flex-1 space-y-3">
-
                                 <p
                                     onClick={() =>
                                         router.push(`/job-detail/${job.jobId}`)
@@ -86,26 +85,26 @@ export default function AppliedPage() {
                                         {job.companyName}
                                     </p>
                                 </div>
-                                
+
                                 <div className="flex flex-wrap items-center justify-between gap-3 text-sm text-gray-700">
                                     <div className="flex flex-wrap gap-4">
                                         <div className="flex items-center gap-2">
                                             <Clock className="w-4 h-4 text-blue-600" />
                                             <span>
-                                                Applied:{" "}
+                                                {t`Applied`}:{" "}
                                                 {formatDate(job.createdAt)}
                                             </span>
                                         </div>
                                         <div className="flex items-center gap-2 font-semibold text-red-600">
                                             <CalendarDays className="w-4 h-4" />
                                             <span>
-                                                Expired: {job.expiredDate}
+                                                {t`Expired`}: {job.expiredDate}
                                             </span>
                                         </div>
                                         <div className="flex items-center gap-2">
                                             <DollarSign className="w-4 h-4 text-green-600" />
                                             <span>
-                                                Salary: {job.salaryDisplay}
+                                                {t`Salary`}: {job.salaryDisplay}
                                             </span>
                                         </div>
                                     </div>
@@ -123,7 +122,7 @@ export default function AppliedPage() {
                                                 className="flex items-center gap-2"
                                             >
                                                 <FileText className="w-4 h-4 text-red-500" />
-                                                <span>View CV (PDF)</span>
+                                                <span>{t`View`} CV (PDF)</span>
                                             </Link>
                                         </Button>
                                     )}
@@ -150,7 +149,7 @@ export default function AppliedPage() {
                                     >
                                         <div>
                                             <Eye className="w-4 h-4" />
-                                            <span>Job Detail</span>
+                                            <span>{t`Job Detail`}</span>
                                         </div>
                                     </Button>
 
@@ -169,8 +168,8 @@ export default function AppliedPage() {
                                         <FileText className="w-4 h-4" />
                                         <span>
                                             {showDetailId === job.jobId
-                                                ? "Hide"
-                                                : "Application"}
+                                                ? t`Hide`
+                                                : t`Applications`}
                                         </span>
                                     </Button>
                                 </div>

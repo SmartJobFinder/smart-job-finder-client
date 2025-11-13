@@ -17,6 +17,10 @@ import {
     Loader2,
 } from "lucide-react";
 import useCompanySearchStore from "../store/companySearchStore";
+import {
+    useGetCitiesQuery,
+    useLazySearchCitiesQuery,
+} from "@/services/locationService";
 
 // Custom hook for debouncing
 const useDebounce = (value, delay) => {
@@ -46,6 +50,14 @@ const SearchBar = ({
         fetchIndustries,
         isLoading,
     } = useCompanySearchStore();
+
+    // Gọi API để lấy cities
+    const { data: allCities = [], isLoading: isLoadingCities } =
+        useGetCitiesQuery();
+
+    // Lazy query để search cities theo keyword
+    const [searchCities, { data: searchResults = [], isLoading: isSearching }] =
+        useLazySearchCitiesQuery();
 
     const [searchParams, setSearchParams] = useState({
         company: initialValues.company || "",
@@ -78,6 +90,23 @@ const SearchBar = ({
     const debouncedCompany = useDebounce(searchParams.company, 300);
     const debouncedLocation = useDebounce(searchParams.location, 300);
     const debouncedCategorySearch = useDebounce(categorySearchTerm, 200);
+
+    // Debounce search cities
+    useEffect(() => {
+        if (debouncedLocation && debouncedLocation.length >= 2) {
+            searchCities(debouncedLocation);
+        }
+    }, [debouncedLocation, searchCities]);
+
+    // Danh sách cities để hiển thị
+    const cities = useMemo(() => {
+        // Nếu đang search và có kết quả, dùng searchResults
+        if (debouncedLocation && searchResults.length > 0) {
+            return searchResults;
+        }
+        // Ngược lại dùng allCities
+        return allCities;
+    }, [debouncedLocation, searchResults, allCities]);
 
     // Load data on mount
     useEffect(() => {
@@ -142,15 +171,31 @@ const SearchBar = ({
         }
     }, [industries.length > 0 ? industries : [], stableCategoryIds.join(",")]);
 
-    // Memoized filtered locations
+    // Memoized filtered locations - sử dụng cities thay vì locations
     const filteredLocations = useMemo(() => {
-        if (!debouncedLocation) return locations.slice(0, 8);
-        return locations
-            .filter((location) =>
-                location.toLowerCase().includes(debouncedLocation.toLowerCase())
-            )
-            .slice(0, 8);
-    }, [locations, debouncedLocation]);
+        const topCities = [
+            "Thành phố Hồ Chí Minh",
+            "Thành phố Hà Nội",
+            "Thành phố Hải Phòng",
+            "Thành phố Đà Nẵng",
+            "Thành phố Huế",
+            "Thành phố Cần Thơ",
+        ];
+
+        if (!debouncedLocation) {
+            // Hiển thị top cities trước, sau đó là tất cả cities khác
+            const topResults = cities.filter((city) =>
+                topCities.includes(city)
+            );
+            const otherResults = cities.filter(
+                (city) => !topCities.includes(city)
+            );
+            return [...topResults, ...otherResults]; // Bỏ .slice(0, 8)
+        }
+
+        // Khi có search, hiển thị tất cả kết quả từ API
+        return cities; // Bỏ .slice(0, 10)
+    }, [cities, debouncedLocation]);
 
     // Memoized filtered industries
     const filteredIndustries = useMemo(() => {
@@ -221,14 +266,25 @@ const SearchBar = ({
         setIsCategoryInputFocused(true);
     }, []);
 
-    // Handle location selection
-    const handleLocationSelect = useCallback((location) => {
-        setSearchParams((prev) => ({
-            ...prev,
-            location,
-        }));
-        setShowLocationSuggestions(false);
-    }, []);
+    // Handle location selection - tự động search khi chọn city
+    const handleLocationSelect = useCallback(
+        (location) => {
+            setSearchParams((prev) => ({
+                ...prev,
+                location,
+            }));
+            setShowLocationSuggestions(false);
+
+            // Tự động trigger search khi chọn location
+            setTimeout(() => {
+                onSearch({
+                    ...searchParams,
+                    location,
+                });
+            }, 100);
+        },
+        [onSearch, searchParams]
+    );
 
     // Handle category toggle
     const handleCategoryToggle = useCallback(

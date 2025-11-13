@@ -49,13 +49,13 @@ const AiMatchModal = ({ onClose, job }) => {
             console.log("Profile completion:", completion);
             setProfileCompletion(completion);
 
-            if (completion.percent < 80) {
+            if (completion.percent < 70) {
                 setError(
-                    `Your profile is only ${completion.percent}% complete. Please complete at least 80% of your profile before using CV matching.`
+                    `Your profile is only ${completion.percent}% complete. Please complete at least 70% of your profile before using CV matching.`
                 );
                 setLoading(false);
                 toast.error(
-                    `Profile completion: ${completion.percent}%. Need 80% to use AI matching.`
+                    `Profile completion: ${completion.percent}%. Need 70% to use AI matching.`
                 );
                 return;
             }
