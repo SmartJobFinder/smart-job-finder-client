@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useMemo, useState } from "react";
+import React, { useMemo, useState, useEffect } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Check, ChevronDown, MapPin, Search } from "lucide-react";
@@ -23,7 +23,10 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 import { useJobSearchStore } from "@/store/jobSearchStore";
-import { useGetCitiesQuery } from "@/services/locationService";
+import {
+    useGetCitiesQuery,
+    useLazySearchCitiesQuery,
+} from "@/services/locationService";
 import { t } from "@/i18n/i18n";
 
 const HeroSection = () => {
@@ -35,7 +38,33 @@ const HeroSection = () => {
     const setSearchTerm = useJobSearchStore((state) => state.setSearchTerm);
     const router = useRouter();
 
-    const { data: provinces = [] } = useGetCitiesQuery();
+    // Lấy tất cả cities khi component mount
+    const { data: allCities = [], isLoading: isLoadingAll } =
+        useGetCitiesQuery();
+
+    // Lazy query để search cities theo keyword
+    const [searchCities, { data: searchResults = [], isLoading: isSearching }] =
+        useLazySearchCitiesQuery();
+
+    // Debounce search term
+    useEffect(() => {
+        if (searchProvinceTerm && searchProvinceTerm.length >= 2) {
+            const timer = setTimeout(() => {
+                searchCities(searchProvinceTerm);
+            }, 300);
+            return () => clearTimeout(timer);
+        }
+    }, [searchProvinceTerm, searchCities]);
+
+    // Danh sách provinces để hiển thị
+    const provinces = useMemo(() => {
+        // Nếu đang search và có kết quả, dùng searchResults
+        if (searchProvinceTerm && searchResults.length > 0) {
+            return searchResults;
+        }
+        // Ngược lại dùng allCities
+        return allCities;
+    }, [searchProvinceTerm, searchResults, allCities]);
 
     const filteredProvinces = useMemo(() => {
         const topProvinces = [
@@ -48,11 +77,18 @@ const HeroSection = () => {
         ];
 
         if (!searchProvinceTerm) {
-            return provinces.filter((name) => topProvinces.includes(name));
+            // Hiển thị top provinces trước, sau đó là các tỉnh khác
+            const topCities = provinces.filter((name) =>
+                topProvinces.includes(name)
+            );
+            const otherCities = provinces.filter(
+                (name) => !topProvinces.includes(name)
+            );
+            return [...topCities, ...otherCities];
         }
 
-        const term = searchProvinceTerm.toLowerCase();
-        return provinces.filter((name) => name.toLowerCase().includes(term));
+        // Khi có search term, hiển thị kết quả từ API search
+        return provinces;
     }, [searchProvinceTerm, provinces]);
 
     const handleSearch = () => {
@@ -62,6 +98,22 @@ const HeroSection = () => {
         });
         router.push("/search");
     };
+
+    // Tự động search khi chọn province
+    const handleProvinceSelect = (val) => {
+        setSelectedProvince(val);
+        setOpenProvince(false);
+        setSearchProvinceTerm("");
+
+        // Tự động redirect tới trang search với province đã chọn
+        setSearchTerm({
+            keyword,
+            province: val,
+        });
+        router.push("/search");
+    };
+
+    const isLoading = isLoadingAll || isSearching;
 
     return (
         <section className="py-8 sm:py-12 lg:py-24">
@@ -86,6 +138,11 @@ const HeroSection = () => {
                                     className="pl-8 text-sm border-0 sm:pl-10 focus-visible:ring-0 sm:text-base"
                                     value={keyword}
                                     onChange={(e) => setKeyword(e.target.value)}
+                                    onKeyDown={(e) => {
+                                        if (e.key === "Enter") {
+                                            handleSearch();
+                                        }
+                                    }}
                                 />
                             </div>
 
@@ -98,16 +155,19 @@ const HeroSection = () => {
                                     <Button
                                         variant="outline"
                                         className="flex items-center justify-between w-full px-2 py-2 text-sm text-gray-700 bg-white border sm:px-3 sm:w-auto sm:flex-1 sm:text-base"
+                                        disabled={isLoading}
                                     >
                                         <MapPin className="w-3 h-3 mr-1 sm:w-4 sm:h-4" />
-                                        {selectedProvince || "City"}
+                                        {isLoading
+                                            ? "Loading..."
+                                            : selectedProvince || t`City`}
                                         <ChevronDown className="w-3 h-3 ml-auto opacity-50" />
                                     </Button>
                                 </PopoverTrigger>
-                                <PopoverContent className="w-[180px] sm:w-[220px] p-0">
-                                    <Command>
+                                <PopoverContent className="w-[280px] sm:w-[320px] p-0">
+                                    <Command shouldFilter={false}>
                                         <CommandInput
-                                            placeholder="Search for more ..."
+                                            placeholder={t`Search for more ...`}
                                             className="h-8 text-sm sm:h-9"
                                             onValueChange={
                                                 setSearchProvinceTerm
@@ -115,19 +175,18 @@ const HeroSection = () => {
                                             value={searchProvinceTerm}
                                         />
                                         <CommandEmpty>
-                                            Không tìm thấy tỉnh
+                                            {isSearching
+                                                ? "Searching..."
+                                                : t`Not found`}
                                         </CommandEmpty>
-                                        <CommandGroup>
+                                        <CommandGroup className="max-h-[300px] overflow-y-auto">
                                             {filteredProvinces.map((name) => (
                                                 <CommandItem
                                                     key={name}
                                                     value={name}
-                                                    onSelect={(val) => {
-                                                        setSelectedProvince(
-                                                            val
-                                                        );
-                                                        setOpenProvince(false);
-                                                    }}
+                                                    onSelect={
+                                                        handleProvinceSelect
+                                                    }
                                                 >
                                                     {name}
                                                     <Check

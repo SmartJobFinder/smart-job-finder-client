@@ -12,6 +12,7 @@ import {
 import SockJS from "sockjs-client";
 import { Client as StompClient } from "@stomp/stompjs";
 import { useRouter } from "next/navigation";
+import { t } from "@/i18n/i18n";
 
 /** format "time ago" ngắn gọn */
 function timeAgo(iso) {
@@ -442,7 +443,8 @@ export default function NotificationBell({ className = "" }) {
                 {/* Header */}
                 <div className="flex items-center justify-between px-4 py-3 border-b">
                     <div className="text-sm font-semibold">
-                        Notifications {count > 0 ? `(${count} Unread)` : ""}
+                        {t`Notifications`}{" "}
+                        {count > 0 ? `(${count} Unread)` : ""}
                     </div>
                     <Button
                         variant="ghost"
@@ -453,7 +455,7 @@ export default function NotificationBell({ className = "" }) {
                         title="Đánh dấu tất cả đã đọc"
                     >
                         <CheckCheck className="w-4 h-4" />
-                        Mark all read
+                        {t`Mark all read`}
                     </Button>
                 </div>
 
@@ -462,13 +464,13 @@ export default function NotificationBell({ className = "" }) {
                     {loading && (
                         <div className="flex items-center justify-center py-8 text-sm text-muted-foreground">
                             <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                            Loading...
+                            {t`Loading`}...
                         </div>
                     )}
 
                     {!loading && items.length === 0 && (
                         <div className="px-4 py-8 text-sm text-center text-muted-foreground">
-                            Empty.
+                            {t`Empty`}.
                         </div>
                     )}
 

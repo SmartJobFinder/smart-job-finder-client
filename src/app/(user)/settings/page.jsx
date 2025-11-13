@@ -4,6 +4,7 @@ import SetPasswordEmailSent from "@/components/auth/SetPasswordEmailSent";
 import { Mail, User, Lock, Trash2, ChevronRight } from "lucide-react";
 import { useState } from "react";
 import { useSelector } from "react-redux";
+import { t } from "@/i18n/i18n";
 
 export default function SettingsPage() {
     const user = useSelector((state) => state.auth.user);
@@ -22,7 +23,7 @@ export default function SettingsPage() {
         <div className="flex flex-col gap-6">
             {/* Account Info */}
             <section className="p-6 space-y-4 bg-white border rounded-lg shadow-sm">
-                <h2 className="text-lg font-semibold">Account Information</h2>
+                <h2 className="text-lg font-semibold">{t`Account Information`}</h2>
 
                 <div className="flex items-center justify-between">
                     <div>
@@ -36,13 +37,12 @@ export default function SettingsPage() {
 
                 <div className="flex items-center justify-between">
                     <div>
-                        <p className="text-sm text-gray-500">Full name:</p>
+                        <p className="text-sm text-gray-500">{t`Full name`}:</p>
                         <p className="font-medium text-gray-800">
                             {user.fullName}
                         </p>
                         <p className="text-sm text-gray-500">
-                            Your account name is synchronized with profile
-                            information.
+                            {t`Your account name is synchronized with profile information.`}
                         </p>
                     </div>
                     <User className="w-5 h-5 text-gray-400" />
@@ -52,29 +52,29 @@ export default function SettingsPage() {
                     href="/profile"
                     className="inline-flex items-center text-sm font-medium text-blue-500 hover:underline"
                 >
-                    Update profile information
+                    {t`Update profile information`}
                     <ChevronRight className="w-4 h-4 ml-1" />
                 </a>
             </section>
 
             {/* Password */}
             <section className="p-6 bg-white border rounded-lg shadow-sm">
-                <h2 className="text-lg font-semibold">Password</h2>
+                <h2 className="text-lg font-semibold">{t`Password`}</h2>
                 <div className="flex items-center mt-2 text-sm text-gray-600">
                     <Lock className="w-4 h-4 mr-2 text-gray-400" />
-                    You signed up with Google, so your account doesn’t have a
-                    password.
+                    {t`You signed up with Google, so your account doesn’t have a password.`}
                 </div>
 
                 <div className="mt-3 text-sm">
                     <p className="mb-2 text-gray-600">
-                        If you still want to set a password{"  "}
+                        {t`If you still want to set a password`}
+                        {"  "}
                     </p>
                     <button
                         onClick={() => setShowSetPwSent(true)}
                         className="inline-flex items-center px-4 py-2 mt-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 "
                     >
-                        click here
+                        {t`Click here`}
                     </button>
                 </div>
             </section>

@@ -16,6 +16,7 @@ import { normalizeProfileData } from "@/features/profile/normalizeProfileData";
 import LoadingScreen from "@/components/ui/loadingScreen";
 import { useGetApplicationsByUserQuery } from "@/services/applicationService";
 import { useGetSavedJobsByUserQuery } from "@/services/savedJobService";
+import { t } from "@/i18n/i18n";
 
 export default function CandidateDashboard() {
     const dispatch = useDispatch();
@@ -65,7 +66,7 @@ export default function CandidateDashboard() {
                         href="/profile"
                         className="inline-block mt-1 text-sm font-medium text-color-primary-main hover:text-blue-800 hover:font-semibold"
                     >
-                        Update your profile &gt;
+                        {t`Update your profile`} &gt;
                     </Link>
                 </div>
             </div>
@@ -73,7 +74,7 @@ export default function CandidateDashboard() {
             {/* Profile Completion */}
             <div className="p-6 bg-white rounded-lg shadow-sm">
                 <h3 className="mb-4 text-base font-semibold text-gray-800">
-                    Complete your profile
+                    {t`Complete your profile`}
                 </h3>
                 <div className="flex flex-col items-center gap-6 sm:flex-row">
                     <div className="relative w-24 h-24">
@@ -124,18 +125,17 @@ export default function CandidateDashboard() {
 
                     <div className="flex-1">
                         <p className="mb-1 text-sm text-gray-700">
-                            Reach{" "}
+                            {t`Reach`}{" "}
                             <span className="font-bold text-color-primary-accent">
                                 70%
                             </span>{" "}
-                            of your profile to start generating your IT
-                            professional CV.
+                            {t`of your profile to start generating professional CV.`}
                         </p>
                         <Link
                             href="/profile"
                             className="text-sm text-color-primary-main"
                         >
-                            Complete your profile &gt;
+                            {t`Complete your profile`} &gt;
                         </Link>
                     </div>
                 </div>
@@ -144,19 +144,19 @@ export default function CandidateDashboard() {
             {/* Activities */}
             <div className="p-6 bg-white rounded-lg shadow-sm">
                 <h3 className="mb-4 text-base font-semibold text-gray-800">
-                    Your Activities
+                    {t`Your Activities`}
                 </h3>
                 <div className="grid grid-cols-1 gap-4 text-center sm:grid-cols-2">
                     <div className="flex flex-col items-center p-4 text-blue-600 bg-blue-100 rounded">
                         <Send className="w-6 h-6 mb-1" />
-                        <p className="text-sm">Applied Jobs</p>
+                        <p className="text-sm">{t`Applied Jobs`}</p>
                         <p className="text-2xl font-bold">
                             {applications?.totalElements ?? 0}
                         </p>
                     </div>
                     <div className="flex flex-col items-center p-4 bg-orange-100 rounded text-color-primary-accent">
                         <Heart className="w-6 h-6 mb-1" />
-                        <p className="text-sm">Saved Jobs</p>
+                        <p className="text-sm">{t`Saved Jobs`}</p>
                         <p className="text-2xl font-bold">
                             {savedJobs?.length ?? 0}
                         </p>

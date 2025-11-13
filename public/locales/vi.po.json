@@ -242,6 +242,38 @@
         "msgstr": ["Trang tổng quan nhà tuyển dụng"]
       },
       "Applications": { "msgid": "Applications", "msgstr": ["Đơn ứng tuyển"] },
+      "Hide": {
+        "msgid": "Hide",
+        "msgstr": ["Ẩn"]
+      },
+      "Account Information": {
+        "msgid": "Account Information",
+        "msgstr": ["Thông tin tài khoản"]
+      },
+      "Your account name is synchronized with profile information.": {
+        "msgid": "Your account name is synchronized with profile information.",
+        "msgstr": ["Tên tài khoản của bạn được đồng bộ với thông tin hồ sơ."]
+      },
+      "Update profile information": {
+        "msgid": "Update profile information",
+        "msgstr": ["Cập nhật thông tin hồ sơ"]
+      },
+      "You signed up with Google, so your account doesn’t have a password.": {
+        "msgid": "You signed up with Google, so your account doesn’t have a password.",
+        "msgstr": [
+          "Bạn đã đăng ký bằng Google, vì vậy tài khoản của bạn không có mật khẩu."
+        ]
+      },
+      "If you still want to set a password,": {
+        "msgid": "If you still want to set a password,",
+        "msgstr": ["Nếu bạn vẫn muốn đặt mật khẩu,"]
+      },
+      "Click here": {
+        "msgid": "Click here",
+        "msgstr": ["Nhấp vào đây"]
+      },
+      "Password": { "msgid": "Password", "msgstr": ["Mật khẩu"] },
+      "Full name": { "msgid": "Full name", "msgstr": ["Họ và tên"] },
       "Company Profile": {
         "msgid": "Company Profile",
         "msgstr": ["Hồ sơ công ty"]
@@ -626,6 +658,61 @@
         "msgid": "Please log in to use AI",
         "msgstr": ["Vui lòng đăng nhập để sử dụng AI"]
       },
+      "Address": {
+        "msgid": "Address",
+        "msgstr": [
+          "19 Nguyễn Hữu Thọ, Phường Tân Hưng, Thành phố Hồ Chí Minh, Việt Nam"
+        ]
+      },
+      "Notifications": {
+        "msgid": "Notifications",
+        "msgstr": ["Thông báo"]
+      },
+      "Mark all read": {
+        "msgid": "Mark all read",
+        "msgstr": ["Đánh dấu tất cả đã đọc"]
+      },
+      "Empty": {
+        "msgid": "Empty",
+        "msgstr": ["Trống"]
+      },
+      "Update your profile": {
+        "msgid": "Update your profile",
+        "msgstr": ["Cập nhật hồ sơ của bạn"]
+      },
+      "Complete your profile": {
+        "msgid": "Complete your profile",
+        "msgstr": ["Hoàn thành hồ sơ của bạn"]
+      },
+      "Your Activities": {
+        "msgid": "Your Activities",
+        "msgstr": ["Hoạt động của bạn"]
+      },
+      "Reach": {
+        "msgid": "Reach",
+        "msgstr": ["Tiếp cận"]
+      },
+      "of your profile to start generating professional CV.": {
+        "msgid": "of your profile to start generating professional CV.",
+        "msgstr": ["của hồ sơ của bạn để bắt đầu tạo CV chuyên."]
+      },
+      "Follow the companies you care about": {
+        "msgid": "Follow the companies you care about",
+        "msgstr": ["Theo dõi các công ty bạn quan tâm"]
+      },
+      "open jobs": {
+        "msgid": "open jobs",
+        "msgstr": ["việc làm đang tuyển"]
+      },
+      "Applied": {
+        "msgid": "Applied",
+        "msgstr": ["Đã ứng tuyển"]
+      },
+      "Job Detail": {
+        "msgid": "Job Detail",
+        "msgstr": ["Chi tiết công việc"]
+      },
+      "Expired": { "msgid": "Expired", "msgstr": ["Hết hạn"] },
       "Profile": { "msgid": "Profile", "msgstr": ["Hồ sơ"] },
       "Manage CV": { "msgid": "Manage CV", "msgstr": ["Quản lý CV"] },
       "My Interviews": {
