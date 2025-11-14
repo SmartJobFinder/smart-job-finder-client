@@ -15,28 +15,28 @@ export default function TestimonialsSection() {
             text: "JobFind has a clean, modern interface that makes job searching feel effortless. I found exactly what I was looking for in just a few days!",
             name: "Võ Nhật Hào",
             title: "UI/UX Designer",
-            avatar: "https://scontent.fsgn5-5.fna.fbcdn.net/v/t39.30808-1/475199787_2099959677144177_6478358276230291067_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=100&ccb=1-7&_nc_sid=e99d92&_nc_ohc=PLQx4FLpkacQ7kNvwEQjS34&_nc_oc=Adl-nVgJ_5FkMx0GzZ2A08MARzIvwaISKROKY4MYXG1CQYLf2LmxOg_Pi6HRsKL4lyuQWTMFoKeQBP5AB0DX5d-P&_nc_zt=24&_nc_ht=scontent.fsgn5-5.fna&_nc_gid=Y-6Sq87jhpL0TqFoBGYCUQ&oh=00_AfezgY_ogXguBOXQHl2RIvD1H4EFHU7aGMtqy1o9ihlvzw&oe=690588D4",
+            avatar: "https://res.cloudinary.com/drozptref/image/upload/v1763140820/ldia6lwxxxtfuwmdzhdo.jpg",
         },
         {
             rating: 5,
             text: "The job search and application process is incredibly smooth. JobFind helped me connect with companies that truly match my creative vision.",
             name: "Phạm Văn Phúc",
             title: "Creative Director",
-            avatar: "https://scontent.fsgn5-10.fna.fbcdn.net/v/t39.30808-1/562374811_2112519982654414_830120964938939457_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=107&ccb=1-7&_nc_sid=e99d92&_nc_ohc=BUinRh6mpYoQ7kNvwHMWlsD&_nc_oc=AdkFE1RoClUuQ4hX_FgQiO7MG6UEpf65HeCoV5xC585JBfAtS3N6L1CXy3fjN986DlvNc5jfkHK0fOCLL8Vl6cOG&_nc_zt=24&_nc_ht=scontent.fsgn5-10.fna&_nc_gid=42xXx0ddL4OSFpEPiLhI5A&oh=00_AfcRLZ6SL4JzvKYiV38Jr4wvyBEB41oLRJ2aizYWtv_odg&oe=69057737",
+            avatar: "https://res.cloudinary.com/drozptref/image/upload/v1763140819/feljxbsad9aflfrlogtx.webp",
         },
         {
             rating: 5,
             text: "As an intern looking for my first opportunity, JobFind gave me access to real openings and helpful tips. I landed my first internship thanks to this platform!",
             name: "Ngô Đức Huy",
             title: "Intern",
-            avatar: "https://scontent.fsgn5-15.fna.fbcdn.net/v/t39.30808-1/412561075_3553409431642399_8967119420852612607_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=111&ccb=1-7&_nc_sid=e99d92&_nc_ohc=Fw3MYsenFxoQ7kNvwEfk7Om&_nc_oc=Admh7HgmuNX9yiYyTgTjwBIfzyl_zGd8r4GTSurOFu7AKsRZ0Qa3sgzkdqaeVzFBOoccifaZ2AsdK89WgDOYOuZL&_nc_zt=24&_nc_ht=scontent.fsgn5-15.fna&_nc_gid=TtmXHYpjtyRa5PzySkIS0g&oh=00_AffKnX_3QaAK-KmK6jtbXNVtpho9xruCGupPicmlxXqXFw&oe=6905A1C6",
+            avatar: "https://res.cloudinary.com/drozptref/image/upload/v1763140820/vsrrnhvvgucunfai6rs1.jpg",
         },
         {
             rating: 5,
             text: "Over 1,000 users – including myself – have found jobs through JobFind. It's not just a platform; it's a launchpad for your career.",
             name: "Nguyễn Đức Huy",
             title: "Software Engineer",
-            avatar: "https://scontent.fsgn5-9.fna.fbcdn.net/v/t39.30808-1/564077220_1542147446919890_8196546704255616210_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=102&ccb=1-7&_nc_sid=e99d92&_nc_ohc=D9QZJYGiOxUQ7kNvwFgZsAT&_nc_oc=AdmGDBppOypjYk1Zy_3GG1-zrN1RtcXbdskRGsyZrsaCAGAnOgMqiCvK2Wbm0YUPBK4zg_ApJX9TCr2bVnxPzN78&_nc_zt=24&_nc_ht=scontent.fsgn5-9.fna&_nc_gid=dOF5sCZkWIqfycx0C68nKw&oh=00_AfekPYrsGiWaVQAfV6wMr4QeMDyXRcCq_0002hgA9_6R-g&oe=69059049",
+            avatar: "https://res.cloudinary.com/drozptref/image/upload/v1763140820/ukbk645ospmwteih2cmd.jpg",
         },
     ];
 
