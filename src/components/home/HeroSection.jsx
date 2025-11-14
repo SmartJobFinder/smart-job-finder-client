@@ -215,7 +215,9 @@ const HeroSection = () => {
 
                         {/* Suggestions */}
                         <div className="flex flex-wrap items-center gap-2 text-sm sm:text-base">
-                            <span className="text-gray-600">Suggestion:</span>
+                            <span className="text-gray-600">
+                                {t`Suggestion`}:
+                            </span>
                             <Link
                                 href="#"
                                 className="text-gray-700 hover:text-blue-600"
