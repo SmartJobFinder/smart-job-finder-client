@@ -561,9 +561,9 @@
           "You signed up with Google, so your account doesn’t have a password."
         ]
       },
-      "If you still want to set a password,": {
-        "msgid": "If you still want to set a password,",
-        "msgstr": ["If you still want to set a password,"]
+      "If you still want to set a password": {
+        "msgid": "If you still want to set a password",
+        "msgstr": ["If you still want to set a password"]
       },
       "Click here": {
         "msgid": "Click here",
@@ -772,6 +772,30 @@
       "Welcome": {
         "msgid": "Welcome",
         "msgstr": ["Welcome"]
+      },
+      "Suggestion": {
+        "msgid": "Suggestion",
+        "msgstr": ["Suggestion"]
+      },
+      "Click the link in your inbox to set a password. You can still keep using Google Sign-In.": {
+        "msgid": "Click the link in your inbox to set a password. You can still keep using Google Sign-In.",
+        "msgstr": [
+          "Click the link in your inbox to set a password. You can still keep using Google Sign-In."
+        ]
+      },
+      "Open": {
+        "msgid": "Open",
+        "msgstr": ["Open"]
+      },
+      "Tip: If you can’t find the email, check Spam or search for “JobFind”.": {
+        "msgid": "Tip: If you can’t find the email, check Spam or search for “JobFind”.",
+        "msgstr": [
+          "Tip: If you can’t find the email, check Spam or search for “JobFind”."
+        ]
+      },
+      "Resend email": {
+        "msgid": "Resend email",
+        "msgstr": ["Resend email"]
       }
     }
   }
