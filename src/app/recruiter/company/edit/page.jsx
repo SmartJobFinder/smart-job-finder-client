@@ -4,23 +4,27 @@ import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { createCompany } from "@/services/companyService";
-import { getAllCategories } from "@/services/categoryService";
-import { useSelector } from "react-redux";
-import CompanyImageUpload from "./components/CompanyImageUpload";
-import BasicInformation from "./components/BasicInformation";
-import LocationInformation from "./components/LocationInformation";
-import CompanyDetails from "./components/CompanyDetails";
-import SocialMedia from "./components/SocialMedia";
-import CategorySelection from "./components/CategorySelection";
+import { Loader2, ArrowLeft } from "lucide-react";
+import { toast } from "react-toastify";
+import Link from "next/link";
 
-export default function CreateCompanyPage() {
+import { updateCompany, getMyCompany } from "@/services/myCompanyService";
+import { getAllCategories } from "@/services/categoryService";
+
+import CompanyImageUpload from "../../create-company/components/CompanyImageUpload";
+import BasicInformation from "../../create-company/components/BasicInformation";
+import LocationInformation from "../../create-company/components/LocationInformation";
+import CompanyDetails from "../../create-company/components/CompanyDetails";
+import SocialMedia from "../../create-company/components/SocialMedia";
+import CategorySelection from "../../create-company/components/CategorySelection";
+
+export default function EditCompanyPage() {
     const router = useRouter();
-    const user = useSelector((state) => state.auth.user);
     const [loading, setLoading] = useState(false);
-    const [uploadProgress, setUploadProgress] = useState(0);
+    const [initialLoading, setInitialLoading] = useState(true);
     const [categoriesLoading, setCategoriesLoading] = useState(true);
     const [categories, setCategories] = useState([]);
+    const [companyId, setCompanyId] = useState(null);
 
     // State cho form data
     const [formData, setFormData] = useState({
@@ -40,7 +44,7 @@ export default function CreateCompanyPage() {
         twitterUrl: "",
         linkedinUrl: "",
         mapEmbedUrl: "",
-        categoryIds: [], // Đảm bảo luôn là array
+        categoryIds: [],
     });
 
     // State cho files và preview
@@ -50,23 +54,66 @@ export default function CreateCompanyPage() {
     const [coverPreview, setCoverPreview] = useState(null);
     const [errors, setErrors] = useState({});
 
-    // Load categories from API
+    // Load company data và categories
     useEffect(() => {
-        const loadCategories = async () => {
+        const loadData = async () => {
             try {
-                setCategoriesLoading(true);
-                const response = await getAllCategories();
-                setCategories(response || []);
+                setInitialLoading(true);
+
+                // Load categories
+                const [companyData, categoriesData] = await Promise.all([
+                    getMyCompany(),
+                    getAllCategories(),
+                ]);
+
+                // Set company data
+                if (companyData) {
+                    setCompanyId(companyData.id);
+                    setFormData({
+                        companyName: companyData.companyName || "",
+                        description: companyData.description || "",
+                        email: companyData.email || "",
+                        phoneNumber: companyData.phoneNumber || "",
+                        website: companyData.website || "",
+                        address: companyData.address || "",
+                        locationCity: companyData.locationCity || "",
+                        locationCountry:
+                            companyData.locationCountry || "Vietnam",
+                        foundedYear:
+                            companyData.foundedYear || new Date().getFullYear(),
+                        quantityEmployee: companyData.quantityEmployee || 1,
+                        status: companyData.status || "active",
+                        proCompany: companyData.proCompany || false,
+                        facebookUrl: companyData.facebookUrl || "",
+                        twitterUrl: companyData.twitterUrl || "",
+                        linkedinUrl: companyData.linkedinUrl || "",
+                        mapEmbedUrl: companyData.mapEmbedUrl || "",
+                        categoryIds: companyData.categoryIds || [],
+                    });
+
+                    // Set avatar preview from existing data
+                    if (companyData.avatar) {
+                        setAvatarPreview(companyData.avatar);
+                    }
+                    if (companyData.avatarCover) {
+                        setCoverPreview(companyData.avatarCover);
+                    }
+                }
+
+                // Set categories
+                setCategories(categoriesData || []);
             } catch (error) {
-                console.error("Error loading categories:", error);
-                setCategories([]);
+                console.error("Error loading data:", error);
+                toast.error("Failed to load company data");
+                router.push("/recruiter/company");
             } finally {
+                setInitialLoading(false);
                 setCategoriesLoading(false);
             }
         };
 
-        loadCategories();
-    }, []);
+        loadData();
+    }, [router]);
 
     const handleInputChange = (name, value) => {
         setFormData((prev) => ({
@@ -93,8 +140,8 @@ export default function CreateCompanyPage() {
     const handleImageUpload = (file, type) => {
         if (!file) return;
 
-        // Kiểm tra kích thước file (5MB = 5 * 1024 * 1024 bytes)
-        const maxSize = 5 * 1024 * 1024; // 5MB
+        // Kiểm tra kích thước file (5MB)
+        const maxSize = 5 * 1024 * 1024;
         if (file.size > maxSize) {
             setErrors((prev) => ({
                 ...prev,
@@ -159,34 +206,17 @@ export default function CreateCompanyPage() {
         if (!formData.companyName.trim()) {
             newErrors.companyName = "Company name is required";
         }
-
         if (!formData.email.trim()) {
             newErrors.email = "Email is required";
-        } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-            newErrors.email = "Email is invalid";
         }
-
         if (!formData.phoneNumber.trim()) {
             newErrors.phoneNumber = "Phone number is required";
         }
-
         if (!formData.address.trim()) {
             newErrors.address = "Address is required";
         }
-
         if (!formData.locationCity.trim()) {
             newErrors.locationCity = "City is required";
-        }
-
-        if (
-            formData.foundedYear < 1800 ||
-            formData.foundedYear > new Date().getFullYear()
-        ) {
-            newErrors.foundedYear = "Founded year is invalid";
-        }
-
-        if (formData.quantityEmployee < 1) {
-            newErrors.quantityEmployee = "Employee quantity must be at least 1";
         }
 
         setErrors(newErrors);
@@ -196,91 +226,99 @@ export default function CreateCompanyPage() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        // Bắt buộc upload ảnh trước khi submit
-        const imageErrors = {};
-        if (!avatarFile) {
-            imageErrors.avatar = "Company logo is required";
-        }
-        if (!coverFile) {
-            imageErrors.avatarCover = "Company cover image is required";
-        }
-        if (Object.keys(imageErrors).length > 0) {
-            setErrors((prev) => ({ ...prev, ...imageErrors }));
-            return;
-        }
-
         if (!validateForm()) {
+            toast.error("Please fill in all required fields");
             return;
         }
 
-        setLoading(true);
-        setUploadProgress(0);
+        if (!companyId) {
+            toast.error("Company ID not found");
+            return;
+        }
 
         try {
-            // Add userId to form data
-            const companyData = {
-                ...formData,
-                userId: user?.id || user?.userId,
+            setLoading(true);
+
+            const updateData = {
+                companyName: formData.companyName.trim(),
+                description: formData.description.trim() || "",
+                email: formData.email.trim(),
+                phoneNumber: formData.phoneNumber.trim(),
+                website: formData.website.trim() || "",
+                address: formData.address.trim(),
+                locationCity: formData.locationCity.trim(),
+                locationCountry: formData.locationCountry || "Vietnam",
+                foundedYear: parseInt(formData.foundedYear, 10),
+                quantityEmployee: parseInt(formData.quantityEmployee, 10),
+                status: formData.status || "active",
+                proCompany: Boolean(formData.proCompany),
+                facebookUrl: formData.facebookUrl?.trim() || "",
+                twitterUrl: formData.twitterUrl?.trim() || "",
+                linkedinUrl: formData.linkedinUrl?.trim() || "",
+                mapEmbedUrl: formData.mapEmbedUrl?.trim() || "",
+                categoryIds: Array.isArray(formData.categoryIds)
+                    ? formData.categoryIds.filter(
+                          (id) => id != null && id !== ""
+                      )
+                    : [],
             };
 
-            // Simulate progress for better UX
-            const progressInterval = setInterval(() => {
-                setUploadProgress((prev) => {
-                    if (prev >= 90) return prev;
-                    return prev + Math.random() * 10;
-                });
-            }, 500);
+            console.log("=== SUBMIT UPDATE ===");
+            console.log("Has avatar file:", !!avatarFile);
+            console.log("Has cover file:", !!coverFile);
 
-            // Gọi createCompany với files
-            await createCompany(companyData, avatarFile, coverFile);
+            // ✅ Truyền cả file ảnh
+            const result = await updateCompany(
+                companyId,
+                updateData,
+                avatarFile, // File ảnh avatar
+                coverFile // File ảnh cover
+            );
 
-            clearInterval(progressInterval);
-            setUploadProgress(100);
+            console.log("Update result:", result);
+            toast.success("Company updated successfully!");
 
-            // Delay một chút để user thấy progress 100%
             setTimeout(() => {
                 router.push("/recruiter/company");
-            }, 500);
+            }, 1500);
         } catch (error) {
-            console.error("Error creating company:", error);
-            setUploadProgress(0);
-            // Có thể thêm toast notification ở đây
+            console.error("=== SUBMIT ERROR ===", error);
+            toast.error(error.message || "Failed to update company");
         } finally {
             setLoading(false);
         }
     };
 
+    if (initialLoading) {
+        return (
+            <div className="flex items-center justify-center min-h-screen">
+                <Loader2 className="w-8 h-8 animate-spin text-blue-600" />
+            </div>
+        );
+    }
+
     return (
-        <div className="min-h-screen bg-gray-100 py-8">
+        <div className="min-h-screen bg-gray-50 py-8">
             <div className="max-w-4xl mx-auto px-4">
+                {/* Header */}
                 <div className="mb-8">
+                    <Link
+                        href="/recruiter/company"
+                        className="inline-flex items-center text-blue-600 hover:text-blue-700 mb-4"
+                    >
+                        <ArrowLeft className="w-4 h-4 mr-2" />
+                        Back to Company Profile
+                    </Link>
                     <h1 className="text-3xl font-bold text-gray-900 mb-2">
-                        Create Company
+                        Edit Company
                     </h1>
                     <p className="text-gray-600">
-                        Set up your company profile to start posting jobs and
-                        attracting candidates.
+                        Update your company information
                     </p>
                 </div>
 
-                {/* Progress Bar */}
-                {loading && (
-                    <div className="mb-6">
-                        <div className="flex justify-between text-sm text-gray-600 mb-2">
-                            <span>Uploading...</span>
-                            <span>{Math.round(uploadProgress)}%</span>
-                        </div>
-                        <div className="w-full bg-gray-200 rounded-full h-2">
-                            <div
-                                className="bg-blue-600 h-2 rounded-full transition-all duration-300"
-                                style={{ width: `${uploadProgress}%` }}
-                            ></div>
-                        </div>
-                    </div>
-                )}
-
                 <form onSubmit={handleSubmit} className="space-y-8">
-                    {/* Company Images - Moved to top */}
+                    {/* Company Images */}
                     <Card className="p-6">
                         <CompanyImageUpload
                             formData={formData}
@@ -338,21 +376,24 @@ export default function CreateCompanyPage() {
                     </Card>
 
                     {/* Submit Buttons */}
-                    <div className="flex justify-end space-x-4">
+                    <div className="flex gap-4 justify-end">
                         <Button
                             type="button"
                             variant="outline"
-                            onClick={() => router.back()}
+                            onClick={() => router.push("/recruiter/company")}
                             disabled={loading}
                         >
                             Cancel
                         </Button>
-                        <Button
-                            type="submit"
-                            disabled={loading || categoriesLoading}
-                            className="bg-blue-600 hover:bg-blue-700"
-                        >
-                            {loading ? "Creating..." : "Create Company"}
+                        <Button type="submit" disabled={loading}>
+                            {loading ? (
+                                <>
+                                    <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                                    Updating...
+                                </>
+                            ) : (
+                                "Update Company"
+                            )}
                         </Button>
                     </div>
                 </form>

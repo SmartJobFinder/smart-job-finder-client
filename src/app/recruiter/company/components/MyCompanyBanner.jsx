@@ -62,9 +62,11 @@ const MyCompanyBanner = () => {
                     </div>
                 </div>
                 <div className="flex space-x-2">
-                    <button className="px-4 py-2 text-sm font-semibold text-white transition bg-blue-600 rounded hover:bg-blue-700">
-                        Edit Company
-                    </button>
+                    <Link href="/recruiter/company/edit">
+                        <button className="px-4 py-2 text-sm font-semibold text-white transition bg-blue-600 rounded hover:bg-blue-700">
+                            Edit Company
+                        </button>
+                    </Link>
                     <Link
                         href="/recruiter/manage-job"
                         className="px-4 py-2 text-sm font-semibold text-white transition bg-green-600 rounded hover:bg-green-700"

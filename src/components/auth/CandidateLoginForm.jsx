@@ -72,7 +72,7 @@ const CandidateLoginForm = ({ role, onGoogleNeedsPassword, onForgot }) => {
         } catch (err) {
             if (err?.status === 403 && err?.code === "ACCOUNT_BANNED") {
                 const contact =
-                    err?.extra?.contactEmail || "help.jobfind@gmail.com";
+                    err?.extra?.contactEmail || "pvp.1803ac@gmail.com";
                 setBannedInfo({
                     email: payload.email,
                     contactEmail: contact,
