@@ -10,6 +10,7 @@ const useCompanySearchStore = create((set, get) => ({
     companies: [],
     industries: [],
     locations: [],
+    cities: [], // Thêm cities state
     isLoading: false,
     error: null,
 
@@ -440,6 +441,7 @@ const useCompanySearchStore = create((set, get) => ({
             companies: [],
             industries: [],
             locations: [],
+            cities: [], // Reset cities state
             isLoading: false,
             error: null,
             pagination: {
@@ -464,6 +466,30 @@ const useCompanySearchStore = create((set, get) => ({
                 direction: "asc",
             },
         });
+    },
+
+    // Thêm function để fetch cities
+    fetchCities: async () => {
+        try {
+            const response = await api.get("/city");
+            const citiesData = response.data;
+
+            // Normalize data từ API
+            let processedCities = [];
+            if (Array.isArray(citiesData)) {
+                processedCities = citiesData
+                    .map((item) => {
+                        if (typeof item === "string") return item;
+                        return item?.city_name || item?.name || null;
+                    })
+                    .filter(Boolean);
+            }
+
+            set({ cities: processedCities });
+        } catch (err) {
+            console.error("Error fetching cities:", err);
+            set({ cities: [] });
+        }
     },
 }));
 

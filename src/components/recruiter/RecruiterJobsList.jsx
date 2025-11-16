@@ -29,6 +29,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import JobDetailModal from "@/components/recruiter/JobDetailModal";
+import { t } from "@/i18n/i18n";
 
 export default function RecruiterJobsList({ tab = "all" }) {
     const [detailOpen, setDetailOpen] = useState(false);
@@ -190,11 +191,11 @@ export default function RecruiterJobsList({ tab = "all" }) {
                     </div>
                     <div className="text-right shrink-0 text-xs text-muted-foreground space-y-1">
                         <div className="flex items-center gap-1 justify-end">
-                            <Calendar className="w-3 h-3" /> Posted:{" "}
+                            <Calendar className="w-3 h-3" /> {t`Posted`}:{" "}
                             {job.date_post}
                         </div>
                         <div className="flex items-center gap-1 justify-end">
-                            <Calendar className="w-3 h-3" /> Expired:{" "}
+                            <Calendar className="w-3 h-3" /> {t`Expired`}:{" "}
                             {job.expired_date}
                         </div>
                         <div className="pt-2">
@@ -208,13 +209,13 @@ export default function RecruiterJobsList({ tab = "all" }) {
                                         setDetailOpen(true);
                                     }}
                                 >
-                                    View
+                                    {t`View`}
                                 </Button>
                                 <Link
                                     href={`/recruiter/manage-job/${job.id}/edit`}
                                 >
                                     <Button size="sm" variant="outline">
-                                        Edit
+                                        {t`Edit`}
                                     </Button>
                                 </Link>
                             </div>
@@ -245,17 +246,17 @@ export default function RecruiterJobsList({ tab = "all" }) {
                 </div>
                 <div>
                     <div className="text-lg font-medium mb-2">
-                        No jobs found
+                        {t`No jobs found`}
                     </div>
                     <div className="text-sm text-muted-foreground mb-4">
                         {tab === "all"
-                            ? "You haven't posted any jobs yet. Create your first job to attract candidates."
-                            : `No ${tab} jobs found. Try creating a new job or check other tabs.`}
+                            ? t`You haven't posted any jobs yet. Create your first job to attract candidates.`
+                            : t`No ${tab} jobs found. Try creating a new job or check other tabs.`}
                     </div>
                 </div>
                 <Link href="/recruiter/create-job">
                     <Button className="bg-blue-600 hover:bg-blue-700">
-                        Create Your First Job
+                        {t`Create Your First Job`}
                     </Button>
                 </Link>
             </div>
@@ -266,7 +267,7 @@ export default function RecruiterJobsList({ tab = "all" }) {
         <div className="space-y-4">
             <div className="flex flex-wrap items-center gap-2">
                 <Input
-                    placeholder="Search by title..."
+                    placeholder={t`Search by title` + "..."}
                     value={filters.keyword || ""}
                     onChange={(e) =>
                         setFilters((f) => ({ ...f, keyword: e.target.value }))
@@ -288,9 +289,9 @@ export default function RecruiterJobsList({ tab = "all" }) {
                             <SelectValue placeholder="Status" />
                         </SelectTrigger>
                         <SelectContent>
-                            <SelectItem value="ALL">All</SelectItem>
-                            <SelectItem value="ACTIVE">ACTIVE</SelectItem>
-                            <SelectItem value="DRAFT">DRAFT</SelectItem>
+                            <SelectItem value="ALL">{t`All`}</SelectItem>
+                            <SelectItem value="ACTIVE">{t`Active`}</SelectItem>
+                            <SelectItem value="DRAFT">{t`Draft`}</SelectItem>
                         </SelectContent>
                     </Select>
                 )}
@@ -303,10 +304,10 @@ export default function RecruiterJobsList({ tab = "all" }) {
                         <SelectValue placeholder="Size" />
                     </SelectTrigger>
                     <SelectContent>
-                        <SelectItem value="5">5 / page</SelectItem>
-                        <SelectItem value="10">10 / page</SelectItem>
-                        <SelectItem value="20">20 / page</SelectItem>
-                        <SelectItem value="50">50 / page</SelectItem>
+                        <SelectItem value="5">5 / {t`page`}</SelectItem>
+                        <SelectItem value="10">10 / {t`page`}</SelectItem>
+                        <SelectItem value="20">20 / {t`page`}</SelectItem>
+                        <SelectItem value="50">50 / {t`page`}</SelectItem>
                     </SelectContent>
                 </Select>
 
@@ -315,17 +316,17 @@ export default function RecruiterJobsList({ tab = "all" }) {
                         <SelectValue placeholder="Sort" />
                     </SelectTrigger>
                     <SelectContent>
-                        <SelectItem value="id,desc">Newest</SelectItem>
+                        <SelectItem value="id,desc">{t`Newest`}</SelectItem>
                         <SelectItem value="expiredDate,asc">
-                            Expiring soon
+                            {t`Expiring soon`}
                         </SelectItem>
                         <SelectItem value="expiredDate,desc">
-                            Expired recently
+                            {t`Expired recently`}
                         </SelectItem>
                     </SelectContent>
                 </Select>
 
-                <Button onClick={onSearch}>Apply</Button>
+                <Button onClick={onSearch}>{t`Search`}</Button>
             </div>
 
             {loading && <LoadingSkeleton />}
@@ -340,14 +341,16 @@ export default function RecruiterJobsList({ tab = "all" }) {
 
             {!loading && data.content.length > 0 && (
                 <div className="flex items-center justify-between pt-2">
-                    <div className="text-sm">Total: {data.totalElements}</div>
+                    <div className="text-sm">
+                        {t`Total`}: {data.totalElements}
+                    </div>
                     <div className="flex items-center gap-2">
                         <Button
                             variant="outline"
                             disabled={page <= 0}
                             onClick={() => setPage((p) => p - 1)}
                         >
-                            Previous page
+                            {t`Previous page`}
                         </Button>
                         <div className="text-sm">
                             {page + 1} / {Math.max(1, data.totalPages)}
@@ -357,7 +360,7 @@ export default function RecruiterJobsList({ tab = "all" }) {
                             disabled={page + 1 >= data.totalPages}
                             onClick={() => setPage((p) => p + 1)}
                         >
-                            Next page
+                            {t`Next page`}
                         </Button>
                     </div>
                 </div>

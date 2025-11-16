@@ -35,14 +35,30 @@ export const locationApi = createApi({
             query: () => ({ url: "/city", method: "GET" }),
             transformResponse: (data) => {
                 const names = (Array.isArray(data) ? data : [])
-                    .map((c) => (typeof c === "string" ? c : c?.city_name))
+                    .map((item) => {
+                        if (typeof item === "string") return item;
+                        return item?.city_name || item?.name || null;
+                    })
                     .filter(Boolean);
-                return Array.from(new Set(names)).sort((a, b) =>
-                    a.localeCompare(b, "vi")
-                );
+                return names;
+            },
+        }),
+        searchCities: builder.query({
+            query: (keyword) => ({
+                url: `/city/search?keyword=${encodeURIComponent(keyword)}`,
+                method: "GET",
+            }),
+            transformResponse: (data) => {
+                const names = (Array.isArray(data) ? data : [])
+                    .map((item) => {
+                        if (typeof item === "string") return item;
+                        return item?.city_name || item?.name || null;
+                    })
+                    .filter(Boolean);
+                return names;
             },
         }),
     }),
 });
 
-export const { useGetCitiesQuery } = locationApi;
+export const { useGetCitiesQuery, useLazySearchCitiesQuery } = locationApi;

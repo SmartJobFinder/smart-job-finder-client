@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Image from "next/image";
 import { toast } from "react-toastify";
 import { batchGetCandidateProfiles } from "@/services/candidateService";
+import { t } from "@/i18n/i18n";
 
 export default function ApplicantsTable({
     data,
@@ -134,21 +135,21 @@ export default function ApplicantsTable({
         <div className="bg-white border rounded-xl">
             <div className="flex items-center justify-between px-4 py-3 border-b">
                 <h3 className="text-lg font-semibold">
-                    Total Applicants : {data?.totalElements ?? 0}
+                    {t`Total Applicants`} : {data?.totalElements ?? 0}
                 </h3>
                 <div className="flex items-center gap-2">
                     <input
                         className="w-64 px-3 py-2 border rounded-md"
-                        placeholder="Search Applicants"
+                        placeholder={t`Search Applicants`}
                     />
                     <Button variant="outline" size="sm">
-                        Filter
+                        {t`Filters`}
                     </Button>
                     <Button variant="secondary" size="sm">
-                        Pipeline View
+                        {t`Pipeline View`}
                     </Button>
                     <Button variant="default" size="sm">
-                        Table View
+                        {t`Table View`}
                     </Button>
                 </div>
             </div>
@@ -160,19 +161,19 @@ export default function ApplicantsTable({
                                 <input type="checkbox" />
                             </th>
                             <th className="px-6 py-4 text-left align-middle">
-                                Full Name
+                                {t`Full Name`}
                             </th>
                             <th className="px-6 py-4 text-left align-middle">
-                                Hiring Stage
+                                {t`Hiring Stage`}
                             </th>
                             <th className="px-6 py-4 text-left align-middle">
-                                Applied Date
+                                {t`Applied Date`}
                             </th>
                             <th className="px-6 py-4 text-left align-middle">
-                                Job Name
+                                {t`Job Name`}
                             </th>
                             <th className="px-6 py-4 text-left align-middle">
-                                Action
+                                {t`Action`}
                             </th>
                         </tr>
                     </thead>
@@ -250,7 +251,7 @@ export default function ApplicantsTable({
                                                         onSeeApplication?.(item)
                                                     }
                                                 >
-                                                    See Application
+                                                    {t`See Application`}
                                                 </Button>
                                                 <Button
                                                     variant="secondary"
@@ -259,7 +260,7 @@ export default function ApplicantsTable({
                                                         onDetails?.(item)
                                                     }
                                                 >
-                                                    Details
+                                                    {t`Details`}
                                                 </Button>
                                                 <Button
                                                     variant="default"
@@ -292,7 +293,7 @@ export default function ApplicantsTable({
                                                         )
                                                     }
                                                 >
-                                                    Create Interview
+                                                    {t`Create Interview`}
                                                 </Button>
                                                 <button
                                                     onClick={() =>
@@ -301,7 +302,7 @@ export default function ApplicantsTable({
                                                         )
                                                     }
                                                     className="p-2 text-red-600 transition bg-white border rounded hover:bg-red-50"
-                                                    title="Report Company"
+                                                    title={t`Report Company`}
                                                 >
                                                     <MessageSquareWarning className="w-5 h-5" />
                                                 </button>
@@ -327,11 +328,11 @@ export default function ApplicantsTable({
             <div className="flex items-center justify-between px-4 py-3 border-t">
                 <div className="flex items-center gap-3 text-sm text-gray-600">
                     <span>
-                        View
+                        {t`View`}
                         <span className="ml-1 mr-1 font-medium">
                             {data?.size ?? pageSize}
                         </span>
-                        per page
+                        {t`per page`}
                     </span>
                     <select
                         className="px-2 py-1 border rounded-md"

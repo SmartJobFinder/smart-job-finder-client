@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 import { CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Clock, Loader2, Mail, RefreshCw } from "lucide-react";
+import { t } from "@/i18n/i18n";
 
 const COOLDOWN_SEC = 120;
 
@@ -119,8 +120,7 @@ export default function SetPasswordEmailSent({ email, onBack }) {
             </div>
 
             <p className="text-sm text-blue-900/80 text-center">
-                Click the link in your inbox to set a password. You can still
-                keep using Google Sign-In.
+                {t`Click the link in your inbox to set a password. You can still keep using Google Sign-In.`}
             </p>
 
             {/* Actions */}
@@ -167,7 +167,7 @@ export default function SetPasswordEmailSent({ email, onBack }) {
                         className="rounded-xl bg-blue-600 hover:bg-blue-700 focus-visible:ring-2 focus-visible:ring-blue-500"
                     >
                         <RefreshCw className="mr-2 h-4 w-4" />
-                        Resend email
+                        {t`Resend email`}
                     </Button>
                 )}
             </div>
@@ -180,13 +180,12 @@ export default function SetPasswordEmailSent({ email, onBack }) {
                     rel="noreferrer"
                     className="text-sm text-blue-600 hover:text-blue-700 hover:underline underline-offset-2"
                 >
-                    Open Gmail
+                    {t`Open`} Gmail
                 </a>
             </div>
 
             <p className="text-xs text-gray-500 text-center">
-                Tip: If you can’t find the email, check Spam or search for
-                “JobFind”.
+                {t`Tip: If you can’t find the email, check Spam or search for “JobFind”.`}
             </p>
         </CardContent>
     );

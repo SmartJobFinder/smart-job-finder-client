@@ -43,22 +43,22 @@ export default function RecruiterSidebar() {
             children: [
                 {
                     href: "/recruiter/manage-job",
-                    label: "All Job Posts",
+                    label: t`All Job Posts`,
                     icon: FileText,
                 },
                 {
                     href: "/recruiter/manage-job/active",
-                    label: "Active Jobs",
+                    label: t`Active Jobs`,
                     icon: Briefcase,
                 },
                 {
                     href: "/recruiter/manage-job/drafts",
-                    label: "Draft Jobs",
+                    label: t`Draft Jobs`,
                     icon: FileText,
                 },
                 {
                     href: "/recruiter/manage-job/expired",
-                    label: "Expired Jobs",
+                    label: t`Expired Jobs`,
                     icon: Calendar,
                 },
             ],
@@ -69,7 +69,7 @@ export default function RecruiterSidebar() {
             children: [
                 {
                     href: "/recruiter/applicants",
-                    label: "All Applicants",
+                    label: t`All Applicants`,
                     icon: Users,
                 },
                 // {
@@ -79,7 +79,7 @@ export default function RecruiterSidebar() {
                 // },
                 {
                     href: "/recruiter/applicants/interviews",
-                    label: "Interviewed",
+                    label: t`Interviewed`,
                     icon: MessageSquare,
                 },
                 // {
@@ -101,7 +101,7 @@ export default function RecruiterSidebar() {
             icon: Crown,
         },
         { href: "/recruiter/profile", label: t`Profile`, icon: User },
-        { href: "/recruiter/company", label: "Company", icon: Building },
+        { href: "/recruiter/company", label: t`Company`, icon: Building },
         { href: "/recruiter/settings", label: t`Settings`, icon: Settings },
     ];
 

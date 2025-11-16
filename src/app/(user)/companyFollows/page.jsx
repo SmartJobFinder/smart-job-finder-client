@@ -8,6 +8,7 @@ import Link from "next/link";
 import { Eye, Trash2, Building2, Users, Briefcase } from "lucide-react";
 import LoadingScreen from "@/components/ui/loadingScreen";
 import Image from "next/image";
+import { t } from "@/i18n/i18n";
 
 export default function ListCompanyFollowed() {
     const {
@@ -67,7 +68,7 @@ export default function ListCompanyFollowed() {
             <div className="px-4 py-3 mb-4 border-b border-gray-100 sm:px-6 sm:py-4 bg-gradient-to-r from-blue-200 to-indigo-50 rounded-xl">
                 <div className="max-w-6xl mx-auto">
                     <h1 className="pl-3 text-xl font-bold text-gray-900 border-l-4 border-blue-800 sm:pl-4 sm:text-2xl">
-                        Follow the companies you care about
+                        {t`Follow the companies you care about`}
                     </h1>
                 </div>
             </div>
@@ -126,14 +127,15 @@ export default function ListCompanyFollowed() {
                                     <div className="flex items-center text-sm text-gray-600">
                                         <Users className="w-4 h-4 mr-1 mt-0.5 flex-shrink-0 text-gray-400" />
                                         <span className="text-base sm:text-lg">
-                                            {company.quantityEmployee} employees
+                                            {company.quantityEmployee}{" "}
+                                            {t`employees`}
                                         </span>
                                     </div>
 
                                     <div className="flex items-center text-gray-500">
                                         <Briefcase className="w-4 h-4 mr-1 mt-0.5 flex-shrink-0 text-gray-400" />
                                         <span>
-                                            {company.jobsCount} open jobs
+                                            {company.jobsCount} {t`open jobs`}
                                         </span>
                                     </div>
                                 </div>
@@ -146,7 +148,7 @@ export default function ListCompanyFollowed() {
                                     aria-label={`View details of ${company.companyName}`}
                                 >
                                     <Eye className="w-4 h-4 mr-2" />
-                                    View Details
+                                    {t`View Details`}
                                 </Link>
 
                                 <button

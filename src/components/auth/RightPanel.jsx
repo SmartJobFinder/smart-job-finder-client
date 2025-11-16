@@ -118,10 +118,10 @@ export default function RightPanel({ activeTab }) {
                     <p className="text-sm text-gray-500">
                         {t`If you have trouble logging in or creating an account, please contact Job Find via`}{" "}
                         <a
-                            href={`mailto:${"help.jobfind@gmail.com"}`}
+                            href={`mailto:${"pvp.1803ac@gmail.com"}`}
                             className="text-blue-500 underline"
                         >
-                            help.jobfind@gmail.com
+                            pvp.1803ac@gmail.com
                         </a>
                     </p>
                 </CardContent>

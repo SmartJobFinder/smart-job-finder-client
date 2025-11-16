@@ -47,8 +47,7 @@ export default function GoogleSignIn({ role = "CANDIDATE", onBanned }) {
                 } catch (err) {
                     if (err?.status === 403 && err?.code === "ACCOUNT_BANNED") {
                         const contact =
-                            err?.extra?.contactEmail ||
-                            "help.jobfind@gmail.com";
+                            err?.extra?.contactEmail || "pvp.1803ac@gmail.com";
                         onBanned({
                             email: err?.extra?.email,
                             contactEmail: contact,
