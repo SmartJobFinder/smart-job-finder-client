@@ -23,6 +23,7 @@ import { toast } from "react-toastify";
 import Image from "next/image";
 import api from "@/lib/api";
 import { getCandidateProfileByUserId } from "@/services/candidateService";
+import { t } from "@/i18n/i18n";
 
 export default function ApplicationDetailModal({
     open,
@@ -166,7 +167,7 @@ export default function ApplicationDetailModal({
                             <div className="flex items-center gap-2 text-gray-600 mb-2">
                                 <User2 size={16} />
                                 <span className="text-xs uppercase tracking-wider">
-                                    Full Name
+                                    {t`Full Name`}
                                 </span>
                             </div>
                             <div className="font-medium">{displayName}</div>
@@ -175,7 +176,7 @@ export default function ApplicationDetailModal({
                             <div className="flex items-center gap-2 text-gray-600 mb-2">
                                 <Calendar size={16} />
                                 <span className="text-xs uppercase tracking-wider">
-                                    Applied
+                                    {t`Applied`}
                                 </span>
                             </div>
                             <div className="font-medium">{appliedAt}</div>
@@ -197,7 +198,7 @@ export default function ApplicationDetailModal({
                             <div className="flex items-center gap-2 text-gray-600 mb-2">
                                 <Phone size={16} />
                                 <span className="text-xs uppercase tracking-wider">
-                                    Phone
+                                    {t`Phone Number`}
                                 </span>
                             </div>
                             <div className="font-medium">
@@ -213,7 +214,7 @@ export default function ApplicationDetailModal({
                         <div className="flex items-center gap-2 text-gray-600 mb-2">
                             <FileText size={16} />
                             <span className="text-xs uppercase tracking-wider">
-                                Candidate Description
+                                {t`Candidate Description`}
                             </span>
                         </div>
                         <div className="whitespace-pre-wrap leading-relaxed">
@@ -227,14 +228,14 @@ export default function ApplicationDetailModal({
                             <div className="flex items-center gap-2 text-blue-700 mb-2">
                                 <User2 size={16} />
                                 <span className="text-xs uppercase tracking-wider font-semibold">
-                                    Profile Information
+                                    {t`Profile Information`}
                                 </span>
                             </div>
                             <div className="space-y-2 text-sm">
                                 {candidateProfile.title && (
                                     <div>
                                         <span className="font-medium">
-                                            Title:{" "}
+                                            {t`Title`}:{" "}
                                         </span>
                                         <span>{candidateProfile.title}</span>
                                     </div>
@@ -242,7 +243,7 @@ export default function ApplicationDetailModal({
                                 {candidateProfile.aboutMe && (
                                     <div>
                                         <span className="font-medium">
-                                            About:{" "}
+                                            {t`About`}:{" "}
                                         </span>
                                         <span>{candidateProfile.aboutMe}</span>
                                     </div>
@@ -250,7 +251,7 @@ export default function ApplicationDetailModal({
                                 {candidateProfile.personalLink && (
                                     <div>
                                         <span className="font-medium">
-                                            Website:{" "}
+                                            {t`Website`}:{" "}
                                         </span>
                                         <a
                                             href={candidateProfile.personalLink}
@@ -270,7 +271,7 @@ export default function ApplicationDetailModal({
                     <div className="rounded-lg border p-4 bg-gray-50">
                         <div className="flex flex-col sm:flex-row sm:items-center gap-3">
                             <label className="text-sm font-medium text-gray-700">
-                                Update Status
+                                {t`Update Status`}
                             </label>
                             <div className="flex items-center gap-3">
                                 <select
@@ -280,8 +281,8 @@ export default function ApplicationDetailModal({
                                         setSelectedStatus(e.target.value)
                                     }
                                 >
-                                    <option value="REVIEWED">REVIEWED</option>
-                                    <option value="REJECTED">REJECTED</option>
+                                    <option value="REVIEWED">{t`REVIEWED`}</option>
+                                    <option value="REJECTED">{t`REJECTED`}</option>
                                 </select>
                                 <Button
                                     variant="secondary"
@@ -292,7 +293,7 @@ export default function ApplicationDetailModal({
                                     }
                                     onClick={() => setConfirmOpen(true)}
                                 >
-                                    Update
+                                    {t`Update`}
                                 </Button>
                             </div>
                         </div>
@@ -308,7 +309,7 @@ export default function ApplicationDetailModal({
                                     window.open(application.cv, "_blank")
                                 }
                             >
-                                View CV
+                                {t`View`} CV
                             </Button>
                         )}
                         {application.cvDownload && (
@@ -322,12 +323,12 @@ export default function ApplicationDetailModal({
                                     )
                                 }
                             >
-                                Download CV
+                                {t`Download`} CV
                             </Button>
                         )}
                         <div className="ml-auto">
                             <Button onClick={() => onOpenChange?.(false)}>
-                                Close
+                                {t`Close`}
                             </Button>
                         </div>
                     </div>

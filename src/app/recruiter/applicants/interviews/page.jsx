@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import { toast } from "react-toastify";
 import InterviewApplicationModal from "./components/InterviewApplicationModal";
 import { useRouter } from "next/navigation";
+import { t } from "@/i18n/i18n";
 
 function formatDT(s) {
     if (!s) return "—";
@@ -136,13 +137,13 @@ export default function RecruiterInterviewsPage() {
     return (
         <div className="p-6">
             <div className="mb-4">
-                <h1 className="text-xl font-semibold">My Interviews</h1>
+                <h1 className="text-xl font-semibold">{t`My Interviews`}</h1>
             </div>
 
             <div className="bg-white border rounded-xl">
                 <div className="flex items-center justify-between px-4 py-3 border-b">
                     <h3 className="text-lg font-semibold">
-                        Total: {data?.totalElements ?? 0}
+                        {t`Total`}: {data?.totalElements ?? 0}
                     </h3>
                 </div>
 
@@ -151,18 +152,18 @@ export default function RecruiterInterviewsPage() {
                         <thead className="bg-gray-50">
                             <tr>
                                 <th className="px-6 py-3 text-left">
-                                    Scheduled
+                                    {t`Scheduled`}
                                 </th>
-                                <th className="px-6 py-3 text-left">Job</th>
+                                <th className="px-6 py-3 text-left">{t`Job`}</th>
                                 <th className="px-6 py-3 text-left">
-                                    Candidate
+                                    {t`Candidate`}
                                 </th>
                                 <th className="px-6 py-3 text-left">Email</th>
                                 <th className="px-6 py-3 text-left">
-                                    Duration
+                                    {t`Duration`}
                                 </th>
-                                <th className="px-6 py-3 text-left">Status</th>
-                                <th className="px-6 py-3 text-left">Actions</th>
+                                <th className="px-6 py-3 text-left">{t`Status`}</th>
+                                <th className="px-6 py-3 text-left">{t`Actions`}</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -196,7 +197,7 @@ export default function RecruiterInterviewsPage() {
                                             {row.candidateEmail || "—"}
                                         </td>
                                         <td className="px-6 py-3">
-                                            {row.durationMinutes} min
+                                            {row.durationMinutes} {t`min`}
                                         </td>
                                         <td className="px-6 py-3">
                                             <StatusPill status={row.status} />
@@ -213,7 +214,7 @@ export default function RecruiterInterviewsPage() {
                                                             )
                                                         }
                                                     >
-                                                        Open meeting
+                                                        {t`Open meeting`}
                                                     </Button>
                                                 )}
                                                 <Button
@@ -232,7 +233,7 @@ export default function RecruiterInterviewsPage() {
                                                         })
                                                     }
                                                 >
-                                                    Application
+                                                    {t`Applications`}
                                                 </Button>
 
                                                 {/* Recruiter can only set COMPLETED or CANCELLED (the BE enforces this) */}
@@ -251,7 +252,7 @@ export default function RecruiterInterviewsPage() {
                                                         )
                                                     }
                                                 >
-                                                    Mark completed
+                                                    {t`Mark completed`}
                                                 </Button>
                                                 <Button
                                                     variant="destructive"
@@ -268,7 +269,7 @@ export default function RecruiterInterviewsPage() {
                                                         )
                                                     }
                                                 >
-                                                    Cancel
+                                                    {t`Cancel`}
                                                 </Button>
                                             </div>
                                         </td>
@@ -283,7 +284,7 @@ export default function RecruiterInterviewsPage() {
                                             colSpan={7}
                                             className="px-6 py-6 text-center text-gray-500"
                                         >
-                                            No interviews
+                                            {t`No interviews`}
                                         </td>
                                     </tr>
                                 )}
@@ -293,7 +294,7 @@ export default function RecruiterInterviewsPage() {
 
                 <div className="flex items-center justify-between px-4 py-3 border-t">
                     <span className="text-sm text-gray-600">
-                        Page size:
+                        {t`Page size`}:
                         <select
                             className="px-2 py-1 ml-2 border rounded-md"
                             value={size}

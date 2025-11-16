@@ -830,6 +830,284 @@
       "Resend email": {
         "msgid": "Resend email",
         "msgstr": ["Gửi lại email"]
+      },
+      "Active Jobs": {
+        "msgid": "Active Jobs",
+        "msgstr": ["Việc làm đang hoạt động"]
+      },
+      "Total Applicants": {
+        "msgid": "Total Applicants",
+        "msgstr": ["Tổng số ứng viên"]
+      },
+      "Applicants (30d)": {
+        "msgid": "Applicants (30d)",
+        "msgstr": ["Ứng viên (30 ngày)"]
+      },
+      "Applications Trend (30 days)": {
+        "msgid": "Applications Trend (30 days)",
+        "msgstr": ["Xu hướng ứng tuyển (30 ngày)"]
+      },
+      "total applications": {
+        "msgid": "total applications",
+        "msgstr": ["tổng số đơn ứng tuyển"]
+      },
+      "Weekdays": {
+        "msgid": "Weekdays",
+        "msgstr": ["Ngày trong tuần"]
+      },
+      "Weekends": {
+        "msgid": "Weekends",
+        "msgstr": ["Cuối tuần"]
+      },
+      "Peak Day": {
+        "msgid": "Peak Day",
+        "msgstr": ["Ngày cao điểm"]
+      },
+      "Today": { "msgid": "Today", "msgstr": ["Hôm nay"] },
+      "Recent Activity & Insights": {
+        "msgid": "Recent Activity & Insights",
+        "msgstr": ["Hoạt động & Thông tin chi tiết gần đây"]
+      },
+      "New Applications": {
+        "msgid": "New Applications",
+        "msgstr": ["Đơn ứng tuyển mới"]
+      },
+      "Check the Applicants page to review new applications": {
+        "msgid": "Check the Applicants page to review new applications",
+        "msgstr": ["Kiểm tra trang Ứng viên để xem các đơn ứng tuyển mới"]
+      },
+      "Job Posting": {
+        "msgid": "Job Posting",
+        "msgstr": ["Đăng tin tuyển dụng"]
+      },
+      "Create new job postings to attract more candidates": {
+        "msgid": "Create new job postings to attract more candidates",
+        "msgstr": ["Tạo tin tuyển dụng mới để thu hút nhiều ứng viên hơn"]
+      },
+      "Analytics": {
+        "msgid": "Analytics",
+        "msgstr": ["Phân tích"]
+      },
+      "View detailed analytics in the Analytics page": {
+        "msgid": "View detailed analytics in the Analytics page",
+        "msgstr": ["Xem phân tích chi tiết trong trang Phân tích"]
+      },
+      "Quick Stats": {
+        "msgid": "Quick Stats",
+        "msgstr": ["Thống kê nhanh"]
+      },
+      "Avg daily": {
+        "msgid": "Avg daily",
+        "msgstr": ["Trung bình hàng ngày"]
+      },
+      "Peak day": {
+        "msgid": "Peak day",
+        "msgstr": ["Ngày cao điểm"]
+      },
+      "Overview of your hiring activities": {
+        "msgid": "Overview of your hiring activities",
+        "msgstr": ["Tổng quan về các hoạt động tuyển dụng của bạn"]
+      },
+      "All Job Posts": {
+        "msgid": "All Job Posts",
+        "msgstr": ["Tất cả tin tuyển dụng"]
+      },
+      "Draft Jobs": {
+        "msgid": "Draft Jobs",
+        "msgstr": ["Bản nháp việc làm"]
+      },
+      "Expired Jobs": {
+        "msgid": "Expired Jobs",
+        "msgstr": ["Việc làm đã hết hạn"]
+      },
+      "All Applicants": {
+        "msgid": "All Applicants",
+        "msgstr": ["Tất cả ứng viên"]
+      },
+      "Interviewed": {
+        "msgid": "Interviewed",
+        "msgstr": ["Phỏng vấn"]
+      },
+      "Company": {
+        "msgid": "Company",
+        "msgstr": ["Công ty"]
+      },
+      "Manage Jobs - All": {
+        "msgid": "Manage Jobs - All",
+        "msgstr": ["Quản lý việc làm - Tất cả"]
+      },
+      "Search by title": {
+        "msgid": "Search by title",
+        "msgstr": ["Tìm kiếm theo tiêu đề"]
+      },
+      "All": {
+        "msgid": "All",
+        "msgstr": ["Tất cả"]
+      },
+      "Active": { "msgid": "Active", "msgstr": ["Đang hoạt động"] },
+      "Draft": { "msgid": "Draft", "msgstr": ["Bản nháp"] },
+      "page": {
+        "msgid": "page",
+        "msgstr": ["trang"]
+      },
+      "Newest": { "msgid": "Newest", "msgstr": ["Mới nhất"] },
+      "Expiring soon": {
+        "msgid": "Expiring soon",
+        "msgstr": ["Sắp hết hạn"]
+      },
+      "Expired recently": {
+        "msgid": "Expired recently",
+        "msgstr": ["Vừa hết hạn"]
+      },
+      "Total": {
+        "msgid": "Total",
+        "msgstr": ["Tổng"]
+      },
+      "Previous page": {
+        "msgid": "Previous page",
+        "msgstr": ["Trang trước"]
+      },
+      "Next page": {
+        "msgid": "Next page",
+        "msgstr": ["Trang tiếp"]
+      },
+      "Posted": {
+        "msgid": "Posted",
+        "msgstr": ["Đã đăng"]
+      },
+      "Edit": { "msgid": "Edit", "msgstr": ["Chỉnh sửa"] },
+      "Edit Job": { "msgid": "Edit Job", "msgstr": ["Chỉnh sửa việc làm"] },
+      "You can only edit basic information (title, status, expired date, description). To edit everything, please deactivate the job and create a new one.": {
+        "msgid": "You can only edit basic information (title, status, expired date, description). To edit everything, please deactivate the job and create a new one.",
+        "msgstr": [
+          "Bạn chỉ có thể chỉnh sửa thông tin cơ bản (tiêu đề, trạng thái, ngày hết hạn, mô tả). Để chỉnh sửa tất cả, vui lòng hủy kích hoạt công việc và tạo một công việc mới."
+        ]
+      },
+      "Title": { "msgid": "Title", "msgstr": ["Tiêu đề"] },
+      "Status": { "msgid": "Status", "msgstr": ["Trạng thái"] },
+      "Inactive": { "msgid": "Inactive", "msgstr": ["Không hoạt động"] },
+      "Expired date": {
+        "msgid": "Expired date",
+        "msgstr": ["Ngày hết hạn"]
+      },
+      "Description": { "msgid": "Description", "msgstr": ["Mô tả"] },
+      "No jobs found": {
+        "msgid": "No jobs found",
+        "msgstr": ["Không tìm thấy việc làm"]
+      },
+      "Create Your First Job": {
+        "msgid": "Create Your First Job",
+        "msgstr": ["Tạo việc làm đầu tiên của bạn"]
+      },
+      "You haven't posted any jobs yet. Create your first job to attract candidates.": {
+        "msgid": "You haven't posted any jobs yet. Create your first job to attract candidates.",
+        "msgstr": [
+          "Bạn chưa đăng bất kỳ việc làm nào. Tạo việc làm đầu tiên của bạn để thu hút ứng viên."
+        ]
+      },
+      "No ${tab} jobs found. Try creating a new job or check other tabs.": {
+        "msgid": "No ${tab} jobs found. Try creating a new job or check other tabs.",
+        "msgstr": [
+          "Không tìm thấy việc làm ${tab}. Hãy thử tạo một việc làm mới hoặc kiểm tra các tab khác."
+        ]
+      },
+      "Search Applicants": {
+        "msgid": "Search Applicants",
+        "msgstr": ["Tìm kiếm ứng viên"]
+      },
+      "Filters": {
+        "msgid": "Filters",
+        "msgstr": ["Bộ lọc"]
+      },
+      "Pipeline View": {
+        "msgid": "Pipeline View",
+        "msgstr": ["Xem theo quy trình"]
+      },
+      "Table View": {
+        "msgid": "Table View",
+        "msgstr": ["Xem theo bảng"]
+      },
+      "Hiring Stage": {
+        "msgid": "Hiring Stage",
+        "msgstr": ["Giai đoạn tuyển dụng"]
+      },
+      "Applied Date": {
+        "msgid": "Applied Date",
+        "msgstr": ["Ngày ứng tuyển"]
+      },
+      "Job Name": {
+        "msgid": "Job Name",
+        "msgstr": ["Tên công việc"]
+      },
+      "Action": { "msgid": "Action", "msgstr": ["Hành động"] },
+      "See Application": {
+        "msgid": "See Application",
+        "msgstr": ["Xem ứng dụng"]
+      },
+      "Details": {
+        "msgid": "Details",
+        "msgstr": ["Chi tiết"]
+      },
+      "Create Interview": {
+        "msgid": "Create Interview",
+        "msgstr": ["Tạo phỏng vấn"]
+      },
+      "Report Company": {
+        "msgid": "Report Company",
+        "msgstr": ["Báo cáo công ty"]
+      },
+      "per page": {
+        "msgid": "per page",
+        "msgstr": ["mỗi trang"]
+      },
+      "Candidate Description": {
+        "msgid": "Candidate Description",
+        "msgstr": ["Mô tả ứng viên"]
+      },
+      "Profile Information": {
+        "msgid": "Profile Information",
+        "msgstr": ["Thông tin hồ sơ"]
+      },
+      "Website": { "msgid": "Website", "msgstr": ["Trang web"] },
+      "Update Status": {
+        "msgid": "Update Status",
+        "msgstr": ["Cập nhật trạng thái"]
+      },
+      "REVIEWED": {
+        "msgid": "REVIEWED",
+        "msgstr": ["ĐÃ XEM XÉT"]
+      },
+      "REJECTED": {
+        "msgid": "REJECTED",
+        "msgstr": ["BỊ TỪ CHỐI"]
+      },
+      "Update": { "msgid": "Update", "msgstr": ["Cập nhật"] },
+      "Scheduled": {
+        "msgid": "Scheduled",
+        "msgstr": ["Đã lên lịch"]
+      },
+      "Job": { "msgid": "Job", "msgstr": ["Công việc"] },
+      "Duration": {
+        "msgid": "Duration",
+        "msgstr": ["Thời lượng"]
+      },
+      "Actions": { "msgid": "Actions", "msgstr": ["Hành động"] },
+      "min": { "msgid": "min", "msgstr": ["phút"] },
+      "Open meeting": {
+        "msgid": "Open meeting",
+        "msgstr": ["Mở cuộc họp"]
+      },
+      "Mark completed": {
+        "msgid": "Mark completed",
+        "msgstr": ["Hoàn thành"]
+      },
+      "No interviews:": {
+        "msgid": "No interviews:",
+        "msgstr": ["Không có cuộc phỏng vấn nào"]
+      },
+      "Page size": {
+        "msgid": "Page size",
+        "msgstr": ["Kích thước trang"]
       }
     }
   }

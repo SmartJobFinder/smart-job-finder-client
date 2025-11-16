@@ -16,6 +16,7 @@ import {
     getRecruiterKpi,
     getRecruiterTrend,
 } from "@/services/analyticsService";
+import { t } from "@/i18n/i18n";
 
 const RecruiterDashboard = () => {
     const [companyId, setCompanyId] = useState(null);
@@ -99,7 +100,7 @@ const RecruiterDashboard = () => {
     const stats = useMemo(
         () => [
             {
-                title: "Active Jobs",
+                title: t`Active Jobs`,
                 value: kpi?.activeJobs ?? "-",
                 icon: Briefcase,
                 color: "bg-blue-500",
@@ -107,7 +108,7 @@ const RecruiterDashboard = () => {
                 textColor: "text-blue-700",
             },
             {
-                title: "Total Applicants",
+                title: t`Total Applicants`,
                 value: kpi?.totalApplicants ?? "-",
                 icon: Users,
                 color: "bg-green-500",
@@ -115,7 +116,7 @@ const RecruiterDashboard = () => {
                 textColor: "text-green-700",
             },
             {
-                title: "Applicants (30d)",
+                title: t`Applicants (30d)`,
                 value: kpi?.applicantsLast30Days ?? "-",
                 icon: FileText,
                 color: "bg-purple-500",
@@ -168,10 +169,10 @@ const RecruiterDashboard = () => {
                 {/* Header */}
                 <div>
                     <h1 className="text-2xl font-bold text-blue-700">
-                        Recruiter Dashboard
+                        {t`Recruiter Dashboard`}
                     </h1>
                     <p className="text-gray-500">
-                        Overview of your hiring activities
+                        {t`Overview of your hiring activities`}
                     </p>
                 </div>
 
@@ -221,14 +222,14 @@ const RecruiterDashboard = () => {
                             <div className="flex items-center justify-between">
                                 <CardTitle className="flex items-center gap-2">
                                     <TrendingUp className="w-5 h-5 text-blue-600" />
-                                    Applications Trend (30 days)
+                                    {t`Applications Trend (30 days)`}
                                 </CardTitle>
                                 <div className="text-sm text-gray-500">
                                     {trend.length > 0 &&
                                         `${trend.reduce(
                                             (sum, p) => sum + p.count,
                                             0
-                                        )} total applications`}
+                                        )} ${t`total applications`}`}
                                 </div>
                             </div>
                         </CardHeader>
@@ -318,25 +319,25 @@ const RecruiterDashboard = () => {
                                     <div className="flex items-center gap-2">
                                         <div className="w-4 h-4 bg-blue-500 rounded-lg shadow-sm"></div>
                                         <span className="font-medium">
-                                            Weekdays
+                                            {t`Weekdays`}
                                         </span>
                                     </div>
                                     <div className="flex items-center gap-2">
                                         <div className="w-4 h-4 bg-gray-400 rounded-lg shadow-sm"></div>
                                         <span className="font-medium">
-                                            Weekends
+                                            {t`Weekends`}
                                         </span>
                                     </div>
                                     <div className="flex items-center gap-2">
                                         <div className="w-4 h-4 bg-blue-700 rounded-lg shadow-sm"></div>
                                         <span className="font-medium">
-                                            Peak Day
+                                            {t`Peak Day`}
                                         </span>
                                     </div>
                                     <div className="flex items-center gap-2">
                                         <div className="w-4 h-4 bg-blue-500 rounded-lg shadow-sm"></div>
                                         <span className="font-medium">
-                                            Today
+                                            {t`Today`}
                                         </span>
                                     </div>
                                 </div>
@@ -349,7 +350,7 @@ const RecruiterDashboard = () => {
                         <CardHeader>
                             <CardTitle className="flex items-center gap-2">
                                 <Calendar className="w-5 h-5 text-green-600" />
-                                Recent Activity & Insights
+                                {t`Recent Activity & Insights`}
                             </CardTitle>
                         </CardHeader>
                         <CardContent className="space-y-4">
@@ -361,11 +362,10 @@ const RecruiterDashboard = () => {
                                     </div>
                                     <div>
                                         <p className="text-sm font-medium text-blue-900">
-                                            New Applications
+                                            {t`New Applications`}
                                         </p>
                                         <p className="text-xs text-blue-700">
-                                            Check the Applicants page to review
-                                            new applications
+                                            {t`Check the Applicants page to review new applications`}
                                         </p>
                                     </div>
                                 </div>
@@ -376,11 +376,10 @@ const RecruiterDashboard = () => {
                                     </div>
                                     <div>
                                         <p className="text-sm font-medium text-green-900">
-                                            Job Posting
+                                            {t`Job Posting`}
                                         </p>
                                         <p className="text-xs text-green-700">
-                                            Create new job postings to attract
-                                            more candidates
+                                            {t`Create new job postings to attract more candidates`}
                                         </p>
                                     </div>
                                 </div>
@@ -391,11 +390,10 @@ const RecruiterDashboard = () => {
                                     </div>
                                     <div>
                                         <p className="text-sm font-medium text-purple-900">
-                                            Analytics
+                                            {t`Analytics`}
                                         </p>
                                         <p className="text-xs text-purple-700">
-                                            View detailed analytics in the
-                                            Analytics page
+                                            {t`View detailed analytics in the Analytics page`}
                                         </p>
                                     </div>
                                 </div>
@@ -404,7 +402,7 @@ const RecruiterDashboard = () => {
                             {/* Quick Stats */}
                             <div className="pt-4 border-t border-gray-100">
                                 <h4 className="text-sm font-semibold text-gray-700 mb-3">
-                                    Quick Stats
+                                    {t`Quick Stats`}
                                 </h4>
                                 <div className="grid grid-cols-2 gap-3 text-center">
                                     <div className="p-3 bg-gray-50 rounded-lg">
@@ -420,7 +418,7 @@ const RecruiterDashboard = () => {
                                                 : 0}
                                         </div>
                                         <div className="text-xs text-gray-600">
-                                            Avg daily
+                                            {t`Avg daily`}
                                         </div>
                                     </div>
                                     <div className="p-3 bg-gray-50 rounded-lg">
@@ -434,7 +432,7 @@ const RecruiterDashboard = () => {
                                                 : 0}
                                         </div>
                                         <div className="text-xs text-gray-600">
-                                            Peak day
+                                            {t`Peak day`}
                                         </div>
                                     </div>
                                 </div>

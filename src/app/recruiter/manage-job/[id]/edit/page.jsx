@@ -6,9 +6,16 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+} from "@/components/ui/select";
 import api from "@/lib/api";
 import { patchJobById } from "@/services/recruiterJobsService";
+import { t } from "@/i18n/i18n";
 
 function toIsoDateFromDDMMYYYY(value) {
     if (!value) return "";
@@ -36,7 +43,12 @@ export default function EditJobPage() {
     const [loading, setLoading] = useState(true);
     const [saving, setSaving] = useState(false);
     const [error, setError] = useState("");
-    const [form, setForm] = useState({ title: "", status: "ACTIVE", expired_date: "", description: "" });
+    const [form, setForm] = useState({
+        title: "",
+        status: "ACTIVE",
+        expired_date: "",
+        description: "",
+    });
 
     useEffect(() => {
         const load = async () => {
@@ -58,7 +70,8 @@ export default function EditJobPage() {
         if (jobId) load();
     }, [jobId]);
 
-    const onChange = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));
+    const onChange = (k) => (e) =>
+        setForm((f) => ({ ...f, [k]: e.target.value }));
 
     const onSave = async () => {
         try {
@@ -68,7 +81,9 @@ export default function EditJobPage() {
                 title: form.title,
                 status: form.status,
                 description: form.description,
-                expired_date: form.expired_date ? toDDMMYYYYFromIso(form.expired_date) : undefined,
+                expired_date: form.expired_date
+                    ? toDDMMYYYYFromIso(form.expired_date)
+                    : undefined,
             };
             await patchJobById(jobId, payload);
             router.push("/recruiter/manage-job");
@@ -83,49 +98,77 @@ export default function EditJobPage() {
 
     return (
         <div className="p-6 max-w-3xl mx-auto space-y-4">
-            <h1 className="text-xl font-semibold">Edit Job #{jobId}</h1>
+            <h1 className="text-xl font-semibold">
+                {t`Edit Job`} #{jobId}
+            </h1>
             <Card className="p-4 space-y-4">
                 <div className="rounded-md border bg-muted/30 p-3 text-sm text-muted-foreground">
-                    You can only edit basic information (title, status, expired date, description). To edit everything, please deactivate the job and create a new one.
+                    {t`You can only edit basic information (title, status, expired date, description). To edit everything, please deactivate the job and create a new one.`}
                 </div>
                 <div>
-                    <label className="text-sm font-medium">Title</label>
+                    <label className="text-sm font-medium">{t`Title`}</label>
                     <Input value={form.title} onChange={onChange("title")} />
                 </div>
                 <div>
-                    <label className="text-sm font-medium">Status</label>
+                    <label className="text-sm font-medium">{t`Status`}</label>
                     <div className="mt-1">
-                        <Select value={form.status} onValueChange={(v) => setForm((f) => ({ ...f, status: v }))}>
+                        <Select
+                            value={form.status}
+                            onValueChange={(v) =>
+                                setForm((f) => ({ ...f, status: v }))
+                            }
+                        >
                             <SelectTrigger className="w-48">
                                 <SelectValue placeholder="Select status" />
                             </SelectTrigger>
                             <SelectContent>
-                                <SelectItem value="ACTIVE">ACTIVE</SelectItem>
-                                <SelectItem value="INACTIVE">INACTIVE</SelectItem>
-                                <SelectItem value="DRAFT">DRAFT</SelectItem>
+                                <SelectItem value="ACTIVE">{t`Active`}</SelectItem>
+                                <SelectItem value="INACTIVE">
+                                    {t`Inactive`}
+                                </SelectItem>
+                                <SelectItem value="DRAFT">{t`Draft`}</SelectItem>
                             </SelectContent>
                         </Select>
                     </div>
                 </div>
                 <div>
-                    <label className="text-sm font-medium">Expired date</label>
+                    <label className="text-sm font-medium">{t`Expired date`}</label>
                     <Input
                         type="date"
-                        value={form.expired_date ? toIsoDateFromDDMMYYYY(form.expired_date) : ""}
-                        onChange={(e) => setForm((f) => ({ ...f, expired_date: e.target.value }))}
+                        value={
+                            form.expired_date
+                                ? toIsoDateFromDDMMYYYY(form.expired_date)
+                                : ""
+                        }
+                        onChange={(e) =>
+                            setForm((f) => ({
+                                ...f,
+                                expired_date: e.target.value,
+                            }))
+                        }
                     />
-                    <div className="text-xs text-muted-foreground mt-1">Format: dd-MM-yyyy</div>
+                    <div className="text-xs text-muted-foreground mt-1">
+                        Format: dd-MM-yyyy
+                    </div>
                 </div>
                 <div>
-                    <label className="text-sm font-medium">Description</label>
-                    <Textarea value={form.description} onChange={onChange("description")} rows={6} />
+                    <label className="text-sm font-medium">{t`Description`}</label>
+                    <Textarea
+                        value={form.description}
+                        onChange={onChange("description")}
+                        rows={6}
+                    />
                 </div>
                 {error && <div className="text-red-500 text-sm">{error}</div>}
                 <div className="flex gap-2">
-                    <Button disabled={saving} onClick={onSave}>Save</Button>
-                    <Button variant="outline" onClick={() => router.back()}>Cancel</Button>
+                    <Button disabled={saving} onClick={onSave}>
+                        {t`Save`}
+                    </Button>
+                    <Button variant="outline" onClick={() => router.back()}>
+                        {t`Cancel`}
+                    </Button>
                 </div>
             </Card>
         </div>
     );
-} 
+}
