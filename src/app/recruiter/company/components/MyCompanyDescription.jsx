@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import useMyCompanyStore from "../store/myCompanyStore";
+import { t } from "@/i18n/i18n";
 
 const MyCompanyDescription = () => {
     const { company } = useMyCompanyStore();
@@ -12,14 +13,14 @@ const MyCompanyDescription = () => {
     return (
         <div className="p-6 bg-white rounded-lg shadow-xl">
             <h2 className="px-4 py-2 text-lg font-semibold text-white rounded bg-[#0A66C2]">
-                Company Overview
+                {t`Company Overview`}
             </h2>
 
             <div className="mt-4 space-y-4">
                 <div className="grid grid-cols-2 gap-4">
                     <div className="p-3 bg-gray-50 rounded-lg">
                         <h3 className="font-medium text-gray-700">
-                            Founded Year
+                            {t`Founded Year`}
                         </h3>
                         <p className="mt-1 text-blue-600">
                             {company.foundedYear}
@@ -27,22 +28,22 @@ const MyCompanyDescription = () => {
                     </div>
                     <div className="p-3 bg-gray-50 rounded-lg">
                         <h3 className="font-medium text-gray-700">
-                            Company Size
+                            {t`Company size`}
                         </h3>
                         <p className="mt-1 text-blue-600">
-                            {company.quantityEmployee}+ employees
+                            {company.quantityEmployee}+ {t`employees`}
                         </p>
                     </div>
                     <div className="p-3 bg-gray-50 rounded-lg">
                         <h3 className="font-medium text-gray-700">
-                            Active Jobs
+                            {t`Active Jobs`}
                         </h3>
                         <p className="mt-1 text-blue-600">
-                            {company.jobsCount || 0} job postings
+                            {company.jobsCount || 0} {t`job postings`}
                         </p>
                     </div>
                     <div className="p-3 bg-gray-50 rounded-lg">
-                        <h3 className="font-medium text-gray-700">Industry</h3>
+                        <h3 className="font-medium text-gray-700">{t`Industry`}</h3>
                         <div className="flex flex-wrap gap-2 mt-1">
                             {company.categories?.map((category, index) => (
                                 <span
@@ -57,7 +58,7 @@ const MyCompanyDescription = () => {
                 </div>
 
                 <div className="pt-4 mt-4 border-t border-gray-200">
-                    <h3 className="mb-3 font-semibold">Company Description</h3>
+                    <h3 className="mb-3 font-semibold">{t`Company Description`}</h3>
                     <div
                         className={`leading-relaxed text-justify ${
                             expanded ? "" : "line-clamp-6"
@@ -85,91 +86,3 @@ const MyCompanyDescription = () => {
 };
 
 export default MyCompanyDescription;
-
-// "use client";
-
-// import React from "react";
-// import useMyCompanyStore from "../store/myCompanyStore";
-// import { t } from "@/i18n/i18n";
-
-// const MyCompanyDescription = () => {
-//     const { company } = useMyCompanyStore();
-
-//     if (!company) return null;
-
-//     // Safely extract category names from category objects
-//     const renderCategories = () => {
-//         if (!company.categories || !Array.isArray(company.categories)) {
-//             return (
-//                 <span className="px-2 py-1 text-xs text-blue-600 bg-blue-100 rounded-full">
-//                     No categories
-//                 </span>
-//             );
-//         }
-
-//         return company.categories.map((category, index) => (
-//             <span
-//                 key={index}
-//                 className="px-2 py-1 text-xs text-blue-600 bg-blue-100 rounded-full"
-//             >
-//                 {typeof category === "object" ? category.name : category}
-//             </span>
-//         ));
-//     };
-
-//     return (
-//         <div className="p-6 bg-white rounded-lg shadow-xl">
-//             <h2 className="px-4 py-2 text-lg font-semibold text-white rounded bg-[#0A66C2]">
-//                 {t`Company Introduction`}
-//             </h2>
-
-//             <div className="mt-4 space-y-4">
-//                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-//                     <div className="p-3 rounded-lg bg-gray-50">
-//                         <h3 className="font-medium text-gray-700">
-//                             Founded year
-//                         </h3>
-//                         <p className="mt-1 text-blue-600">
-//                             {company.foundedYear}
-//                         </p>
-//                     </div>
-//                     <div className="p-3 rounded-lg bg-gray-50">
-//                         <h3 className="font-medium text-gray-700">
-//                             Staff size
-//                         </h3>
-//                         <p className="mt-1 text-blue-600">
-//                             {company.quantityEmployee}+ employees
-//                         </p>
-//                     </div>
-//                     <div className="p-3 rounded-lg bg-gray-50">
-//                         <h3 className="font-medium text-gray-700">
-//                             Jobs posted
-//                         </h3>
-//                         <p className="mt-1 text-blue-600">
-//                             {company.jobCount || 0} jobs
-//                         </p>
-//                     </div>
-//                     <div className="p-3 rounded-lg bg-gray-50">
-//                         <h3 className="font-medium text-gray-700">
-//                             Fields of activity
-//                         </h3>
-//                         <div className="flex flex-wrap gap-2 mt-1">
-//                             {renderCategories()}
-//                         </div>
-//                     </div>
-//                 </div>
-
-//                 <div className="mt-4">
-//                     <h3 className="font-medium text-gray-700 mb-2">
-//                         About {company.company_name}
-//                     </h3>
-//                     <p className="text-gray-600 whitespace-pre-line">
-//                         {company.description}
-//                     </p>
-//                 </div>
-//             </div>
-//         </div>
-//     );
-// };
-
-// export default MyCompanyDescription;

@@ -285,6 +285,10 @@
         "msgid": "employees",
         "msgstr": ["employees"]
       },
+      "followers": {
+        "msgid": "followers",
+        "msgstr": ["followers"]
+      },
       "open jobs": {
         "msgid": "open jobs",
         "msgstr": ["open jobs"]
@@ -1061,6 +1065,26 @@
       "Page size": {
         "msgid": "Page size",
         "msgstr": ["Page size"]
+      },
+      "Edit Company": {
+        "msgid": "Edit Company",
+        "msgstr": ["Edit Company"]
+      },
+      "Company Overview": {
+        "msgid": "Company Overview",
+        "msgstr": ["Company Overview"]
+      },
+      "Founded Year": {
+        "msgid": "Founded Year",
+        "msgstr": ["Founded Year"]
+      },
+      "job postings": {
+        "msgid": "job postings",
+        "msgstr": ["job postings"]
+      },
+      "Company Description": {
+        "msgid": "Company Description",
+        "msgstr": ["job postings"]
       }
     }
   }
