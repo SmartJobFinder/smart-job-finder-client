@@ -4,7 +4,9 @@ import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Loader2, ArrowLeft } from "lucide-react";
+import { Input } from "@/components/ui/input"; // ✅ THÊM IMPORT NÀY
+import { Label } from "@/components/ui/label"; // ✅ THÊM IMPORT NÀY
+import { Loader2, ArrowLeft, Map } from "lucide-react"; // ✅ THÊM Map ICON
 import { toast } from "react-toastify";
 import Link from "next/link";
 
@@ -115,18 +117,70 @@ export default function EditCompanyPage() {
         loadData();
     }, [router]);
 
-    const handleInputChange = (name, value) => {
-        setFormData((prev) => ({
-            ...prev,
-            [name]: value,
-        }));
+    // ✅ THÊM FUNCTION ĐỂ EXTRACT URL TỪ IFRAME
+    const extractMapUrl = (input) => {
+        if (!input || typeof input !== "string") return "";
 
-        // Clear error when user starts typing
-        if (errors[name]) {
-            setErrors((prev) => ({
+        const trimmedInput = input.trim();
+
+        // Nếu input đã là URL hợp lệ (bắt đầu bằng https://www.google.com/maps/embed)
+        if (trimmedInput.startsWith("https://www.google.com/maps/embed")) {
+            return trimmedInput;
+        }
+
+        // Nếu input là iframe HTML, extract URL từ src attribute
+        const srcMatch = trimmedInput.match(/src=["']([^"']+)["']/);
+        if (srcMatch && srcMatch[1]) {
+            return srcMatch[1];
+        }
+
+        // Nếu không match, return input gốc (user có thể đang gõ dở)
+        return trimmedInput;
+    };
+
+    // ✅ SỬA handleInputChange ĐỂ XỬ LÝ RIÊNG mapEmbedUrl
+    const handleInputChange = (nameOrEvent, value) => {
+        if (typeof nameOrEvent === "string") {
+            // Gọi từ các component con: handleInputChange(name, value)
+            let processedValue = value;
+
+            // ✅ Xử lý đặc biệt cho mapEmbedUrl
+            if (nameOrEvent === "mapEmbedUrl") {
+                processedValue = extractMapUrl(value);
+            }
+
+            setFormData((prev) => ({
                 ...prev,
-                [name]: null,
+                [nameOrEvent]: processedValue,
             }));
+
+            if (errors[nameOrEvent]) {
+                setErrors((prev) => ({
+                    ...prev,
+                    [nameOrEvent]: null,
+                }));
+            }
+        } else {
+            // Gọi từ event trực tiếp: onChange={handleInputChange}
+            const { name, value } = nameOrEvent.target;
+            let processedValue = value;
+
+            // ✅ Xử lý đặc biệt cho mapEmbedUrl
+            if (name === "mapEmbedUrl") {
+                processedValue = extractMapUrl(value);
+            }
+
+            setFormData((prev) => ({
+                ...prev,
+                [name]: processedValue,
+            }));
+
+            if (errors[name]) {
+                setErrors((prev) => ({
+                    ...prev,
+                    [name]: null,
+                }));
+            }
         }
     };
 
@@ -373,6 +427,149 @@ export default function EditCompanyPage() {
                             onCategoryChange={handleCategoryChange}
                             isLoading={categoriesLoading}
                         />
+                    </Card>
+
+                    {/* Map Embed URL Section */}
+                    <Card className="p-6">
+                        <div className="space-y-4">
+                            <div className="flex items-center gap-2 mb-4">
+                                <Map className="w-5 h-5 text-blue-600" />
+                                <h2 className="text-xl font-semibold">
+                                    Google Maps Location
+                                </h2>
+                            </div>
+
+                            <div>
+                                <Label
+                                    htmlFor="mapEmbedUrl"
+                                    className="text-sm font-medium"
+                                >
+                                    Map Embed URL or HTML{" "}
+                                    <span className="text-gray-400 text-xs font-normal">
+                                        (Optional)
+                                    </span>
+                                </Label>
+                                <textarea
+                                    id="mapEmbedUrl"
+                                    name="mapEmbedUrl"
+                                    rows={3}
+                                    placeholder="Paste entire iframe HTML or just the URL..."
+                                    value={formData.mapEmbedUrl}
+                                    onChange={(e) =>
+                                        handleInputChange(
+                                            "mapEmbedUrl",
+                                            e.target.value
+                                        )
+                                    }
+                                    className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
+                                />
+                                <p className="text-xs text-gray-500 mt-1">
+                                    Smart input: Paste the entire iframe HTML or
+                                    just the embed URL - we'll extract it
+                                    automatically!
+                                </p>
+                            </div>
+
+                            {/* Helper Instructions - CẬP NHẬT */}
+                            <div className="mt-3 p-4 bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-lg">
+                                <p className="text-sm text-gray-800 font-semibold mb-2 flex items-center gap-2">
+                                    How to get Google Maps Embed:
+                                </p>
+                                <ol className="text-xs text-gray-700 space-y-1.5 list-decimal list-inside ml-2">
+                                    <li>
+                                        Go to{" "}
+                                        <a
+                                            href="https://www.google.com/maps"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="text-blue-600 hover:underline font-medium"
+                                        >
+                                            Google Maps
+                                        </a>{" "}
+                                        and search your company address
+                                    </li>
+                                    <li>
+                                        Click the <strong>"Share"</strong>{" "}
+                                        button
+                                    </li>
+                                    <li>
+                                        Select <strong>"Embed a map"</strong>{" "}
+                                        tab
+                                    </li>
+                                    <li>
+                                        Click <strong>"COPY HTML"</strong>
+                                    </li>
+                                    <li className="font-medium text-blue-700">
+                                        Paste the entire HTML here - we'll
+                                        extract the URL automatically!
+                                    </li>
+                                </ol>
+
+                                <div className="mt-3 p-2 bg-white/50 rounded border border-blue-100">
+                                    <p className="text-xs text-gray-600 mb-1 font-medium">
+                                        Example input (both work!):
+                                    </p>
+                                    <code className="text-xs text-gray-700 block mb-1">
+                                        {`<iframe src="https://www.google.com/maps/embed?pb=..." ...></iframe>`}
+                                    </code>
+                                    <p className="text-xs text-gray-500 italic">
+                                        or just:
+                                    </p>
+                                    <code className="text-xs text-gray-700 block">
+                                        {`https://www.google.com/maps/embed?pb=...`}
+                                    </code>
+                                </div>
+                            </div>
+
+                            {/* Preview Map if URL exists */}
+                            {formData.mapEmbedUrl &&
+                                formData.mapEmbedUrl.startsWith(
+                                    "https://www.google.com/maps/embed"
+                                ) && (
+                                    <div className="mt-4">
+                                        <Label className="text-sm font-medium mb-2 block items-center gap-2">
+                                            <span className="text-green-600">
+                                                ✓
+                                            </span>
+                                            Map Preview
+                                        </Label>
+                                        <div className="overflow-hidden rounded-lg border-2 border-green-200 shadow-sm">
+                                            <iframe
+                                                src={formData.mapEmbedUrl}
+                                                width="100%"
+                                                height="300"
+                                                style={{ border: 0 }}
+                                                allowFullScreen
+                                                loading="lazy"
+                                                referrerPolicy="no-referrer-when-downgrade"
+                                                title="Company Location Map Preview"
+                                            />
+                                        </div>
+                                        <p className="text-xs text-green-600 mt-2 flex items-center gap-1">
+                                            Map loaded successfully! Candidates
+                                            will see this location on your
+                                            company page.
+                                        </p>
+                                    </div>
+                                )}
+
+                            {/* Invalid URL Warning */}
+                            {formData.mapEmbedUrl &&
+                                !formData.mapEmbedUrl.startsWith(
+                                    "https://www.google.com/maps/embed"
+                                ) && (
+                                    <div className="mt-2 p-3 bg-amber-50 border border-amber-200 rounded-lg">
+                                        <p className="text-xs text-amber-800 flex items-center gap-2">
+                                            Invalid map URL. Please paste the
+                                            entire iframe HTML or a valid embed
+                                            URL starting with{" "}
+                                            <code className="bg-amber-100 px-1 rounded">
+                                                https://www.google.com/maps/embed
+                                            </code>
+                                        </p>
+                                    </div>
+                                )}
+                        </div>
                     </Card>
 
                     {/* Submit Buttons */}

@@ -17,8 +17,6 @@ export async function getCurrentUser() {
 // Update user profile - CHỈ GỬI fullName và phone
 export async function updateUserProfile(userId, userData) {
     try {
-        // Backend UserServiceImpl chỉ check null rồi mới update
-        // Chỉ gửi fullName và phone, không gửi email/roleId/status (để tránh validation lỗi)
         const updatePayload = {};
 
         if (userData.fullName !== undefined && userData.fullName !== null) {
@@ -46,7 +44,6 @@ export async function updateUserProfile(userId, userData) {
         console.error("Error:", error);
         console.error("Response:", error.response?.data);
 
-        // Parse error message
         let errorMessage = "Failed to update user profile";
 
         if (error.response?.data) {
@@ -56,7 +53,6 @@ export async function updateUserProfile(userId, userData) {
             } else if (errData.message) {
                 errorMessage = errData.message;
             } else if (errData.errors) {
-                // Handle validation errors object
                 errorMessage = Object.entries(errData.errors)
                     .map(([field, msg]) => `${field}: ${msg}`)
                     .join(", ");
@@ -67,12 +63,15 @@ export async function updateUserProfile(userId, userData) {
     }
 }
 
-// Update password
-export async function updatePassword(passwordData) {
+// Change password - SỬ DỤNG ENDPOINT MỚI
+export async function changePassword(oldPassword, newPassword) {
     try {
         const response = await api.post(
             "/users/change-password",
-            passwordData,
+            {
+                oldPassword,
+                newPassword,
+            },
             {
                 headers: {
                     "Content-Type": "application/json",
@@ -81,7 +80,19 @@ export async function updatePassword(passwordData) {
         );
         return response.data;
     } catch (error) {
-        console.error("Error updating password:", error);
-        throw error;
+        console.error("Error changing password:", error);
+
+        let errorMessage = "Failed to change password";
+
+        if (error.response?.data) {
+            const errData = error.response.data;
+            if (typeof errData === "string") {
+                errorMessage = errData;
+            } else if (errData.message) {
+                errorMessage = errData.message;
+            }
+        }
+
+        throw new Error(errorMessage);
     }
 }

@@ -311,6 +311,10 @@
         "msgid": "employees",
         "msgstr": ["nhân viên"]
       },
+      "followers": {
+        "msgid": "followers",
+        "msgstr": ["người theo dõi"]
+      },
       "Requirements": { "msgid": "Requirements", "msgstr": ["Yêu cầu"] },
       "Benefits": { "msgid": "Benefits", "msgstr": ["Phúc lợi"] },
       "Work Location": {
@@ -1108,6 +1112,26 @@
       "Page size": {
         "msgid": "Page size",
         "msgstr": ["Kích thước trang"]
+      },
+      "Edit Company": {
+        "msgid": "Edit Company",
+        "msgstr": ["Chỉnh sửa công ty"]
+      },
+      "Company Overview": {
+        "msgid": "Company Overview",
+        "msgstr": ["Tổng quan về công ty"]
+      },
+      "Founded Year": {
+        "msgid": "Founded Year",
+        "msgstr": ["Năm thành lập"]
+      },
+      "job postings": {
+        "msgid": "job postings",
+        "msgstr": ["việc làm"]
+      },
+      "Company Description": {
+        "msgid": "Company Description",
+        "msgstr": ["Mô tả công ty"]
       }
     }
   }
