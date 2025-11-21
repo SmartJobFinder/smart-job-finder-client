@@ -78,7 +78,7 @@ export default function CardJob() {
                 const normalized = items.map((it) => {
                     const j = it.job || {};
                     return {
-                        ...j,
+                        ...j, // ✅ Spread all fields first
                         id: j.id,
                         title: j.title || "",
                         avatar: j.company?.avatar || "",
@@ -91,6 +91,28 @@ export default function CardJob() {
                         salaryDisplay: j.salaryDisplay,
                         liked: !!it.saved,
                         applied: !!it.applied,
+
+                        // ✅ PRESERVE SCAM FIELDS
+                        trustLabel: j.trustLabel || j.trust_label || null,
+                        scamScore: j.scamScore || j.scam_score || null,
+                        scamCheckedAt:
+                            j.scamCheckedAt || j.scam_checked_at || null,
+
+                        // ✅ Preserve company object for JobCardItem
+                        company: {
+                            ...j.company,
+                            company_name: j.company?.company_name,
+                            avatar: j.company?.avatar,
+                            company_id: j.company?.company_id,
+                            isProCompany: j.company?.isProCompany,
+                        },
+
+                        // ✅ Preserve other fields JobCardItem needs
+                        date_post: j.date_post || j.datePost,
+                        expired_date: j.expired_date || j.expiredDate,
+                        work_type_names: j.work_type_names || [],
+                        skill_names: j.skill_names || [],
+                        location: j.location,
                     };
                 });
                 setList(normalized);

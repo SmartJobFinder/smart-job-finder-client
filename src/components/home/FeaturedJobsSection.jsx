@@ -2,7 +2,14 @@
 
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import Link from "next/link";
-import { ArrowRight, Bookmark, BookmarkCheck, MapPin } from "lucide-react";
+import {
+    ArrowRight,
+    Bookmark,
+    BookmarkCheck,
+    MapPin,
+    AlertTriangle,
+    ShieldAlert,
+} from "lucide-react";
 import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 import { selectIsLoggedIn } from "@/features/auth/authSelectors";
@@ -33,7 +40,6 @@ function typeColorClass(type) {
     }
 }
 
-// Chuẩn hoá từ item: { job, saved, applied }
 function normalizeItem(item) {
     const j = item?.job || {};
     const companyName = j?.company?.company_name || "Unknown Company";
@@ -56,6 +62,9 @@ function normalizeItem(item) {
         boostLevel: Number(j?.boostLevel) || 0,
         liked: !!item?.saved,
         applied: !!item?.applied,
+        trustLabel: j?.trustLabel || j?.trust_label || null,
+        scamScore: j?.scamScore || j?.scam_score || null,
+        scamCheckedAt: j?.scamCheckedAt || j?.scam_checked_at || null,
     };
 }
 
@@ -205,18 +214,69 @@ const FeaturedJobsSection = () => {
                     const applied = !!appliedMap[job.id];
                     const handleSave = makeHandleSave(job.id);
 
+                    const isHighRisk = job.trustLabel === "SUSPICIOUS";
+                    const isWarning = job.trustLabel === "WARNING";
+                    const hasWarning = isHighRisk || isWarning;
+
                     return (
                         <div
                             key={job.id}
-                            className="relative p-3 transition-shadow bg-white border border-gray-200 rounded-lg sm:p-4 lg:p-6 hover:shadow-lg"
+                            className="relative p-3 transition-shadow bg-white border border-gray-200 rounded-lg sm:p-4 lg:p-6 hover:shadow-lg overflow-hidden"
                         >
+                            {/* SCAM ALERT STAMP WATERMARK */}
+                            {hasWarning && (
+                                <div
+                                    className="absolute right-12 top-3/4 -translate-y-1/2 pointer-events-none select-none"
+                                    style={{
+                                        transform:
+                                            "translateY(-50%) rotate(-15deg)",
+                                    }}
+                                >
+                                    <div
+                                        className={`relative ${
+                                            isHighRisk
+                                                ? "opacity-50"
+                                                : "opacity-55"
+                                        }`}
+                                    >
+                                        {/* Triangle Warning Icon */}
+                                        <AlertTriangle
+                                            className={`w-24 h-24 sm:w-28 sm:h-28 ${
+                                                isHighRisk
+                                                    ? "text-red-500"
+                                                    : "text-amber-500"
+                                            }`}
+                                            strokeWidth={2}
+                                        />
+                                        {/* SCAM ALERT Text */}
+                                        <div
+                                            className={`absolute -bottom-2 left-1/2 transform -translate-x-1/2 whitespace-nowrap text-center font-black text-xs sm:text-sm tracking-wider ${
+                                                isHighRisk
+                                                    ? "text-red-600"
+                                                    : "text-amber-600"
+                                            }`}
+                                            style={{
+                                                textShadow:
+                                                    "0 0 8px rgba(255,255,255,0.8)",
+                                                letterSpacing: "0.15em",
+                                            }}
+                                        >
+                                            {isHighRisk
+                                                ? "SCAM ALERT"
+                                                : "CAUTION"}
+                                        </div>
+                                    </div>
+                                </div>
+                            )}
+
+                            {/* BOOSTED Badge */}
                             {job.boosted && (
-                                <span className="absolute top-2 sm:top-3 right-2 sm:right-3 px-2 py-0.5 text-[10px] font-semibold rounded-full bg-amber-100 text-amber-800 border border-amber-200">
+                                <span className="absolute top-2 sm:top-3 right-2 sm:right-3 px-2 py-0.5 text-[10px] font-semibold rounded-full bg-amber-100 text-amber-800 border border-amber-200 z-10">
                                     BOOSTED
                                 </span>
                             )}
 
-                            <div className="flex items-start justify-between mb-3 sm:mb-4">
+                            <div className="flex items-start justify-between mb-3 sm:mb-4 relative z-10">
                                 <div className="pr-3 sm:pr-4">
                                     <h3 className="mb-2 text-sm font-semibold text-gray-900 sm:text-base line-clamp-2">
                                         <Link
@@ -238,7 +298,6 @@ const FeaturedJobsSection = () => {
                                     </p>
                                 </div>
 
-                                {/* APPLIED đặt cạnh nút Save */}
                                 <div className="relative flex items-center gap-2">
                                     {applied && (
                                         <span
@@ -274,7 +333,7 @@ const FeaturedJobsSection = () => {
                                 </div>
                             </div>
 
-                            <div className="flex items-center">
+                            <div className="flex items-center relative z-10">
                                 <div className="flex items-center justify-center w-6 h-6 mr-2 overflow-hidden bg-white rounded-full shadow-sm sm:w-8 sm:h-8 lg:w-10 lg:h-10 sm:mr-3 ring-1 ring-gray-100">
                                     <img
                                         src={job.logo}
@@ -305,6 +364,25 @@ const FeaturedJobsSection = () => {
                                     </div>
                                 </div>
                             </div>
+
+                            {/* SUBTLE BOTTOM BANNER - Only for HIGH RISK */}
+                            {/* {isHighRisk && (
+                                <div className="mt-3 p-2 bg-red-50 border-l-2 border-red-400 rounded relative z-10">
+                                    <p className="text-[10px] text-red-800 leading-relaxed">
+                                        <strong>High Risk:</strong> Flagged by
+                                        AI. Verify carefully before applying.
+                                    </p>
+                                </div>
+                            )} */}
+
+                            {/* MINIMAL BANNER for WARNING */}
+                            {isWarning && (
+                                <div className="mt-3 p-2 bg-amber-50 border-l-2 border-amber-400 rounded relative z-10">
+                                    <p className="text-[10px] text-amber-800">
+                                        Proceed with caution
+                                    </p>
+                                </div>
+                            )}
                         </div>
                     );
                 })}

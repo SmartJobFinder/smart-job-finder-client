@@ -32,6 +32,7 @@ import {
     createJob,
 } from "@/services/jobCreateService";
 import { getMyCompany } from "@/services/companyService";
+import { validateJobPosting } from "../utils/jobValidation";
 
 export default function JobPostingForm() {
     const [currentStep, setCurrentStep] = useState(1);
@@ -377,6 +378,21 @@ export default function JobPostingForm() {
                 return false;
             }
 
+            console.log("Running scam validation...");
+            const validationResult = await validateJobPosting(formData);
+            console.log("Validation result:", validationResult);
+
+            // ⚠️ Show warning if high scam probability
+            if (validationResult.metadata?.scamScore > 0.7) {
+                toast.warning(
+                    "⚠️ High scam probability detected. Job will be posted with warning label.",
+                    {
+                        position: "top-center",
+                        autoClose: 8000,
+                    }
+                );
+            }
+
             // Build location string with address, ward, and city
             const buildLocationString = () => {
                 let locationParts = [];
@@ -432,19 +448,45 @@ export default function JobPostingForm() {
                 level_names: formData.level,
                 work_type_names: formData.workType,
                 ward_ids: formData.wardIds,
+
+                scam_score: validationResult.metadata?.scamScore,
+                trust_label: validationResult.metadata?.trustLabel,
+                scam_checked_at: validationResult.metadata?.scamCheckedAt,
             };
+
+            console.log("==================== JOB DATA ====================");
+            console.log("Scam Score:", jobData.scam_score);
+            console.log("Trust Label:", jobData.trust_label);
+            console.log("Scam Checked At:", jobData.scam_checked_at);
+            console.log("Full Job Data:", JSON.stringify(jobData, null, 2));
+            console.log("==================================================");
 
             const response = await createJob(jobData);
 
             // Always show success toast if we reach here (no exception thrown)
-            toast.success("Job created successfully!", {
-                position: "top-center",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-            });
+            const trustLabel = validationResult.metadata?.trustLabel;
+
+            if (trustLabel === "SUSPICIOUS") {
+                toast.warning(
+                    "Job posted with 'High Risk' label. Please ensure all information is accurate.",
+                    { position: "top-center", autoClose: 8000 }
+                );
+            } else if (trustLabel === "WARNING") {
+                toast.success(
+                    "Job posted. Note: Some concerns detected, posted with warning label.",
+                    { position: "top-center", autoClose: 6000 }
+                );
+            } else if (trustLabel === "VERIFIED") {
+                toast.success(
+                    "Job created successfully with verified status!",
+                    { position: "top-center", autoClose: 5000 }
+                );
+            } else {
+                toast.success("Job created successfully!", {
+                    position: "top-center",
+                    autoClose: 5000,
+                });
+            }
 
             // Reset form
             setFormData({
