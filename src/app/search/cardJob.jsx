@@ -58,13 +58,12 @@ export default function CardJob() {
             salaryMax: undefined,
             postedFrom: undefined,
             postedTo: undefined,
-            page: currentPage - 1, // 0-based
+            page: currentPage - 1,
             size: pageSize,
             sort: "id,desc",
         };
     }, [searchTerm, filters, currentPage, pageSize]);
 
-    // Reset về trang 1 khi filter thay đổi
     useEffect(() => {
         setCurrentPage(1);
     }, [searchTerm, filters, pageSize]);
@@ -74,11 +73,22 @@ export default function CardJob() {
         debounceRef.current = setTimeout(async () => {
             try {
                 const res = await searchJobsWithStatus(payload).unwrap();
+
+                // ✅ DEBUG LOG
+                console.log("========== SEARCH API RESPONSE ==========");
+                console.log("Total items:", res?.items?.length);
+                console.log("First item:", res?.items?.[0]);
+                console.log("First job scam data:", {
+                    trustLabel: res?.items?.[0]?.job?.trustLabel,
+                    scamScore: res?.items?.[0]?.job?.scamScore,
+                });
+                console.log("========================================");
+
                 const items = res?.items || [];
                 const normalized = items.map((it) => {
                     const j = it.job || {};
                     return {
-                        ...j,
+                        ...j, // Spread all original fields first
                         id: j.id,
                         title: j.title || "",
                         avatar: j.company?.avatar || "",
@@ -91,13 +101,49 @@ export default function CardJob() {
                         salaryDisplay: j.salaryDisplay,
                         liked: !!it.saved,
                         applied: !!it.applied,
+
+                        // ✅ SCAM DETECTION FIELDS
+                        trustLabel: j.trustLabel || j.trust_label || null,
+                        scamScore: j.scamScore || j.scam_score || null,
+                        scamCheckedAt:
+                            j.scamCheckedAt || j.scam_checked_at || null,
+
+                        // ✅ Company object
+                        company: {
+                            company_name: j.company?.company_name,
+                            avatar: j.company?.avatar,
+                            company_id: j.company?.company_id,
+                            isProCompany: j.company?.isProCompany,
+                        },
+
+                        // ✅ Date fields
+                        date_post: j.date_post || j.datePost,
+                        expired_date: j.expired_date || j.expiredDate,
+
+                        // ✅ Array fields
+                        work_type_names: j.work_type_names || [],
+                        skill_names: j.skill_names || [],
+                        location: j.location,
                     };
                 });
+
+                // ✅ DEBUG NORMALIZED DATA
+                console.log("========== NORMALIZED DATA ==========");
+                console.log("First normalized job:", normalized[0]);
+                console.log(
+                    "Trust labels:",
+                    normalized.map((j) => ({
+                        id: j.id,
+                        trustLabel: j.trustLabel,
+                    }))
+                );
+                console.log("====================================");
+
                 setList(normalized);
                 setTotalPages(res.totalPages || 1);
                 setTotalElements(res.totalElements || 0);
             } catch (e) {
-                console.error(e);
+                console.error("Search error:", e);
             }
         }, 300);
         return () => clearTimeout(debounceRef.current);
@@ -126,7 +172,7 @@ export default function CardJob() {
                 list.map((job) => (
                     <JobCardItem
                         key={job.id}
-                        job={job} // ✅ TRUYỀN props đã có liked/applied
+                        job={job}
                         onNeedLogin={() => dispatch(showLoginPrompt())}
                         onToast={handleToast}
                     />
@@ -143,191 +189,3 @@ export default function CardJob() {
         </div>
     );
 }
-
-// "use client";
-
-// import { useEffect, useMemo, useRef, useState } from "react";
-// import { useRouter } from "next/navigation";
-// import { useJobSearchStore } from "@/store/jobSearchStore";
-// import { toast } from "react-toastify";
-// import { showLoginPrompt } from "@/features/auth/loginPromptSlice";
-// import { useDispatch, useSelector } from "react-redux";
-// import Pagination from "@/components/ui/pagination";
-// import LoadingScreen from "@/components/ui/loadingScreen";
-// import { selectIsLoggedIn } from "@/features/auth/authSelectors";
-// import JobCardItem from "./JobCardItem";
-// import { jobs as mockJobs } from "@/mock/data/jobs";
-
-// export default function CardJob() {
-//     const [list, setList] = useState([]);
-//     const [totalPages, setTotalPages] = useState(1);
-//     const [totalElements, setTotalElements] = useState(0);
-
-//     const router = useRouter();
-//     const dispatch = useDispatch();
-//     const isLoggedIn = useSelector(selectIsLoggedIn);
-
-//     const [currentPage, setCurrentPage] = useState(1);
-//     const [pageSize, setPageSize] = useState(8);
-//     const [isLoading, setIsLoading] = useState(false);
-
-//     const { searchTerm, filters } = useJobSearchStore();
-//     const debounceRef = useRef(null);
-
-//     // Filter jobs based on search terms and filters
-//     const filterJobs = (jobs, searchTerm, filters) => {
-//         let result = [...jobs];
-
-//         // Filter by keyword
-//         if (searchTerm.keyword) {
-//             const keyword = searchTerm.keyword.toLowerCase();
-//             result = result.filter(
-//                 (job) =>
-//                     job.title.toLowerCase().includes(keyword) ||
-//                     job.description?.toLowerCase().includes(keyword)
-//             );
-//         }
-
-//         // Filter by location/province
-//         if (searchTerm.province) {
-//             const province = searchTerm.province.toLowerCase();
-//             result = result.filter(
-//                 (job) =>
-//                     job.location &&
-//                     job.location.toLowerCase().includes(province)
-//             );
-//         }
-
-//         // Filter by company
-//         if (searchTerm.companyName) {
-//             const company = searchTerm.companyName.toLowerCase();
-//             result = result.filter((job) =>
-//                 job.company?.company_name?.toLowerCase().includes(company)
-//             );
-//         }
-
-//         // Filter by categories
-//         if (filters.categories && filters.categories.length > 0) {
-//             result = result.filter((job) => {
-//                 if (!job.category_names) return false;
-//                 return job.category_names.some((cat) =>
-//                     filters.categories.includes(cat)
-//                 );
-//             });
-//         }
-
-//         // Filter by work types
-//         if (filters.workTypes && filters.workTypes.length > 0) {
-//             result = result.filter((job) => {
-//                 if (!job.work_type) return false;
-//                 return filters.workTypes.includes(job.work_type);
-//             });
-//         }
-
-//         // Filter by levels
-//         if (filters.levels && filters.levels.length > 0) {
-//             result = result.filter((job) => {
-//                 if (!job.level) return false;
-//                 return filters.levels.includes(job.level);
-//             });
-//         }
-
-//         return result;
-//     };
-
-//     useEffect(() => {
-//         const loadJobs = async () => {
-//             setIsLoading(true);
-//             try {
-//                 // Simulate API delay
-//                 await new Promise((resolve) => setTimeout(resolve, 500));
-
-//                 // Filter jobs based on search terms and filters
-//                 const filteredJobs = filterJobs(mockJobs, searchTerm, filters);
-
-//                 // Calculate pagination
-//                 const total = filteredJobs.length;
-//                 const pages = Math.ceil(total / pageSize);
-
-//                 // Get current page of jobs
-//                 const start = (currentPage - 1) * pageSize;
-//                 const end = start + pageSize;
-//                 const currentPageJobs = filteredJobs.slice(start, end);
-
-//                 setList(currentPageJobs);
-//                 setTotalElements(total);
-//                 setTotalPages(pages);
-//             } catch (error) {
-//                 console.error("Error loading jobs:", error);
-//                 toast.error("Failed to load jobs");
-//             } finally {
-//                 setIsLoading(false);
-//             }
-//         };
-
-//         if (debounceRef.current) clearTimeout(debounceRef.current);
-//         debounceRef.current = setTimeout(loadJobs, 300);
-
-//         return () => {
-//             if (debounceRef.current) clearTimeout(debounceRef.current);
-//         };
-//     }, [searchTerm, filters, currentPage, pageSize]);
-
-//     const handleSaveJob = (jobId) => {
-//         if (!isLoggedIn) {
-//             dispatch(showLoginPrompt());
-//             return;
-//         }
-
-//         // Mock save job functionality
-//         toast.success("Job saved successfully");
-//     };
-
-//     const handlePageChange = (page) => {
-//         setCurrentPage(page);
-//         window.scrollTo({ top: 0, behavior: "smooth" });
-//     };
-
-//     if (isLoading) {
-//         return <LoadingScreen />;
-//     }
-
-//     return (
-//         <div className="space-y-6">
-//             <div className="text-sm text-gray-500">
-//                 Found {totalElements} jobs matching your criteria
-//             </div>
-
-//             {list.length > 0 ? (
-//                 <div className="space-y-4">
-//                     {list.map((job) => (
-//                         <JobCardItem
-//                             key={job.id}
-//                             job={job}
-//                             onSave={() => handleSaveJob(job.id)}
-//                         />
-//                     ))}
-
-//                     {totalPages > 1 && (
-//                         <div className="flex justify-center mt-8">
-//                             <Pagination
-//                                 currentPage={currentPage}
-//                                 totalPages={totalPages}
-//                                 onPageChange={handlePageChange}
-//                             />
-//                         </div>
-//                     )}
-//                 </div>
-//             ) : (
-//                 <div className="bg-white p-8 rounded-lg border text-center">
-//                     <h3 className="text-lg font-medium text-gray-900 mb-2">
-//                         No jobs found
-//                     </h3>
-//                     <p className="text-gray-500">
-//                         Try adjusting your search or filters to find more jobs
-//                     </p>
-//                 </div>
-//             )}
-//         </div>
-//     );
-// }

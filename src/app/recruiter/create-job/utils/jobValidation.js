@@ -153,6 +153,16 @@ const detectScamJob = async (formData) => {
 };
 
 /**
+ * ✅ Determine trust label based on scam probability
+ */
+const getTrustLabel = (scamProb) => {
+    if (scamProb > 0.7) return "SUSPICIOUS";
+    if (scamProb > 0.5) return "WARNING";
+    if (scamProb > 0.3) return "NORMAL";
+    return "VERIFIED";
+};
+
+/**
  * Job validation CHỈ DÙNG AI scam detection
  */
 export const validateJobPosting = async (formData) => {
@@ -273,6 +283,11 @@ export const validateJobPosting = async (formData) => {
                 scamProbability: aiResult.scamProb,
                 legitProbability: aiResult.legitProb,
                 label: aiResult.label,
+            },
+            metadata: {
+                scamScore: aiResult.scamProb,
+                trustLabel: getTrustLabel(aiResult.scamProb),
+                scamCheckedAt: new Date().toISOString().slice(0, 19),
             },
         };
     } catch (error) {
