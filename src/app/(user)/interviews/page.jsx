@@ -10,6 +10,7 @@ import {
 import { useGetApplicationDetailByJobQuery } from "@/services/applicationService";
 
 import LoadingScreen from "@/components/ui/loadingScreen";
+import { Button } from "@/components/ui/button";
 import {
     CalendarDays,
     Clock,
@@ -18,6 +19,7 @@ import {
     CheckCircle2,
     XCircle,
     Building2,
+    Sparkles,
 } from "lucide-react";
 
 function StatusBadge({ status }) {
@@ -129,10 +131,16 @@ export default function CandidateInterviewsPage() {
     return (
         <div className="max-w-5xl mx-auto space-y-4">
             <div className="px-6 py-4 mb-4 border-b border-gray-100 bg-gradient-to-r from-blue-200 to-indigo-50 rounded-xl">
-                <div className="max-w-6xl mx-auto">
+                <div className="max-w-6xl mx-auto flex items-center justify-between">
                     <h1 className="pl-4 text-2xl font-bold text-gray-900 border-l-4 border-blue-800">
                         My interview schedule
                     </h1>
+                    <Link href="/interviews/coach">
+                        <Button className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700">
+                            <Sparkles className="w-4 h-4 mr-2" />
+                            AI Interview Coach
+                        </Button>
+                    </Link>
                 </div>
             </div>
 
