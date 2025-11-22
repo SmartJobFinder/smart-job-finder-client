@@ -31,7 +31,7 @@ import Section from "./_components/Section";
 import CompanyCard from "./_components/CompanyCard";
 import GeneralCard from "./_components/GeneralCard";
 import SkillsChips from "./_components/SkillsChips";
-
+import ScamWarningBanner from "./_components/ScamWarningBanner";
 import { formatList } from "./_utils/formatters";
 import { mapJobToView } from "./_utils/jobMapper";
 import { t } from "@/i18n/i18n";
@@ -58,6 +58,15 @@ export default function DetailJob({ job }) {
     const dispatch = useDispatch();
     const dj = useMemo(() => mapJobToView(job), [job]);
     const djId = dj?.id;
+
+    useEffect(() => {
+        console.log("========== JOB DETAIL DEBUG ==========");
+        console.log("Original job object:", job);
+        console.log("Mapped dj object:", dj);
+        console.log("trustLabel:", dj?.trustLabel);
+        console.log("scamScore:", dj?.scamScore);
+        console.log("======================================");
+    }, [job, dj]);
 
     const [showApplyModal, setShowApplyModal] = useState(false);
     const [showReportModal, setShowReportModal] = useState(false);
@@ -243,6 +252,10 @@ export default function DetailJob({ job }) {
         <div className="w-full px-4 py-10 bg-gray-100 md:px-10">
             <div className="flex flex-col-reverse w-full gap-6 md:flex-row">
                 <div className="w-full md:w-[78%] flex flex-col gap-6">
+                    <ScamWarningBanner
+                        trustLabel={dj?.trustLabel}
+                        scamScore={dj?.scamScore}
+                    />
                     <div className="p-6 space-y-4 bg-white shadow-lg rounded-xl">
                         <h1 className="text-3xl font-bold text-gray-800">
                             {dj.title}
@@ -419,6 +432,8 @@ export default function DetailJob({ job }) {
                         salary={dj.salaryDisplay}
                         postDate={dj.datePost}
                         expiredDate={dj.expiredDate}
+                        trustLabel={dj?.trustLabel}
+                        scamScore={dj?.scamScore}
                     />
                     <SkillsChips
                         skills={Array.isArray(dj.skill) ? dj.skill : []}
