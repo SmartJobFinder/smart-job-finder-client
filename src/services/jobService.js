@@ -1,60 +1,78 @@
-import {createApi} from "@reduxjs/toolkit/query/react";
+import { createApi } from "@reduxjs/toolkit/query/react";
 import api from "@/lib/api";
 
 const axiosBaseQuery =
     (basePath = "") =>
-        async (
-            {url, method = "GET", data, headers, responseType},
-            {signal}
-        ) => {
-            try {
-                const config = {
-                    url: `${basePath}${url || ""}`,
-                    method,
-                    data,
-                    signal,
-                    responseType: responseType || "json",
-                    headers: {...headers},
-                };
+    async (
+        { url, method = "GET", data, headers, responseType },
+        { signal }
+    ) => {
+        try {
+            const config = {
+                url: `${basePath}${url || ""}`,
+                method,
+                data,
+                signal,
+                responseType: responseType || "json",
+                headers: { ...headers },
+            };
 
-                if (data instanceof FormData) {
-                    delete config.headers?.["Content-Type"];
-                } else {
-                    config.headers = {
-                        "Content-Type": "application/json",
-                        ...headers,
-                    };
-                }
-
-                const result = await api(config);
-                return {data: result.data};
-            } catch (axiosError) {
-                return {
-                    error: {
-                        status: axiosError.response?.status,
-                        data: axiosError.response?.data || axiosError.message,
-                    },
+            if (data instanceof FormData) {
+                delete config.headers?.["Content-Type"];
+            } else {
+                config.headers = {
+                    "Content-Type": "application/json",
+                    ...headers,
                 };
             }
-        };
+
+            const result = await api(config);
+            return { data: result.data };
+        } catch (axiosError) {
+            return {
+                error: {
+                    status: axiosError.response?.status,
+                    data: axiosError.response?.data || axiosError.message,
+                },
+            };
+        }
+    };
 
 export const jobApi = createApi({
     reducerPath: "jobApi",
     baseQuery: axiosBaseQuery("/job"),
     endpoints: (builder) => ({
         getJobs: builder.query({
-            query: () => ({
-                url: "/all",
-                method: "GET",
-            }),
-            transformResponse: (response) => ({
-                jobs: response.content || [],
-                totalPages: response.totalPages,
-                totalElements: response.totalElements,
-            }),
+            query: ({ page = 0, size = 10000, sort = "id,asc" } = {}) => {
+                // Build query string
+                const params = new URLSearchParams();
+                params.append("page", page.toString());
+                params.append("size", size.toString());
+                params.append("sort", sort);
+
+                return {
+                    url: `/all?${params.toString()}`,
+                    method: "GET",
+                };
+            },
+            transformResponse: (response) => {
+                // Handle both paginated and unpaged responses
+                if (Array.isArray(response)) {
+                    return {
+                        jobs: response,
+                        totalPages: 1,
+                        totalElements: response.length,
+                    };
+                }
+                return {
+                    jobs: response.content || [],
+                    totalPages: response.totalPages,
+                    totalElements: response.totalElements,
+                };
+            },
         }),
         getJobsWithStatus: builder.query({
-            query: ({page = 0, size = 12, sort = "id,desc"} = {}) => ({
+            query: ({ page = 0, size = 12, sort = "id,desc" } = {}) => ({
                 url: `/all-with-status?page=${page}&size=${size}&sort=${sort}`,
                 method: "GET",
             }),
@@ -76,8 +94,8 @@ export const jobApi = createApi({
                 const size = body.size ?? 10;
                 const sort = body.sort ?? "id,desc";
 
-                // filters, loại page/size/sort 
-                const filterBody = {...body};
+                // filters, loại page/size/sort
+                const filterBody = { ...body };
                 delete filterBody.page;
                 delete filterBody.size;
                 delete filterBody.sort;
@@ -109,7 +127,7 @@ export const jobApi = createApi({
                 const page = body.page ?? 0;
                 const size = body.size ?? 10;
                 const sort = body.sort ?? "id,desc";
-                const filterBody = {...body};
+                const filterBody = { ...body };
                 delete filterBody.page;
                 delete filterBody.size;
                 delete filterBody.sort;
@@ -120,7 +138,7 @@ export const jobApi = createApi({
                 };
             },
             transformResponse: (res) => ({
-                items: res?.content || [],         // [{job, saved, applied}]
+                items: res?.content || [], // [{job, saved, applied}]
                 totalPages: res?.totalPages ?? 1,
                 totalElements: res?.totalElements ?? res?.content?.length ?? 0,
             }),
@@ -133,6 +151,5 @@ export const {
     useGetJobsWithStatusQuery,
     useGetJobByIdQuery,
     useSearchJobsMutation,
-    useSearchJobsWithStatusMutation
-} =
-    jobApi;
+    useSearchJobsWithStatusMutation,
+} = jobApi;
