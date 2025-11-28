@@ -118,6 +118,41 @@ const useCompanySearchStore = create((set, get) => ({
     searchCompanies: async (params, page = 0, size = 10, sort = "id,asc") => {
         set({ isLoading: true });
         try {
+            // Nếu chỉ có location, dùng endpoint riêng
+            if (
+                params.location &&
+                !params.name &&
+                (!params.categoryIds || params.categoryIds.length === 0)
+            ) {
+                const response = await api.get(
+                    COMPANY_API.GET_COMPANIES_BY_LOCATION(params.location),
+                    {
+                        params: { page, size, sort },
+                    }
+                );
+
+                const data = response.data;
+                const companiesData = data.content || data;
+
+                console.log("Search by location only:", params.location);
+                console.log("Companies returned:", companiesData.length);
+
+                set({
+                    companies: companiesData,
+                    pagination: {
+                        page: data.pageable?.pageNumber || page,
+                        size: data.pageable?.pageSize || size,
+                        totalElements: data.totalElements || 0,
+                        totalPages: data.totalPages || 0,
+                        first: data.first || false,
+                        last: data.last || false,
+                    },
+                    isLoading: false,
+                    error: null,
+                });
+                return;
+            }
+
             const searchParams = {
                 ...params,
                 page,
@@ -148,9 +183,25 @@ const useCompanySearchStore = create((set, get) => ({
             }
 
             const data = response.data;
+            const companiesData = data.content || data;
+
+            // Debug: Log companies để kiểm tra location
+            if (params.location) {
+                console.log("Search with location:", params.location);
+                console.log("Companies returned:", companiesData.length);
+                console.log(
+                    "Sample company locations:",
+                    companiesData.slice(0, 3).map((c) => ({
+                        id: c.id,
+                        name: c.companyName,
+                        locationCity: c.locationCity,
+                        locationCountry: c.locationCountry,
+                    }))
+                );
+            }
 
             set({
-                companies: data.content || data,
+                companies: companiesData,
                 pagination: {
                     page: data.pageable?.pageNumber || page,
                     size: data.pageable?.pageSize || size,
@@ -322,13 +373,78 @@ const useCompanySearchStore = create((set, get) => ({
             );
         }
 
-        // Lọc theo vị trí
+        // Lọc theo vị trí (city) - match chính xác hoặc contains
         if (searchTerm.location) {
-            const locationKeyword = searchTerm.location.toLowerCase();
-            filtered = filtered.filter(
-                (company) =>
-                    company.locationCity &&
-                    company.locationCity.toLowerCase().includes(locationKeyword)
+            const locationKeyword = searchTerm.location.toLowerCase().trim();
+
+            // Normalize location keyword (remove diacritics for better matching)
+            const normalizeString = (str) => {
+                return str
+                    .toLowerCase()
+                    .trim()
+                    .normalize("NFD")
+                    .replace(/[\u0300-\u036f]/g, "") // Remove diacritics
+                    .replace(/\s+/g, " "); // Normalize spaces
+            };
+
+            const normalizedKeyword = normalizeString(locationKeyword);
+
+            filtered = filtered.filter((company) => {
+                // Check locationCity
+                if (company.locationCity) {
+                    const companyCity = normalizeString(company.locationCity);
+
+                    // Match chính xác
+                    if (companyCity === normalizedKeyword) {
+                        return true;
+                    }
+
+                    // Match contains
+                    if (
+                        companyCity.includes(normalizedKeyword) ||
+                        normalizedKeyword.includes(companyCity)
+                    ) {
+                        return true;
+                    }
+                }
+
+                // Check locationCountry
+                if (company.locationCountry) {
+                    const companyCountry = normalizeString(
+                        company.locationCountry
+                    );
+
+                    if (
+                        companyCountry === normalizedKeyword ||
+                        companyCountry.includes(normalizedKeyword) ||
+                        normalizedKeyword.includes(companyCountry)
+                    ) {
+                        return true;
+                    }
+                }
+
+                // Check full location string (locationCity + locationCountry)
+                const fullLocation =
+                    company.locationCity && company.locationCountry
+                        ? `${company.locationCity}, ${company.locationCountry}`
+                        : company.locationCity || company.locationCountry || "";
+
+                if (fullLocation) {
+                    const normalizedFullLocation =
+                        normalizeString(fullLocation);
+                    if (
+                        normalizedFullLocation.includes(normalizedKeyword) ||
+                        normalizedKeyword.includes(normalizedFullLocation)
+                    ) {
+                        return true;
+                    }
+                }
+
+                return false;
+            });
+
+            console.log(
+                `Filtered by location "${searchTerm.location}": ${filtered.length} companies`
             );
         }
 

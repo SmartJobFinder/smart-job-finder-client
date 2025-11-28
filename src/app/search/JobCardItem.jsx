@@ -9,6 +9,7 @@ import {
     Crown,
     Eye,
     MapPin,
+    AlertTriangle,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
@@ -31,10 +32,25 @@ export default function JobCardItem({ job, onToast, isGrid = false }) {
     const [liked, setLiked] = useState(!!job?.liked);
     const applied = !!job?.applied;
 
-    // Đồng bộ lại khi job thay đổi
+    // ✅ Scam detection flags
+    const isHighRisk = job?.trustLabel === "SUSPICIOUS";
+    const isWarning = job?.trustLabel === "WARNING";
+    const hasWarning = isHighRisk || isWarning;
+
     useEffect(() => {
         setLiked(!!job?.liked);
     }, [job?.id, job?.liked]);
+
+    // ✅ DEBUG LOG
+    useEffect(() => {
+        console.log("JobCard Debug:", {
+            id: job?.id,
+            title: job?.title,
+            trustLabel: job?.trustLabel,
+            isHighRisk,
+            hasWarning,
+        });
+    }, [job]);
 
     const [saveJob] = useSaveJobMutation();
     const [unsaveJob] = useUnsaveJobMutation();
@@ -85,6 +101,7 @@ export default function JobCardItem({ job, onToast, isGrid = false }) {
         },
         [dispatch, isLoggedIn]
     );
+
     const toggleSave = useCallback(
         (e) => {
             e.stopPropagation();
@@ -94,7 +111,6 @@ export default function JobCardItem({ job, onToast, isGrid = false }) {
                 try {
                     setSaving(true);
                     if (!liked) {
-                        // optimistic update
                         setLiked(true);
                         await saveJob({ jobId: job.id }).unwrap();
                         onToast?.(t`Job saved successfully`, "success");
@@ -104,7 +120,6 @@ export default function JobCardItem({ job, onToast, isGrid = false }) {
                         onToast?.("Job removed from saved list", "neutral");
                     }
                 } catch (err) {
-                    // rollback nếu lỗi
                     setLiked((prev) => !prev);
                     console.error("Toggle save error", err);
                     onToast?.("Something went wrong", "error");
@@ -116,26 +131,17 @@ export default function JobCardItem({ job, onToast, isGrid = false }) {
         [job?.id, liked, saving, saveJob, unsaveJob, onToast, guardOr]
     );
 
-    const companyAvatar =
-        job?.company?.avatar ||
-        "https://www.shutterstock.com/image-vector/no-image-available-picture-coming-600nw-2057829641.jpg";
     const companyName = job?.company?.company_name || "Unknown Company";
-
     const avatar = job?.company?.avatar;
-
-    // Hàm kiểm tra URL hợp lệ
     const isValidUrl = (str) => {
         if (!str || typeof str !== "string" || str.trim() === "") return false;
-        // Kiểm tra xem có bắt đầu bằng http://, https://, hoặc /
         return (
             str.startsWith("http://") ||
             str.startsWith("https://") ||
             str.startsWith("/")
         );
     };
-
     const imageSrc = isValidUrl(avatar) ? avatar : undefined;
-
     const isProCompany = !!job?.company?.isProCompany;
 
     return (
@@ -147,12 +153,49 @@ export default function JobCardItem({ job, onToast, isGrid = false }) {
             } ${
                 isProCompany
                     ? "border-blue-500 shadow-blue-200/60"
+                    : isHighRisk
+                    ? "border-red-300"
+                    : isWarning
+                    ? "border-amber-300"
                     : "border-gray-200"
-            } relative`}
+            } relative overflow-hidden`}
         >
+            {hasWarning && (
+                <div
+                    className="absolute right-55 top-1/2 pointer-events-none select-none z-0"
+                    style={{
+                        transform: "translateY(-50%) rotate(-18deg)",
+                    }}
+                >
+                    <div
+                        className={`relative ${
+                            isHighRisk ? "opacity-[0.35]" : "opacity-[0.32]"
+                        }`}
+                    >
+                        <AlertTriangle
+                            className={`w-32 h-32 ${
+                                isHighRisk ? "text-red-500" : "text-amber-500"
+                            }`}
+                            strokeWidth={2.5}
+                        />
+                        <div
+                            className={`absolute -bottom-4 left-1/2 transform -translate-x-1/2 whitespace-nowrap text-center font-black text-lg md:text-xl tracking-wider ${
+                                isHighRisk ? "text-red-600" : "text-amber-600"
+                            }`}
+                            style={{
+                                textShadow: "0 0 12px rgba(255,255,255,0.9)",
+                                letterSpacing: "0.25em",
+                            }}
+                        >
+                            {isHighRisk ? "SCAM ALERT" : "CAUTION"}
+                        </div>
+                    </div>
+                </div>
+            )}
+
             {/* Avatar */}
             <div
-                className={`relative flex-shrink-0 ${
+                className={`relative flex-shrink-0 z-10 ${
                     isGrid
                         ? "w-full h-48 mb-3"
                         : "w-full h-40 md:w-32 md:h-auto"
@@ -181,9 +224,9 @@ export default function JobCardItem({ job, onToast, isGrid = false }) {
                 )}
             </div>
 
-            {/* Nội dung */}
+            {/* Content */}
             <div
-                className={`flex flex-col justify-between ${
+                className={`flex flex-col justify-between relative z-10 ${
                     isGrid
                         ? "space-y-2"
                         : "flex-1 p-4 sm:flex-row sm:items-start"
@@ -197,6 +240,7 @@ export default function JobCardItem({ job, onToast, isGrid = false }) {
                     >
                         {job.title}
                     </h3>
+
                     <div className="flex items-center gap-1 text-gray-600 cursor-pointer">
                         <Building2 className="w-4 h-4 text-gray-500" />
                         <span
@@ -217,7 +261,6 @@ export default function JobCardItem({ job, onToast, isGrid = false }) {
                         )}
                     </div>
 
-                    {/* Grid: chỉ hiện salary */}
                     {isGrid ? (
                         job.salaryDisplay && (
                             <p className="text-sm font-medium text-green-600">
@@ -226,7 +269,6 @@ export default function JobCardItem({ job, onToast, isGrid = false }) {
                         )
                     ) : (
                         <>
-                            {/* Normal full info */}
                             <div className="flex flex-col items-start gap-1 text-xs text-gray-500">
                                 {job.location && (
                                     <span className="flex items-center gap-1">
@@ -272,6 +314,30 @@ export default function JobCardItem({ job, onToast, isGrid = false }) {
                             </div>
                         </>
                     )}
+
+                    {/* ✅ WARNING BANNER */}
+                    {/* {hasWarning && !isGrid && (
+                        <div
+                            className={`mt-3 p-2 border-l-2 rounded ${
+                                isHighRisk
+                                    ? "bg-red-50 border-red-400"
+                                    : "bg-amber-50 border-amber-400"
+                            }`}
+                        >
+                            <p
+                                className={`text-[10px] leading-relaxed ${
+                                    isHighRisk
+                                        ? "text-red-800"
+                                        : "text-amber-800"
+                                }`}
+                            >
+                                <strong>
+                                    {isHighRisk ? "High Risk:" : "Caution:"}
+                                </strong>{" "}
+                                Flagged by AI. Verify carefully.
+                            </p>
+                        </div>
+                    )} */}
                 </div>
 
                 {/* Right actions */}
@@ -326,7 +392,7 @@ export default function JobCardItem({ job, onToast, isGrid = false }) {
                                 e.stopPropagation();
                                 router.push(`/job-detail/${job.id}`);
                             }}
-                            className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-white transition bg-blue-700 rounded-md hovr:bg-blue-700"
+                            className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-white transition bg-blue-700 rounded-md hover:bg-blue-800"
                         >
                             <Eye size={18} className="text-white" />
                             {t`See Detail`}

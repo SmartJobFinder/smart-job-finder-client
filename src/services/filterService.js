@@ -7,7 +7,7 @@ const axiosBaseQuery =
     async ({ url, method = "GET", data, headers }, { signal }) => {
         try {
             const config = {
-                url ,
+                url,
                 method,
                 data,
                 signal,
@@ -47,6 +47,28 @@ export const filterApi = createApi({
                 method: "GET",
             }),
         }),
+        // Thêm endpoint mới để lấy tất cả skills
+        getAllSkills: builder.query({
+            query: ({ page = 0, size = 10000, sort = "id,asc" } = {}) => {
+                // Build query string
+                const params = new URLSearchParams();
+                params.append("page", page.toString());
+                params.append("size", size.toString());
+                params.append("sort", sort);
+
+                return {
+                    url: `/skill?${params.toString()}`,
+                    method: "GET",
+                };
+            },
+            transformResponse: (response) => {
+                // Handle both paginated and unpaged responses
+                if (Array.isArray(response)) {
+                    return response;
+                }
+                return response?.content || [];
+            },
+        }),
     }),
 });
 
@@ -55,4 +77,5 @@ export const {
     useGetLevelsQuery,
     useGetWorkTypesQuery,
     useLazyGetSkillsByCategoryQuery,
+    useGetAllSkillsQuery, // Thêm dòng này
 } = filterApi;

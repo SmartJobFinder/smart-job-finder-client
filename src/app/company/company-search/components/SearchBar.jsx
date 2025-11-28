@@ -347,15 +347,20 @@ const SearchBar = ({
 
     // Handle clear all
     const handleClearAll = useCallback(() => {
-        setSearchParams({
+        const clearedParams = {
             company: "",
             location: "",
             categoryIds: [],
-        });
+        };
+
+        setSearchParams(clearedParams);
         setSelectedCategories([]);
         setCategorySearchTerm("");
         setIsCategoryInputFocused(false);
-    }, []);
+
+        // Trigger search với empty params để fetch tất cả companies
+        onSearch(clearedParams);
+    }, [onSearch]);
 
     // Get display text for category input
     const getCategoryDisplayText = () => {
