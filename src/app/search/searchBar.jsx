@@ -25,13 +25,24 @@ import {
 import { t } from "@/i18n/i18n";
 
 export default function SearchBar() {
-    const [keyword, setKeyword] = useState("");
-    const [selectedProvince, setSelectedProvince] = useState("");
+    const searchTermFromStore = useJobSearchStore((s) => s.searchTerm);
+    const [keyword, setKeyword] = useState(searchTermFromStore?.keyword || "");
+    const [selectedProvince, setSelectedProvince] = useState(
+        searchTermFromStore?.province || ""
+    );
     const [openProvince, setOpenProvince] = useState(false);
     const [searchProvinceTerm, setSearchProvinceTerm] = useState("");
 
     const setSearchTerm = useJobSearchStore((s) => s.setSearchTerm);
     const setFilters = useJobSearchStore((s) => s.setFilters);
+
+    // Sync với store khi store thay đổi
+    useEffect(() => {
+        if (searchTermFromStore) {
+            setKeyword(searchTermFromStore.keyword || "");
+            setSelectedProvince(searchTermFromStore.province || "");
+        }
+    }, [searchTermFromStore]);
 
     // Lấy tất cả cities khi component mount
     const { data: allCities = [], isLoading: isLoadingAll } =
@@ -63,21 +74,21 @@ export default function SearchBar() {
 
     const filteredProvinces = useMemo(() => {
         const topProvinces = [
-            "Thành phố Hồ Chí Minh",
-            "Thành phố Hà Nội",
-            "Thành phố Hải Phòng",
-            "Thành phố Đà Nẵng",
-            "Thành phố Huế",
-            "Thành phố Cần Thơ",
+            "Hồ Chí Minh",
+            "Hà Nội",
+            "Hải Phòng",
+            "Đà Nẵng",
+            "Huế",
+            "Cần Thơ",
         ];
 
         if (!searchProvinceTerm) {
             // Hiển thị top provinces trước, sau đó là các tỉnh khác
             const topCities = provinces.filter((name) =>
-                topProvinces.includes(name)
+                topProvinces.some((top) => name.includes(top))
             );
             const otherCities = provinces.filter(
-                (name) => !topProvinces.includes(name)
+                (name) => !topProvinces.some((top) => name.includes(top))
             );
             return [...topCities, ...otherCities];
         }
@@ -150,7 +161,7 @@ export default function SearchBar() {
                             <MapPin className="mr-1" size={14} />
                             {isLoading
                                 ? "Loading..."
-                                : selectedProvince || t`City`}
+                                : selectedProvince || "All Cities"}
                             <ChevronDown className="w-3 h-3 ml-1 opacity-50" />
                         </Button>
                     </PopoverTrigger>
@@ -166,6 +177,20 @@ export default function SearchBar() {
                                 {isSearching ? "Searching..." : t`Not found`}
                             </CommandEmpty>
                             <CommandGroup className="max-h-[300px] overflow-y-auto">
+                                <CommandItem
+                                    value=""
+                                    onSelect={() => handleProvinceSelect("")}
+                                >
+                                    All Cities
+                                    <Check
+                                        className={cn(
+                                            "ml-auto h-4 w-4",
+                                            !selectedProvince
+                                                ? "opacity-100"
+                                                : "opacity-0"
+                                        )}
+                                    />
+                                </CommandItem>
                                 {filteredProvinces.map((name) => (
                                     <CommandItem
                                         key={name}
