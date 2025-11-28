@@ -39,7 +39,7 @@ export default function CardJob() {
         return {
             keyword: keyword || undefined,
             companyName: companyName || undefined,
-            cityName: province || undefined,
+            cityName: province && province.trim() !== "" ? province : undefined,
             categoryNames: filters?.categories?.length
                 ? filters.categories
                 : undefined,
