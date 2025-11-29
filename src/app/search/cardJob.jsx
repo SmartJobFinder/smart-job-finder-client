@@ -36,10 +36,17 @@ export default function CardJob() {
             province = "",
             companyName = "",
         } = searchTerm || {};
+
+        // Don't send cityName to backend - we'll filter client-side
+        // Backend cityName filter doesn't match location strings like "Hải Phòng"
+        // When filtering by location, fetch all jobs (large size) to ensure we get all matches
+        const hasLocationFilter = province && province.trim() !== "";
+        const fetchSize = hasLocationFilter ? 1000 : pageSize; // Fetch all when location filter is active
+
         return {
             keyword: keyword || undefined,
             companyName: companyName || undefined,
-            cityName: province && province.trim() !== "" ? province : undefined,
+            // cityName: removed - filter client-side instead
             categoryNames: filters?.categories?.length
                 ? filters.categories
                 : undefined,
@@ -58,8 +65,8 @@ export default function CardJob() {
             salaryMax: undefined,
             postedFrom: undefined,
             postedTo: undefined,
-            page: currentPage - 1,
-            size: pageSize,
+            page: hasLocationFilter ? 0 : currentPage - 1, // Always page 0 when location filter
+            size: fetchSize,
             sort: "id,desc",
         };
     }, [searchTerm, filters, currentPage, pageSize]);
@@ -76,7 +83,10 @@ export default function CardJob() {
 
                 // ✅ DEBUG LOG
                 console.log("========== SEARCH API RESPONSE ==========");
-                console.log("Total items:", res?.items?.length);
+                console.log("Total items from API:", res?.items?.length);
+                console.log("Total elements from API:", res?.totalElements);
+                console.log("Payload:", payload);
+                console.log("SearchTerm province:", searchTerm?.province);
                 console.log("First item:", res?.items?.[0]);
                 console.log("First job scam data:", {
                     trustLabel: res?.items?.[0]?.job?.trustLabel,
@@ -85,47 +95,132 @@ export default function CardJob() {
                 console.log("========================================");
 
                 const items = res?.items || [];
-                const normalized = items.map((it) => {
-                    const j = it.job || {};
-                    return {
-                        ...j, // Spread all original fields first
-                        id: j.id,
-                        title: j.title || "",
-                        avatar: j.company?.avatar || "",
-                        companyName: j.company?.company_name || "",
-                        workType: j.work_type_names || [],
-                        level: j.level_names || [],
-                        category: j.category_names || [],
-                        skill: j.skill_names || [],
-                        city: j.wards || [],
-                        salaryDisplay: j.salaryDisplay,
-                        liked: !!it.saved,
-                        applied: !!it.applied,
+                console.log("Items array length:", items.length);
 
-                        // ✅ SCAM DETECTION FIELDS
-                        trustLabel: j.trustLabel || j.trust_label || null,
-                        scamScore: j.scamScore || j.scam_score || null,
-                        scamCheckedAt:
-                            j.scamCheckedAt || j.scam_checked_at || null,
+                // Debug: Check for items without job data
+                const itemsWithoutJob = items.filter((it) => !it.job);
+                if (itemsWithoutJob.length > 0) {
+                    console.warn(
+                        "⚠️ Items without job data:",
+                        itemsWithoutJob.length
+                    );
+                    console.warn("Items without job:", itemsWithoutJob);
+                }
 
-                        // ✅ Company object
-                        company: {
-                            company_name: j.company?.company_name,
-                            avatar: j.company?.avatar,
-                            company_id: j.company?.company_id,
-                            isProCompany: j.company?.isProCompany,
-                        },
-
-                        // ✅ Date fields
-                        date_post: j.date_post || j.datePost,
-                        expired_date: j.expired_date || j.expiredDate,
-
-                        // ✅ Array fields
-                        work_type_names: j.work_type_names || [],
-                        skill_names: j.skill_names || [],
-                        location: j.location,
-                    };
+                // Debug: Log all job locations before filtering
+                console.log("========== ALL JOBS FROM API ==========");
+                items.forEach((it, index) => {
+                    if (it.job) {
+                        console.log(`Job ${index + 1} (ID: ${it.job.id}):`, {
+                            title: it.job.title,
+                            location: it.job.location,
+                            expired_date:
+                                it.job.expired_date || it.job.expiredDate,
+                            date_post: it.job.date_post || it.job.datePost,
+                        });
+                    }
                 });
+                console.log("=======================================");
+
+                let normalized = items
+                    .filter((it) => it.job) // Filter out items without job data
+                    .map((it) => {
+                        const j = it.job || {};
+                        return {
+                            ...j, // Spread all original fields first
+                            id: j.id,
+                            title: j.title || "",
+                            avatar: j.company?.avatar || "",
+                            companyName: j.company?.company_name || "",
+                            workType: j.work_type_names || [],
+                            level: j.level_names || [],
+                            category: j.category_names || [],
+                            skill: j.skill_names || [],
+                            city: j.wards || [],
+                            salaryDisplay: j.salaryDisplay,
+                            liked: !!it.saved,
+                            applied: !!it.applied,
+
+                            // ✅ SCAM DETECTION FIELDS
+                            trustLabel: j.trustLabel || j.trust_label || null,
+                            scamScore: j.scamScore || j.scam_score || null,
+                            scamCheckedAt:
+                                j.scamCheckedAt || j.scam_checked_at || null,
+
+                            // ✅ Company object
+                            company: {
+                                company_name: j.company?.company_name,
+                                avatar: j.company?.avatar,
+                                company_id: j.company?.company_id,
+                                isProCompany: j.company?.isProCompany,
+                            },
+
+                            // ✅ Date fields
+                            date_post: j.date_post || j.datePost,
+                            expired_date: j.expired_date || j.expiredDate,
+
+                            // ✅ Array fields
+                            work_type_names: j.work_type_names || [],
+                            skill_names: j.skill_names || [],
+                            location: j.location,
+                        };
+                    });
+
+                console.log("========== AFTER NORMALIZATION ==========");
+                console.log("Normalized jobs count:", normalized.length);
+                console.log(
+                    "All job IDs:",
+                    normalized.map((j) => j.id)
+                );
+                console.log("=========================================");
+
+                // Apply client-side location filter if specified
+                // Backend cityName filter doesn't work correctly with location strings
+                // So we fetch all jobs and filter client-side by location string
+                const selectedProvince = searchTerm?.province || "";
+                const hasLocationFilter =
+                    selectedProvince && selectedProvince.trim() !== "";
+
+                if (hasLocationFilter) {
+                    const selectedLocation = selectedProvince
+                        .trim()
+                        .toLowerCase();
+
+                    // Debug: Log before filtering
+                    console.log("========== LOCATION FILTER DEBUG ==========");
+                    console.log("Selected province:", selectedProvince);
+                    console.log(
+                        "Selected location (lowercase):",
+                        selectedLocation
+                    );
+                    console.log("Total jobs before filter:", normalized.length);
+
+                    const beforeFilter = normalized.length;
+                    normalized = normalized.filter((job) => {
+                        const jobLocation = (job.location || "").toLowerCase();
+                        const matches = jobLocation.includes(selectedLocation);
+
+                        // Debug: Log jobs that don't match
+                        if (!matches) {
+                            console.log(
+                                `Job ${job.id} filtered out:`,
+                                job.location,
+                                "does not contain",
+                                selectedProvince
+                            );
+                        }
+
+                        // Check if job location contains the selected city name
+                        // Handle cases like "12, Nguyen Thi Suong Street, Ba Đình, Hà Nội" for "Hà Nội"
+                        return matches;
+                    });
+
+                    console.log("Total jobs after filter:", normalized.length);
+                    console.log(
+                        `Filtered out: ${beforeFilter - normalized.length} jobs`
+                    );
+                    console.log("===========================================");
+                }
 
                 // ✅ DEBUG NORMALIZED DATA
                 console.log("========== NORMALIZED DATA ==========");
@@ -139,9 +234,25 @@ export default function CardJob() {
                 );
                 console.log("====================================");
 
-                setList(normalized);
-                setTotalPages(res.totalPages || 1);
-                setTotalElements(res.totalElements || 0);
+                // Update totalElements and totalPages after client-side filtering
+                // Only recalculate if location filter is applied (client-side filtering)
+                if (hasLocationFilter) {
+                    // Client-side location filter was applied, recalculate totals
+                    const filteredCount = normalized.length;
+                    const itemsPerPage = pageSize;
+                    const recalculatedTotalPages = Math.ceil(
+                        filteredCount / itemsPerPage
+                    );
+
+                    setList(normalized);
+                    setTotalPages(recalculatedTotalPages);
+                    setTotalElements(filteredCount);
+                } else {
+                    // No client-side filter, use API pagination as-is
+                    setList(normalized);
+                    setTotalPages(res.totalPages || 1);
+                    setTotalElements(res.totalElements || 0);
+                }
             } catch (e) {
                 console.error("Search error:", e);
             }
