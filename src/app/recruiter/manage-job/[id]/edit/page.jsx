@@ -35,6 +35,25 @@ function toDDMMYYYYFromIso(value) {
     return value;
 }
 
+function stripHtmlTags(html) {
+    if (!html) return "";
+    // Remove HTML tags using regex
+    let text = html.replace(/<[^>]*>/g, "");
+    // Decode HTML entities
+    text = text
+        .replace(/&nbsp;/g, " ")
+        .replace(/&amp;/g, "&")
+        .replace(/&lt;/g, "<")
+        .replace(/&gt;/g, ">")
+        .replace(/&quot;/g, '"')
+        .replace(/&#39;/g, "'")
+        .replace(/&apos;/g, "'")
+        .replace(/&#x27;/g, "'")
+        .replace(/&#x2F;/g, "/")
+        .trim();
+    return text;
+}
+
 export default function EditJobPage() {
     const router = useRouter();
     const params = useParams();
@@ -59,7 +78,7 @@ export default function EditJobPage() {
                     title: data.title || "",
                     status: (data.status || "ACTIVE").toUpperCase(),
                     expired_date: data.expired_date || "",
-                    description: data.description || "",
+                    description: stripHtmlTags(data.description || ""),
                 });
             } catch (e) {
                 setError(e?.message || "Unable to load job");
