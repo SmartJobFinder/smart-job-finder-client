@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import useMyCompanyStore from "../store/myCompanyStore";
-import Image from "next/image"; 
+import Image from "next/image";
 import {
     MapPin,
     Mail,
@@ -27,6 +27,20 @@ const MyCompanyContactInfo = () => {
     const [copied, setCopied] = useState(false);
 
     if (!company) return null;
+
+    const wardText =
+        Array.isArray(company.wardNames) && company.wardNames.length > 0
+            ? company.wardNames.join(", ")
+            : company.wardName || "";
+
+    const fullAddress = [
+        company.address,
+        wardText,
+        company.locationCity,
+        company.locationCountry,
+    ]
+        .filter((part) => part && String(part).trim().length > 0)
+        .join(", ");
 
     // ✅ ĐỊNH NGHĨA companyUrl Ở ĐÂY (ngoài các hàm)
     const companyUrl =
@@ -84,8 +98,7 @@ const MyCompanyContactInfo = () => {
                                 Address:
                             </p>
                             <p className="text-sm text-gray-700">
-                                {company.address}, {company.locationCity},{" "}
-                                {company.locationCountry}
+                                {fullAddress}
                             </p>
                         </div>
                     </div>

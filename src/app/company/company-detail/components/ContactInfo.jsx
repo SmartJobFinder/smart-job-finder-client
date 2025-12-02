@@ -2,13 +2,36 @@
 
 import React from "react";
 import useCompanyDetailStore from "../store/companyDetailStore";
-import { MapPin, Mail, Phone, Globe, Facebook, Linkedin, Twitter, Map } from "lucide-react";
+import {
+    MapPin,
+    Mail,
+    Phone,
+    Globe,
+    Facebook,
+    Linkedin,
+    Twitter,
+    Map,
+} from "lucide-react";
 import { t } from "@/i18n/i18n";
 
 const ContactInfo = () => {
     const { company } = useCompanyDetailStore();
 
     if (!company) return null;
+
+    const wardText =
+        Array.isArray(company.wardNames) && company.wardNames.length > 0
+            ? company.wardNames.join(", ")
+            : company.wardName || "";
+
+    const fullAddress = [
+        company.address,
+        wardText,
+        company.locationCity,
+        company.locationCountry,
+    ]
+        .filter((part) => part && String(part).trim().length > 0)
+        .join(", ");
 
     return (
         <div className="p-6 bg-white rounded-lg shadow-xl">
@@ -18,8 +41,7 @@ const ContactInfo = () => {
             <div className="mt-4 space-y-3 text-sm">
                 <p className="flex items-center gap-2">
                     <MapPin className="w-4 h-4 text-[#0A66C2]" />
-                    <strong>Address:</strong> {company.address},{" "}
-                    {company.locationCity}, {company.locationCountry}
+                    <strong>Address:</strong> {fullAddress}
                 </p>
                 <p className="flex items-center gap-2">
                     <Mail className="w-4 h-4 text-[#0A66C2]" />
@@ -120,11 +142,7 @@ const ContactInfo = () => {
                 src={
                     company.mapEmbedUrl ||
                     `https://www.google.com/maps/embed/v1/place?key=AIzaSyCVgO8KzHQ8iKcfqXgrMnUIGlD-piWiPpo&q=${encodeURIComponent(
-                        company.address +
-                            ", " +
-                            company.locationCity +
-                            ", " +
-                            company.locationCountry
+                        fullAddress
                     )}&zoom=15&language=vi`
                 }
                 allowFullScreen
