@@ -48,7 +48,8 @@ const TopCompaniesSection = () => {
                 const data = await fetchCompanies(controller.signal);
                 const items = Array.isArray(data?.content) ? data.content : [];
                 const normalized = items.map(normalizeCompany);
-                const finalList = sortWithPro(normalized);
+                // Ưu tiên công ty VIP và chỉ hiển thị 6 công ty
+                const finalList = sortWithPro(normalized).slice(0, 6);
                 setCompanies(finalList);
             } catch (e) {
                 if (e.name !== "AbortError")

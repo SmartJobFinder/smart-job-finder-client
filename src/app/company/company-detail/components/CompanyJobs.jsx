@@ -20,8 +20,10 @@ const CompanyJobs = () => {
 
     if (!company) return null;
 
-    // Filter jobs based on search term and location
+    // Filter jobs based on search term, location và trạng thái
     const filteredJobs = useMemo(() => {
+        const today = new Date();
+
         return jobs.filter((job) => {
             // Filter by search term
             const matchesSearch =
@@ -38,6 +40,20 @@ const CompanyJobs = () => {
                 location
                     .toLowerCase()
                     .includes(job.location?.toLowerCase() || "");
+
+            // Filter by status (không hiển thị draft, nhưng cho phép inactive giống mobile)
+            const isDraft =
+                typeof job.status === "string" &&
+                job.status.toLowerCase() === "draft";
+            if (isDraft) return false;
+
+            if (job.expired_date) {
+                const [d, m, y] = String(job.expired_date)
+                    .split("-")
+                    .map(Number);
+                const expiredDate = new Date(y, m - 1, d);
+                if (expiredDate < today) return false;
+            }
 
             return matchesSearch && matchesLocation;
         });

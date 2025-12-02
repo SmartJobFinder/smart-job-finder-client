@@ -138,6 +138,11 @@ export default function DetailJob({ job }) {
         return expiredDate < new Date();
     }, [dj?.expiredDate]);
 
+    const isInactiveStatus = useMemo(() => {
+        const s = (dj?.status || "").toLowerCase();
+        return s === "inactive";
+    }, [dj?.status]);
+
     const handleSave = useCallback(
         () =>
             guardOr(async () => {
@@ -163,9 +168,15 @@ export default function DetailJob({ job }) {
             guardOr(() => {
                 setShowReportModal(false);
                 setShowDetailModal(false);
+                if (isInactiveStatus || isExpired) {
+                    toast.error(
+                        t`This job is no longer accepting applications.`
+                    );
+                    return;
+                }
                 setShowApplyModal(true);
             }),
-        [guardOr]
+        [guardOr, isInactiveStatus, isExpired, toast]
     );
 
     const handleShowDetail = useCallback(
@@ -288,9 +299,9 @@ export default function DetailJob({ job }) {
                                     <p>Loading...</p>
                                 ) : !applied ? (
                                     <Button
-                                        disabled={isExpired}
+                                        disabled={isExpired || isInactiveStatus}
                                         className={`w-full text-white ${
-                                            isExpired
+                                            isExpired || isInactiveStatus
                                                 ? "bg-gray-400 cursor-not-allowed"
                                                 : "bg-blue-600 hover:bg-blue-700"
                                         }`}

@@ -77,7 +77,10 @@ export default function EditJobPage() {
                 setForm({
                     title: data.title || "",
                     status: (data.status || "ACTIVE").toUpperCase(),
-                    expired_date: data.expired_date || "",
+                    // Backend trả expired_date dạng dd-MM-yyyy → chuyển sang ISO yyyy-MM-dd cho input[type=date]
+                    expired_date: data.expired_date
+                        ? toIsoDateFromDDMMYYYY(data.expired_date)
+                        : "",
                     description: stripHtmlTags(data.description || ""),
                 });
             } catch (e) {
@@ -154,14 +157,11 @@ export default function EditJobPage() {
                     <label className="text-sm font-medium">{t`Expired date`}</label>
                     <Input
                         type="date"
-                        value={
-                            form.expired_date
-                                ? toIsoDateFromDDMMYYYY(form.expired_date)
-                                : ""
-                        }
+                        value={form.expired_date || ""}
                         onChange={(e) =>
                             setForm((f) => ({
                                 ...f,
+                                // Luôn lưu dạng ISO yyyy-MM-dd trong state
                                 expired_date: e.target.value,
                             }))
                         }

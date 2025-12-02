@@ -60,16 +60,34 @@ function normalizeItem(item) {
         typeColor: typeColorClass(firstWorkType),
         boosted: !!j?.boosted,
         boostLevel: Number(j?.boostLevel) || 0,
+        isProCompany: !!j?.company?.isProCompany,
+        postedDate: j?.date_post || j?.datePost || null,
+        // dùng cho lọc hết hạn (backend trả dd-MM-yyyy)
+        expiredDate: j?.expired_date || j?.expiredDate || null,
         liked: !!item?.saved,
         applied: !!item?.applied,
         trustLabel: j?.trustLabel || j?.trust_label || null,
         scamScore: j?.scamScore || j?.scam_score || null,
         scamCheckedAt: j?.scamCheckedAt || j?.scam_checked_at || null,
+        status: j?.status || j?.job_status || item?.status || null,
     };
 }
 
 function sortWithBoost(jobs) {
     return [...jobs].sort((a, b) => {
+        // Ưu tiên job từ công ty VIP trước
+        if (a.isProCompany !== b.isProCompany) {
+            return a.isProCompany ? -1 : 1;
+        }
+
+        // Sau đó ưu tiên job mới hơn theo id giảm dần (giống mobile & backend)
+        const idA = Number(a.id) || 0;
+        const idB = Number(b.id) || 0;
+        if (idA !== idB) {
+            return idB - idA;
+        }
+
+        // Cuối cùng mới ưu tiên job được boost cao hơn (nếu có)
         if (a.boosted !== b.boosted) return a.boosted ? -1 : 1;
         if (a.boostLevel !== b.boostLevel) return b.boostLevel - a.boostLevel;
         return 0;
@@ -87,7 +105,7 @@ const FeaturedJobsSection = () => {
 
     const { data, isFetching, isLoading, error } = useGetJobsWithStatusQuery({
         page: 0,
-        size: 12,
+        size: 20, // lấy nhiều hơn rồi chọn 6 job mới nhất sau khi lọc
         sort: "id,desc",
     });
 
@@ -99,8 +117,27 @@ const FeaturedJobsSection = () => {
             setAppliedMap({});
             return;
         }
-        const normalized = items.map(normalizeItem);
-        const finalList = sortWithBoost(normalized).slice(0, 12);
+        // Chuẩn hóa + lọc jobs theo trạng thái: ẩn draft, cho phép inactive (nhưng vẫn lọc hết hạn)
+        const raw = items.map(normalizeItem);
+        const today = new Date();
+        const normalized = raw.filter((job) => {
+            const status = (job.status || "").toLowerCase();
+            const isDraft = status === "draft";
+            if (isDraft) return false;
+
+            // Nếu có expiredDate dạng dd-MM-yyyy thì kiểm tra hết hạn
+            if (job.expiredDate) {
+                const [d, m, y] = String(job.expiredDate)
+                    .split("-")
+                    .map(Number);
+                const expiredDate = new Date(y, m - 1, d);
+                if (expiredDate < today) return false;
+            }
+
+            return true;
+        });
+        // Chỉ hiển thị 6 job mới/ưu tiên nhất
+        const finalList = sortWithBoost(normalized).slice(0, 6);
         setJobs(finalList);
 
         const lm = {};
