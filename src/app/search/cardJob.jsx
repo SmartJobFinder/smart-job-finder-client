@@ -155,9 +155,10 @@ export default function CardJob() {
                                 isProCompany: j.company?.isProCompany,
                             },
 
-                            // ✅ Date fields
+                            // ✅ Date & status fields
                             date_post: j.date_post || j.datePost,
                             expired_date: j.expired_date || j.expiredDate,
+                            status: j.status || j.job_status || it.status,
 
                             // ✅ Array fields
                             work_type_names: j.work_type_names || [],
@@ -166,13 +167,23 @@ export default function CardJob() {
                         };
                     });
 
-                console.log("========== AFTER NORMALIZATION ==========");
-                console.log("Normalized jobs count:", normalized.length);
-                console.log(
-                    "All job IDs:",
-                    normalized.map((j) => j.id)
-                );
-                console.log("=========================================");
+                // Lọc lại chỉ giữ job active (không DRAFT, không hết hạn).
+                // Job INACTIVE vẫn hiển thị như mobile, nhưng sẽ bị chặn apply ở trang chi tiết.
+                const today = new Date();
+                normalized = normalized.filter((job) => {
+                    const isDraft =
+                        typeof job.status === "string" &&
+                        job.status.toLowerCase() === "draft";
+
+                    if (isDraft) return false;
+
+                    if (!job.expired_date) return true; // không có expired_date thì giữ
+                    const [d, m, y] = String(job.expired_date)
+                        .split("-")
+                        .map(Number);
+                    const expiredDate = new Date(y, m - 1, d);
+                    return expiredDate >= today;
+                });
 
                 // Apply client-side location filter if specified
                 // Backend cityName filter doesn't work correctly with location strings

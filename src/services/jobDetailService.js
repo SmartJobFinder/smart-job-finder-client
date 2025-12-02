@@ -38,10 +38,11 @@ export const getJobDetail = async (id) => {
             salaryDisplay: data.salaryDisplay || "Negotiable",
             datePost: data.date_post,
             expiredDate: data.expired_date,
+            status: data.status || data.job_status || null,
 
             company: company,
-            trustLabel: data.trust_label || null, // ← FIX HERE
-            scamScore: data.scam_score || null, // ← FIX HERE
+            trustLabel: data.trust_label || null,
+            scamScore: data.scam_score || null,
             scamCheckedAt: data.scam_checked_at || null,
         };
     } catch (err) {
