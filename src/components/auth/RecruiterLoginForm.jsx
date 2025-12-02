@@ -11,10 +11,12 @@ import { loginSchema } from "@/validation/loginSchema";
 import { useRouter } from "next/navigation";
 import { useDispatch, useSelector } from "react-redux";
 import LoadingScreen from "../ui/loadingScreen";
+import GoogleSignIn from "@/components/auth/GoogleSignIn";
 import { loginThunk } from "@/features/auth/authSlice";
 import { toast } from "react-toastify";
 import { selectAuthLoading } from "@/features/auth/authSelectors";
 import clsx from "clsx";
+import { t } from "@/i18n/i18n";
 
 const RecruiterLoginForm = ({ role, onForgot }) => {
     const dispatch = useDispatch();
@@ -68,7 +70,7 @@ const RecruiterLoginForm = ({ role, onForgot }) => {
         );
     }
     return (
-        <div className="w-full">
+        <div className="w-full space-y-6">
             <div className="p-5 bg-white border border-blue-100 shadow-sm rounded-2xl">
                 <form
                     className="space-y-4"
@@ -159,6 +161,23 @@ const RecruiterLoginForm = ({ role, onForgot }) => {
                         {isSubmitting ? "Signing in..." : "Login"}
                     </Button>
                 </form>
+            </div>
+
+            {/* Social login - Google for Recruiter */}
+            {/* Separator */}
+            <div className="relative my-6">
+                <div className="absolute inset-0 flex items-center">
+                    <span className="w-full border-t border-blue-100" />
+                </div>
+                <div className="relative flex justify-center">
+                    <span className="px-3 text-xs font-medium tracking-wider text-blue-500 bg-white">
+                        {t`Or`}
+                    </span>
+                </div>
+            </div>
+
+            <div className="space-y-3">
+                <GoogleSignIn role={role ?? "RECRUITER"} />
             </div>
         </div>
     );
