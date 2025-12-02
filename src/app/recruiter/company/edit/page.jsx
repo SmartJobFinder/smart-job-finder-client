@@ -38,6 +38,7 @@ export default function EditCompanyPage() {
         address: "",
         locationCity: "",
         locationCountry: "Vietnam",
+        wardName: "",
         foundedYear: new Date().getFullYear(),
         quantityEmployee: 1,
         status: "active",
@@ -79,6 +80,11 @@ export default function EditCompanyPage() {
                         website: companyData.website || "",
                         address: companyData.address || "",
                         locationCity: companyData.locationCity || "",
+                        wardName:
+                            (Array.isArray(companyData.wardNames) &&
+                                companyData.wardNames[0]) ||
+                            companyData.wardName ||
+                            "",
                         locationCountry:
                             companyData.locationCountry || "Vietnam",
                         foundedYear:

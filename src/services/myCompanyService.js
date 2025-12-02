@@ -106,6 +106,11 @@ export const updateCompany = async (
             address: String(companyData.address || "").trim(),
             locationCity: String(companyData.locationCity || "").trim(),
             locationCountry: String(companyData.locationCountry || "Vietnam"),
+            wardIds: Array.isArray(companyData.wardIds)
+                ? companyData.wardIds
+                      .map((id) => Number(id))
+                      .filter((id) => !isNaN(id) && id > 0)
+                : undefined,
             foundedYear:
                 parseInt(companyData.foundedYear, 10) ||
                 new Date().getFullYear(),

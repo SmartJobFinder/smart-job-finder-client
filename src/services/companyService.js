@@ -22,17 +22,21 @@ export const createCompany = async (
 
         // Thêm tất cả dữ liệu text vào FormData
         Object.keys(companyData).forEach((key) => {
-            if (
-                companyData[key] !== null &&
-                companyData[key] !== undefined &&
-                companyData[key] !== ""
-            ) {
-                if (key === "categoryIds" && Array.isArray(companyData[key])) {
-                    // Convert array to comma-separated string
-                    formData.append("categoryIds", companyData[key].join(","));
-                } else {
-                    formData.append(key, companyData[key]);
-                }
+            const value = companyData[key];
+            if (value === null || value === undefined || value === "") return;
+
+            if (key === "categoryIds" && Array.isArray(value)) {
+                // Gửi từng categoryId riêng lẻ
+                value.forEach((id) => {
+                    formData.append("categoryIds", id);
+                });
+            } else if (key === "wardIds" && Array.isArray(value)) {
+                // Gửi từng wardId riêng lẻ
+                value.forEach((id) => {
+                    formData.append("wardIds", id);
+                });
+            } else {
+                formData.append(key, value);
             }
         });
 
