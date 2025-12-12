@@ -13,7 +13,7 @@ const nextConfig = {
 
     // Target có thể đọc từ env, fallback về IP dev
     const rawTarget =
-      process.env.NEXT_PUBLIC_API_PROXY_TARGET || "http://localhost:8080";
+      process.env.NEXT_PUBLIC_API_PROXY_TARGET || "http://localhost:8082";
 
     const target = stripTrailingSlash(rawTarget);
 
