@@ -14,6 +14,7 @@ import {
     Layers,
     MapPin,
     MessageSquareWarning,
+    Mic,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import RelatedJobs from "./relatedJobs";
@@ -259,6 +260,24 @@ export default function DetailJob({ job }) {
         [guardOr]
     );
 
+    const handleOpenAiInterview = useCallback(
+        () =>
+            guardOr(() => {
+                router.push(`/ai-interview?jobId=${djId}`);
+            }),
+        [guardOr, router, djId]
+    );
+
+    const handleOpenAiBuildCv = useCallback(
+        () =>
+            guardOr(() => {
+                router.push(`/cv-builder?jobId=${djId}`);
+            }),
+        [guardOr, router, djId] 
+    );
+
+
+
     return (
         <div className="w-full px-4 py-10 bg-gray-100 md:px-10">
             <div className="flex flex-col-reverse w-full gap-6 md:flex-row">
@@ -317,25 +336,24 @@ export default function DetailJob({ job }) {
                                                 reachedLimit ||
                                                 refreshingStatus
                                             } // disable khi hết hạn, đạt limit 2 lần, hoặc đang refetch
-                                            className={`flex-1 text-white ${
-                                                isExpired || reachedLimit
-                                                    ? "bg-gray-400 cursor-not-allowed"
-                                                    : "bg-green-600 hover:bg-green-700"
-                                            }`}
+                                            className={`flex-1 text-white ${isExpired || reachedLimit
+                                                ? "bg-gray-400 cursor-not-allowed"
+                                                : "bg-green-600 hover:bg-green-700"
+                                                }`}
                                             onClick={handleReapply}
                                             title={
                                                 reachedLimit
                                                     ? t`You have reached the re-application limit (2 times).`
                                                     : remainingMs > 0
-                                                    ? `You can re-apply in 30 minutes`
-                                                    : t`Re-apply`
+                                                        ? `You can re-apply in 30 minutes`
+                                                        : t`Re-apply`
                                             }
                                         >
                                             {reachedLimit
                                                 ? "Re-apply (Limit reached)"
                                                 : remainingMs > 0
-                                                ? `Re-apply in 30 minutes please`
-                                                : t`Re-Applications`}
+                                                    ? `Re-apply in 30 minutes please`
+                                                    : t`Re-Applications`}
                                         </Button>
 
                                         <Button
@@ -361,15 +379,13 @@ export default function DetailJob({ job }) {
                                 <button
                                     onClick={handleSave}
                                     disabled={saving}
-                                    className={`group inline-flex items-center justify-center rounded-full px-3 py-2 transition-all border w-full md:w-auto ${
-                                        liked
-                                            ? "bg-blue-50 border-blue-200 hover:bg-blue-100"
-                                            : "bg-white border-blue-200 hover:bg-blue-50"
-                                    } ${
-                                        saving
+                                    className={`group inline-flex items-center justify-center rounded-full px-3 py-2 transition-all border w-full md:w-auto ${liked
+                                        ? "bg-blue-50 border-blue-200 hover:bg-blue-100"
+                                        : "bg-white border-blue-200 hover:bg-blue-50"
+                                        } ${saving
                                             ? "opacity-60 cursor-not-allowed"
                                             : ""
-                                    }`}
+                                        }`}
                                     aria-label={
                                         liked ? t`Unsave job` : t`Save job`
                                     }
@@ -474,6 +490,53 @@ export default function DetailJob({ job }) {
                             AI
                         </span>
                     </button>
+
+                    <button
+                        className="px-4 py-2 rounded-xl bg-gradient-to-r from-emerald-600 via-teal-500 to-cyan-500 hover:from-emerald-500 hover:via-teal-500 hover:to-cyan-500 text-white transition transform hover:scale-[1.01] shadow-lg hover:shadow-2xl ring-2 ring-white/20 flex items-center gap-3 disabled:opacity-50 group relative overflow-hidden"
+                        onClick={handleOpenAiBuildCv}
+                        title={
+                            isLoggedIn
+                                ? t`Generate your CV with AI`
+                                : t`Please log in to generate CV with AI`
+                        }
+                    >
+                        <span className="pointer-events-none absolute inset-0 rounded-xl animate-pulse bg-emerald-400/0 group-hover:bg-emerald-400/0" />
+                        <span className="pointer-events-none absolute inset-0 opacity-70">
+                            <span className="shine" />
+                        </span>
+                        <img
+                            src="https://img.icons8.com/ios/50/resume.png"
+                            alt="CV AI"
+                            className="w-10 h-10 transition-transform duration-200 group-hover:scale-110 drop-shadow-[0_2px_6px_rgba(16,185,129,0.6)]"
+                        />
+                        <span className="font-semibold tracking-wide">
+                            {t`Build CV with AI`}
+                        </span>
+                        <span className="ml-1 text-xs font-bold bg-white/20 text-white px-2 py-0.5 rounded-full border border-white/30">
+                            CV
+                        </span>
+                    </button>
+                    <button
+                        className="px-4 py-2 rounded-xl bg-gradient-to-r from-fuchsia-600 via-purple-600 to-indigo-500 hover:from-fuchsia-500 hover:via-purple-600 hover:to-indigo-500 text-white transition transform hover:scale-[1.01] shadow-lg hover:shadow-2xl ring-2 ring-white/20 flex items-center gap-3 disabled:opacity-50 group relative overflow-hidden"
+                        onClick={handleOpenAiInterview}
+                        title={isLoggedIn ? t`AI Interview Coaching` : t`Please log in to use AI`}
+                    >
+                        <span className="pointer-events-none absolute inset-0 rounded-xl animate-pulse bg-indigo-400/0 group-hover:bg-indigo-400/0" />
+                        <span className="pointer-events-none absolute inset-0 opacity-70">
+                            <span className="shine" />
+                        </span>
+
+                        <span className="w-10 h-10 flex items-center justify-center rounded-full bg-white/15 border border-white/25">
+                            <Mic className="w-6 h-6 text-white" />
+                        </span>
+
+                        <span className="font-semibold tracking-wide">{t`AI Interview Coaching`}</span>
+
+                        <span className="ml-1 text-xs font-bold bg-white/20 text-white px-2 py-0.5 rounded-full border border-white/30">
+                            AI
+                        </span>
+                    </button>
+
                     <style jsx>{`
                         .shine {
                             position: absolute;
@@ -503,9 +566,11 @@ export default function DetailJob({ job }) {
             </div>
 
             <RelatedJobs category={dj.category} skill={dj.skill} />
-            {showAiMatch && (
-                <AiMatchModal onClose={() => setShowAiMatch(false)} job={dj} />
-            )}
-        </div>
+            {
+                showAiMatch && (
+                    <AiMatchModal onClose={() => setShowAiMatch(false)} job={dj} />
+                )
+            }
+        </div >
     );
 }

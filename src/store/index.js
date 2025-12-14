@@ -17,6 +17,7 @@ import { locationApi } from "@/services/locationService";
 import { filterApi } from "@/services/filterService";
 import { followCompanyApi } from "@/services/followCompanyService";
 import { interviewApi } from "@/services/interviewService";
+import { aiInterviewApi } from "@/services/aiInterviewService";
 
 export const store = configureStore({
     reducer: {
@@ -38,6 +39,7 @@ export const store = configureStore({
         [filterApi.reducerPath]: filterApi.reducer,
         [followCompanyApi.reducerPath]: followCompanyApi.reducer,
         [interviewApi.reducerPath]: interviewApi.reducer,
+        [aiInterviewApi.reducerPath]: aiInterviewApi.reducer,
     },
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({
@@ -67,7 +69,8 @@ export const store = configureStore({
             locationApi.middleware,
             filterApi.middleware,
             followCompanyApi.middleware,
-            interviewApi.middleware
+            interviewApi.middleware,
+            aiInterviewApi.middleware
         ),
 });
 
