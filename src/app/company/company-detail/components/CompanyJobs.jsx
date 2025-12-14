@@ -1,19 +1,63 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import Image from "next/image";
 import useCompanyDetailStore from "../store/companyDetailStore";
 import Link from "next/link";
 import { parse } from "date-fns";
 import { getImageUrl } from "@/lib/utils";
 import { t } from "@/i18n/i18n";
+import { useGetCitiesQuery } from "@/services/locationService";
 
 const CompanyJobs = () => {
     const { company, jobs } = useCompanyDetailStore();
     const [searchTerm, setSearchTerm] = useState("");
     const [location, setLocation] = useState("");
 
+    // Fetch cities from API
+    const { data: cities = [], isLoading: isLoadingCities } =
+        useGetCitiesQuery();
+
     if (!company) return null;
+
+    // Filter jobs based on search term, location và trạng thái
+    const filteredJobs = useMemo(() => {
+        const today = new Date();
+
+        return jobs.filter((job) => {
+            // Filter by search term
+            const matchesSearch =
+                !searchTerm ||
+                job.title?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                company.companyName
+                    ?.toLowerCase()
+                    .includes(searchTerm.toLowerCase());
+
+            // Filter by location
+            const matchesLocation =
+                !location ||
+                job.location?.toLowerCase().includes(location.toLowerCase()) ||
+                location
+                    .toLowerCase()
+                    .includes(job.location?.toLowerCase() || "");
+
+            // Filter by status (không hiển thị draft, nhưng cho phép inactive giống mobile)
+            const isDraft =
+                typeof job.status === "string" &&
+                job.status.toLowerCase() === "draft";
+            if (isDraft) return false;
+
+            if (job.expired_date) {
+                const [d, m, y] = String(job.expired_date)
+                    .split("-")
+                    .map(Number);
+                const expiredDate = new Date(y, m - 1, d);
+                if (expiredDate < today) return false;
+            }
+
+            return matchesSearch && matchesLocation;
+        });
+    }, [jobs, searchTerm, location, company.companyName]);
 
     const calculateRemainingDays = (expiredDate) => {
         try {
@@ -49,24 +93,34 @@ const CompanyJobs = () => {
                     className="w-full h-10 px-4 bg-white border border-gray-300 rounded focus:outline-none focus:border-[#0A66C2] focus:ring-1 focus:ring-[#0A66C2]"
                     value={location}
                     onChange={(e) => setLocation(e.target.value)}
+                    disabled={isLoadingCities}
                 >
                     <option value="">All Cities</option>
-                    <option value="Hà Nội">Hanoi</option>
-                    <option value="TP.HCM">Ho Chi Minh City</option>
-                    <option value="Đà Nẵng">Da Nang</option>
+                    {cities.map((city) => (
+                        <option key={city} value={city}>
+                            {city}
+                        </option>
+                    ))}
                 </select>
-                <button className="w-full h-10 text-white rounded bg-blue-700 hover:bg-[#085aab]">
+                <button
+                    className="w-full h-10 text-white rounded bg-blue-700 hover:bg-[#085aab]"
+                    onClick={() => {
+                        // Filter is applied automatically via useMemo
+                    }}
+                >
                     {t`Search`}
                 </button>
             </div>
 
             <div className="mt-8 space-y-4">
-                {jobs.length === 0 ? (
+                {filteredJobs.length === 0 ? (
                     <div className="p-4 text-center text-gray-500 border border-gray-200 rounded-lg">
-                        This company currently has no job postings
+                        {jobs.length === 0
+                            ? "This company currently has no job postings"
+                            : "No jobs found matching your search criteria"}
                     </div>
                 ) : (
-                    jobs.map((job) => (
+                    filteredJobs.map((job) => (
                         <div
                             key={job.id}
                             className="flex flex-col items-start gap-4 p-4 border rounded-lg border-[#D0E5F9] md:flex-row md:items-center"

@@ -32,6 +32,7 @@ export default function CreateCompanyPage() {
         address: "",
         locationCity: "",
         locationCountry: "Vietnam",
+        wardName: "",
         foundedYear: new Date().getFullYear(),
         quantityEmployee: 1,
         status: "active",
@@ -221,6 +222,7 @@ export default function CreateCompanyPage() {
             const companyData = {
                 ...formData,
                 userId: user?.id || user?.userId,
+                // TODO: Map wardName -> wardIds nếu backend cần ID (hiện chỉ lưu theo tên)
             };
 
             // Simulate progress for better UX

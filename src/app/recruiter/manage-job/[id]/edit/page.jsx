@@ -35,6 +35,25 @@ function toDDMMYYYYFromIso(value) {
     return value;
 }
 
+function stripHtmlTags(html) {
+    if (!html) return "";
+    // Remove HTML tags using regex
+    let text = html.replace(/<[^>]*>/g, "");
+    // Decode HTML entities
+    text = text
+        .replace(/&nbsp;/g, " ")
+        .replace(/&amp;/g, "&")
+        .replace(/&lt;/g, "<")
+        .replace(/&gt;/g, ">")
+        .replace(/&quot;/g, '"')
+        .replace(/&#39;/g, "'")
+        .replace(/&apos;/g, "'")
+        .replace(/&#x27;/g, "'")
+        .replace(/&#x2F;/g, "/")
+        .trim();
+    return text;
+}
+
 export default function EditJobPage() {
     const router = useRouter();
     const params = useParams();
@@ -58,8 +77,11 @@ export default function EditJobPage() {
                 setForm({
                     title: data.title || "",
                     status: (data.status || "ACTIVE").toUpperCase(),
-                    expired_date: data.expired_date || "",
-                    description: data.description || "",
+                    // Backend trả expired_date dạng dd-MM-yyyy → chuyển sang ISO yyyy-MM-dd cho input[type=date]
+                    expired_date: data.expired_date
+                        ? toIsoDateFromDDMMYYYY(data.expired_date)
+                        : "",
+                    description: stripHtmlTags(data.description || ""),
                 });
             } catch (e) {
                 setError(e?.message || "Unable to load job");
@@ -135,14 +157,11 @@ export default function EditJobPage() {
                     <label className="text-sm font-medium">{t`Expired date`}</label>
                     <Input
                         type="date"
-                        value={
-                            form.expired_date
-                                ? toIsoDateFromDDMMYYYY(form.expired_date)
-                                : ""
-                        }
+                        value={form.expired_date || ""}
                         onChange={(e) =>
                             setForm((f) => ({
                                 ...f,
+                                // Luôn lưu dạng ISO yyyy-MM-dd trong state
                                 expired_date: e.target.value,
                             }))
                         }

@@ -43,5 +43,6 @@ export const mapJobToView = (job) => {
         trustLabel: job?.trustLabel ?? job?.trust_label ?? null,
         scamScore: job?.scamScore ?? job?.scam_score ?? null,
         scamCheckedAt: job?.scamCheckedAt ?? job?.scam_checked_at ?? null,
+        status: job?.status ?? job?.job_status ?? null,
     };
 };

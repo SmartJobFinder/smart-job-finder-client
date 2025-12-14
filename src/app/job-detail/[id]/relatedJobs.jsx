@@ -26,11 +26,21 @@ export default function RelatedJobs({ category = [] }) {
 
     const relatedJobs = useMemo(() => {
         if (categorySet.size === 0) return [];
-        return jobsSource.filter((job) =>
-            (job.category_names || []).some(
+
+        return jobsSource.filter((job) => {
+            // Match by category
+            const matchesCategory = (job.category_names || []).some(
                 (cat) => cat && categorySet.has(cat.trim().toLowerCase())
-            )
-        );
+            );
+            if (!matchesCategory) return false;
+
+            // Filter by status giống mobile: chỉ loại draft, vẫn cho phép inactive
+            const status = (job.status || job.job_status || "").toLowerCase();
+            const isDraft = status === "draft";
+            if (isDraft) return false;
+
+            return true;
+        });
     }, [jobsSource, categorySet]);
 
     const handleLoadMore = () => setVisibleCount((prev) => prev + 10);

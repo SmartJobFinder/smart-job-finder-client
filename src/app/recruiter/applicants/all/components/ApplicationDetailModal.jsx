@@ -97,15 +97,27 @@ export default function ApplicationDetailModal({
         setImageError(true);
     };
 
-    if (!application) return null;
-
     // Lấy avatar từ profile hoặc fallback
     const displayAvatar = candidateProfile?.avatar;
     const displayName =
         candidateProfile?.fullName ||
-        application.candidateName ||
-        application.email ||
+        application?.candidateName ||
+        application?.fullName ||
+        application?.email ||
         "Candidate";
+
+    // Ưu tiên description thật từ application; nếu không có thì fallback sang aboutMe hoặc chuỗi mặc định.
+    const displayDescription = useMemo(() => {
+        const desc = (application?.description || "").trim();
+        if (desc) return desc;
+
+        const about = (candidateProfile?.aboutMe || "").trim();
+        if (about) return about;
+
+        return "Không có mô tả";
+    }, [application, candidateProfile]);
+
+    if (!application) return null;
 
     return (
         <Dialog open={open} onOpenChange={onOpenChange}>
@@ -218,7 +230,7 @@ export default function ApplicationDetailModal({
                             </span>
                         </div>
                         <div className="whitespace-pre-wrap leading-relaxed">
-                            {application.description || "Không có mô tả"}
+                            {displayDescription}
                         </div>
                     </div>
 

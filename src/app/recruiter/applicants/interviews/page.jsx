@@ -119,7 +119,7 @@ export default function RecruiterInterviewsPage() {
         useUpdateInterviewStatusMutation();
 
     // Application modal
-    const [appModal, setAppModal] = useState(null); // { jobId, userId, jobTitle, candidateName, candidateEmail }
+    const [appModal, setAppModal] = useState(null); // { companyId, jobId, userId, jobTitle, candidateName, candidateEmail }
 
     const onChangeStatus = async (row, newStatus) => {
         try {
@@ -222,6 +222,7 @@ export default function RecruiterInterviewsPage() {
                                                     size="sm"
                                                     onClick={() =>
                                                         setAppModal({
+                                                            companyId,
                                                             jobId: row.jobId,
                                                             userId: row.candidateId,
                                                             jobTitle:
