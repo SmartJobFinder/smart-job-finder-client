@@ -7,7 +7,8 @@ import Link from "next/link";
 import SearchBar from "../components/SearchBar";
 import FilterSidebar from "../components/FilterSidebar";
 import ResultItem from "../components/ResultItem";
-import useCompanyStore from "../store/companyStore";
+import useCompanySearchStore from "../store/companySearchStore";
+import { t } from "@/i18n/i18n";
 
 const companySizes = [
     { id: "1-10", label: "1-10 employees" },
@@ -58,13 +59,14 @@ const ResultPage = () => {
         searchTerm,
         isLoading,
         error,
-        fetchCompanies,
+        fetchAllCompanies,
         fetchIndustries,
+        searchCompanies,
         setFilters,
         setSearchTerm,
         getFilteredCompanies,
         getFilterCounts,
-    } = useCompanyStore();
+    } = useCompanySearchStore();
 
     const [currentPage, setCurrentPage] = useState(1);
     const [isLoadingPage, setIsLoadingPage] = useState(true);
@@ -88,7 +90,33 @@ const ResultPage = () => {
 
         const fetchData = async () => {
             setIsLoadingPage(true);
-            await Promise.all([fetchCompanies(), fetchIndustries()]);
+
+            // Nếu có search params (company, location, hoặc categoryIds), gọi API search
+            if (company || location || categoryIds.length > 0) {
+                const searchParams = {
+                    name: company || undefined,
+                    location: location || undefined,
+                    categoryIds:
+                        categoryIds.length > 0 ? categoryIds : undefined,
+                };
+
+                // Chỉ gọi API search nếu có ít nhất 1 parameter
+                if (
+                    searchParams.name ||
+                    searchParams.location ||
+                    searchParams.categoryIds
+                ) {
+                    await searchCompanies(searchParams);
+                } else {
+                    // Nếu không có params nào, fetch tất cả
+                    await fetchAllCompanies();
+                }
+            } else {
+                // Không có params nào, fetch tất cả companies
+                await fetchAllCompanies();
+            }
+
+            await fetchIndustries();
 
             setTimeout(() => {
                 setIsLoadingPage(false);
@@ -107,9 +135,46 @@ const ResultPage = () => {
     const filteredResults = getFilteredCompanies();
     const filterCounts = getFilterCounts();
 
-    const handleSearch = (searchParams) => {
+    const handleSearch = async (searchParams) => {
         setResultsVisible(false);
         setIsTransitioning(true);
+
+        // Nếu không có params nào, clear filters và fetch tất cả
+        if (
+            !searchParams.company &&
+            !searchParams.location &&
+            (!searchParams.categoryIds || searchParams.categoryIds.length === 0)
+        ) {
+            // Reset filters khi clear all
+            setFilters({
+                companySize: [],
+                categoryIds: [],
+                foundingYear: "any",
+            });
+            await fetchAllCompanies();
+        } else {
+            // Gọi API search với city parameter
+            const apiSearchParams = {
+                name: searchParams.company || undefined,
+                location: searchParams.location || undefined,
+                categoryIds:
+                    searchParams.categoryIds &&
+                    searchParams.categoryIds.length > 0
+                        ? searchParams.categoryIds
+                        : undefined,
+            };
+
+            // Chỉ gọi API nếu có ít nhất 1 parameter
+            if (
+                apiSearchParams.name ||
+                apiSearchParams.location ||
+                apiSearchParams.categoryIds
+            ) {
+                await searchCompanies(apiSearchParams);
+            } else {
+                await fetchAllCompanies();
+            }
+        }
 
         setTimeout(() => {
             setSearchTerm(searchParams);
@@ -134,9 +199,12 @@ const ResultPage = () => {
                 );
             }
 
-            router.push(
-                `/company/company-search/results?${queryParams.toString()}`
-            );
+            // Nếu không có params nào, clear URL và fetch tất cả
+            const url = queryParams.toString()
+                ? `/company/company-search/results?${queryParams.toString()}`
+                : `/company/company-search/results`;
+
+            router.push(url);
 
             setTimeout(() => {
                 setIsTransitioning(false);
@@ -248,7 +316,7 @@ const ResultPage = () => {
                                 An error occurred: {error}
                             </p>
                             <button
-                                onClick={fetchCompanies}
+                                onClick={fetchAllCompanies}
                                 className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
                             >
                                 Try again

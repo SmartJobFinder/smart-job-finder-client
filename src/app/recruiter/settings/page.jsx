@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -17,7 +17,7 @@ import {
 } from "lucide-react";
 import CompanyGuard from "@/components/recruiter/CompanyGuard";
 import { toast } from "react-toastify";
-import { changePassword } from "@/services/userService";
+import { changePassword, getCurrentUser } from "@/services/userService";
 import { useSelector } from "react-redux";
 
 // Password Rule Component
@@ -38,6 +38,9 @@ function PasswordRule({ ok, label }) {
 
 export default function RecruiterSettingsPage() {
     const user = useSelector((state) => state.auth.user);
+    const [accountInfo, setAccountInfo] = useState(user);
+    const [accountLoading, setAccountLoading] = useState(!user);
+    const [accountError, setAccountError] = useState(null);
 
     // Password change states
     const [passwordForm, setPasswordForm] = useState({
@@ -50,6 +53,46 @@ export default function RecruiterSettingsPage() {
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const [changingPassword, setChangingPassword] = useState(false);
     const [passwordErrors, setPasswordErrors] = useState({});
+    const displayUser = accountInfo || user;
+
+    useEffect(() => {
+        let mounted = true;
+
+        const loadAccountInfo = async () => {
+            try {
+                setAccountLoading(true);
+                setAccountError(null);
+                const data = await getCurrentUser();
+                if (mounted) {
+                    setAccountInfo(data);
+                }
+            } catch (error) {
+                console.error("Error loading recruiter settings user:", error);
+                const message =
+                    error?.message || "Không thể tải thông tin tài khoản";
+                if (mounted) {
+                    setAccountError(message);
+                    toast.error(message);
+                }
+            } finally {
+                if (mounted) {
+                    setAccountLoading(false);
+                }
+            }
+        };
+
+        loadAccountInfo();
+
+        return () => {
+            mounted = false;
+        };
+    }, []);
+
+    useEffect(() => {
+        if (user) {
+            setAccountInfo((prev) => ({ ...user, ...prev }));
+        }
+    }, [user]);
 
     // Password validation rules
     const passwordRules = useMemo(() => {
@@ -173,13 +216,25 @@ export default function RecruiterSettingsPage() {
                                 </p>
                             </div>
 
+                            {accountLoading && (
+                                <div className="text-sm text-blue-700 bg-blue-50 border border-blue-100 rounded-md px-3 py-2">
+                                    Đang cập nhật thông tin tài khoản...
+                                </div>
+                            )}
+
+                            {accountError && (
+                                <div className="text-sm text-red-700 bg-red-50 border border-red-100 rounded-md px-3 py-2">
+                                    {accountError}
+                                </div>
+                            )}
+
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div>
                                     <Label className="text-sm font-medium text-gray-700">
                                         Full Name
                                     </Label>
                                     <div className="mt-1 px-3 py-2 bg-gray-50 border border-gray-200 rounded-md text-sm text-gray-900">
-                                        {user?.fullName || "—"}
+                                        {displayUser?.fullName || "—"}
                                     </div>
                                 </div>
 
@@ -188,7 +243,7 @@ export default function RecruiterSettingsPage() {
                                         Email Address
                                     </Label>
                                     <div className="mt-1 px-3 py-2 bg-gray-50 border border-gray-200 rounded-md text-sm text-gray-900">
-                                        {user?.email || "—"}
+                                        {displayUser?.email || "—"}
                                     </div>
                                 </div>
 
@@ -197,7 +252,7 @@ export default function RecruiterSettingsPage() {
                                         Phone Number
                                     </Label>
                                     <div className="mt-1 px-3 py-2 bg-gray-50 border border-gray-200 rounded-md text-sm text-gray-900">
-                                        {user?.phone || "Not provided"}
+                                        {displayUser?.phone || "Not provided"}
                                     </div>
                                 </div>
 
@@ -208,14 +263,15 @@ export default function RecruiterSettingsPage() {
                                     <div className="mt-1">
                                         <span
                                             className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
-                                                user?.status === "ACTIVE" ||
-                                                user?.isActive
+                                                displayUser?.status ===
+                                                    "ACTIVE" ||
+                                                displayUser?.isActive
                                                     ? "bg-green-100 text-green-800"
                                                     : "bg-gray-100 text-gray-800"
                                             }`}
                                         >
-                                            {user?.status ||
-                                                (user?.isActive
+                                            {displayUser?.status ||
+                                                (displayUser?.isActive
                                                     ? "ACTIVE"
                                                     : "INACTIVE")}
                                         </span>
