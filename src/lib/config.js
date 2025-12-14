@@ -14,7 +14,7 @@ const ABSOLUTE_BASE = isAbsolute
 
 export const API_CONFIG = {
   BASE_URL: ABSOLUTE_BASE,
-  TIMEOUT: Number(process.env.NEXT_PUBLIC_API_TIMEOUT || 180000),
+  TIMEOUT: Number(process.env.NEXT_PUBLIC_API_TIMEOUT || 360000),
 };
 
 if (!API_CONFIG.BASE_URL) {

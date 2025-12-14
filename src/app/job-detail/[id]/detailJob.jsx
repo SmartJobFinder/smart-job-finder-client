@@ -257,6 +257,15 @@ export default function DetailJob({ job }) {
         [guardOr, router, djId]
     );
 
+    const handleOpenAiBuildCv = useCallback(
+        () =>
+            guardOr(() => {
+                router.push(`/cv-builder?jobId=${djId}`);
+            }),
+        [guardOr, router, djId] 
+    );
+
+
 
     return (
         <div className="w-full px-4 py-10 bg-gray-100 md:px-10">
@@ -472,7 +481,7 @@ export default function DetailJob({ job }) {
 
                     <button
                         className="px-4 py-2 rounded-xl bg-gradient-to-r from-emerald-600 via-teal-500 to-cyan-500 hover:from-emerald-500 hover:via-teal-500 hover:to-cyan-500 text-white transition transform hover:scale-[1.01] shadow-lg hover:shadow-2xl ring-2 ring-white/20 flex items-center gap-3 disabled:opacity-50 group relative overflow-hidden"
-                        // onClick={handleOpenAiBuildCv}
+                        onClick={handleOpenAiBuildCv}
                         title={
                             isLoggedIn
                                 ? t`Generate your CV with AI`
