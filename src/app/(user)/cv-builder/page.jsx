@@ -21,7 +21,7 @@ import CvSection from "./CvSection";
 import EducationItem from "./EducationItem";
 import ExperienceItem from "./ExperienceItem";
 import SkillsSection from "./SkillsSection";
-import CvPreviewModal, { CvTemplatePreview } from "./CvPreviewModal";
+import CvPreviewModal from "./CvPreviewModal";
 import EditableTextBlock from "./EditableTextBlock";
 
 const emptyCv = {
@@ -320,83 +320,25 @@ export default function CVPage() {
                         </button>
                     </div>
 
-                    {/* ===== CV VIEW ===== */}
+                    {/* ===== CV VIEW - Render theo template ===== */}
                     <div className="space-y-6 bg-white p-6 rounded-lg shadow-sm">
-                        <CvHeader info={info} />
+                        {/* CvHeader chỉ render cho basic và two-columns, không render cho right-sidebar */}
+                        {selectedTemplate !== "right-sidebar" && (
+                            <CvHeader info={info} />
+                        )}
 
-                        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-                            <CvSection title={t`Professional Summary`}>
-                                <EditableTextBlock
-                                    value={cv.introduce}
-                                    onSave={(newText) =>
-                                        setCv((prev) => ({
-                                            ...prev,
-                                            introduce: newText,
-                                        }))
-                                    }
-                                    placeholder="-"
-                                    minRows={7}
-                                />
-                            </CvSection>
+                        {/* Render khác nhau tùy theo template */}
+                        {selectedTemplate === "basic" && (
+                            <BasicEditableView cv={cv} setCv={setCv} />
+                        )}
 
-                            {/* Live preview updates with template selection */}
-                            <div className="bg-white rounded-2xl shadow p-4 mb-4">
-                                <div className="text-sm font-semibold text-gray-700 mb-3">
-                                    {t`Preview`}
-                                </div>
-                                <div className="border border-gray-200 rounded-xl p-4 bg-gray-50">
-                                    <CvTemplatePreview
-                                        template={selectedTemplate}
-                                        cv={cv}
-                                    />
-                                </div>
-                            </div>
+                        {selectedTemplate === "two-columns" && (
+                            <TwoColumnsEditableView cv={cv} setCv={setCv} />
+                        )}
 
-                            <CvSection title={t`Career Objective`}>
-                                <EditableTextBlock
-                                    value={cv.objective}
-                                    onSave={(newText) =>
-                                        setCv((prev) => ({
-                                            ...prev,
-                                            objective: newText,
-                                        }))
-                                    }
-                                    placeholder="-"
-                                    minRows={7}
-                                />
-                            </CvSection>
-                        </div>
-
-                        <CvSection title={t`Education`}>
-                            <div className="space-y-3">
-                                {(cv.edu || []).length ? (
-                                    cv.edu.map((e) => (
-                                        <EducationItem key={e.id} item={e} />
-                                    ))
-                                ) : (
-                                    <p className="text-sm text-gray-500">-</p>
-                                )}
-                            </div>
-                        </CvSection>
-
-                        <CvSection title={t`Work Experience`}>
-                            <div className="space-y-4">
-                                {(cv.experience || []).length ? (
-                                    cv.experience.map((exp) => (
-                                        <ExperienceItem
-                                            key={exp.id}
-                                            item={exp}
-                                        />
-                                    ))
-                                ) : (
-                                    <p className="text-sm text-gray-500">-</p>
-                                )}
-                            </div>
-                        </CvSection>
-
-                        <CvSection title={t`Skills`}>
-                            <SkillsSection skills={cv.skills} />
-                        </CvSection>
+                        {selectedTemplate === "right-sidebar" && (
+                            <RightSidebarEditableView cv={cv} setCv={setCv} />
+                        )}
                     </div>
                 </>
             )}
@@ -406,6 +348,392 @@ export default function CVPage() {
                 template={selectedTemplate}
                 cv={cv}
             />
+        </div>
+    );
+}
+
+// ===== BASIC TEMPLATE EDITABLE VIEW (1 CỘT VERTICAL) =====
+function BasicEditableView({ cv, setCv }) {
+    return (
+        <>
+            <CvSection title={t`Professional Summary`}>
+                <EditableTextBlock
+                    value={cv.introduce}
+                    onSave={(newText) =>
+                        setCv((prev) => ({
+                            ...prev,
+                            introduce: newText,
+                        }))
+                    }
+                    placeholder="-"
+                    minRows={5}
+                />
+            </CvSection>
+
+            <CvSection title={t`Career Objective`}>
+                <EditableTextBlock
+                    value={cv.objective}
+                    onSave={(newText) =>
+                        setCv((prev) => ({
+                            ...prev,
+                            objective: newText,
+                        }))
+                    }
+                    placeholder="-"
+                    minRows={5}
+                />
+            </CvSection>
+
+            <CvSection title={t`Education`}>
+                {(cv.edu || []).length ? (
+                    <div className="space-y-3">
+                        {cv.edu.map((e) => (
+                            <div
+                                key={e.id}
+                                className="border border-black rounded-lg p-3"
+                            >
+                                <div className="flex justify-between gap-3">
+                                    <div className="font-semibold text-black">
+                                        {e.schoolName || "-"}
+                                    </div>
+                                    <div className="text-sm text-black">
+                                        {e.duration || ""}
+                                    </div>
+                                </div>
+                                {e.majors && (
+                                    <div className="text-sm text-black">
+                                        {e.majors}
+                                    </div>
+                                )}
+                                {e.degree && (
+                                    <div className="text-xs text-black mt-1">
+                                        {e.degree}
+                                    </div>
+                                )}
+                            </div>
+                        ))}
+                    </div>
+                ) : (
+                    <p className="text-sm text-black">-</p>
+                )}
+            </CvSection>
+
+            <CvSection title={t`Work Experience`}>
+                {(cv.experience || []).length ? (
+                    <div className="space-y-3">
+                        {cv.experience.map((exp) => (
+                            <div
+                                key={exp.id}
+                                className="border border-black rounded-lg p-3"
+                            >
+                                <div className="flex justify-between gap-3">
+                                    <div className="font-semibold text-black">
+                                        {exp.position || "-"}
+                                    </div>
+                                    <div className="text-sm text-black">
+                                        {exp.duration || ""}
+                                    </div>
+                                </div>
+                                {exp.companyName && (
+                                    <div className="text-sm text-black">
+                                        {exp.companyName}
+                                    </div>
+                                )}
+                                {exp.description && (
+                                    <div className="text-sm text-black mt-2 whitespace-pre-line">
+                                        {exp.description}
+                                    </div>
+                                )}
+                            </div>
+                        ))}
+                    </div>
+                ) : (
+                    <p className="text-sm text-black">-</p>
+                )}
+            </CvSection>
+
+            <CvSection title={t`Skills`}>
+                {(cv.skills || []).length ? (
+                    <div className="flex flex-wrap gap-2">
+                        {cv.skills.map((s, idx) => (
+                            <span
+                                key={idx}
+                                className="px-3 py-1 text-xs rounded-full border border-black text-black"
+                            >
+                                {s}
+                            </span>
+                        ))}
+                    </div>
+                ) : (
+                    <p className="text-sm text-black">-</p>
+                )}
+            </CvSection>
+        </>
+    );
+}
+
+// ===== TWO COLUMNS TEMPLATE EDITABLE VIEW =====
+function TwoColumnsEditableView({ cv, setCv }) {
+    const info = cv.information || {};
+
+    return (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Left Column - Sidebar */}
+            <div className="md:col-span-1 space-y-4">
+                {/* Header Block - Compact */}
+                <div className="border border-black rounded-xl p-4">
+                    <div className="text-xl font-bold text-black">
+                        {info.fullName || "-"}
+                    </div>
+                    <div className="text-sm font-semibold text-black">
+                        {info.title || "-"}
+                    </div>
+                    <div className="mt-2 text-xs text-black space-y-1">
+                        {info.email && <div>{info.email}</div>}
+                        {info.phone && <div>{info.phone}</div>}
+                    </div>
+                </div>
+
+                <CvSection title={t`Skills`}>
+                    {(cv.skills || []).length ? (
+                        <div className="flex flex-wrap gap-2">
+                            {cv.skills.map((s, idx) => (
+                                <span
+                                    key={idx}
+                                    className="px-3 py-1 text-xs rounded-full border border-black text-black"
+                                >
+                                    {s}
+                                </span>
+                            ))}
+                        </div>
+                    ) : (
+                        <p className="text-sm text-black">-</p>
+                    )}
+                </CvSection>
+
+                <CvSection title={t`Education`}>
+                    {(cv.edu || []).length ? (
+                        <div className="space-y-2">
+                            {cv.edu.map((e) => (
+                                <div
+                                    key={e.id}
+                                    className="border border-black rounded-lg p-3"
+                                >
+                                    <div className="font-semibold text-black">
+                                        {e.schoolName || "-"}
+                                    </div>
+                                    <div className="text-xs text-black">
+                                        {e.duration || ""}
+                                    </div>
+                                    {e.majors && (
+                                        <div className="text-sm mt-1 text-black">
+                                            {e.majors}
+                                        </div>
+                                    )}
+                                </div>
+                            ))}
+                        </div>
+                    ) : (
+                        <p className="text-sm text-black">-</p>
+                    )}
+                </CvSection>
+            </div>
+
+            {/* Right Column - Main Content */}
+            <div className="md:col-span-2 space-y-4">
+                <CvSection title={t`Professional Summary`}>
+                    <EditableTextBlock
+                        value={cv.introduce}
+                        onSave={(newText) =>
+                            setCv((prev) => ({
+                                ...prev,
+                                introduce: newText,
+                            }))
+                        }
+                        placeholder="-"
+                        minRows={5}
+                    />
+                </CvSection>
+
+                <CvSection title={t`Career Objective`}>
+                    <EditableTextBlock
+                        value={cv.objective}
+                        onSave={(newText) =>
+                            setCv((prev) => ({
+                                ...prev,
+                                objective: newText,
+                            }))
+                        }
+                        placeholder="-"
+                        minRows={5}
+                    />
+                </CvSection>
+
+                <CvSection title={t`Work Experience`}>
+                    {(cv.experience || []).length ? (
+                        <div className="space-y-3">
+                            {cv.experience.map((exp) => (
+                                <div
+                                    key={exp.id}
+                                    className="border border-black rounded-lg p-3"
+                                >
+                                    <div className="flex justify-between gap-3">
+                                        <div className="font-semibold text-black">
+                                            {exp.position || "-"}
+                                        </div>
+                                        <div className="text-xs text-black">
+                                            {exp.duration || ""}
+                                        </div>
+                                    </div>
+                                    {exp.companyName && (
+                                        <div className="text-sm text-black">
+                                            {exp.companyName}
+                                        </div>
+                                    )}
+                                    {exp.description && (
+                                        <div className="text-sm text-black mt-2 whitespace-pre-line">
+                                            {exp.description}
+                                        </div>
+                                    )}
+                                </div>
+                            ))}
+                        </div>
+                    ) : (
+                        <p className="text-sm text-black">-</p>
+                    )}
+                </CvSection>
+            </div>
+        </div>
+    );
+}
+
+// ===== RIGHT SIDEBAR TEMPLATE EDITABLE VIEW =====
+function RightSidebarEditableView({ cv, setCv }) {
+    return (
+        <div className="space-y-6">
+            {/* Header Section - chỉ đen trắng */}
+            <div className="text-center space-y-3 pb-4 border-b-2 border-black">
+                <div className="text-3xl font-bold text-black">
+                    {cv.information.fullName || "-"}
+                </div>
+                <div className="text-lg font-semibold text-black">
+                    {cv.information.title || "Students"}
+                </div>
+                <div className="flex flex-wrap items-center justify-center gap-4 text-sm text-black">
+                    {cv.information.phone && (
+                        <span>{cv.information.phone}</span>
+                    )}
+                    {cv.information.email && (
+                        <span>{cv.information.email}</span>
+                    )}
+                    {cv.information.location && (
+                        <span>{cv.information.location}</span>
+                    )}
+                </div>
+            </div>
+
+            <CvSection title={t`Professional Summary`}>
+                <EditableTextBlock
+                    value={cv.introduce}
+                    onSave={(newText) =>
+                        setCv((prev) => ({
+                            ...prev,
+                            introduce: newText,
+                        }))
+                    }
+                    placeholder="-"
+                    minRows={5}
+                />
+            </CvSection>
+
+            <CvSection title={t`Career Objective`}>
+                <EditableTextBlock
+                    value={cv.objective}
+                    onSave={(newText) =>
+                        setCv((prev) => ({
+                            ...prev,
+                            objective: newText,
+                        }))
+                    }
+                    placeholder="-"
+                    minRows={5}
+                />
+            </CvSection>
+
+            <CvSection title={t`Education`}>
+                <div className="space-y-4">
+                    {(cv.edu || []).length ? (
+                        cv.edu.map((e) => (
+                            <div key={e.id} className="space-y-1">
+                                <div className="flex items-center justify-between text-sm font-semibold text-gray-900">
+                                    <span>{e.schoolName || "-"}</span>
+                                    <span className="text-xs text-gray-600">
+                                        {e.duration || ""}
+                                    </span>
+                                </div>
+                                {e.majors && (
+                                    <div className="text-sm text-gray-700">
+                                        {e.majors}
+                                    </div>
+                                )}
+                                {e.degree && (
+                                    <div className="text-xs text-gray-600">
+                                        {e.degree}
+                                    </div>
+                                )}
+                            </div>
+                        ))
+                    ) : (
+                        <p className="text-sm text-gray-500">-</p>
+                    )}
+                </div>
+            </CvSection>
+
+            <CvSection title={t`Work Experience / Projects`}>
+                <div className="space-y-4">
+                    {(cv.experience || []).length ? (
+                        cv.experience.map((exp) => (
+                            <div key={exp.id} className="space-y-1">
+                                <div className="flex items-center justify-between text-sm font-semibold text-gray-900">
+                                    <span>{exp.position || "-"}</span>
+                                    <span className="text-xs text-gray-600">
+                                        {exp.duration || ""}
+                                    </span>
+                                </div>
+                                {exp.companyName && (
+                                    <div className="text-sm text-gray-700">
+                                        {exp.companyName}
+                                    </div>
+                                )}
+                                {exp.description && (
+                                    <div className="text-sm text-gray-800 whitespace-pre-line">
+                                        {exp.description}
+                                    </div>
+                                )}
+                            </div>
+                        ))
+                    ) : (
+                        <p className="text-sm text-gray-500">-</p>
+                    )}
+                </div>
+            </CvSection>
+
+            <CvSection title={t`Skills`}>
+                {(cv.skills || []).length ? (
+                    <div className="flex flex-wrap gap-2">
+                        {cv.skills.map((s, idx) => (
+                            <span
+                                key={idx}
+                                className="px-3 py-1 text-xs rounded-full border border-gray-300 text-gray-800"
+                            >
+                                {s}
+                            </span>
+                        ))}
+                    </div>
+                ) : (
+                    <p className="text-sm text-gray-500">-</p>
+                )}
+            </CvSection>
         </div>
     );
 }

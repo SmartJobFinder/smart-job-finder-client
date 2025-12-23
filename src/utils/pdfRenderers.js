@@ -1,4 +1,3 @@
-
 import jsPDF from "jspdf";
 import { t } from "@/i18n/i18n"; // Giả định t có thể import được
 
@@ -16,7 +15,15 @@ const writeSectionTitle = (doc, cursorY, title) => {
 };
 
 // Helper: viết block text (tự wrap dòng)
-const writeParagraph = (doc, cursorY, text, fontSize = 11, bold = false, xPos = marginX, maxWidth = pageWidth - marginX * 2) => {
+const writeParagraph = (
+    doc,
+    cursorY,
+    text,
+    fontSize = 11,
+    bold = false,
+    xPos = marginX,
+    maxWidth = pageWidth - marginX * 2
+) => {
     if (!text) return cursorY;
     doc.setFont("helvetica", bold ? "bold" : "normal");
     doc.setFontSize(fontSize);
@@ -36,7 +43,6 @@ const writeParagraph = (doc, cursorY, text, fontSize = 11, bold = false, xPos = 
     return cursorY + 2; // Khoảng cách sau đoạn văn
 };
 
-
 // =======================================================
 // === MẪU 1: MẪU CƠ BẢN (Gần giống code hiện tại) ===
 // =======================================================
@@ -54,11 +60,18 @@ const renderTemplateBasic = (doc, cv) => {
     // Title/Location/Age
     doc.setFont("helvetica", "normal");
     doc.setFontSize(12);
-    const headerInfo = `${info.title || ""} - ${info.location || ""}${info.age ? ` • ${info.age} ${t`years old`}` : ""}`;
+    const headerInfo = `${info.title || ""} - ${info.location || ""}${
+        info.age ? ` • ${info.age} ${t`years old`}` : ""
+    }`;
     cursorY = writeParagraph(doc, cursorY, headerInfo, 11);
 
     // Gender
-    cursorY = writeParagraph(doc, cursorY, `${t`Gender`}: ${info.gender || ""}`, 10);
+    cursorY = writeParagraph(
+        doc,
+        cursorY,
+        `${t`Gender`}: ${info.gender || ""}`,
+        10
+    );
 
     // Separator line
     cursorY += 2;
@@ -80,7 +93,12 @@ const renderTemplateBasic = (doc, cv) => {
         cursorY = writeSectionTitle(doc, cursorY, t`Education`);
         cv.edu.forEach((e) => {
             cursorY = writeParagraph(doc, cursorY, e.schoolName, 11, true);
-            cursorY = writeParagraph(doc, cursorY, `${e.majors || ""} (${e.degree || ""})`, 10);
+            cursorY = writeParagraph(
+                doc,
+                cursorY,
+                `${e.majors || ""} (${e.degree || ""})`,
+                10
+            );
             cursorY = writeParagraph(doc, cursorY, e.duration || "", 10);
             cursorY += 3;
         });
@@ -90,7 +108,13 @@ const renderTemplateBasic = (doc, cv) => {
     if (cv.experience && cv.experience.length > 0) {
         cursorY = writeSectionTitle(doc, cursorY, t`Work Experience`);
         cv.experience.forEach((exp) => {
-            cursorY = writeParagraph(doc, cursorY, `${exp.position || ""} - ${exp.companyName || ""}`, 11, true);
+            cursorY = writeParagraph(
+                doc,
+                cursorY,
+                `${exp.position || ""} - ${exp.companyName || ""}`,
+                11,
+                true
+            );
             cursorY = writeParagraph(doc, cursorY, exp.duration || "", 10);
             cursorY = writeParagraph(doc, cursorY, exp.description || "", 10);
             cursorY += 3;
@@ -114,7 +138,7 @@ const renderTemplateTwoColumns = (doc, cv) => {
     const info = cv.information;
 
     // ====== CÀI ĐẶT CHUNG ======
-    const leftColWidth = 68;                    // Cột trái rộng hơn chút cho đẹp
+    const leftColWidth = 68; // Cột trái rộng hơn chút cho đẹp
     const leftPadding = 14;
     const rightX = marginX + leftColWidth + 12;
     const rightWidth = pageWidth - rightX - marginX;
@@ -147,7 +171,7 @@ const renderTemplateTwoColumns = (doc, cv) => {
         doc.setFontSize(fontSize);
         doc.setTextColor(220, 220, 220);
         const lines = doc.splitTextToSize(text, leftColWidth - leftPadding - 5);
-        lines.forEach(line => {
+        lines.forEach((line) => {
             doc.text(line, marginX + leftPadding, yLeft);
             yLeft += 5.5;
         });
@@ -199,14 +223,14 @@ const renderTemplateTwoColumns = (doc, cv) => {
     // Skills
     if (cv.skills?.length > 0) {
         leftSectionTitle(t`Skills`);
-        cv.skills.forEach(skill => leftBullet(skill));
+        cv.skills.forEach((skill) => leftBullet(skill));
         yLeft += 8;
     }
 
     // Languages (nếu có thêm field)
     if (cv.languages?.length > 0) {
         leftSectionTitle(t`Languages`);
-        cv.languages.forEach(lang => leftBullet(lang));
+        cv.languages.forEach((lang) => leftBullet(lang));
     }
 
     // ====================================
@@ -232,7 +256,7 @@ const renderTemplateTwoColumns = (doc, cv) => {
         doc.setFontSize(fontSize);
         doc.setTextColor(50, 50, 50);
         const lines = doc.splitTextToSize(text, rightWidth);
-        lines.forEach(line => {
+        lines.forEach((line) => {
             if (yRight > 280) {
                 doc.addPage();
                 // Reset nền cột trái cho trang mới
@@ -256,19 +280,28 @@ const renderTemplateTwoColumns = (doc, cv) => {
     // Experience
     if (cv.experience?.length > 0) {
         rightSectionTitle(t`Work Experience`);
-        cv.experience.forEach(exp => {
+        cv.experience.forEach((exp) => {
             // Position + Company
             doc.setFont("helvetica", "bold");
             doc.setFontSize(11.5);
             doc.setTextColor(0, 0, 0);
-            doc.text((exp.position || "") + " at " + (exp.companyName || ""), rightX, yRight);
+            doc.text(
+                (exp.position || "") + " at " + (exp.companyName || ""),
+                rightX,
+                yRight
+            );
             yRight += 6;
 
             // Duration + Location (nếu có)
             doc.setFont("helvetica", "italic");
             doc.setFontSize(9.5);
             doc.setTextColor(100, 100, 100);
-            doc.text((exp.duration || "") + (exp.location ? " • " + exp.location : ""), rightX, yRight);
+            doc.text(
+                (exp.duration || "") +
+                    (exp.location ? " • " + exp.location : ""),
+                rightX,
+                yRight
+            );
             yRight += 7;
 
             // Description
@@ -282,7 +315,7 @@ const renderTemplateTwoColumns = (doc, cv) => {
     // Education
     if (cv.edu?.length > 0) {
         rightSectionTitle(t`Education`);
-        cv.edu.forEach(e => {
+        cv.edu.forEach((e) => {
             doc.setFont("helvetica", "bold");
             doc.setFontSize(11);
             doc.text(e.schoolName || "", rightX, yRight);
@@ -290,7 +323,11 @@ const renderTemplateTwoColumns = (doc, cv) => {
 
             doc.setFont("helvetica", "normal");
             doc.setFontSize(10.5);
-            doc.text((e.majors || "") + (e.degree ? ", " + e.degree : ""), rightX, yRight);
+            doc.text(
+                (e.majors || "") + (e.degree ? ", " + e.degree : ""),
+                rightX,
+                yRight
+            );
             yRight += 5;
 
             doc.setFont("helvetica", "italic");
@@ -310,228 +347,163 @@ const renderTemplateTwoColumns = (doc, cv) => {
 
 const renderTemplateRightSidebar = (doc, cv) => {
     const info = cv?.information || {};
-    const pageHeight = 297;
 
-    // Layout
-    const sidebarWidth = 65;
-    const sidebarX = pageWidth - marginX - sidebarWidth;   // bắt đầu cột phải
-    const mainX = marginX;                                 // main content bên trái
-    const mainWidth = sidebarX - mainX - 8;                // trừ khoảng cách
+    // === HEADER - chỉ đen trắng ===
+    let yPos = 20;
 
-    // === VẼ BACKGROUND CỘT PHẢI (màu navy) ===
-    doc.setFillColor(10, 36, 63); // navy đậm
-    doc.rect(sidebarX, 0, pageWidth - sidebarX, pageHeight, "F");
-
-    // ============================
-    // === MAIN CONTENT (TRÁI) ===
-    // ============================
-    let yMain = 25;
-
-    // Header: Tên
+    // Tên
     doc.setTextColor(0, 0, 0);
     doc.setFont("helvetica", "bold");
-    doc.setFontSize(22);
-    doc.text(info.fullName || "", mainX, yMain);
-    yMain += 8;
+    doc.setFontSize(24);
+    doc.text(info.fullName || "", pageWidth / 2, yPos, { align: "center" });
+    yPos += 10;
 
-    // Chức danh
+    // Title
+    doc.setFontSize(14);
+    doc.text(info.title || "Students", pageWidth / 2, yPos, {
+        align: "center",
+    });
+    yPos += 8;
+
+    // Contact info
+    doc.setFontSize(10);
     doc.setFont("helvetica", "normal");
-    doc.setFontSize(12);
-    if (info.title) {
-        doc.setTextColor(90);
-        doc.text(info.title, mainX, yMain);
-        yMain += 10;
-        doc.setTextColor(0);
-    }
+    const contacts = [];
+    if (info.phone) contacts.push(info.phone);
+    if (info.email) contacts.push(info.email);
+    if (info.location) contacts.push(info.location);
 
-    // Helper: vẽ title section bên trái (Profile, Employment History,...)
-    const drawMainSectionTitle = (label) => {
+    const contactText = contacts.join("  |  ");
+    doc.text(contactText, pageWidth / 2, yPos, { align: "center" });
+    yPos += 8;
+
+    // Đường kẻ ngang
+    doc.setDrawColor(0, 0, 0);
+    doc.setLineWidth(1);
+    doc.line(marginX, yPos, pageWidth - marginX, yPos);
+    yPos += 10;
+
+    const addSection = (title, content) => {
+        if (yPos > 270) {
+            doc.addPage();
+            yPos = 20;
+        }
+
+        doc.setTextColor(0, 0, 0);
         doc.setFont("helvetica", "bold");
-        doc.setFontSize(13);
-        doc.setTextColor(10, 36, 63);
-        doc.text(label, mainX, yMain);
-        yMain += 3;
+        doc.setFontSize(14);
+        doc.text(title.toUpperCase(), marginX, yPos);
+        yPos += 6;
 
-        // gạch mảnh dưới title
-        doc.setDrawColor(10, 36, 63);
+        doc.setDrawColor(0, 0, 0);
         doc.setLineWidth(0.5);
-        doc.line(mainX, yMain, mainX + 35, yMain);
-        yMain += 5;
+        doc.line(marginX, yPos, pageWidth - marginX, yPos);
+        yPos += 6;
 
-        doc.setTextColor(0);
+        doc.setTextColor(0, 0, 0);
         doc.setFont("helvetica", "normal");
-        doc.setFontSize(11);
+        doc.setFontSize(10);
+
+        if (typeof content === "function") {
+            content();
+        } else {
+            const lines = doc.splitTextToSize(
+                content || "-",
+                pageWidth - 2 * marginX
+            );
+            lines.forEach((line) => {
+                if (yPos > 280) {
+                    doc.addPage();
+                    yPos = 20;
+                }
+                doc.text(line, marginX, yPos);
+                yPos += 5;
+            });
+        }
+        yPos += 4;
     };
 
-    // Profile / Summary
-    drawMainSectionTitle("Profile");
-    yMain = writeParagraph(doc, yMain, cv.introduce, 10.5, false, mainX, mainWidth);
-    yMain += 4;
+    // Professional Summary
+    addSection("Professional Summary", cv.introduce);
 
-    // Employment History
-    if (cv.experience && cv.experience.length > 0) {
-        drawMainSectionTitle("Employment History");
-
-        cv.experience.forEach((exp) => {
-            // Thời gian (dạng nhỏ, chữ in nghiêng)
-            doc.setFont("helvetica", "normal");
-            doc.setFontSize(8.5);
-            doc.setTextColor(120);
-            if (exp.duration) {
-                doc.text(exp.duration.toUpperCase(), mainX, yMain);
-                yMain += 4;
-            }
-            doc.setTextColor(0);
-
-            // Company + Location (optional)
-            doc.setFont("helvetica", "bold");
-            doc.setFontSize(10.5);
-            const companyLine = [exp.position, exp.companyName].filter(Boolean).join(", ");
-            yMain = writeParagraph(doc, yMain, companyLine, 10.5, true, mainX, mainWidth);
-
-            // Description (có thể là bullet hoặc đoạn thường)
-            doc.setFont("helvetica", "normal");
-            doc.setFontSize(10);
-            yMain = writeParagraph(doc, yMain, exp.description || "", 10, false, mainX, mainWidth);
-
-            yMain += 4;
-
-            // Page break basic
-            if (yMain > 270) {
-                doc.addPage();
-                // đơn giản: chỉ reset yMain, không vẽ lại sidebar (nếu muốn có thể vẽ lại)
-                yMain = 25;
-            }
-        });
-
-        yMain += 4;
-    }
+    // Career Objective
+    addSection("Career Objective", cv.objective);
 
     // Education
-    if (cv.edu && cv.edu.length > 0) {
-        drawMainSectionTitle("Education");
-
-        cv.edu.forEach((e) => {
+    addSection("Education", () => {
+        (cv.edu || []).forEach((e) => {
             doc.setFont("helvetica", "bold");
-            doc.setFontSize(10.5);
-            const degreeLine = e.degree
-                ? [e.degree, e.schoolName].filter(Boolean).join(", ")
-                : (e.schoolName || "");
-            yMain = writeParagraph(doc, yMain, degreeLine, 10.5, true, mainX, mainWidth);
-
+            doc.text(e.schoolName || "-", marginX, yPos);
             doc.setFont("helvetica", "normal");
             doc.setFontSize(9);
-            let subLine = "";
-            if (e.majors) subLine += e.majors;
-            if (e.duration) subLine += (subLine ? " | " : "") + e.duration;
-            if (subLine) {
-                yMain = writeParagraph(doc, yMain, subLine, 9, false, mainX, mainWidth);
-            }
+            doc.text(e.duration || "", pageWidth - marginX - 40, yPos, {
+                align: "right",
+            });
+            yPos += 5;
 
-            if (e.description) {
-                yMain = writeParagraph(doc, yMain, e.description, 9.5, false, mainX, mainWidth);
+            if (e.majors) {
+                doc.text(e.majors, marginX, yPos);
+                yPos += 4;
             }
-
-            yMain += 4;
-            if (yMain > 270) {
-                doc.addPage();
-                yMain = 25;
+            if (e.degree) {
+                doc.setFontSize(8);
+                doc.text(e.degree, marginX, yPos);
+                yPos += 4;
+                doc.setFontSize(10);
             }
+            yPos += 3;
         });
-    }
+    });
 
-    // ==============================
-    // === RIGHT SIDEBAR (PHẢI)  ===
-    // ==============================
-    let ySide = 30;
-    const sidePaddingX = sidebarX + 8;
-    const sideInnerWidth = sidebarWidth - 16;
-
-    doc.setTextColor(255, 255, 255);
-
-    // Helper: title trong sidebar (Details, Skills)
-    const drawSidebarTitle = (label) => {
-        doc.setFont("helvetica", "bold");
-        doc.setFontSize(11);
-        doc.text(label, sidePaddingX, ySide);
-        ySide += 5;
-
-        doc.setLineWidth(0.4);
-        doc.setDrawColor(255, 255, 255);
-        doc.line(sidePaddingX, ySide, sidePaddingX + 25, ySide);
-        ySide += 8;
-
-        doc.setFont("helvetica", "normal");
-        doc.setFontSize(9);
-    };
-
-    const writeSidebarText = (text) => {
-        if (!text) return;
-        ySide = writeParagraph(
-            doc,
-            ySide,
-            text,
-            9,
-            false,
-            sidePaddingX,
-            sideInnerWidth
-        );
-    };
-
-    // DETAILS
-    drawSidebarTitle("Details");
-    if (info.address) writeSidebarText(info.address);
-    else if (info.location) writeSidebarText(info.location);
-
-    if (info.phone) writeSidebarText(info.phone);
-    if (info.email) writeSidebarText(info.email);
-    if (info.website) writeSidebarText(info.website);
-
-    ySide += 8;
-
-    // SKILLS: mỗi skill là 1 "pill" chữ trắng nền border nhạt
-    if (cv.skills && cv.skills.length > 0) {
-        drawSidebarTitle("Skills");
-
-        cv.skills.forEach((skill) => {
-            if (!skill) return;
-
-            const label = typeof skill === "string" ? skill : skill.name || "";
-            const textWidth = doc.getTextWidth(label);
-            const pillPaddingX = 4;
-            const pillPaddingY = 3;
-            const pillWidth = Math.min(sideInnerWidth, textWidth + pillPaddingX * 2);
-            const pillHeight = 7;
-
-            // Nền pill
-            doc.setFillColor(18, 56, 93); // sáng hơn 1 chút
-            doc.rect(
-                sidePaddingX,
-                ySide - pillHeight + 5,
-                pillWidth,
-                pillHeight,
-                "F"
-            );
-
-            // Text skill
+    // Projects / Work Experience
+    addSection("Work Experience / Projects", () => {
+        (cv.experience || []).forEach((exp) => {
+            doc.setFont("helvetica", "bold");
+            doc.text(exp.position || "-", marginX, yPos);
             doc.setFont("helvetica", "normal");
-            doc.setFontSize(8.5);
-            doc.text(label, sidePaddingX + pillPaddingX, ySide + 1);
+            doc.setFontSize(9);
+            doc.text(exp.duration || "", pageWidth - marginX - 40, yPos, {
+                align: "right",
+            });
+            yPos += 5;
 
-            ySide += pillHeight + 3;
-
-            if (ySide > 270) {
-                // nếu quá trang, tạm dừng (đơn giản), có thể addPage để vẽ tiếp nếu muốn
-                return;
+            if (exp.companyName) {
+                doc.text(exp.companyName, marginX, yPos);
+                yPos += 4;
             }
+            if (exp.description) {
+                doc.setFontSize(9);
+                const lines = doc.splitTextToSize(
+                    exp.description,
+                    pageWidth - 2 * marginX
+                );
+                lines.forEach((line) => {
+                    if (yPos > 280) {
+                        doc.addPage();
+                        yPos = 20;
+                    }
+                    doc.text(line, marginX, yPos);
+                    yPos += 4;
+                });
+                doc.setFontSize(10);
+            }
+            yPos += 3;
         });
-    }
-};
+    });
 
+    // Skills
+    addSection("Skills", () => {
+        const skills = cv.skills || [];
+        skills.forEach((skill) => {
+            doc.text(`• ${skill}`, marginX, yPos);
+            yPos += 5;
+        });
+    });
+};
 
 // === Export Map ===
 export const pdfRenderers = {
     basic: renderTemplateBasic,
-    'two-columns': renderTemplateTwoColumns,
-    'right-sidebar': renderTemplateRightSidebar,
+    "two-columns": renderTemplateTwoColumns,
+    "right-sidebar": renderTemplateRightSidebar,
 };
