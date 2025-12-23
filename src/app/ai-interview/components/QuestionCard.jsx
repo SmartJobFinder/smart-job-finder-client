@@ -6,6 +6,7 @@ export default function QuestionCard({
   aiQuestionAudioUrl,
   questionAudioRef,
   isPlaying,
+  isManualPlay = false,
 }) {
   return (
     <div className="bg-white shadow-sm rounded-lg p-5 border border-gray-100">
@@ -38,12 +39,13 @@ export default function QuestionCard({
           onClick={onPlay}
           disabled={!aiQuestionAudioUrl}
           className={`px-3 py-2 rounded-lg text-xs font-semibold border transition
-            ${isPlaying
+            ${isPlaying && isManualPlay
               ? "bg-gray-100 text-gray-600 border-gray-200 cursor-not-allowed"
               : "bg-white text-gray-900 border-gray-200 hover:bg-gray-50"
             }`}
         >
-          {isPlaying ? "Playing…" : "Play"}
+          {/* Chỉ hiển thị "Playing..." khi user bấm play (manual play) */}
+          {isManualPlay && isPlaying ? "Playing…" : "Play"}
         </button>
       </div>
 
