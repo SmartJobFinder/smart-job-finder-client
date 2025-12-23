@@ -31,7 +31,7 @@ export default function CvPreviewModal({ open, onClose, template, cv }) {
     );
 }
 
-function CvTemplatePreview({ template, cv }) {
+export function CvTemplatePreview({ template, cv }) {
     switch (template) {
         case "two-columns":
             return <TwoColumnsPreview cv={cv} />;
@@ -174,7 +174,123 @@ function TwoColumnsPreview({ cv }) {
 }
 
 function RightSidebarPreview({ cv }) {
-    return <TwoColumnsPreview cv={cv} />;
+    const info = cv?.information || {};
+    const edu = cv?.edu || [];
+    const exp = cv?.experience || [];
+    const skills = cv?.skills || [];
+
+    return (
+        <div className="space-y-6 bg-white p-6">
+            {/* Header */}
+            <div className="text-center space-y-2">
+                <div className="text-3xl font-bold text-gray-900">
+                    {info.fullName || t`No Title`}
+                </div>
+                <div className="text-sm font-semibold text-gray-700">
+                    {info.title || t`General`}
+                </div>
+                <div className="flex flex-wrap items-center justify-center gap-4 text-sm text-gray-700">
+                    {info.phone ? <span>📞 {info.phone}</span> : null}
+                    {info.email ? <span>✉️ {info.email}</span> : null}
+                    {info.github ? <span>🔗 {info.github}</span> : null}
+                    {info.location ? <span>📍 {info.location}</span> : null}
+                </div>
+            </div>
+
+            <Divider />
+
+            {/* Objective */}
+            <Section title={t`Professional Summary`}>
+                <div className="text-sm leading-relaxed text-gray-800 whitespace-pre-line">
+                    {cv?.introduce || t`No content`}
+                </div>
+            </Section>
+
+            <Divider />
+
+            {/* Education */}
+            <Section title={t`Education`}>
+                {edu.length ? (
+                    <div className="space-y-4">
+                        {edu.map((e) => (
+                            <div key={e.id} className="space-y-1">
+                                <div className="flex items-center justify-between text-sm font-semibold text-gray-900">
+                                    <span>{e.schoolName || "-"}</span>
+                                    <span className="text-xs text-gray-600">
+                                        {e.duration || ""}
+                                    </span>
+                                </div>
+                                {e.majors ? (
+                                    <div className="text-sm text-gray-700">
+                                        {e.majors}
+                                    </div>
+                                ) : null}
+                                {e.degree ? (
+                                    <div className="text-xs text-gray-600">
+                                        {e.degree}
+                                    </div>
+                                ) : null}
+                            </div>
+                        ))}
+                    </div>
+                ) : (
+                    <Empty />
+                )}
+            </Section>
+
+            <Divider />
+
+            {/* Experience / Projects */}
+            <Section title={t`Projects`}>
+                {exp.length ? (
+                    <div className="space-y-4">
+                        {exp.map((x) => (
+                            <div key={x.id} className="space-y-1">
+                                <div className="flex items-center justify-between text-sm font-semibold text-gray-900">
+                                    <span>{x.position || "-"}</span>
+                                    <span className="text-xs text-gray-600">
+                                        {x.duration || ""}
+                                    </span>
+                                </div>
+                                {x.companyName ? (
+                                    <div className="text-sm text-gray-700">
+                                        {x.companyName}
+                                    </div>
+                                ) : null}
+                                {x.description ? (
+                                    <div className="text-sm text-gray-800 whitespace-pre-line">
+                                        {x.description}
+                                    </div>
+                                ) : null}
+                            </div>
+                        ))}
+                    </div>
+                ) : (
+                    <Empty />
+                )}
+            </Section>
+
+            <Divider />
+
+            {/* Skills */}
+            <Section title={t`Skills`}>
+                {skills.length ? (
+                    <div className="flex flex-wrap gap-2">
+                        {skills.map((s, idx) => (
+                            <span
+                                key={idx}
+                                className="px-3 py-1 text-xs rounded-full border border-gray-300 text-gray-800"
+                            >
+                                {s}
+                            </span>
+                        ))}
+                    </div>
+                ) : (
+                    <Empty />
+                )}
+            </Section>
+        </div>
+    );
 }
 
 function HeaderBlock({ info, compact }) {
@@ -210,6 +326,10 @@ function Section({ title, children }) {
             {children}
         </div>
     );
+}
+
+function Divider() {
+    return <hr className="border-t border-gray-400" />;
 }
 
 function Empty() {
