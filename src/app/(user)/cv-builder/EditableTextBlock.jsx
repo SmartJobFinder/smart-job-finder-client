@@ -48,7 +48,7 @@ export default function EditableTextBlock({
     <div className="space-y-2">
       <textarea
         value={draft}
-        onChange={(e) => setDraft(e.target.value)}
+        onChange={e => setDraft(e.target.value)}
         rows={minRows}
         className="w-full text-sm leading-relaxed text-gray-800 border border-gray-300 rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-blue-200"
         placeholder={t`Write here...`}

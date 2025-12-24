@@ -39,9 +39,10 @@ export default function QuestionCard({
           onClick={onPlay}
           disabled={!aiQuestionAudioUrl}
           className={`px-3 py-2 rounded-lg text-xs font-semibold border transition
-            ${isPlaying && isManualPlay
-              ? "bg-gray-100 text-gray-600 border-gray-200 cursor-not-allowed"
-              : "bg-white text-gray-900 border-gray-200 hover:bg-gray-50"
+            ${
+              isPlaying && isManualPlay
+                ? "bg-gray-100 text-gray-600 border-gray-200 cursor-not-allowed"
+                : "bg-white text-gray-900 border-gray-200 hover:bg-gray-50"
             }`}
         >
           {/* Chỉ hiển thị "Playing..." khi user bấm play (manual play) */}
@@ -84,8 +85,15 @@ function MiniWave() {
       <span className="w-[3px] h-[12px] bg-emerald-500 rounded-sm animate-[wave_1s_.45s_infinite]" />
       <style jsx>{`
         @keyframes wave {
-          0%, 100% { transform: scaleY(0.5); opacity: 0.6; }
-          50% { transform: scaleY(1.2); opacity: 1; }
+          0%,
+          100% {
+            transform: scaleY(0.5);
+            opacity: 0.6;
+          }
+          50% {
+            transform: scaleY(1.2);
+            opacity: 1;
+          }
         }
       `}</style>
     </span>

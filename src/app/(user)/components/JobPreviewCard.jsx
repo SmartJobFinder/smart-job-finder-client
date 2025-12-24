@@ -5,7 +5,10 @@ import { t } from "@/i18n/i18n";
 
 function stripHtml(html) {
   if (!html) return "";
-  return String(html).replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+  return String(html)
+    .replace(/<[^>]+>/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
 }
 
 function truncate(text, n = 220) {
@@ -37,7 +40,8 @@ function iconToEmoji(icon) {
   if (k.includes("heart")) return "❤️";
   if (k.includes("plane") || k.includes("vacation")) return "✈️";
   if (k.includes("graduation") || k.includes("learn")) return "🎓";
-  if (k.includes("money") || k.includes("salary") || k.includes("bonus")) return "💰";
+  if (k.includes("money") || k.includes("salary") || k.includes("bonus"))
+    return "💰";
   if (k.includes("gift")) return "🎁";
   if (k.includes("home") || k.includes("remote")) return "🏠";
   if (k.includes("clock") || k.includes("time")) return "⏰";
@@ -48,7 +52,10 @@ function iconToEmoji(icon) {
 export default function JobPreviewCard({ job, loading }) {
   const [open, setOpen] = useState(false);
 
-  const benefitList = useMemo(() => parseBenefits(job?.benefits), [job?.benefits]);
+  const benefitList = useMemo(
+    () => parseBenefits(job?.benefits),
+    [job?.benefits]
+  );
 
   const desc = useMemo(
     () => truncate(stripHtml(job?.description), 260),
@@ -64,7 +71,7 @@ export default function JobPreviewCard({ job, loading }) {
     // collapsed view: nếu benefits là JSON thì show list title
     if (benefitList?.length) {
       const titles = benefitList
-        .map((b) => (b?.title ? `• ${String(b.title).trim()}` : null))
+        .map(b => (b?.title ? `• ${String(b.title).trim()}` : null))
         .filter(Boolean)
         .slice(0, 6); // tránh quá dài
       return titles.length ? titles.join("\n") : "-";
@@ -99,7 +106,7 @@ export default function JobPreviewCard({ job, loading }) {
         </div>
 
         <button
-          onClick={() => setOpen((v) => !v)}
+          onClick={() => setOpen(v => !v)}
           className="shrink-0 text-sm font-semibold text-blue-700 hover:text-blue-900"
         >
           {open ? t`Hide` : t`View more`}

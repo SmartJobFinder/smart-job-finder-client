@@ -12,37 +12,37 @@ import AboutUsSection from "@/components/home/AboutUsSection";
 import EventsSection from "@/components/home/EventsSection";
 
 export default function HomePage() {
-    return (
-        <div className="container px-2 py-6 mx-auto sm:px-4 sm:py-8">
-            <section id="hero">
-                <HeroSection />
-            </section>
-            <section id="featured-jobs">
-                <FeaturedJobsSection />
-            </section>
-            <section id="top-companies">
-                <TopCompaniesSection />
-            </section>
-            <section id="events">
-                <EventsSection />
-            </section>
-            <section id="how-it-works">
-                <HowItWorksSection />
-            </section>
-            <section id="call-to-action">
-                <CallToActionSection />
-            </section>
-            {/* <section id="stats">
+  return (
+    <div className="container px-2 py-6 mx-auto sm:px-4 sm:py-8">
+      <section id="hero">
+        <HeroSection />
+      </section>
+      <section id="featured-jobs">
+        <FeaturedJobsSection />
+      </section>
+      <section id="top-companies">
+        <TopCompaniesSection />
+      </section>
+      <section id="events">
+        <EventsSection />
+      </section>
+      <section id="how-it-works">
+        <HowItWorksSection />
+      </section>
+      <section id="call-to-action">
+        <CallToActionSection />
+      </section>
+      {/* <section id="stats">
                 <StatsSection />
             </section> */}
-            <section id="categories">
-                <CategoriesSection />
-            </section>
-            {/* <VacanciesSection /> */}
-            <TestimonialsSection />
-            <section id="aboutUs">
-                <AboutUsSection />
-            </section>
-        </div>
-    );
+      <section id="categories">
+        <CategoriesSection />
+      </section>
+      {/* <VacanciesSection /> */}
+      <TestimonialsSection />
+      <section id="aboutUs">
+        <AboutUsSection />
+      </section>
+    </div>
+  );
 }

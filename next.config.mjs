@@ -1,5 +1,5 @@
 /** @type {import('next').NextConfig} */
-const stripTrailingSlash = (u) => (u ? u.replace(/\/+$/, "") : u);
+const stripTrailingSlash = u => (u ? u.replace(/\/+$/, "") : u);
 const nextConfig = {
   output: "standalone",
   env: {

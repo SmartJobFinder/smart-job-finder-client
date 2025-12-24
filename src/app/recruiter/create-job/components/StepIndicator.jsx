@@ -13,8 +13,8 @@ const StepIndicator = ({ steps, currentStep }) => {
                 currentStep === step.number
                   ? "text-blue-600"
                   : currentStep > step.number
-                  ? "text-blue-600"
-                  : "text-gray-400"
+                    ? "text-blue-600"
+                    : "text-gray-400"
               }`}
             >
               <div
@@ -22,8 +22,8 @@ const StepIndicator = ({ steps, currentStep }) => {
                   currentStep === step.number
                     ? "bg-blue-600 text-white"
                     : currentStep > step.number
-                    ? "bg-blue-600 text-white"
-                    : "bg-gray-200"
+                      ? "bg-blue-600 text-white"
+                      : "bg-gray-200"
                 }`}
               >
                 <step.icon className="w-6 h-6" />
@@ -45,4 +45,4 @@ const StepIndicator = ({ steps, currentStep }) => {
   );
 };
 
-export default StepIndicator; 
+export default StepIndicator;

@@ -1,11 +1,14 @@
 export default function robots() {
-  const site = 'https://jobfind.io.vn';
+  const site = "https://jobfind.io.vn";
   return {
     rules: [
-      { userAgent: '*', allow: '/' },
+      { userAgent: "*", allow: "/" },
       // Safety: block internal API proxies if any
-      { userAgent: '*', disallow: ['/api', '/recruiter', '/activate', '/demo-jodit'] }
+      {
+        userAgent: "*",
+        disallow: ["/api", "/recruiter", "/activate", "/demo-jodit"],
+      },
     ],
-    sitemap: `${site}/sitemap.xml`
+    sitemap: `${site}/sitemap.xml`,
   };
 }

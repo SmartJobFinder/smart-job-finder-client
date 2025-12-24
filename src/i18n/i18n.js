@@ -8,9 +8,14 @@ export const SUPPORTED = ["en", "vi", "ko"];
 let currentLang = "en";
 const listeners = new Set();
 
-const emit = () => listeners.forEach((cb) => { try { cb(); } catch {} });
+const emit = () =>
+  listeners.forEach(cb => {
+    try {
+      cb();
+    } catch {}
+  });
 
-export const subscribeToLanguageChange = (cb) => {
+export const subscribeToLanguageChange = cb => {
   listeners.add(cb);
   return () => listeners.delete(cb);
 };
@@ -19,14 +24,16 @@ export const useI18nLang = () =>
   useSyncExternalStore(
     subscribeToLanguageChange,
     () => currentLang, // client
-    () => currentLang  // ssr fallback
+    () => currentLang // ssr fallback
   );
 
 export const getCurrentLanguage = () => {
-  const saved = typeof window !== "undefined" ? localStorage.getItem("lang") : null;
+  const saved =
+    typeof window !== "undefined" ? localStorage.getItem("lang") : null;
   if (saved && SUPPORTED.includes(saved)) return saved;
-  const browser =
-    (typeof navigator !== "undefined" ? navigator.language : "en").split("-")[0];
+  const browser = (
+    typeof navigator !== "undefined" ? navigator.language : "en"
+  ).split("-")[0];
   return SUPPORTED.includes(browser) ? browser : "en";
 };
 
@@ -37,12 +44,13 @@ const loadLanguage = async (lang = "en") => {
 };
 
 export const initI18n = async () => {
-  let lang = typeof window !== "undefined" ? localStorage.getItem("lang") : null;
+  let lang =
+    typeof window !== "undefined" ? localStorage.getItem("lang") : null;
   if (!lang || !SUPPORTED.includes(lang)) lang = getCurrentLanguage();
   await setLanguage(lang);
 };
 
-export const setLanguage = async (lang) => {
+export const setLanguage = async lang => {
   await loadLanguage(lang);
   currentLang = lang;
   localStorage.setItem("lang", lang);

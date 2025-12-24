@@ -44,7 +44,5 @@ module.exports = {
       "2xl": "1536px",
     },
   },
-  plugins: [
-    require('@tailwindcss/typography'),
-  ],
+  plugins: [require("@tailwindcss/typography")],
 };

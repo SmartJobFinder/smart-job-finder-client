@@ -3,17 +3,17 @@
 import React from "react";
 import parse from "html-react-parser";
 import {
-    Heart,
-    Plane,
-    GraduationCap,
-    Coffee,
-    Car,
-    Home,
-    Shield,
-    Zap,
-    Users,
-    Trophy,
-    Clock,
+  Heart,
+  Plane,
+  GraduationCap,
+  Coffee,
+  Car,
+  Home,
+  Shield,
+  Zap,
+  Users,
+  Trophy,
+  Clock,
 } from "lucide-react";
 
 // CSS styles cho HTML content
@@ -68,149 +68,148 @@ const htmlContentStyles = `
 
 // Icon mapping cho benefits
 const benefitIcons = {
-    heart: Heart,
-    plane: Plane,
-    graduation: GraduationCap,
-    coffee: Coffee,
-    car: Car,
-    home: Home,
-    shield: Shield,
-    zap: Zap,
-    users: Users,
-    trophy: Trophy,
-    clock: Clock,
+  heart: Heart,
+  plane: Plane,
+  graduation: GraduationCap,
+  coffee: Coffee,
+  car: Car,
+  home: Home,
+  shield: Shield,
+  zap: Zap,
+  users: Users,
+  trophy: Trophy,
+  clock: Clock,
 };
 
 /**
  * Parse benefits JSON string thành array
  */
-const parseBenefits = (benefits) => {
-    if (!benefits) return [];
-    try {
-        if (typeof benefits === "string") {
-            const trimmed = benefits.trim();
-            // Nếu là JSON array
-            if (trimmed.startsWith("[") && trimmed.endsWith("]")) {
-                return JSON.parse(benefits);
-            }
-            // Nếu là string, tách theo từng dòng
-            return trimmed
-                .split("\n")
-                .filter((line) => line.trim() !== "")
-                .map((line, idx) => ({
-                    id: idx,
-                    icon: "heart", // hoặc có thể random tuỳ ý, mặc định icon trái tim
-                    title: line.replace(/^[-•–]\s*/, ""),
-                    description: "",
-                }));
-        }
-        // Nếu là array object như mong muốn
-        if (Array.isArray(benefits)) return benefits;
-        return [];
-    } catch (error) {
-        console.error("Error parsing benefits:", error);
-        return [];
+const parseBenefits = benefits => {
+  if (!benefits) return [];
+  try {
+    if (typeof benefits === "string") {
+      const trimmed = benefits.trim();
+      // Nếu là JSON array
+      if (trimmed.startsWith("[") && trimmed.endsWith("]")) {
+        return JSON.parse(benefits);
+      }
+      // Nếu là string, tách theo từng dòng
+      return trimmed
+        .split("\n")
+        .filter(line => line.trim() !== "")
+        .map((line, idx) => ({
+          id: idx,
+          icon: "heart", // hoặc có thể random tuỳ ý, mặc định icon trái tim
+          title: line.replace(/^[-•–]\s*/, ""),
+          description: "",
+        }));
     }
+    // Nếu là array object như mong muốn
+    if (Array.isArray(benefits)) return benefits;
+    return [];
+  } catch (error) {
+    console.error("Error parsing benefits:", error);
+    return [];
+  }
 };
 
 /**
  * Lấy icon component cho benefit
  */
-const getBenefitIcon = (iconType) => {
-    const IconComponent = benefitIcons[iconType] || Heart;
-    return <IconComponent className="w-5 h-5 text-blue-500" />;
+const getBenefitIcon = iconType => {
+  const IconComponent = benefitIcons[iconType] || Heart;
+  return <IconComponent className="w-5 h-5 text-blue-500" />;
 };
 
 /**
  * Component chính để parse và hiển thị job information
  */
 const ParseInfoJob = ({
-    description,
-    requirements,
-    benefits,
-    showDescription = true,
-    showRequirements = true,
-    showBenefits = true,
-    className = "",
-    descriptionTitle = "Job Description",
-    requirementsTitle = "Requirements",
-    benefitsTitle = "Benefits",
-    contentClassName = "text-base",
+  description,
+  requirements,
+  benefits,
+  showDescription = true,
+  showRequirements = true,
+  showBenefits = true,
+  className = "",
+  descriptionTitle = "Job Description",
+  requirementsTitle = "Requirements",
+  benefitsTitle = "Benefits",
+  contentClassName = "text-base",
 }) => {
-    const parsedBenefits = parseBenefits(benefits);
+  const parsedBenefits = parseBenefits(benefits);
 
-    return (
-        <>
-            <style>{htmlContentStyles}</style>
-            <div className={`space-y-6 ${className}`}>
-                {/* Description */}
-                {showDescription && description && (
-                    <div className="bg-white p-6 rounded-xl shadow-lg">
-                        <h3 className="text-lg font-semibold text-gray-800 mb-2">
-                            {descriptionTitle}
-                        </h3>
-                        <div
-                            className={`${contentClassName} text-gray-700 leading-relaxed parse-info-job`}
-                        >
-                            {parse(description)}
-                        </div>
-                    </div>
-                )}
-
-                {/* Requirements */}
-                {showRequirements && requirements && (
-                    <div className="bg-white p-6 rounded-xl shadow-lg">
-                        <h3 className="text-lg font-semibold text-gray-800 mb-2">
-                            {requirementsTitle}
-                        </h3>
-                        <div
-                            className={`${contentClassName} text-gray-700 leading-relaxed parse-info-job`}
-                        >
-                            {parse(requirements)}
-                        </div>
-                    </div>
-                )}
-
-                {/* Benefits */}
-                {showBenefits && parsedBenefits.length > 0 && (
-                    <div className="bg-white p-6 rounded-xl shadow-lg">
-                        <h3 className="text-lg font-semibold text-gray-800 mb-2">
-                            {benefitsTitle}
-                        </h3>
-                        <div className="space-y-4">
-                            {parsedBenefits.map((benefit, index) => (
-                                <div
-                                    key={benefit.id || index}
-                                    className="border border-gray-200 rounded-lg p-4"
-                                >
-                                    <div className="flex items-start space-x-3">
-                                        <div className="flex-shrink-0 mt-1">
-                                            {getBenefitIcon(benefit.icon)}
-                                        </div>
-                                        <div className="flex-1">
-                                            <h4 className="text-base font-semibold text-gray-900 mb-1">
-                                                {benefit.title}
-                                            </h4>
-                                            <div
-                                                className={`${contentClassName} text-gray-700 leading-relaxed parse-info-job`}
-                                            >
-                                                {parse(
-                                                    typeof benefit.description ===
-                                                        "string"
-                                                        ? benefit.description
-                                                        : ""
-                                                )}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                )}
+  return (
+    <>
+      <style>{htmlContentStyles}</style>
+      <div className={`space-y-6 ${className}`}>
+        {/* Description */}
+        {showDescription && description && (
+          <div className="bg-white p-6 rounded-xl shadow-lg">
+            <h3 className="text-lg font-semibold text-gray-800 mb-2">
+              {descriptionTitle}
+            </h3>
+            <div
+              className={`${contentClassName} text-gray-700 leading-relaxed parse-info-job`}
+            >
+              {parse(description)}
             </div>
-        </>
-    );
+          </div>
+        )}
+
+        {/* Requirements */}
+        {showRequirements && requirements && (
+          <div className="bg-white p-6 rounded-xl shadow-lg">
+            <h3 className="text-lg font-semibold text-gray-800 mb-2">
+              {requirementsTitle}
+            </h3>
+            <div
+              className={`${contentClassName} text-gray-700 leading-relaxed parse-info-job`}
+            >
+              {parse(requirements)}
+            </div>
+          </div>
+        )}
+
+        {/* Benefits */}
+        {showBenefits && parsedBenefits.length > 0 && (
+          <div className="bg-white p-6 rounded-xl shadow-lg">
+            <h3 className="text-lg font-semibold text-gray-800 mb-2">
+              {benefitsTitle}
+            </h3>
+            <div className="space-y-4">
+              {parsedBenefits.map((benefit, index) => (
+                <div
+                  key={benefit.id || index}
+                  className="border border-gray-200 rounded-lg p-4"
+                >
+                  <div className="flex items-start space-x-3">
+                    <div className="flex-shrink-0 mt-1">
+                      {getBenefitIcon(benefit.icon)}
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="text-base font-semibold text-gray-900 mb-1">
+                        {benefit.title}
+                      </h4>
+                      <div
+                        className={`${contentClassName} text-gray-700 leading-relaxed parse-info-job`}
+                      >
+                        {parse(
+                          typeof benefit.description === "string"
+                            ? benefit.description
+                            : ""
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    </>
+  );
 };
 
 export default ParseInfoJob;

@@ -7,11 +7,11 @@ import api from "@/lib/api";
  * @returns {Promise<{question: string, audioUrl?: string}>}
  */
 export async function generateInterviewQuestion({ jobId, topic }) {
-    const { data } = await api.post("/ai/interview/generate-question", {
-        jobId: jobId || null,
-        topic: topic || null,
-    });
-    return data; // { question: string, audioUrl?: string }
+  const { data } = await api.post("/ai/interview/generate-question", {
+    jobId: jobId || null,
+    topic: topic || null,
+  });
+  return data; // { question: string, audioUrl?: string }
 }
 
 /**
@@ -20,13 +20,13 @@ export async function generateInterviewQuestion({ jobId, topic }) {
  * @returns {Promise<{transcript: string, normalizedTranscript: string}>}
  */
 export async function transcribeAudio(audioFile) {
-    const formData = new FormData();
-    formData.append("audio", audioFile);
+  const formData = new FormData();
+  formData.append("audio", audioFile);
 
-    const { data } = await api.post("/ai/interview/transcribe", formData, {
-        headers: { "Content-Type": "multipart/form-data" },
-    });
-    return data; // { transcript: string, normalizedTranscript: string }
+  const { data } = await api.post("/ai/interview/transcribe", formData, {
+    headers: { "Content-Type": "multipart/form-data" },
+  });
+  return data; // { transcript: string, normalizedTranscript: string }
 }
 
 /**
@@ -35,13 +35,13 @@ export async function transcribeAudio(audioFile) {
  * @returns {Promise<{pace: number, emotion: string, confidence: number}>}
  */
 export async function analyzeAudio(audioFile) {
-    const formData = new FormData();
-    formData.append("audio", audioFile);
+  const formData = new FormData();
+  formData.append("audio", audioFile);
 
-    const { data } = await api.post("/ai/interview/analyze-audio", formData, {
-        headers: { "Content-Type": "multipart/form-data" },
-    });
-    return data; // { pace: number, emotion: string, confidence: number }
+  const { data } = await api.post("/ai/interview/analyze-audio", formData, {
+    headers: { "Content-Type": "multipart/form-data" },
+  });
+  return data; // { pace: number, emotion: string, confidence: number }
 }
 
 /**
@@ -50,12 +50,12 @@ export async function analyzeAudio(audioFile) {
  * @returns {Promise<{score: number, feedback: string, suggestions: string[]}>}
  */
 export async function evaluateAnswer({ question, answer, jobId }) {
-    const { data } = await api.post("/ai/interview/evaluate-answer", {
-        question,
-        answer,
-        jobId: jobId || null,
-    });
-    return data; // { score: number, feedback: string, suggestions: string[] }
+  const { data } = await api.post("/ai/interview/evaluate-answer", {
+    question,
+    answer,
+    jobId: jobId || null,
+  });
+  return data; // { score: number, feedback: string, suggestions: string[] }
 }
 
 /**
@@ -65,11 +65,11 @@ export async function evaluateAnswer({ question, answer, jobId }) {
  * @returns {Promise<{audioUrl: string}>}
  */
 export async function generateSpeech({ text, language = "en" }) {
-    const { data } = await api.post("/ai/interview/text-to-speech", {
-        text,
-        language,
-    });
-    return data; // { audioUrl: string }
+  const { data } = await api.post("/ai/interview/text-to-speech", {
+    text,
+    language,
+  });
+  return data; // { audioUrl: string }
 }
 
 /**
@@ -78,8 +78,6 @@ export async function generateSpeech({ text, language = "en" }) {
  * @returns {Promise<{overallScore: number, summary: string, recommendations: string[]}>}
  */
 export async function getSessionAnalysis(sessionId) {
-    const { data } = await api.get(
-        `/ai/interview/session/${sessionId}/analysis`
-    );
-    return data;
+  const { data } = await api.get(`/ai/interview/session/${sessionId}/analysis`);
+  return data;
 }

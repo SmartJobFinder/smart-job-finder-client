@@ -26,7 +26,7 @@ export const benefitIcons = [
   { value: "clock", label: "Flexible Hours", icon: Clock },
 ];
 
-export const getBenefitIcon = (iconType) => {
+export const getBenefitIcon = iconType => {
   const iconMap = {
     heart: Heart,
     plane: Plane,
@@ -42,4 +42,4 @@ export const getBenefitIcon = (iconType) => {
   };
   const IconComponent = iconMap[iconType] || Heart;
   return IconComponent;
-}; 
+};
