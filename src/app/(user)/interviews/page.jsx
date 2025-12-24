@@ -2,6 +2,7 @@
 import { useState, useMemo } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { t } from "@/i18n/i18n";
 
 import {
     useGetInterviewsForCandidateQuery,
@@ -58,20 +59,24 @@ function ApplicationMini({ jobId }) {
         useGetApplicationDetailByJobQuery(jobId);
 
     if (isFetching)
-        return <p className="text-sm text-gray-500">Loading application…</p>;
+        return (
+            <p className="text-sm text-gray-500">{t`Loading application…`}</p>
+        );
     if (isError)
         return (
             <p className="text-sm text-rose-600">
-                Failed to load application details.
+                {t`Failed to load application details.`}
             </p>
         );
     if (!data)
-        return <p className="text-sm text-gray-500">No application found.</p>;
+        return (
+            <p className="text-sm text-gray-500">{t`No application found.`}</p>
+        );
 
     return (
         <div className="space-y-2 text-sm">
             <div>
-                <strong>Status:</strong> {data.status}
+                <strong>{t`Status`}:</strong> {data.status}
             </div>
             {data.cv && (
                 <div className="flex items-center gap-2">
@@ -81,7 +86,7 @@ function ApplicationMini({ jobId }) {
                         target="_blank"
                         className="text-blue-600 hover:underline"
                     >
-                        View CV (PDF)
+                        {t`View CV (PDF)`}
                     </Link>
                 </div>
             )}
@@ -133,12 +138,12 @@ export default function CandidateInterviewsPage() {
             <div className="px-6 py-4 mb-4 border-b border-gray-100 bg-gradient-to-r from-blue-200 to-indigo-50 rounded-xl">
                 <div className="max-w-6xl mx-auto flex items-center justify-between">
                     <h1 className="pl-4 text-2xl font-bold text-gray-900 border-l-4 border-blue-800">
-                        My interview schedule
+                        {t`My interview schedule`}
                     </h1>
                     <Link href="/interviews/coach">
                         <Button className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700">
                             <Sparkles className="w-4 h-4 mr-2" />
-                            AI Interview Coach
+                            {t`AI Interview Coach`}
                         </Button>
                     </Link>
                 </div>
@@ -146,7 +151,7 @@ export default function CandidateInterviewsPage() {
 
             {list.length === 0 && (
                 <p className="text-center text-gray-600">
-                    There is no interview scheduled yet. Start applying now.
+                    {t`There is no interview scheduled yet. Start applying now.`}
                 </p>
             )}
 

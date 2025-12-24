@@ -3,6 +3,7 @@ import { useGetApplicationDetailByJobQuery } from "@/services/applicationService
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { FileText, Clock, Mail, Phone, User, FileImage } from "lucide-react";
 import ApplicationBadge from "@/components/ui/ApplicationBadge";
+import { t } from "@/i18n/i18n";
 
 export default function ApplicationDetail({ jobId }) {
     const { data, isLoading, error } = useGetApplicationDetailByJobQuery(jobId);
@@ -85,7 +86,7 @@ export default function ApplicationDetail({ jobId }) {
                 <div className="space-y-3">
                     <div className="flex items-center gap-2 text-gray-700">
                         <FileText className="w-4 h-4 text-blue-600" />
-                        <span className="font-medium">CV:</span>
+                        <span className="font-medium">{t`CV`}:</span>
                         {data?.cv ? (
                             <a
                                 href={data.cv}
@@ -93,10 +94,10 @@ export default function ApplicationDetail({ jobId }) {
                                 rel="noopener noreferrer"
                                 className="text-blue-600 underline hover:text-blue-800"
                             >
-                                View submitted CV
+                                {t`View submitted CV`}
                             </a>
                         ) : (
-                            <span className="text-gray-500">Not available</span>
+                            <span className="text-gray-500">{t`Not available`}</span>
                         )}
                     </div>
 
@@ -105,7 +106,7 @@ export default function ApplicationDetail({ jobId }) {
                             <div className="flex items-center gap-2 text-gray-700">
                                 <FileImage className="w-4 h-4 text-blue-600" />
                                 <span className="font-medium">
-                                    Cover Letter:
+                                    {t`Cover Letter`}:
                                 </span>
                             </div>
                             <div className="p-3 rounded-lg bg-gray-50">

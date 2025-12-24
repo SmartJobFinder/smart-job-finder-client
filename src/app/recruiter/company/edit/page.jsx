@@ -441,7 +441,7 @@ export default function EditCompanyPage() {
                             <div className="flex items-center gap-2 mb-4">
                                 <Map className="w-5 h-5 text-blue-600" />
                                 <h2 className="text-xl font-semibold">
-                                    Google Maps Location
+                                    {t`Google Maps Location`}
                                 </h2>
                             </div>
 
@@ -450,16 +450,16 @@ export default function EditCompanyPage() {
                                     htmlFor="mapEmbedUrl"
                                     className="text-sm font-medium"
                                 >
-                                    Map Embed URL or HTML{" "}
+                                    {t`Map Embed URL or HTML`}{" "}
                                     <span className="text-gray-400 text-xs font-normal">
-                                        (Optional)
+                                        {t`(Optional)`}
                                     </span>
                                 </Label>
                                 <textarea
                                     id="mapEmbedUrl"
                                     name="mapEmbedUrl"
                                     rows={3}
-                                    placeholder="Paste entire iframe HTML or just the URL..."
+                                    placeholder={t`Paste entire iframe HTML or just the URL...`}
                                     value={formData.mapEmbedUrl}
                                     onChange={(e) =>
                                         handleInputChange(
@@ -470,20 +470,18 @@ export default function EditCompanyPage() {
                                     className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
                                 />
                                 <p className="text-xs text-gray-500 mt-1">
-                                    Smart input: Paste the entire iframe HTML or
-                                    just the embed URL - we'll extract it
-                                    automatically!
+                                    {t`Smart input: Paste the entire iframe HTML or just the embed URL - we'll extract it automatically!`}
                                 </p>
                             </div>
 
                             {/* Helper Instructions - CẬP NHẬT */}
                             <div className="mt-3 p-4 bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-lg">
                                 <p className="text-sm text-gray-800 font-semibold mb-2 flex items-center gap-2">
-                                    How to get Google Maps Embed:
+                                    {t`How to get Google Maps Embed:`}
                                 </p>
                                 <ol className="text-xs text-gray-700 space-y-1.5 list-decimal list-inside ml-2">
                                     <li>
-                                        Go to{" "}
+                                        {t`Go to`}{" "}
                                         <a
                                             href="https://www.google.com/maps"
                                             target="_blank"
@@ -492,22 +490,24 @@ export default function EditCompanyPage() {
                                         >
                                             Google Maps
                                         </a>{" "}
-                                        and search your company address
+                                        {t`and search your company address`}
                                     </li>
                                     <li>
-                                        Click the <strong>"Share"</strong>{" "}
-                                        button
+                                        {t`Click the`}{" "}
+                                        <strong>{t`"Share"`}</strong>{" "}
+                                        {t`button`}
                                     </li>
                                     <li>
-                                        Select <strong>"Embed a map"</strong>{" "}
-                                        tab
+                                        {t`Select`}{" "}
+                                        <strong>{t`"Embed a map"`}</strong>{" "}
+                                        {t`tab`}
                                     </li>
                                     <li>
-                                        Click <strong>"COPY HTML"</strong>
+                                        {t`Click`}{" "}
+                                        <strong>{t`"COPY HTML"`}</strong>
                                     </li>
                                     <li className="font-medium text-blue-700">
-                                        Paste the entire HTML here - we'll
-                                        extract the URL automatically!
+                                        {t`Paste the entire HTML here - we'll extract the URL automatically!`}
                                     </li>
                                 </ol>
 

@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { CircleAlert, CircleCheckBig, Eye, Pencil, Trash2 } from "lucide-react";
+import { t } from "@/i18n/i18n";
 import LoadingScreen from "@/components/ui/loadingScreen";
 import { calculateProfileCompletion } from "@/features/profile/profileCompletion";
 import { normalizeProfileData } from "@/features/profile/normalizeProfileData";
@@ -83,16 +84,16 @@ export default function ManageCv() {
                 <div className="px-6 py-4 mb-4 border-b border-gray-100 bg-gradient-to-r from-blue-200 to-indigo-50 rounded-xl">
                     <div className="flex justify-between max-w-6xl mx-auto">
                         <h1 className="pl-4 text-2xl font-bold text-gray-900 border-l-4 border-blue-800">
-                            Cv Templates
+                            {t`Cv Templates`}
                         </h1>
                         <h1 className="flex items-center gap-2 pl-4 text-2xl font-bold text-gray-900">
                             {completion.percent < 100 ? (
                                 <>
-                                    {completion.percent}%{" Profile state"}
+                                    {completion.percent}% {t`Profile state`}
                                     {completion.percent < 70 ? (
                                         <>
                                             <span className="text-gray-600">
-                                                complete your profile
+                                                {t`complete your profile`}
                                             </span>
                                             <CircleAlert className="w-6 h-6 text-yellow-500" />
                                         </>
@@ -150,7 +151,7 @@ export default function ManageCv() {
                     ))}
                     {savedCvs.length === 0 && (
                         <div className="col-span-full text-center text-gray-500">
-                            No saved CVs yet.
+                            {t`No saved CVs yet.`}
                         </div>
                     )}
                 </div>

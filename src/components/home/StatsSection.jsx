@@ -1,33 +1,34 @@
 import React from "react";
 import { Briefcase, Building, PlusCircle, Users } from "lucide-react";
+import { t } from "@/i18n/i18n";
 
 const StatsSection = () => {
     const stats = [
         {
             icon: Briefcase,
             number: "1,75,324",
-            label: "Live Job",
+            label: t`Live Job`,
             bgColor: "bg-blue-100",
             iconColor: "text-blue-600",
         },
         {
             icon: Building,
             number: "97,354",
-            label: "Companies",
+            label: t`Companies`,
             bgColor: "bg-blue-100",
             iconColor: "text-blue-600",
         },
         {
             icon: Users,
             number: "38,47,154",
-            label: "Candidates",
+            label: t`Candidates`,
             bgColor: "bg-blue-100",
             iconColor: "text-blue-600",
         },
         {
             icon: PlusCircle,
             number: "7,532",
-            label: "New Jobs",
+            label: t`New Jobs`,
             bgColor: "bg-blue-100",
             iconColor: "text-blue-600",
         },

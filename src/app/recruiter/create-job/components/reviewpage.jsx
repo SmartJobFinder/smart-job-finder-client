@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { ArrowLeft } from "lucide-react";
 import { toast } from "react-toastify";
+import { t } from "@/i18n/i18n";
 
 // Import custom components
 import JobReviewHeader from "@/app/recruiter/create-job/components/JobReviewHeader";
@@ -65,12 +66,12 @@ export default function JobReviewPage({
         let newExpiredDateError = "";
 
         if (!reviewData.datePost) {
-            newDatePostError = "Please select a date posted";
+            newDatePostError = t`Please select a date posted`;
             isValid = false;
         }
 
         if (!reviewData.expiredDate) {
-            newExpiredDateError = "Please select an expired date";
+            newExpiredDateError = t`Please select an expired date`;
             isValid = false;
         }
 
@@ -79,8 +80,7 @@ export default function JobReviewPage({
             const expiredDate = new Date(reviewData.expiredDate);
 
             if (expiredDate <= datePost) {
-                newExpiredDateError =
-                    "Expired date must be after the date posted";
+                newExpiredDateError = t`Expired date must be after the date posted`;
                 isValid = false;
             }
         }
@@ -130,7 +130,7 @@ export default function JobReviewPage({
                     { position: "top-center" }
                 );
             } else if (!dateErrors) {
-                toast.error("Please fix the date fields", {
+                toast.error(t`Please fix the date fields`, {
                     position: "top-center",
                 });
             }
@@ -152,7 +152,7 @@ export default function JobReviewPage({
             setValidationResult(validation);
         } catch (error) {
             console.error("Validation error:", error);
-            toast.error("Failed to validate job posting", {
+            toast.error(t`Failed to validate job posting`, {
                 position: "top-center",
             });
             setShowValidationDialog(false);
@@ -277,7 +277,7 @@ export default function JobReviewPage({
                         disabled={isLoading}
                     >
                         <ArrowLeft className="w-4 h-4 mr-2" />
-                        Back to edit
+                        {t`Back to edit`}
                     </Button>
 
                     <Button
@@ -285,7 +285,7 @@ export default function JobReviewPage({
                         disabled={isLoading}
                         className="bg-blue-600 hover:bg-blue-700"
                     >
-                        {isLoading ? "Creating..." : "Create job"}
+                        {isLoading ? t`Creating...` : t`Create job`}
                     </Button>
                 </div>
             </div>
@@ -303,8 +303,8 @@ export default function JobReviewPage({
             {showSuccessDialog && (
                 <SuccessDialog
                     onClose={handleSuccess}
-                    title="Job created successfully!"
-                    message="Your job has been created and will be approved within 24 hours."
+                    title={t`Job created successfully!`}
+                    message={t`Your job has been created and will be approved within 24 hours.`}
                 />
             )}
         </div>

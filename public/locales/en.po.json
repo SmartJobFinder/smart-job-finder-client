@@ -15,13 +15,34 @@
           "Content-Type: text/plain; charset=UTF-8\nPlural-Forms: nplurals=2; plural=(n != 1);\nLanguage: en\nMIME-Version: 1.0\nContent-Transfer-Encoding: 8bit\n"
         ]
       },
-      "Home": { "msgid": "Home", "msgstr": ["Home"] },
-      "About": { "msgid": "About", "msgstr": ["About"] },
-      "Jobs": { "msgid": "Jobs", "msgstr": ["Jobs"] },
-      "Companies": { "msgid": "Companies", "msgstr": ["Companies"] },
-      "Categories": { "msgid": "Categories", "msgstr": ["Categories"] },
-      "Dashboard": { "msgid": "Dashboard", "msgstr": ["Dashboard"] },
-      "Find Jobs": { "msgid": "Find Jobs", "msgstr": ["Find Jobs"] },
+      "Home": {
+        "msgid": "Home",
+        "msgstr": ["Home"]
+      },
+      "About": {
+        "msgid": "About",
+        "msgstr": ["About"]
+      },
+      "Jobs": {
+        "msgid": "Jobs",
+        "msgstr": ["Jobs"]
+      },
+      "Companies": {
+        "msgid": "Companies",
+        "msgstr": ["Companies"]
+      },
+      "Categories": {
+        "msgid": "Categories",
+        "msgstr": ["Categories"]
+      },
+      "Dashboard": {
+        "msgid": "Dashboard",
+        "msgstr": ["Dashboard"]
+      },
+      "Find Jobs": {
+        "msgid": "Find Jobs",
+        "msgstr": ["Find Jobs"]
+      },
       "Favorite Jobs": {
         "msgid": "Favorite Jobs",
         "msgstr": ["Favorite Jobs"]
@@ -92,8 +113,14 @@
           "Discover opportunities that fit you perfectly—from your first job to a successful career ahead."
         ]
       },
-      "Featured job": { "msgid": "Featured job", "msgstr": ["Featured job"] },
-      "View All": { "msgid": "View All", "msgstr": ["View All"] },
+      "Featured job": {
+        "msgid": "Featured job",
+        "msgstr": ["Featured job"]
+      },
+      "View All": {
+        "msgid": "View All",
+        "msgstr": ["View All"]
+      },
       "Top companies": {
         "msgid": "Top companies",
         "msgstr": ["Top companies"]
@@ -132,14 +159,20 @@
           "Browse through thousands of job listings tailored to your profile and interests."
         ]
       },
-      "Apply job": { "msgid": "Apply job", "msgstr": ["Apply job"] },
+      "Apply job": {
+        "msgid": "Apply job",
+        "msgstr": ["Apply job"]
+      },
       "Submit your application with one click and get ready for new opportunities.": {
         "msgid": "Submit your application with one click and get ready for new opportunities.",
         "msgstr": [
           "Submit your application with one click and get ready for new opportunities."
         ]
       },
-      "Register Now": { "msgid": "Register Now", "msgstr": ["Register Now"] },
+      "Register Now": {
+        "msgid": "Register Now",
+        "msgstr": ["Register Now"]
+      },
       "Become a Candidate": {
         "msgid": "Become a Candidate",
         "msgstr": ["Become a Candidate"]
@@ -194,7 +227,10 @@
           "We focus on a curated selection of verified and high-quality job listings."
         ]
       },
-      "Simplicity": { "msgid": "Simplicity", "msgstr": ["Simplicity"] },
+      "Simplicity": {
+        "msgid": "Simplicity",
+        "msgstr": ["Simplicity"]
+      },
       "A streamlined, minimalist interface to make your search fast and stress-free.": {
         "msgid": "A streamlined, minimalist interface to make your search fast and stress-free.",
         "msgstr": [
@@ -217,28 +253,58 @@
         "msgid": "Our platform evolves based on the insights you share.",
         "msgstr": ["Our platform evolves based on the insights you share."]
       },
-      "Call now": { "msgid": "Call now", "msgstr": ["Call now"] },
-      "Quick Link": { "msgid": "Quick Link", "msgstr": ["Quick Link"] },
-      "About Us": { "msgid": "About Us", "msgstr": ["About Us"] },
-      "Statistics": { "msgid": "Statistics", "msgstr": ["Statistics"] },
-      "Candidate": { "msgid": "Candidate", "msgstr": ["Candidate"] },
+      "Call now": {
+        "msgid": "Call now",
+        "msgstr": ["Call now"]
+      },
+      "Quick Link": {
+        "msgid": "Quick Link",
+        "msgstr": ["Quick Link"]
+      },
+      "About Us": {
+        "msgid": "About Us",
+        "msgstr": ["About Us"]
+      },
+      "Statistics": {
+        "msgid": "Statistics",
+        "msgstr": ["Statistics"]
+      },
+      "Candidate": {
+        "msgid": "Candidate",
+        "msgstr": ["Candidate"]
+      },
       "Browse Companies": {
         "msgid": "Browse Companies",
         "msgstr": ["Browse Companies"]
       },
-      "Browse Jobs": { "msgid": "Browse Jobs", "msgstr": ["Browse Jobs"] },
+      "Browse Jobs": {
+        "msgid": "Browse Jobs",
+        "msgstr": ["Browse Jobs"]
+      },
       "Candidate Dashboard": {
         "msgid": "Candidate Dashboard",
         "msgstr": ["Candidate Dashboard"]
       },
-      "Saved Jobs": { "msgid": "Saved Jobs", "msgstr": ["Saved Jobs"] },
-      "Recruiter": { "msgid": "Recruiter", "msgstr": ["Recruiter"] },
-      "Post a Job": { "msgid": "Post a Job", "msgstr": ["Post a Job"] },
+      "Saved Jobs": {
+        "msgid": "Saved Jobs",
+        "msgstr": ["Saved Jobs"]
+      },
+      "Recruiter": {
+        "msgid": "Recruiter",
+        "msgstr": ["Recruiter"]
+      },
+      "Post a Job": {
+        "msgid": "Post a Job",
+        "msgstr": ["Post a Job"]
+      },
       "Recruiter Dashboard": {
         "msgid": "Recruiter Dashboard",
         "msgstr": ["Recruiter Dashboard"]
       },
-      "Applications": { "msgid": "Applications", "msgstr": ["Applications"] },
+      "Applications": {
+        "msgid": "Applications",
+        "msgstr": ["Applications"]
+      },
       "Company Profile": {
         "msgid": "Company Profile",
         "msgstr": ["Company Profile"]
@@ -247,24 +313,54 @@
         "msgid": "2025 JobFind. All rights Reserved",
         "msgstr": ["2025 JobFind. All rights Reserved"]
       },
-      "Register": { "msgid": "Register", "msgstr": ["Register"] },
-      "Login": { "msgid": "Login", "msgstr": ["Login"] },
-      "Work Type": { "msgid": "Work Type", "msgstr": ["Work Type"] },
-      "Levels": { "msgid": "Levels", "msgstr": ["Levels"] },
-      "Skills": { "msgid": "Skills", "msgstr": ["Skills"] },
+      "Register": {
+        "msgid": "Register",
+        "msgstr": ["Register"]
+      },
+      "Login": {
+        "msgid": "Login",
+        "msgstr": ["Login"]
+      },
+      "Work Type": {
+        "msgid": "Work Type",
+        "msgstr": ["Work Type"]
+      },
+      "Levels": {
+        "msgid": "Levels",
+        "msgstr": ["Levels"]
+      },
+      "Skills": {
+        "msgid": "Skills",
+        "msgstr": ["Skills"]
+      },
       "Job Description": {
         "msgid": "Job Description",
         "msgstr": ["Job Description"]
       },
-      "Requirements": { "msgid": "Requirements", "msgstr": ["Requirements"] },
-      "Benefits": { "msgid": "Benefits", "msgstr": ["Benefits"] },
+      "Requirements": {
+        "msgid": "Requirements",
+        "msgstr": ["Requirements"]
+      },
+      "Benefits": {
+        "msgid": "Benefits",
+        "msgstr": ["Benefits"]
+      },
       "Work Location": {
         "msgid": "Work Location",
         "msgstr": ["Work Location"]
       },
-      "Similar Jobs": { "msgid": "Similar Jobs", "msgstr": ["Similar Jobs"] },
-      "See More": { "msgid": "See More", "msgstr": ["See More"] },
-      "Show less": { "msgid": "Show less", "msgstr": ["Show less"] },
+      "Similar Jobs": {
+        "msgid": "Similar Jobs",
+        "msgstr": ["Similar Jobs"]
+      },
+      "See More": {
+        "msgid": "See More",
+        "msgstr": ["See More"]
+      },
+      "Show less": {
+        "msgid": "Show less",
+        "msgstr": ["Show less"]
+      },
       "Search for a company": {
         "msgid": "Search for a company",
         "msgstr": ["Search for a company"]
@@ -315,19 +411,40 @@
         "msgid": "Popular searches",
         "msgstr": ["Popular searches"]
       },
-      "Search": { "msgid": "Search", "msgstr": ["Search"] },
+      "Search": {
+        "msgid": "Search",
+        "msgstr": ["Search"]
+      },
       "Discover companies that match your interests and skills. Search by name, location, industry, or size.": {
         "msgid": "Discover companies that match your interests and skills. Search by name, location, industry, or size.",
         "msgstr": [
           "Discover companies that match your interests and skills. Search by name, location, industry, or size."
         ]
       },
-      "Filter": { "msgid": "Filter", "msgstr": ["Filter"] },
-      "Clear all": { "msgid": "Clear all", "msgstr": ["Clear all"] },
-      "Industry": { "msgid": "Industry", "msgstr": ["Industry"] },
-      "Company size": { "msgid": "Company size", "msgstr": ["Company size"] },
-      "Founded year": { "msgid": "Founded year", "msgstr": ["Founded year"] },
-      "Unfollow": { "msgid": "Unfollow", "msgstr": ["Unfollow"] },
+      "Filter": {
+        "msgid": "Filter",
+        "msgstr": ["Filter"]
+      },
+      "Clear all": {
+        "msgid": "Clear all",
+        "msgstr": ["Clear all"]
+      },
+      "Industry": {
+        "msgid": "Industry",
+        "msgstr": ["Industry"]
+      },
+      "Company size": {
+        "msgid": "Company size",
+        "msgstr": ["Company size"]
+      },
+      "Founded year": {
+        "msgid": "Founded year",
+        "msgstr": ["Founded year"]
+      },
+      "Unfollow": {
+        "msgid": "Unfollow",
+        "msgstr": ["Unfollow"]
+      },
       "Follow Company": {
         "msgid": "Follow Company",
         "msgstr": ["Follow Company"]
@@ -340,8 +457,14 @@
         "msgid": "Please log in to continue.",
         "msgstr": ["Please log in to continue."]
       },
-      "Close": { "msgid": "Close", "msgstr": ["Close"] },
-      "Logout": { "msgid": "Logout", "msgstr": ["Logout"] },
+      "Close": {
+        "msgid": "Close",
+        "msgstr": ["Close"]
+      },
+      "Logout": {
+        "msgid": "Logout",
+        "msgstr": ["Logout"]
+      },
       "Company Introduction": {
         "msgid": "Company Introduction",
         "msgstr": ["Company Introduction"]
@@ -350,7 +473,10 @@
         "msgid": "Contact Information",
         "msgstr": ["Contact Information"]
       },
-      "Job Openings": { "msgid": "Job Openings", "msgstr": ["Job Openings"] },
+      "Job Openings": {
+        "msgid": "Job Openings",
+        "msgstr": ["Job Openings"]
+      },
       "Representative brands in the same field": {
         "msgid": "Representative brands in the same field",
         "msgstr": ["Representative brands in the same field"]
@@ -393,7 +519,10 @@
         "msgid": "Don't have an account yet?",
         "msgstr": ["Don't have an account yet?"]
       },
-      "Create one": { "msgid": "Create one", "msgstr": ["Create one"] },
+      "Create one": {
+        "msgid": "Create one",
+        "msgstr": ["Create one"]
+      },
       "Create your Candidate account": {
         "msgid": "Create your Candidate account",
         "msgstr": ["Create your Candidate account"]
@@ -412,7 +541,10 @@
         "msgid": "Post jobs, manage applicants, and hire faster.",
         "msgstr": ["Post jobs, manage applicants, and hire faster."]
       },
-      "Welcome to": { "msgid": "Welcome to", "msgstr": ["Welcome to"] },
+      "Welcome to": {
+        "msgid": "Welcome to",
+        "msgstr": ["Welcome to"]
+      },
       "If you have trouble logging in or creating an account, please contact Job Find via": {
         "msgid": "If you have trouble logging in or creating an account, please contact Job Find via",
         "msgstr": [
@@ -427,22 +559,34 @@
         "msgid": "Terms of Service",
         "msgstr": ["Terms of Service"]
       },
-      "and": { "msgid": "and", "msgstr": ["and"] },
+      "and": {
+        "msgid": "and",
+        "msgstr": ["and"]
+      },
       "Privacy Policy": {
         "msgid": "Privacy Policy",
         "msgstr": ["Privacy Policy"]
       },
-      "of JobFind": { "msgid": "of JobFind", "msgstr": ["of JobFind"] },
+      "of JobFind": {
+        "msgid": "of JobFind",
+        "msgstr": ["of JobFind"]
+      },
       "Already have an account?": {
         "msgid": "Already have an account?",
         "msgstr": ["Already have an account?"]
       },
-      "Login Now": { "msgid": "Login Now", "msgstr": ["Login Now"] },
+      "Login Now": {
+        "msgid": "Login Now",
+        "msgstr": ["Login Now"]
+      },
       "Job title, Keyword...": {
         "msgid": "Job title, Keyword...",
         "msgstr": ["Job title, Keyword..."]
       },
-      "Find Job": { "msgid": "Find Job", "msgstr": ["Find Job"] },
+      "Find Job": {
+        "msgid": "Find Job",
+        "msgstr": ["Find Job"]
+      },
       "Company Events": {
         "msgid": "Company Events",
         "msgstr": ["Company Events"]
@@ -463,11 +607,26 @@
           "A special journey bringing K-Tech College 2025 candidates closer to Korean enterprises and global work culture. Memorable experiences and clearer views of a global career path."
         ]
       },
-      "August": { "msgid": "August", "msgstr": ["August"] },
-      "July": { "msgid": "July", "msgstr": ["July"] },
-      "June": { "msgid": "June", "msgstr": ["June"] },
-      "May": { "msgid": "May", "msgstr": ["May"] },
-      "Korea": { "msgid": "Korea", "msgstr": ["Korea"] },
+      "August": {
+        "msgid": "August",
+        "msgstr": ["August"]
+      },
+      "July": {
+        "msgid": "July",
+        "msgstr": ["July"]
+      },
+      "June": {
+        "msgid": "June",
+        "msgstr": ["June"]
+      },
+      "May": {
+        "msgid": "May",
+        "msgstr": ["May"]
+      },
+      "Korea": {
+        "msgid": "Korea",
+        "msgstr": ["Korea"]
+      },
       "Event Highlight": {
         "msgid": "Event Highlight",
         "msgstr": ["Event Highlight"]
@@ -530,7 +689,10 @@
         "msgid": "All companies",
         "msgstr": ["All companies"]
       },
-      "Sort by:": { "msgid": "Sort by:", "msgstr": ["Sort by:"] },
+      "Sort by:": {
+        "msgid": "Sort by:",
+        "msgstr": ["Sort by:"]
+      },
       "Default (A-Z)": {
         "msgid": "Default (A-Z)",
         "msgstr": ["Default (A-Z)"]
@@ -547,7 +709,10 @@
         "msgid": "Account Information",
         "msgstr": ["Account Information"]
       },
-      "Full name": { "msgid": "Full name", "msgstr": ["Full name"] },
+      "Full name": {
+        "msgid": "Full name",
+        "msgstr": ["Full name"]
+      },
       "Your account name is synchronized with profile information.": {
         "msgid": "Your account name is synchronized with profile information.",
         "msgstr": [
@@ -558,7 +723,10 @@
         "msgid": "Update profile information",
         "msgstr": ["Update profile information"]
       },
-      "Password": { "msgid": "Password", "msgstr": ["Password"] },
+      "Password": {
+        "msgid": "Password",
+        "msgstr": ["Password"]
+      },
       "You signed up with Google, so your account doesn’t have a password.": {
         "msgid": "You signed up with Google, so your account doesn’t have a password.",
         "msgstr": [
@@ -581,7 +749,6 @@
         "msgid": "Page",
         "msgstr": ["Page"]
       },
-
       "Company Name (A-Z)": {
         "msgid": "Company Name (A-Z)",
         "msgstr": ["Company Name (A-Z)"]
@@ -606,24 +773,60 @@
         "msgid": "Founded Year (Oldest)",
         "msgstr": ["Founded Year (Oldest)"]
       },
-      "Searching": { "msgid": "Searching", "msgstr": ["Searching"] },
-      "Not found": { "msgid": "Not found", "msgstr": ["Not found"] },
-      "Reset": { "msgid": "Reset", "msgstr": ["Reset"] },
-      "See Detail": { "msgid": "See Detail", "msgstr": ["See Detail"] },
+      "Searching": {
+        "msgid": "Searching",
+        "msgstr": ["Searching"]
+      },
+      "Not found": {
+        "msgid": "Not found",
+        "msgstr": ["Not found"]
+      },
+      "Reset": {
+        "msgid": "Reset",
+        "msgstr": ["Reset"]
+      },
+      "See Detail": {
+        "msgid": "See Detail",
+        "msgstr": ["See Detail"]
+      },
       "Please select at least 1 Category to display the list Skills.": {
         "msgid": "Please select at least 1 Category to display the list Skills.",
         "msgstr": [
           "Please select at least 1 Category to display the list Skills."
         ]
       },
-      "City": { "msgid": "City", "msgstr": ["City"] },
-      "Re-applying": { "msgid": "Re-applying", "msgstr": ["Re-applying"] },
-      "Submitting": { "msgid": "Submitting", "msgstr": ["Submitting"] },
-      "Re-apply": { "msgid": "Re-apply", "msgstr": ["Re-apply"] },
-      "Apply": { "msgid": "Apply", "msgstr": ["Apply"] },
-      "Unsaved": { "msgid": "Unsaved", "msgstr": ["Unsaved"] },
-      "Save job": { "msgid": "Save job", "msgstr": ["Save job"] },
-      "Unsave job": { "msgid": "Unsave job", "msgstr": ["Unsave job"] },
+      "City": {
+        "msgid": "City",
+        "msgstr": ["City"]
+      },
+      "Re-applying": {
+        "msgid": "Re-applying",
+        "msgstr": ["Re-applying"]
+      },
+      "Submitting": {
+        "msgid": "Submitting",
+        "msgstr": ["Submitting"]
+      },
+      "Re-apply": {
+        "msgid": "Re-apply",
+        "msgstr": ["Re-apply"]
+      },
+      "Apply": {
+        "msgid": "Apply",
+        "msgstr": ["Apply"]
+      },
+      "Unsaved": {
+        "msgid": "Unsaved",
+        "msgstr": ["Unsaved"]
+      },
+      "Save job": {
+        "msgid": "Save job",
+        "msgstr": ["Save job"]
+      },
+      "Unsave job": {
+        "msgid": "Unsave job",
+        "msgstr": ["Unsave job"]
+      },
       "Check suitability with AI": {
         "msgid": "Check suitability with AI",
         "msgstr": ["Check suitability with AI"]
@@ -648,20 +851,50 @@
         "msgid": "Select industry",
         "msgstr": ["Select industry"]
       },
-      "Location": { "msgid": "Location", "msgstr": ["Location"] },
-      "Saved": { "msgid": "Saved", "msgstr": ["Saved"] },
-      "Save": { "msgid": "Save", "msgstr": ["Save"] },
-      "Report": { "msgid": "Report", "msgstr": ["Report"] },
-      "Cancel": { "msgid": "Cancel", "msgstr": ["Cancel"] },
-      "Cover Letter": { "msgid": "Cover Letter", "msgstr": ["Cover Letter"] },
-      "Phone Number": { "msgid": "Phone Number", "msgstr": ["Phone Number"] },
-      "Full Name": { "msgid": "Full Name", "msgstr": ["Full Name"] },
+      "Location": {
+        "msgid": "Location",
+        "msgstr": ["Location"]
+      },
+      "Saved": {
+        "msgid": "Saved",
+        "msgstr": ["Saved"]
+      },
+      "Save": {
+        "msgid": "Save",
+        "msgstr": ["Save"]
+      },
+      "Report": {
+        "msgid": "Report",
+        "msgstr": ["Report"]
+      },
+      "Cancel": {
+        "msgid": "Cancel",
+        "msgstr": ["Cancel"]
+      },
+      "Cover Letter": {
+        "msgid": "Cover Letter",
+        "msgstr": ["Cover Letter"]
+      },
+      "Phone Number": {
+        "msgid": "Phone Number",
+        "msgstr": ["Phone Number"]
+      },
+      "Full Name": {
+        "msgid": "Full Name",
+        "msgstr": ["Full Name"]
+      },
       "Selected File": {
         "msgid": "Selected File",
         "msgstr": ["Selected File"]
       },
-      "Change CV": { "msgid": "Change CV", "msgstr": ["Change CV"] },
-      "Upload CV": { "msgid": "Upload CV", "msgstr": ["Upload CV"] },
+      "Change CV": {
+        "msgid": "Change CV",
+        "msgstr": ["Change CV"]
+      },
+      "Upload CV": {
+        "msgid": "Upload CV",
+        "msgstr": ["Upload CV"]
+      },
       "Upload New CV": {
         "msgid": "Upload New CV",
         "msgstr": ["Upload New CV"]
@@ -670,8 +903,14 @@
         "msgid": "Keep Current CV",
         "msgstr": ["Keep Current CV"]
       },
-      "Download": { "msgid": "Download", "msgstr": ["Download"] },
-      "View": { "msgid": "View", "msgstr": ["View"] },
+      "Download": {
+        "msgid": "Download",
+        "msgstr": ["Download"]
+      },
+      "View": {
+        "msgid": "View",
+        "msgstr": ["View"]
+      },
       "Previously Submitted CV": {
         "msgid": "Previously Submitted CV",
         "msgstr": ["Previously Submitted CV"]
@@ -706,7 +945,10 @@
         "msgid": "Job saved successfully",
         "msgstr": ["Job saved successfully"]
       },
-      "Job unsaved": { "msgid": "Job unsaved", "msgstr": ["Job unsaved"] },
+      "Job unsaved": {
+        "msgid": "Job unsaved",
+        "msgstr": ["Job unsaved"]
+      },
       "You have reached the re-application limit (2 times).": {
         "msgid": "You have reached the re-application limit (2 times).",
         "msgstr": ["You have reached the re-application limit (2 times)."]
@@ -715,10 +957,22 @@
         "msgid": "You re-applied 30 minutes ago. Please wait to try again.",
         "msgstr": ["You re-applied 30 minutes ago. Please wait to try again."]
       },
-      "View Details": { "msgid": "View Details", "msgstr": ["View Details"] },
-      "Loading": { "msgid": "Loading", "msgstr": ["Loading"] },
-      "Profile": { "msgid": "Profile", "msgstr": ["Profile"] },
-      "Manage CV": { "msgid": "Manage CV", "msgstr": ["Manage CV"] },
+      "View Details": {
+        "msgid": "View Details",
+        "msgstr": ["View Details"]
+      },
+      "Loading": {
+        "msgid": "Loading",
+        "msgstr": ["Loading"]
+      },
+      "Profile": {
+        "msgid": "Profile",
+        "msgstr": ["Profile"]
+      },
+      "Manage CV": {
+        "msgid": "Manage CV",
+        "msgstr": ["Manage CV"]
+      },
       "My Interviews": {
         "msgid": "My Interviews",
         "msgstr": ["My Interviews"]
@@ -727,15 +981,30 @@
         "msgid": "Company Follows",
         "msgstr": ["Company Follows"]
       },
-      "My Jobs": { "msgid": "My Jobs", "msgstr": ["My Jobs"] },
-      "Settings": { "msgid": "Settings", "msgstr": ["Settings"] },
-      "Manage Jobs": { "msgid": "Manage Jobs", "msgstr": ["Manage Jobs"] },
-      "Candidates": { "msgid": "Candidates", "msgstr": ["Candidates"] },
+      "My Jobs": {
+        "msgid": "My Jobs",
+        "msgstr": ["My Jobs"]
+      },
+      "Settings": {
+        "msgid": "Settings",
+        "msgstr": ["Settings"]
+      },
+      "Manage Jobs": {
+        "msgid": "Manage Jobs",
+        "msgstr": ["Manage Jobs"]
+      },
+      "Candidates": {
+        "msgid": "Candidates",
+        "msgstr": ["Candidates"]
+      },
       "Payment History": {
         "msgid": "Payment History",
         "msgstr": ["Payment History"]
       },
-      "Upgrade Vip": { "msgid": "Upgrade Vip", "msgstr": ["Upgrade Vip"] },
+      "Upgrade Vip": {
+        "msgid": "Upgrade Vip",
+        "msgstr": ["Upgrade Vip"]
+      },
       "General": {
         "msgid": "General",
         "msgstr": ["General"]
@@ -752,7 +1021,10 @@
         "msgid": "Expired Date:",
         "msgstr": ["Expired Date:"]
       },
-      "Expired": { "msgid": "Expired", "msgstr": ["Expired"] },
+      "Expired": {
+        "msgid": "Expired",
+        "msgstr": ["Expired"]
+      },
       "Skills Requirements": {
         "msgid": "Skills Requirements",
         "msgstr": ["Skills Requirements"]
@@ -833,7 +1105,10 @@
         "msgid": "Peak Day",
         "msgstr": ["Peak Day"]
       },
-      "Today": { "msgid": "Today", "msgstr": ["Today"] },
+      "Today": {
+        "msgid": "Today",
+        "msgstr": ["Today"]
+      },
       "Recent Activity & Insights": {
         "msgid": "Recent Activity & Insights",
         "msgstr": ["Recent Activity & Insights"]
@@ -898,7 +1173,10 @@
         "msgid": "Interviewed",
         "msgstr": ["Interviewed"]
       },
-      "Company": { "msgid": "Company", "msgstr": ["Company"] },
+      "Company": {
+        "msgid": "Company",
+        "msgstr": ["Company"]
+      },
       "Manage Jobs - All": {
         "msgid": "Manage Jobs - All",
         "msgstr": ["Manage Jobs - All"]
@@ -911,13 +1189,22 @@
         "msgid": "All",
         "msgstr": ["All"]
       },
-      "Active": { "msgid": "Active", "msgstr": ["Active"] },
-      "Draft": { "msgid": "Draft", "msgstr": ["Draft"] },
+      "Active": {
+        "msgid": "Active",
+        "msgstr": ["Active"]
+      },
+      "Draft": {
+        "msgid": "Draft",
+        "msgstr": ["Draft"]
+      },
       "page": {
         "msgid": "page",
         "msgstr": ["page"]
       },
-      "Newest": { "msgid": "Newest", "msgstr": ["Newest"] },
+      "Newest": {
+        "msgid": "Newest",
+        "msgstr": ["Newest"]
+      },
       "Expiring soon": {
         "msgid": "Expiring soon",
         "msgstr": ["Expiring soon"]
@@ -926,7 +1213,10 @@
         "msgid": "Expired recently",
         "msgstr": ["Expired recently"]
       },
-      "Total": { "msgid": "Total", "msgstr": ["Total"] },
+      "Total": {
+        "msgid": "Total",
+        "msgstr": ["Total"]
+      },
       "Previous page": {
         "msgid": "Previous page",
         "msgstr": ["Previous page"]
@@ -935,23 +1225,44 @@
         "msgid": "Next page",
         "msgstr": ["Next page"]
       },
-      "Posted": { "msgid": "Posted", "msgstr": ["Posted"] },
-      "Edit": { "msgid": "Edit", "msgstr": ["Edit"] },
-      "Edit Job": { "msgid": "Edit Job", "msgstr": ["Edit Job"] },
+      "Posted": {
+        "msgid": "Posted",
+        "msgstr": ["Posted"]
+      },
+      "Edit": {
+        "msgid": "Edit",
+        "msgstr": ["Edit"]
+      },
+      "Edit Job": {
+        "msgid": "Edit Job",
+        "msgstr": ["Edit Job"]
+      },
       "You can only edit basic information (title, status, expired date, description). To edit everything, please deactivate the job and create a new one.": {
         "msgid": "You can only edit basic information (title, status, expired date, description). To edit everything, please deactivate the job and create a new one.",
         "msgstr": [
           "You can only edit basic information (title, status, expired date, description). To edit everything, please deactivate the job and create a new one."
         ]
       },
-      "Title": { "msgid": "Title", "msgstr": ["Title"] },
-      "Status": { "msgid": "Status", "msgstr": ["Status"] },
-      "Inactive": { "msgid": "Inactive", "msgstr": ["Inactive"] },
+      "Title": {
+        "msgid": "Title",
+        "msgstr": ["Title"]
+      },
+      "Status": {
+        "msgid": "Status",
+        "msgstr": ["Status"]
+      },
+      "Inactive": {
+        "msgid": "Inactive",
+        "msgstr": ["Inactive"]
+      },
       "Expired date": {
         "msgid": "Expired date",
         "msgstr": ["Expired date"]
       },
-      "Description": { "msgid": "Description", "msgstr": ["Description"] },
+      "Description": {
+        "msgid": "Description",
+        "msgstr": ["Description"]
+      },
       "No jobs found": {
         "msgid": "No jobs found",
         "msgstr": ["No jobs found"]
@@ -1000,12 +1311,18 @@
         "msgid": "Job Name",
         "msgstr": ["Job Name"]
       },
-      "Actions": { "msgid": "Actions", "msgstr": ["Actions"] },
+      "Actions": {
+        "msgid": "Actions",
+        "msgstr": ["Actions"]
+      },
       "See Application": {
         "msgid": "See Application",
         "msgstr": ["See Application"]
       },
-      "Details": { "msgid": "Details", "msgstr": ["Details"] },
+      "Details": {
+        "msgid": "Details",
+        "msgstr": ["Details"]
+      },
       "Create Interview": {
         "msgid": "Create Interview",
         "msgstr": ["Create Interview"]
@@ -1026,7 +1343,10 @@
         "msgid": "Profile Information",
         "msgstr": ["Profile Information"]
       },
-      "Website": { "msgid": "Website", "msgstr": ["Website"] },
+      "Website": {
+        "msgid": "Website",
+        "msgstr": ["Website"]
+      },
       "Update Status": {
         "msgid": "Update Status",
         "msgstr": ["Update Status"]
@@ -1039,17 +1359,26 @@
         "msgid": "REJECTED",
         "msgstr": ["REJECTED"]
       },
-      "Update": { "msgid": "Update", "msgstr": ["Update"] },
+      "Update": {
+        "msgid": "Update",
+        "msgstr": ["Update"]
+      },
       "Scheduled": {
         "msgid": "Scheduled",
         "msgstr": ["Scheduled"]
       },
-      "Job": { "msgid": "Job", "msgstr": ["Job"] },
+      "Job": {
+        "msgid": "Job",
+        "msgstr": ["Job"]
+      },
       "Duration": {
         "msgid": "Duration",
         "msgstr": ["Duration"]
       },
-      "min": { "msgid": "min", "msgstr": ["min"] },
+      "min": {
+        "msgid": "min",
+        "msgstr": ["min"]
+      },
       "Open meeting": {
         "msgid": "Open meeting",
         "msgstr": ["Open meeting"]
@@ -1085,6 +1414,814 @@
       "Company Description": {
         "msgid": "Company Description",
         "msgstr": ["Company Description"]
+      },
+      "Action": {
+        "msgid": "Action",
+        "msgstr": ["Action"]
+      },
+      "Displaying": {
+        "msgid": "Displaying",
+        "msgstr": ["Displaying"]
+      },
+      "No companies found": {
+        "msgid": "No companies found",
+        "msgstr": ["No companies found"]
+      },
+      "Try changing your search or filter": {
+        "msgid": "Try changing your search or filter",
+        "msgstr": ["Try changing your search or filter"]
+      },
+      "companies": {
+        "msgid": "companies",
+        "msgstr": ["companies"]
+      },
+      "out of": {
+        "msgid": "out of",
+        "msgstr": ["out of"]
+      },
+      "Select province/city": {
+        "msgid": "Select province/city",
+        "msgstr": ["Select province/city"]
+      },
+      "Search province/city...": {
+        "msgid": "Search province/city...",
+        "msgstr": ["Search province/city..."]
+      },
+      "Enter your full name": {
+        "msgid": "Enter your full name",
+        "msgstr": ["Enter your full name"]
+      },
+      "you@example.com": {
+        "msgid": "you@example.com",
+        "msgstr": ["you@example.com"]
+      },
+      "Enter your phone number": {
+        "msgid": "Enter your phone number",
+        "msgstr": ["Enter your phone number"]
+      },
+      "Enter password": {
+        "msgid": "Enter password",
+        "msgstr": ["Enter password"]
+      },
+      "Re-enter your password": {
+        "msgid": "Re-enter your password",
+        "msgstr": ["Re-enter your password"]
+      },
+      "you@company.com": {
+        "msgid": "you@company.com",
+        "msgstr": ["you@company.com"]
+      },
+      "Enter your email": {
+        "msgid": "Enter your email",
+        "msgstr": ["Enter your email"]
+      },
+      "Enter new password": {
+        "msgid": "Enter new password",
+        "msgstr": ["Enter new password"]
+      },
+      "Please confirm the new password": {
+        "msgid": "Please confirm the new password",
+        "msgstr": ["Please confirm the new password"]
+      },
+      "Re-enter your new password": {
+        "msgid": "Re-enter your new password",
+        "msgstr": ["Re-enter your new password"]
+      },
+      "Enter current password": {
+        "msgid": "Enter current password",
+        "msgstr": ["Enter current password"]
+      },
+      "Confirm new password": {
+        "msgid": "Confirm new password",
+        "msgstr": ["Confirm new password"]
+      },
+      "Size": {
+        "msgid": "Size",
+        "msgstr": ["Size"]
+      },
+      "Sort": {
+        "msgid": "Sort",
+        "msgstr": ["Sort"]
+      },
+      "Select status": {
+        "msgid": "Select status",
+        "msgstr": ["Select status"]
+      },
+      "Select city": {
+        "msgid": "Select city",
+        "msgstr": ["Select city"]
+      },
+      "Select one or more categories": {
+        "msgid": "Select one or more categories",
+        "msgstr": ["Select one or more categories"]
+      },
+      "Live Job": {
+        "msgid": "Live Job",
+        "msgstr": ["Live Job"]
+      },
+      "Candidates": {
+        "msgid": "Candidates",
+        "msgstr": ["Candidates"]
+      },
+      "New Jobs": {
+        "msgid": "New Jobs",
+        "msgstr": ["New Jobs"]
+      },
+      "Graphics & Design": {
+        "msgid": "Graphics & Design",
+        "msgstr": ["Graphics & Design"]
+      },
+      "Code & Programming": {
+        "msgid": "Code & Programming",
+        "msgstr": ["Code & Programming"]
+      },
+      "Digital Marketing": {
+        "msgid": "Digital Marketing",
+        "msgstr": ["Digital Marketing"]
+      },
+      "Video & Animation": {
+        "msgid": "Video & Animation",
+        "msgstr": ["Video & Animation"]
+      },
+      "Music & Audio": {
+        "msgid": "Music & Audio",
+        "msgstr": ["Music & Audio"]
+      },
+      "Account & Finance": {
+        "msgid": "Account & Finance",
+        "msgstr": ["Account & Finance"]
+      },
+      "Health & Care": {
+        "msgid": "Health & Care",
+        "msgstr": ["Health & Care"]
+      },
+      "Data & Science": {
+        "msgid": "Data & Science",
+        "msgstr": ["Data & Science"]
+      },
+      "UI/UX Designer": {
+        "msgid": "UI/UX Designer",
+        "msgstr": ["UI/UX Designer"]
+      },
+      "Creative Director": {
+        "msgid": "Creative Director",
+        "msgstr": ["Creative Director"]
+      },
+      "Intern": {
+        "msgid": "Intern",
+        "msgstr": ["Intern"]
+      },
+      "Software Engineer": {
+        "msgid": "Software Engineer",
+        "msgstr": ["Software Engineer"]
+      },
+      "Võ Nhật Hào": {
+        "msgid": "Võ Nhật Hào",
+        "msgstr": ["Võ Nhật Hào"]
+      },
+      "Phạm Văn Phúc": {
+        "msgid": "Phạm Văn Phúc",
+        "msgstr": ["Phạm Văn Phúc"]
+      },
+      "Ngô Đức Huy": {
+        "msgid": "Ngô Đức Huy",
+        "msgstr": ["Ngô Đức Huy"]
+      },
+      "Nguyễn Đức Huy": {
+        "msgid": "Nguyễn Đức Huy",
+        "msgstr": ["Nguyễn Đức Huy"]
+      },
+      "JobFind has a clean, modern interface that makes job searching feel effortless. I found exactly what I was looking for in just a few days!": {
+        "msgid": "JobFind has a clean, modern interface that makes job searching feel effortless. I found exactly what I was looking for in just a few days!",
+        "msgstr": [
+          "JobFind has a clean, modern interface that makes job searching feel effortless. I found exactly what I was looking for in just a few days!"
+        ]
+      },
+      "The job search and application process is incredibly smooth. JobFind helped me connect with companies that truly match my creative vision.": {
+        "msgid": "The job search and application process is incredibly smooth. JobFind helped me connect with companies that truly match my creative vision.",
+        "msgstr": [
+          "The job search and application process is incredibly smooth. JobFind helped me connect with companies that truly match my creative vision."
+        ]
+      },
+      "As an intern looking for my first opportunity, JobFind gave me access to real openings and helpful tips. I landed my first internship thanks to this platform!": {
+        "msgid": "As an intern looking for my first opportunity, JobFind gave me access to real openings and helpful tips. I landed my first internship thanks to this platform!",
+        "msgstr": [
+          "As an intern looking for my first opportunity, JobFind gave me access to real openings and helpful tips. I landed my first internship thanks to this platform!"
+        ]
+      },
+      "Over 1,000 users – including myself – have found jobs through JobFind. It's not just a platform; it's a launchpad for your career.": {
+        "msgid": "Over 1,000 users – including myself – have found jobs through JobFind. It's not just a platform; it's a launchpad for your career.",
+        "msgstr": [
+          "Over 1,000 users – including myself – have found jobs through JobFind. It's not just a platform; it's a launchpad for your career."
+        ]
+      },
+      "Enter job description...": {
+        "msgid": "Enter job description...",
+        "msgstr": ["Enter job description..."]
+      },
+      "Enter content...": {
+        "msgid": "Enter content...",
+        "msgstr": ["Enter content..."]
+      },
+      "You've received feedback for this question. You can move on to the next one.": {
+        "msgid": "You've received feedback for this question. You can move on to the next one.",
+        "msgstr": [
+          "You've received feedback for this question. You can move on to the next one."
+        ]
+      },
+      "Please answer and receive feedback before moving to the next question.": {
+        "msgid": "Please answer and receive feedback before moving to the next question.",
+        "msgstr": [
+          "Please answer and receive feedback before moving to the next question."
+        ]
+      },
+      "Finish interview": {
+        "msgid": "Finish interview",
+        "msgstr": ["Finish interview"]
+      },
+      "Next question": {
+        "msgid": "Next question",
+        "msgstr": ["Next question"]
+      },
+      "Cv Templates": {
+        "msgid": "Cv Templates",
+        "msgstr": ["CV Templates"]
+      },
+      "Profile state": {
+        "msgid": "Profile state",
+        "msgstr": ["Profile state"]
+      },
+      "complete your profile": {
+        "msgid": "complete your profile",
+        "msgstr": ["complete your profile"]
+      },
+      "No saved CVs yet.": {
+        "msgid": "No saved CVs yet.",
+        "msgstr": ["No saved CVs yet."]
+      },
+      "completed": {
+        "msgid": "completed",
+        "msgstr": ["completed"]
+      },
+      "Congratulations!": {
+        "msgid": "Congratulations!",
+        "msgstr": ["Congratulations!"]
+      },
+      "You are ready to generate your CV. Keep completing your profile for a more attractive CV.": {
+        "msgid": "You are ready to generate your CV. Keep completing your profile for a more attractive CV.",
+        "msgstr": [
+          "You are ready to generate your CV. Keep completing your profile for a more attractive CV."
+        ]
+      },
+      "Need": {
+        "msgid": "Need",
+        "msgstr": ["Need"]
+      },
+      "more to complete CV": {
+        "msgid": "more to complete CV",
+        "msgstr": ["more to complete CV"]
+      },
+      "CV Upload": {
+        "msgid": "CV Upload",
+        "msgstr": ["CV Upload"]
+      },
+      "Upload CV (PDF)": {
+        "msgid": "Upload CV (PDF)",
+        "msgstr": ["Upload CV (PDF)"]
+      },
+      "Temporary CV": {
+        "msgid": "Temporary CV",
+        "msgstr": ["Temporary CV"]
+      },
+      "My interview schedule": {
+        "msgid": "My interview schedule",
+        "msgstr": ["My interview schedule"]
+      },
+      "There is no interview scheduled yet. Start applying now.": {
+        "msgid": "There is no interview scheduled yet. Start applying now.",
+        "msgstr": ["There is no interview scheduled yet. Start applying now."]
+      },
+      "Loading application…": {
+        "msgid": "Loading application…",
+        "msgstr": ["Loading application…"]
+      },
+      "Failed to load application details.": {
+        "msgid": "Failed to load application details.",
+        "msgstr": ["Failed to load application details."]
+      },
+      "No application found.": {
+        "msgid": "No application found.",
+        "msgstr": ["No application found."]
+      },
+      "View CV (PDF)": {
+        "msgid": "View CV (PDF)",
+        "msgstr": ["View CV (PDF)"]
+      },
+      "Untitled Job": {
+        "msgid": "Untitled Job",
+        "msgstr": ["Untitled Job"]
+      },
+      "Unknown Company": {
+        "msgid": "Unknown Company",
+        "msgstr": ["Unknown Company"]
+      },
+      "Practice your interview skills with AI-powered feedback": {
+        "msgid": "Practice your interview skills with AI-powered feedback",
+        "msgstr": ["Practice your interview skills with AI-powered feedback"]
+      },
+      "Select Interview Context": {
+        "msgid": "Select Interview Context",
+        "msgstr": ["Select Interview Context"]
+      },
+      "Choose a job description or skill to practice with": {
+        "msgid": "Choose a job description or skill to practice with",
+        "msgstr": ["Choose a job description or skill to practice with"]
+      },
+      "By Job Description": {
+        "msgid": "By Job Description",
+        "msgstr": ["By Job Description"]
+      },
+      "By Skill": {
+        "msgid": "By Skill",
+        "msgstr": ["By Skill"]
+      },
+      "Suggestions for Improvement:": {
+        "msgid": "Suggestions for Improvement:",
+        "msgstr": ["Suggestions for Improvement:"]
+      },
+      "Listen to Feedback:": {
+        "msgid": "Listen to Feedback:",
+        "msgstr": ["Listen to Feedback:"]
+      },
+      "View submitted CV": {
+        "msgid": "View submitted CV",
+        "msgstr": ["View submitted CV"]
+      },
+      "Not available": {
+        "msgid": "Not available",
+        "msgstr": ["Not available"]
+      },
+      "Cover Letter": {
+        "msgid": "Cover Letter",
+        "msgstr": ["Cover Letter"]
+      },
+      "Basic Template": {
+        "msgid": "Basic Template",
+        "msgstr": ["Basic Template"]
+      },
+      "Two Columns Template": {
+        "msgid": "Two Columns Template",
+        "msgstr": ["Two Columns Template"]
+      },
+      "Template 3": {
+        "msgid": "Template 3",
+        "msgstr": ["Template 3"]
+      },
+      "Students": {
+        "msgid": "Students",
+        "msgstr": ["Students"]
+      },
+      "VIP 1 month": {
+        "msgid": "VIP 1 month",
+        "msgstr": ["VIP 1 month"]
+      },
+      "VIP 3 months": {
+        "msgid": "VIP 3 months",
+        "msgstr": ["VIP 3 months"]
+      },
+      "VIP 6 months": {
+        "msgid": "VIP 6 months",
+        "msgstr": ["VIP 6 months"]
+      },
+      "Tag VIP Company": {
+        "msgid": "Tag VIP Company",
+        "msgstr": ["Tag VIP Company"]
+      },
+      "Your company will be recommended by JobFind": {
+        "msgid": "Your company will be recommended by JobFind",
+        "msgstr": ["Your company will be recommended by JobFind"]
+      },
+      "Your job will stand out more on search page": {
+        "msgid": "Your job will stand out more on search page",
+        "msgstr": ["Your job will stand out more on search page"]
+      },
+      "Get more jobs posted than normal companies every month": {
+        "msgid": "Get more jobs posted than normal companies every month",
+        "msgstr": ["Get more jobs posted than normal companies every month"]
+      },
+      "24/7 Support": {
+        "msgid": "24/7 Support",
+        "msgstr": ["24/7 Support"]
+      },
+      "Fullscreen": {
+        "msgid": "Fullscreen",
+        "msgstr": ["Fullscreen"]
+      },
+      "Showcase your soft skills": {
+        "msgid": "Showcase your soft skills",
+        "msgstr": ["Showcase your soft skills"]
+      },
+      "Level": {
+        "msgid": "Level",
+        "msgstr": ["Level"]
+      },
+      "Unnamed": {
+        "msgid": "Unnamed",
+        "msgstr": ["Unnamed"]
+      },
+      "Vui lòng chọn loại báo cáo": {
+        "msgid": "Vui lòng chọn loại báo cáo",
+        "msgstr": ["Please select report type"]
+      },
+      "Vui lòng nhập nội dung báo cáo": {
+        "msgid": "Vui lòng nhập nội dung báo cáo",
+        "msgstr": ["Please enter report content"]
+      },
+      "Bạn cần xác nhận nội dung báo cáo là chính xác": {
+        "msgid": "Bạn cần xác nhận nội dung báo cáo là chính xác",
+        "msgstr": ["You need to confirm the report content is accurate"]
+      },
+      "Full Editor (Tất cả tính năng)": {
+        "msgid": "Full Editor (Tất cả tính năng)",
+        "msgstr": ["Full Editor (All features)"]
+      },
+      "Optimized Editor (Subset của Full Editor)": {
+        "msgid": "Optimized Editor (Subset của Full Editor)",
+        "msgstr": ["Optimized Editor (Subset of Full Editor)"]
+      },
+      "Minimal Editor (Chỉ cơ bản)": {
+        "msgid": "Minimal Editor (Chỉ cơ bản)",
+        "msgstr": ["Minimal Editor (Basic only)"]
+      },
+      "So sánh các phiên bản": {
+        "msgid": "So sánh các phiên bản",
+        "msgstr": ["Compare versions"]
+      },
+      "HTML Output": {
+        "msgid": "HTML Output",
+        "msgstr": ["HTML Output"]
+      },
+      "Not specified": {
+        "msgid": "Not specified",
+        "msgstr": ["Not specified"]
+      },
+      "Google Maps Location": {
+        "msgid": "Google Maps Location",
+        "msgstr": ["Google Maps Location"]
+      },
+      "Map Embed URL or HTML": {
+        "msgid": "Map Embed URL or HTML",
+        "msgstr": ["Map Embed URL or HTML"]
+      },
+      "(Optional)": {
+        "msgid": "(Optional)",
+        "msgstr": ["(Optional)"]
+      },
+      "Paste entire iframe HTML or just the URL...": {
+        "msgid": "Paste entire iframe HTML or just the URL...",
+        "msgstr": ["Paste entire iframe HTML or just the URL..."]
+      },
+      "Smart input: Paste the entire iframe HTML or just the embed URL - we'll extract it automatically!": {
+        "msgid": "Smart input: Paste the entire iframe HTML or just the embed URL - we'll extract it automatically!",
+        "msgstr": [
+          "Smart input: Paste the entire iframe HTML or just the embed URL - we'll extract it automatically!"
+        ]
+      },
+      "How to get Google Maps Embed:": {
+        "msgid": "How to get Google Maps Embed:",
+        "msgstr": ["How to get Google Maps Embed:"]
+      },
+      "Go to": {
+        "msgid": "Go to",
+        "msgstr": ["Go to"]
+      },
+      "and search your company address": {
+        "msgid": "and search your company address",
+        "msgstr": ["and search your company address"]
+      },
+      "Click the": {
+        "msgid": "Click the",
+        "msgstr": ["Click the"]
+      },
+      "\"Share\"": {
+        "msgid": "\"Share\"",
+        "msgstr": ["\"Share\""]
+      },
+      "button": {
+        "msgid": "button",
+        "msgstr": ["button"]
+      },
+      "Select": {
+        "msgid": "Select",
+        "msgstr": ["Select"]
+      },
+      "\"Embed a map\"": {
+        "msgid": "\"Embed a map\"",
+        "msgstr": ["\"Embed a map\""]
+      },
+      "tab": {
+        "msgid": "tab",
+        "msgstr": ["tab"]
+      },
+      "Click": {
+        "msgid": "Click",
+        "msgstr": ["Click"]
+      },
+      "\"COPY HTML\"": {
+        "msgid": "\"COPY HTML\"",
+        "msgstr": ["\"COPY HTML\""]
+      },
+      "Paste the entire HTML here - we'll extract the URL automatically!": {
+        "msgid": "Paste the entire HTML here - we'll extract the URL automatically!",
+        "msgstr": [
+          "Paste the entire HTML here - we'll extract the URL automatically!"
+        ]
+      },
+      "Unable to load your profile": {
+        "msgid": "Unable to load your profile",
+        "msgstr": ["Unable to load your profile"]
+      },
+      "Profile completion is below 70%. Need ${percent}% more to use AI matching.": {
+        "msgid": "Profile completion is below 70%. Need ${percent}% more to use AI matching.",
+        "msgstr": [
+          "Profile completion is below 70%. Need ${percent}% more to use AI matching."
+        ]
+      },
+      "Failed to convert job or profile data": {
+        "msgid": "Failed to convert job or profile data",
+        "msgstr": ["Failed to convert job or profile data"]
+      },
+      "Failed to analyze CV match. Please try again.": {
+        "msgid": "Failed to analyze CV match. Please try again.",
+        "msgstr": ["Failed to analyze CV match. Please try again."]
+      },
+      "Ready to apply!": {
+        "msgid": "Ready to apply!",
+        "msgstr": ["Ready to apply!"]
+      },
+      "Analyzing...": {
+        "msgid": "Analyzing...",
+        "msgstr": ["Analyzing..."]
+      },
+      "Excellent Match": {
+        "msgid": "Excellent Match",
+        "msgstr": ["Excellent Match"]
+      },
+      "Partial Match": {
+        "msgid": "Partial Match",
+        "msgstr": ["Partial Match"]
+      },
+      "Low Match": {
+        "msgid": "Low Match",
+        "msgstr": ["Low Match"]
+      },
+      "Analyzing Your Profile...": {
+        "msgid": "Analyzing Your Profile...",
+        "msgstr": ["Analyzing Your Profile..."]
+      },
+      "AI is comparing your skills and experience with the job requirements. This may take a moment...": {
+        "msgid": "AI is comparing your skills and experience with the job requirements. This may take a moment...",
+        "msgstr": [
+          "AI is comparing your skills and experience with the job requirements. This may take a moment..."
+        ]
+      },
+      "Profile Incomplete": {
+        "msgid": "Profile Incomplete",
+        "msgstr": ["Profile Incomplete"]
+      },
+      "Unable to Analyze CV Match": {
+        "msgid": "Unable to Analyze CV Match",
+        "msgstr": ["Unable to Analyze CV Match"]
+      },
+      "Profile Completion Status": {
+        "msgid": "Profile Completion Status",
+        "msgstr": ["Profile Completion Status"]
+      },
+      "Completion": {
+        "msgid": "Completion",
+        "msgstr": ["Completion"]
+      },
+      "Missing Sections": {
+        "msgid": "Missing Sections",
+        "msgstr": ["Missing Sections"]
+      },
+      "Need ${percent}% more to use AI matching": {
+        "msgid": "Need ${percent}% more to use AI matching",
+        "msgstr": ["Need ${percent}% more to use AI matching"]
+      },
+      "Next Steps": {
+        "msgid": "Next Steps",
+        "msgstr": ["Next Steps"]
+      },
+      "Complete your profile to at least 80%": {
+        "msgid": "Complete your profile to at least 80%",
+        "msgstr": ["Complete your profile to at least 80%"]
+      },
+      "Add missing sections listed above": {
+        "msgid": "Add missing sections listed above",
+        "msgstr": ["Add missing sections listed above"]
+      },
+      "Ensure all information is accurate and up-to-date": {
+        "msgid": "Ensure all information is accurate and up-to-date",
+        "msgstr": ["Ensure all information is accurate and up-to-date"]
+      },
+      "Complete Profile": {
+        "msgid": "Complete Profile",
+        "msgstr": ["Complete Profile"]
+      },
+      "AI CV Match Assessment": {
+        "msgid": "AI CV Match Assessment",
+        "msgstr": ["AI CV Match Assessment"]
+      },
+      "AI Analysis Results": {
+        "msgid": "AI Analysis Results",
+        "msgstr": ["AI Analysis Results"]
+      },
+      "Match Level": {
+        "msgid": "Match Level",
+        "msgstr": ["Match Level"]
+      },
+      "Similarity Score": {
+        "msgid": "Similarity Score",
+        "msgstr": ["Similarity Score"]
+      },
+      "Profile Completion": {
+        "msgid": "Profile Completion",
+        "msgstr": ["Profile Completion"]
+      },
+      "Recommendations": {
+        "msgid": "Recommendations",
+        "msgstr": ["Recommendations"]
+      },
+      "Your profile is an excellent match for this position": {
+        "msgid": "Your profile is an excellent match for this position",
+        "msgstr": ["Your profile is an excellent match for this position"]
+      },
+      "Proceed with confidence to apply": {
+        "msgid": "Proceed with confidence to apply",
+        "msgstr": ["Proceed with confidence to apply"]
+      },
+      "Highlight matching skills in your cover letter": {
+        "msgid": "Highlight matching skills in your cover letter",
+        "msgstr": ["Highlight matching skills in your cover letter"]
+      },
+      "Your profile partially matches the requirements": {
+        "msgid": "Your profile partially matches the requirements",
+        "msgstr": ["Your profile partially matches the requirements"]
+      },
+      "Consider updating your skills and experience": {
+        "msgid": "Consider updating your skills and experience",
+        "msgstr": ["Consider updating your skills and experience"]
+      },
+      "Add relevant projects or certifications": {
+        "msgid": "Add relevant projects or certifications",
+        "msgstr": ["Add relevant projects or certifications"]
+      },
+      "Your profile has limited match with this position": {
+        "msgid": "Your profile has limited match with this position",
+        "msgstr": ["Your profile has limited match with this position"]
+      },
+      "Consider exploring other opportunities": {
+        "msgid": "Consider exploring other opportunities",
+        "msgstr": ["Consider exploring other opportunities"]
+      },
+      "Update your profile to improve future matches": {
+        "msgid": "Update your profile to improve future matches",
+        "msgstr": ["Update your profile to improve future matches"]
+      },
+      "Proceed to Apply": {
+        "msgid": "Proceed to Apply",
+        "msgstr": ["Proceed to Apply"]
+      },
+      "Improve Profile": {
+        "msgid": "Improve Profile",
+        "msgstr": ["Improve Profile"]
+      },
+      "Update Profile": {
+        "msgid": "Update Profile",
+        "msgstr": ["Update Profile"]
+      },
+      "Safe to Post": {
+        "msgid": "Safe to Post",
+        "msgstr": ["Safe to Post"]
+      },
+      "Review Recommended": {
+        "msgid": "Review Recommended",
+        "msgstr": ["Review Recommended"]
+      },
+      "High Risk - Not Recommended": {
+        "msgid": "High Risk - Not Recommended",
+        "msgstr": ["High Risk - Not Recommended"]
+      },
+      "Validating Job Posting...": {
+        "msgid": "Validating Job Posting...",
+        "msgstr": ["Validating Job Posting..."]
+      },
+      "AI is analyzing your job posting for potential issues": {
+        "msgid": "AI is analyzing your job posting for potential issues",
+        "msgstr": ["AI is analyzing your job posting for potential issues"]
+      },
+      "Job Validation Assessment": {
+        "msgid": "Job Validation Assessment",
+        "msgstr": ["Job Validation Assessment"]
+      },
+      "Classification": {
+        "msgid": "Classification",
+        "msgstr": ["Classification"]
+      },
+      "Legitimate": {
+        "msgid": "Legitimate",
+        "msgstr": ["Legitimate"]
+      },
+      "Scam": {
+        "msgid": "Scam",
+        "msgstr": ["Scam"]
+      },
+      "Legitimate Probability": {
+        "msgid": "Legitimate Probability",
+        "msgstr": ["Legitimate Probability"]
+      },
+      "Scam Probability": {
+        "msgid": "Scam Probability",
+        "msgstr": ["Scam Probability"]
+      },
+      "Issues Detected": {
+        "msgid": "Issues Detected",
+        "msgstr": ["Issues Detected"]
+      },
+      "Review Job Post": {
+        "msgid": "Review Job Post",
+        "msgstr": ["Review Job Post"]
+      },
+      "Post Anyway": {
+        "msgid": "Post Anyway",
+        "msgstr": ["Post Anyway"]
+      },
+      "Proceed to Post": {
+        "msgid": "Proceed to Post",
+        "msgstr": ["Proceed to Post"]
+      },
+      "Please select a date posted": {
+        "msgid": "Please select a date posted",
+        "msgstr": ["Please select a date posted"]
+      },
+      "Please select an expired date": {
+        "msgid": "Please select an expired date",
+        "msgstr": ["Please select an expired date"]
+      },
+      "Expired date must be after the date posted": {
+        "msgid": "Expired date must be after the date posted",
+        "msgstr": ["Expired date must be after the date posted"]
+      },
+      "Please fix the date fields": {
+        "msgid": "Please fix the date fields",
+        "msgstr": ["Please fix the date fields"]
+      },
+      "Failed to validate job posting": {
+        "msgid": "Failed to validate job posting",
+        "msgstr": ["Failed to validate job posting"]
+      },
+      "Back to edit": {
+        "msgid": "Back to edit",
+        "msgstr": ["Back to edit"]
+      },
+      "Creating...": {
+        "msgid": "Creating...",
+        "msgstr": ["Creating..."]
+      },
+      "Create job": {
+        "msgid": "Create job",
+        "msgstr": ["Create job"]
+      },
+      "Job created successfully!": {
+        "msgid": "Job created successfully!",
+        "msgstr": ["Job created successfully!"]
+      },
+      "Your job has been created and will be approved within 24 hours.": {
+        "msgid": "Your job has been created and will be approved within 24 hours.",
+        "msgstr": [
+          "Your job has been created and will be approved within 24 hours."
+        ]
+      },
+      "Negotiable": {
+        "msgid": "Negotiable",
+        "msgstr": ["Negotiable"]
+      },
+      "From": {
+        "msgid": "From",
+        "msgstr": ["From"]
+      },
+      "Not disclosed": {
+        "msgid": "Not disclosed",
+        "msgstr": ["Not disclosed"]
+      },
+      "English": {
+        "msgid": "English",
+        "msgstr": ["English"]
+      },
+      "Vietnamese": {
+        "msgid": "Vietnamese",
+        "msgstr": ["Vietnamese"]
       }
     }
   }

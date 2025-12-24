@@ -1,5 +1,7 @@
+import { t } from "@/i18n/i18n";
+
 export const formatList = (field) =>
-    Array.isArray(field) ? field.join(", ") : field || "Không xác định";
+    Array.isArray(field) ? field.join(", ") : field || t`Not specified`;
 
 export const toList = (field) => {
     if (!field) return [];

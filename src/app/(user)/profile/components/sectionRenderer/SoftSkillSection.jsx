@@ -1,11 +1,12 @@
 "use client";
 import React from "react";
 import { Edit, Trash2 } from "lucide-react";
+import { t } from "@/i18n/i18n";
 
 const SoftSkillsSection = ({ data, onEdit, onDelete }) => {
     if (!data || data.length === 0) {
         return (
-            <p className="text-sm text-gray-800">Showcase your soft skills</p>
+            <p className="text-sm text-gray-800">{t`Showcase your soft skills`}</p>
         );
     }
 
@@ -18,10 +19,10 @@ const SoftSkillsSection = ({ data, onEdit, onDelete }) => {
                 >
                     <div className="flex-1">
                         <h4 className="text-xl font-medium text-gray-900">
-                            {item.name || "Unnamed"}
+                            {item.name || t`Unnamed`}
                         </h4>
                         <p className="text-sm text-gray-600">
-                            Level: {item.level || "N/A"}
+                            {t`Level`}: {item.level || "N/A"}
                         </p>
                         {item.description && (
                             <p className="mt-1 text-sm text-gray-700">

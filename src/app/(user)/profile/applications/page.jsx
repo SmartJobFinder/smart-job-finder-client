@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { t } from "@/i18n/i18n";
 import {
     useGetApplicationsQuery,
     useAddApplicationMutation,
@@ -111,9 +112,7 @@ export default function ApplicationPage() {
     };
 
     if (isLoading) {
-        return (
-            <LoadingScreen message="Loading..." />
-        );
+        return <LoadingScreen message="Loading..." />;
     }
 
     if (error) {
@@ -178,7 +177,7 @@ export default function ApplicationPage() {
                 </div>
                 <div className="p-4 mt-6 bg-white border border-gray-200 rounded-lg shadow-sm">
                     <h3 className="mb-2 font-medium text-gray-700 text-md">
-                        CV Upload
+                        {t`CV Upload`}
                     </h3>
                     <input
                         ref={fileInputRef}
@@ -191,18 +190,18 @@ export default function ApplicationPage() {
                         onClick={handleCvClick}
                         className="px-4 py-2 text-sm text-white transition-colors bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
                     >
-                        Upload CV (PDF)
+                        {t`Upload CV (PDF)`}
                     </button>
                     {tempCv && (
                         <p className="mt-2 text-sm text-gray-600">
-                            Temporary CV:{" "}
+                            {t`Temporary CV`}:{" "}
                             <a
                                 href={tempCv}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="text-blue-600 hover:text-blue-800 hover:underline"
                             >
-                                View CV
+                                {t`View`}
                             </a>
                         </p>
                     )}

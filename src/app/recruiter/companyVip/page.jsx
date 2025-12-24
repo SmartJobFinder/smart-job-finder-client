@@ -28,6 +28,7 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { toast } from "react-toastify";
 import { cn } from "@/lib/utils";
+import { t } from "@/i18n/i18n";
 
 const NEXT_PUBLIC_API_BASE = `${process.env.NEXT_PUBLIC_API_PROXY_TARGET}${process.env.NEXT_PUBLIC_API_BASE_URL}/`;
 const API_BASE_URL = (NEXT_PUBLIC_API_BASE || "").replace(/\/+$/, "");
@@ -52,38 +53,38 @@ const UI_PLANS = [
     {
         key: "BASIC",
         targetPackageId: 1,
-        displayName: "VIP 1 month",
+        displayName: t`VIP 1 month`,
         features: [
-            "Tag VIP Company",
-            "Your company will be recommended by JobFind",
-            "Your job will stand out more on search page",
-            "Get more jobs posted than normal companies every month",
-            "24/7 Support",
+            t`Tag VIP Company`,
+            t`Your company will be recommended by JobFind`,
+            t`Your job will stand out more on search page`,
+            t`Get more jobs posted than normal companies every month`,
+            t`24/7 Support`,
         ],
     },
     {
         key: "STANDARD",
         targetPackageId: 2,
-        displayName: "VIP 3 months",
+        displayName: t`VIP 3 months`,
         popular: true,
         features: [
-            "Tag VIP Company",
-            "Your company will be recommended by JobFind",
-            "Your job will stand out more on search page",
-            "Get more jobs posted than normal companies every month",
-            "24/7 Support",
+            t`Tag VIP Company`,
+            t`Your company will be recommended by JobFind`,
+            t`Your job will stand out more on search page`,
+            t`Get more jobs posted than normal companies every month`,
+            t`24/7 Support`,
         ],
     },
     {
         key: "PREMIUM",
         targetPackageId: 3,
-        displayName: "VIP 6 months",
+        displayName: t`VIP 6 months`,
         features: [
-            "Tag VIP Company",
-            "Your company will be recommended by JobFind",
-            "Your job will stand out more on search page",
-            "Get more jobs posted than normal companies every month",
-            "24/7 Support",
+            t`Tag VIP Company`,
+            t`Your company will be recommended by JobFind`,
+            t`Your job will stand out more on search page`,
+            t`Get more jobs posted than normal companies every month`,
+            t`24/7 Support`,
         ],
     },
 ];

@@ -262,7 +262,7 @@ function RightSidebarPreview({ cv }) {
                     {info.fullName || "-"}
                 </div>
                 <div className="text-lg font-semibold text-black">
-                    {info.title || "Students"}
+                    {info.title || t`Students`}
                 </div>
                 <div className="flex flex-wrap items-center justify-center gap-4 text-sm text-black">
                     {info.phone && <span>{info.phone}</span>}
