@@ -7,6 +7,9 @@ import { pdfRenderers } from "@/utils/pdfRenderers";
 import { useSearchParams } from "next/navigation";
 import { toast } from "react-toastify";
 
+import { generateCvWithAI } from "@/services/cvBuilderService";
+import { getJobDetail } from "@/services/jobDetailService";
+
 import JobPreviewCard from "../components/JobPreviewCard";
 import CvHeader from "./CvHeader";
 import CvSection from "./CvSection";
@@ -15,95 +18,6 @@ import ExperienceItem from "./ExperienceItem";
 import SkillsSection from "./SkillsSection";
 import CvPreviewModal from "./CvPreviewModal";
 import EditableTextBlock from "./EditableTextBlock";
-
-// ======================
-// MOCK DATA + HELPERS
-// ======================
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-
-const mockJob = {
-  id: 101,
-  title: "Frontend Developer (Next.js)",
-  companyName: "JobHuntly Labs",
-  location: "Ho Chi Minh City",
-  employmentType: "Full-time",
-  salaryRange: "$800 - $1500",
-  description:
-    "Build UI for CV Builder and Job Matching. Work with Next.js, TailwindCSS, and REST APIs.",
-  requirements: [
-    "Next.js / React",
-    "TailwindCSS",
-    "REST API integration",
-    "Good UI sense",
-  ],
-};
-
-const mockAiCvResponseEN = {
-  intro:
-    "Frontend Developer with strong experience in building modern web interfaces using Next.js and React. Skilled at creating responsive UI, integrating REST APIs, and optimizing user experience.",
-  objective:
-    "Seeking a Frontend Developer role to contribute to scalable UI systems, deliver delightful user experiences, and collaborate closely with backend and product teams.",
-  suitableSkills: [
-    "Next.js",
-    "React",
-    "Tailwind CSS",
-    "TypeScript",
-    "REST API",
-    "UI/UX",
-    "Git",
-  ],
-  fullName: "Nguyen Van A",
-  title: "Frontend Developer",
-  phone: "0901 234 567",
-  email: "nguyenvana@example.com",
-  educations: [
-    {
-      school: "RMIT University Vietnam",
-      description: "Bachelor of Information Technology",
-      start: "2020",
-      end: "2024",
-      majors: "Software Engineering",
-    },
-  ],
-  workExperiences: [
-    {
-      company: "Smart Job Finder",
-      role: "Frontend Developer Intern",
-      start: "06/2024",
-      end: "10/2024",
-      description:
-        "Built CV Builder UI, implemented template switching & PDF export, integrated AI generation flow.",
-    },
-    {
-      company: "Freelance",
-      role: "Frontend Developer",
-      start: "11/2024",
-      end: "Present",
-      description:
-        "Delivered responsive landing pages and dashboards with Next.js, optimized performance and accessibility.",
-    },
-  ],
-};
-
-const mockAiCvResponseVI = {
-  ...mockAiCvResponseEN,
-  intro:
-    "Frontend Developer có kinh nghiệm xây dựng giao diện hiện đại với Next.js và React. Thành thạo thiết kế UI responsive, tích hợp API và tối ưu trải nghiệm người dùng.",
-  objective:
-    "Tìm kiếm vị trí Frontend Developer để phát triển hệ thống UI mở rộng, tạo trải nghiệm người dùng tốt và phối hợp chặt chẽ với backend/product.",
-  fullName: "Nguyễn Văn A",
-  title: "Lập trình viên Frontend",
-};
-
-async function getJobDetailMock(jobId) {
-  await sleep(400);
-  return { ...mockJob, id: jobId || mockJob.id };
-}
-
-async function generateCvWithAIMock(jobId, language) {
-  await sleep(900);
-  return language === "vi" ? mockAiCvResponseVI : mockAiCvResponseEN;
-}
 
 const emptyCv = {
   introduce: "",
@@ -155,7 +69,7 @@ function mapApiToCv(apiRes) {
 
 export default function CVPage() {
   const searchParams = useSearchParams();
-  const jobId = Number(searchParams.get("jobId")); // có cũng được, không có cũng được (mock)
+  const jobId = Number(searchParams.get("jobId"));
 
   const [selectedTemplate, setSelectedTemplate] = useState("basic");
   const [language, setLanguage] = useState("en");
@@ -166,22 +80,21 @@ export default function CVPage() {
   const [hasGenerated, setHasGenerated] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  // ✅ mock luôn => luôn generate được
-  const canGenerate = useMemo(() => true, []);
+  const canGenerate = useMemo(() => Boolean(jobId), [jobId]);
 
   const [previewOpen, setPreviewOpen] = useState(false);
 
   const [job, setJob] = useState(null);
   const [jobLoading, setJobLoading] = useState(false);
 
-  // ✅ mock luôn job
   useEffect(() => {
+    if (!jobId) return;
     let alive = true;
 
     (async () => {
       setJobLoading(true);
       try {
-        const data = await getJobDetailMock(jobId);
+        const data = await getJobDetail(jobId);
         if (alive) setJob(data);
       } catch (e) {
         console.error(e);
@@ -195,17 +108,21 @@ export default function CVPage() {
     };
   }, [jobId]);
 
-  // ✅ mock luôn generate
   const handleGenerateAI = async () => {
+    if (!canGenerate) {
+      toast.error("Missing jobId");
+      return;
+    }
+
     setLoading(true);
     try {
-      const apiRes = await generateCvWithAIMock(jobId, language);
+      const apiRes = await generateCvWithAI(jobId, language);
       setCv(mapApiToCv(apiRes));
       setHasGenerated(true);
       toast.success(t`Generated CV successfully`);
     } catch (err) {
       console.error(err);
-      toast.error("Generate CV failed. Please retry.");
+      toast.error("Generate CV failed. Please login again or retry.");
     } finally {
       setLoading(false);
     }
@@ -240,11 +157,6 @@ export default function CVPage() {
             <p className="text-gray-600 leading-relaxed">
               {t`This feature will automatically generate a tailored CV based on your profile and the job description. After generating, you can review and edit before exporting as PDF.`}
             </p>
-
-            {/* ✅ badge báo mock */}
-            <div className="inline-flex items-center gap-2 text-xs px-2 py-1 rounded-full bg-amber-50 text-amber-700 border border-amber-200">
-              Mock mode
-            </div>
           </div>
 
           <JobPreviewCard job={job} loading={jobLoading} />
@@ -268,11 +180,10 @@ export default function CVPage() {
               <button
                 onClick={handleGenerateAI}
                 disabled={!canGenerate || loading}
-                className={`px-4 py-2 text-sm font-semibold text-white rounded-lg shadow-md ${
-                  !canGenerate || loading
-                    ? "bg-gray-400 cursor-not-allowed"
-                    : "bg-emerald-600 hover:bg-emerald-700"
-                }`}
+                className={`px-4 py-2 text-sm font-semibold text-white rounded-lg shadow-md ${!canGenerate || loading
+                  ? "bg-gray-400 cursor-not-allowed"
+                  : "bg-emerald-600 hover:bg-emerald-700"
+                  }`}
               >
                 {t`Generate CV with AI`}
               </button>
@@ -296,9 +207,9 @@ export default function CVPage() {
                 className="px-3 py-2 text-sm border border-gray-300 rounded-lg"
                 disabled={loading}
               >
-                <option value="basic">{t`Template 1`}</option>
-                <option value="two-columns">{t`Template 2`}</option>
-                <option value="right-sidebar">{t`Template 3`}</option>
+                <option value="basic">{t`Mẫu Cơ Bản`}</option>
+                <option value="two-columns">{t`Mẫu Hai Cột`}</option>
+                <option value="right-sidebar">{t`Mẫu 3`}</option>
               </select>
 
               <button
@@ -307,6 +218,7 @@ export default function CVPage() {
               >
                 {t`Preview`}
               </button>
+
 
               <button
                 onClick={handleExportPdf}
@@ -349,6 +261,7 @@ export default function CVPage() {
                 />
               </CvSection>
 
+
               <CvSection title={t`Career Objective`}>
                 <EditableTextBlock
                   value={cv.objective}
@@ -359,6 +272,7 @@ export default function CVPage() {
                   minRows={7}
                 />
               </CvSection>
+
             </div>
 
             <CvSection title={t`Education`}>
@@ -374,9 +288,7 @@ export default function CVPage() {
             <CvSection title={t`Work Experience`}>
               <div className="space-y-4">
                 {(cv.experience || []).length ? (
-                  cv.experience.map((exp) => (
-                    <ExperienceItem key={exp.id} item={exp} />
-                  ))
+                  cv.experience.map((exp) => <ExperienceItem key={exp.id} item={exp} />)
                 ) : (
                   <p className="text-sm text-gray-500">-</p>
                 )}
@@ -389,14 +301,15 @@ export default function CVPage() {
           </div>
         </>
       )}
-
       <CvPreviewModal
         open={previewOpen}
         onClose={() => setPreviewOpen(false)}
         template={selectedTemplate}
         cv={cv}
       />
+
     </div>
+
   );
 }
 
