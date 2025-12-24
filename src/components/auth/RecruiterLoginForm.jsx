@@ -89,7 +89,7 @@ const RecruiterLoginForm = ({ role, onForgot }) => {
                             <Input
                                 id="recruiter-email"
                                 type="email"
-                                placeholder="you@company.com"
+                                placeholder={t`you@company.com`}
                                 autoComplete="username"
                                 className={clsx(
                                     "pl-10",
@@ -117,7 +117,7 @@ const RecruiterLoginForm = ({ role, onForgot }) => {
                             <Input
                                 id="recruiter-password"
                                 type={showPassword ? "text" : "password"}
-                                placeholder="Enter your password"
+                                placeholder={t`Enter your password`}
                                 autoComplete="current-password"
                                 className={clsx(
                                     "pl-10 pr-10",

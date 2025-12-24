@@ -16,6 +16,7 @@ import { checkCVMatching } from "@/services/cvMatchingService";
 import { toast } from "react-toastify";
 import { normalizeProfileData } from "@/features/profile/normalizeProfileData";
 import { useRouter } from "next/navigation";
+import { t } from "@/i18n/i18n";
 
 const AiMatchModal = ({ onClose, job }) => {
     const router = useRouter();
@@ -35,7 +36,7 @@ const AiMatchModal = ({ onClose, job }) => {
             console.log("Combined Profile from API:", combinedProfile);
 
             if (!combinedProfile) {
-                setError("Unable to load your profile. Please try again.");
+                setError(t`Unable to load your profile. Please try again.`);
                 setLoading(false);
                 return;
             }
@@ -51,11 +52,11 @@ const AiMatchModal = ({ onClose, job }) => {
 
             if (completion.percent < 70) {
                 setError(
-                    `Your profile is only ${completion.percent}% complete. Please complete at least 70% of your profile before using CV matching.`
+                    t`Your profile is only ${completion.percent}% complete. Please complete at least 70% of your profile before using CV matching.`
                 );
                 setLoading(false);
                 toast.error(
-                    `Profile completion: ${completion.percent}%. Need 70% to use AI matching.`
+                    t`Profile completion: ${completion.percent}%. Need 70% to use AI matching.`
                 );
                 return;
             }
@@ -71,7 +72,7 @@ const AiMatchModal = ({ onClose, job }) => {
                 console.log("CV Text:", cvText);
 
                 if (!jdText || !cvText) {
-                    throw new Error("Failed to convert job or profile data");
+                    throw new Error(t`Failed to convert job or profile data`);
                 }
 
                 // Call CV Matching API
@@ -93,9 +94,9 @@ const AiMatchModal = ({ onClose, job }) => {
                 setLoading(false);
             } catch (err) {
                 console.error("CV Matching Error:", err);
-                setError(err.message || "Failed to check CV matching");
+                setError(err.message || t`Failed to check CV matching`);
                 setLoading(false);
-                toast.error("Failed to check CV matching");
+                toast.error(t`Failed to check CV matching`);
             }
         };
 
@@ -112,7 +113,7 @@ const AiMatchModal = ({ onClose, job }) => {
     };
 
     const handleProceedToApply = () => {
-        toast.success("Ready to apply!");
+        toast.success(t`Ready to apply!`);
         onCloseModal();
         // Scroll to apply button
         setTimeout(() => {
@@ -136,10 +137,10 @@ const AiMatchModal = ({ onClose, job }) => {
     };
 
     const getStatusText = () => {
-        if (!result) return "Analyzing...";
-        if (result.score >= 70) return "Excellent Match";
-        if (result.score >= 40) return "Partial Match";
-        return "Low Match";
+        if (!result) return t`Analyzing...`;
+        if (result.score >= 70) return t`Excellent Match`;
+        if (result.score >= 40) return t`Partial Match`;
+        return t`Low Match`;
     };
 
     const getBgColor = () => {
@@ -171,11 +172,10 @@ const AiMatchModal = ({ onClose, job }) => {
                     <div className="flex flex-col items-center justify-center space-y-4">
                         <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-blue-600"></div>
                         <h3 className="text-lg font-semibold text-gray-900">
-                            Analyzing Your Profile...
+                            {t`Analyzing Your Profile...`}
                         </h3>
                         <p className="text-sm text-gray-600 text-center">
-                            AI is comparing your skills and experience with job
-                            requirements
+                            {t`AI is comparing your skills and experience with job requirements`}
                         </p>
                     </div>
                 </div>
@@ -192,7 +192,7 @@ const AiMatchModal = ({ onClose, job }) => {
                     {/* Header */}
                     <div className="flex items-center justify-between p-4 border-b">
                         <h2 className="text-lg font-semibold text-gray-900">
-                            Profile Incomplete
+                            {t`Profile Incomplete`}
                         </h2>
                         <button
                             onClick={onCloseModal}
@@ -211,7 +211,7 @@ const AiMatchModal = ({ onClose, job }) => {
                             </div>
                             <div className="text-center">
                                 <div className="text-red-600 text-sm font-medium mb-2">
-                                    Unable to Analyze CV Match
+                                    {t`Unable to Analyze CV Match`}
                                 </div>
                                 <p className="text-sm text-gray-700">{error}</p>
                             </div>
@@ -222,12 +222,12 @@ const AiMatchModal = ({ onClose, job }) => {
                             <div className="mb-4 p-4 bg-blue-50 rounded-lg border border-blue-200">
                                 <h4 className="text-sm font-semibold text-blue-900 mb-3 flex items-center">
                                     <CheckCircle className="w-4 h-4 mr-2" />
-                                    Profile Completion Status
+                                    {t`Profile Completion Status`}
                                 </h4>
                                 <div className="space-y-2 text-sm">
                                     <div className="flex justify-between items-center mb-1">
                                         <span className="text-gray-700">
-                                            Completion:
+                                            {t`Completion`}:
                                         </span>
                                         <span
                                             className={`font-semibold ${
@@ -253,9 +253,9 @@ const AiMatchModal = ({ onClose, job }) => {
                                     </div>
                                     {profileCompletion.percent < 80 && (
                                         <p className="text-xs text-gray-600 mt-2">
-                                            Need{" "}
-                                            {80 - profileCompletion.percent}%
-                                            more to use AI matching
+                                            {t`Need ${
+                                                80 - profileCompletion.percent
+                                            }% more to use AI matching`}
                                         </p>
                                     )}
                                 </div>
@@ -268,7 +268,7 @@ const AiMatchModal = ({ onClose, job }) => {
                                 <div className="mb-4">
                                     <h3 className="font-semibold text-gray-900 mb-2 flex items-center">
                                         <XCircle className="w-4 h-4 mr-2 text-orange-500" />
-                                        Missing Sections:
+                                        {t`Missing Sections`}:
                                     </h3>
                                     <ul className="space-y-1 text-sm text-gray-700">
                                         {profileCompletion.missingSections.map(
@@ -299,7 +299,7 @@ const AiMatchModal = ({ onClose, job }) => {
                         <div className="mb-4">
                             <h3 className="font-semibold text-gray-900 mb-2 flex items-center">
                                 <CheckCircle className="w-4 h-4 mr-2 text-blue-500" />
-                                Next Steps:
+                                {t`Next Steps`}:
                             </h3>
                             <ul className="space-y-1 text-sm text-gray-700">
                                 <li className="flex items-start">
@@ -307,7 +307,7 @@ const AiMatchModal = ({ onClose, job }) => {
                                         •
                                     </span>
                                     <span>
-                                        Complete your profile to at least 80%
+                                        {t`Complete your profile to at least 80%`}
                                     </span>
                                 </li>
                                 <li className="flex items-start">
@@ -315,7 +315,7 @@ const AiMatchModal = ({ onClose, job }) => {
                                         •
                                     </span>
                                     <span>
-                                        Add missing sections listed above
+                                        {t`Add missing sections listed above`}
                                     </span>
                                 </li>
                                 <li className="flex items-start">
@@ -323,8 +323,7 @@ const AiMatchModal = ({ onClose, job }) => {
                                         •
                                     </span>
                                     <span>
-                                        Ensure all information is accurate and
-                                        up-to-date
+                                        {t`Ensure all information is accurate and up-to-date`}
                                     </span>
                                 </li>
                             </ul>
@@ -338,13 +337,13 @@ const AiMatchModal = ({ onClose, job }) => {
                             onClick={onCloseModal}
                             className="flex-1"
                         >
-                            Close
+                            {t`Close`}
                         </Button>
                         <Button
                             onClick={handleGoToProfile}
                             className="flex-1 bg-blue-600 hover:bg-blue-700 text-white"
                         >
-                            <span>Complete Profile</span>
+                            <span>{t`Complete Profile`}</span>
                             <ArrowRight className="w-4 h-4 ml-2" />
                         </Button>
                     </div>
@@ -363,7 +362,7 @@ const AiMatchModal = ({ onClose, job }) => {
                 {/* Header */}
                 <div className="flex items-center justify-between p-4 border-b">
                     <h2 className="text-lg font-semibold text-gray-900">
-                        AI CV Match Assessment
+                        {t`AI CV Match Assessment`}
                     </h2>
                     <button
                         onClick={onCloseModal}
@@ -403,12 +402,12 @@ const AiMatchModal = ({ onClose, job }) => {
                         <div className="mb-4 p-4 bg-blue-50 rounded-lg border border-blue-200">
                             <h4 className="text-sm font-semibold text-blue-900 mb-3 flex items-center">
                                 <CheckCircle className="w-4 h-4 mr-2" />
-                                AI Analysis Results
+                                {t`AI Analysis Results`}
                             </h4>
                             <div className="space-y-2 text-sm">
                                 <div className="flex justify-between items-center">
                                     <span className="text-gray-700">
-                                        Match Level:
+                                        {t`Match Level`}:
                                     </span>
                                     <span
                                         className={`font-semibold ${getStatusColor()}`}
@@ -420,7 +419,7 @@ const AiMatchModal = ({ onClose, job }) => {
                                 <div className="pt-2 border-t border-blue-200">
                                     <div className="flex justify-between items-center mb-1">
                                         <span className="text-gray-700">
-                                            Similarity Score:
+                                            {t`Similarity Score`}:
                                         </span>
                                         <span className="font-semibold text-purple-600">
                                             {(
@@ -444,7 +443,7 @@ const AiMatchModal = ({ onClose, job }) => {
                                 <div className="pt-2 border-t border-blue-200">
                                     <div className="flex justify-between items-center">
                                         <span className="text-gray-700">
-                                            Profile Completion:
+                                            {t`Profile Completion`}:
                                         </span>
                                         <span className="font-semibold text-green-600">
                                             {result.profileCompletion}%
@@ -459,7 +458,7 @@ const AiMatchModal = ({ onClose, job }) => {
                     <div className="mb-4">
                         <h3 className="font-semibold text-gray-900 mb-2 flex items-center">
                             <CheckCircle className="w-4 h-4 mr-2 text-blue-500" />
-                            Recommendations:
+                            {t`Recommendations`}:
                         </h3>
                         <ul className="space-y-1 text-sm text-gray-700">
                             {score >= 70 ? (
@@ -469,8 +468,7 @@ const AiMatchModal = ({ onClose, job }) => {
                                             •
                                         </span>
                                         <span>
-                                            Your profile is an excellent match
-                                            for this position
+                                            {t`Your profile is an excellent match for this position`}
                                         </span>
                                     </li>
                                     <li className="flex items-start">
@@ -478,7 +476,7 @@ const AiMatchModal = ({ onClose, job }) => {
                                             •
                                         </span>
                                         <span>
-                                            Proceed with confidence to apply
+                                            {t`Proceed with confidence to apply`}
                                         </span>
                                     </li>
                                     <li className="flex items-start">
@@ -486,8 +484,7 @@ const AiMatchModal = ({ onClose, job }) => {
                                             •
                                         </span>
                                         <span>
-                                            Highlight matching skills in your
-                                            cover letter
+                                            {t`Highlight matching skills in your cover letter`}
                                         </span>
                                     </li>
                                 </>
@@ -498,8 +495,7 @@ const AiMatchModal = ({ onClose, job }) => {
                                             •
                                         </span>
                                         <span>
-                                            Your profile partially matches the
-                                            requirements
+                                            {t`Your profile partially matches the requirements`}
                                         </span>
                                     </li>
                                     <li className="flex items-start">
@@ -507,8 +503,7 @@ const AiMatchModal = ({ onClose, job }) => {
                                             •
                                         </span>
                                         <span>
-                                            Consider updating your skills and
-                                            experience
+                                            {t`Consider updating your skills and experience`}
                                         </span>
                                     </li>
                                     <li className="flex items-start">
@@ -516,8 +511,7 @@ const AiMatchModal = ({ onClose, job }) => {
                                             •
                                         </span>
                                         <span>
-                                            Add relevant projects or
-                                            certifications
+                                            {t`Add relevant projects or certifications`}
                                         </span>
                                     </li>
                                 </>
@@ -528,8 +522,7 @@ const AiMatchModal = ({ onClose, job }) => {
                                             •
                                         </span>
                                         <span>
-                                            Your profile has limited match with
-                                            this position
+                                            {t`Your profile has limited match with this position`}
                                         </span>
                                     </li>
                                     <li className="flex items-start">
@@ -537,8 +530,7 @@ const AiMatchModal = ({ onClose, job }) => {
                                             •
                                         </span>
                                         <span>
-                                            Consider exploring other
-                                            opportunities
+                                            {t`Consider exploring other opportunities`}
                                         </span>
                                     </li>
                                     <li className="flex items-start">
@@ -546,8 +538,7 @@ const AiMatchModal = ({ onClose, job }) => {
                                             •
                                         </span>
                                         <span>
-                                            Update your profile to improve
-                                            future matches
+                                            {t`Update your profile to improve future matches`}
                                         </span>
                                     </li>
                                 </>
@@ -563,7 +554,7 @@ const AiMatchModal = ({ onClose, job }) => {
                         onClick={onCloseModal}
                         className="flex-1"
                     >
-                        Close
+                        {t`Close`}
                     </Button>
                     <Button
                         onClick={
@@ -580,10 +571,10 @@ const AiMatchModal = ({ onClose, job }) => {
                         } text-white`}
                     >
                         {score >= 70
-                            ? "Proceed to Apply"
+                            ? t`Proceed to Apply`
                             : score >= 40
-                            ? "Improve Profile"
-                            : "Update Profile"}
+                            ? t`Improve Profile`
+                            : t`Update Profile`}
                     </Button>
                 </div>
             </div>

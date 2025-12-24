@@ -144,7 +144,7 @@ export default function RecruiterRegisterForm({ role, onRegistered }) {
                             <Input
                                 id="fullName"
                                 type="text"
-                                placeholder="Enter your full name"
+                                placeholder={t`Enter your full name`}
                                 className="pl-10 focus-visible:ring-2 focus-visible:ring-blue-500"
                                 {...register("fullName")}
                                 autoComplete="name"
@@ -170,7 +170,7 @@ export default function RecruiterRegisterForm({ role, onRegistered }) {
                             <Input
                                 id="email"
                                 type="email"
-                                placeholder="you@company.com"
+                                placeholder={t`you@company.com`}
                                 className="pl-10 focus-visible:ring-2 focus-visible:ring-blue-500"
                                 {...register("email")}
                                 autoComplete="email"
@@ -196,7 +196,7 @@ export default function RecruiterRegisterForm({ role, onRegistered }) {
                             <Input
                                 id="phone"
                                 type="tel"
-                                placeholder="Enter your phone number"
+                                placeholder={t`Enter your phone number`}
                                 className="pl-10 focus-visible:ring-2 focus-visible:ring-blue-500"
                                 {...register("phone")}
                                 autoComplete="tel"
@@ -222,7 +222,7 @@ export default function RecruiterRegisterForm({ role, onRegistered }) {
                             <Input
                                 id="password"
                                 type={showPassword ? "text" : "password"}
-                                placeholder="Enter password"
+                                placeholder={t`Enter password`}
                                 className="pl-10 pr-10 focus-visible:ring-2 focus-visible:ring-blue-500"
                                 {...register("password")}
                                 autoComplete="new-password"
@@ -313,7 +313,7 @@ export default function RecruiterRegisterForm({ role, onRegistered }) {
                             <Input
                                 id="confirmPassword"
                                 type={showConfirmPassword ? "text" : "password"}
-                                placeholder="Re-enter your password"
+                                placeholder={t`Re-enter your password`}
                                 className="pl-10 pr-10 focus-visible:ring-2 focus-visible:ring-blue-500"
                                 {...register("confirmPassword")}
                                 autoComplete="new-password"

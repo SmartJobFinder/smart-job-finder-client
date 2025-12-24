@@ -1,14 +1,20 @@
 import { useSelector } from "react-redux";
 import { selectProfileCompletion } from "@/features/profile/profileSlice";
-import { CheckCircle, AlertCircle, PlusCircle, PartyPopper } from "lucide-react";
+import {
+    CheckCircle,
+    AlertCircle,
+    PlusCircle,
+    PartyPopper,
+} from "lucide-react";
 import { useRouter } from "next/navigation";
+import { t } from "@/i18n/i18n";
 
 export default function ProfileSidebarRight() {
-      const router = useRouter();
+    const router = useRouter();
 
-      const handleClick = () => {
-          router.push("/manageCv");
-      };
+    const handleClick = () => {
+        router.push("/manageCv");
+    };
 
     const completion = useSelector(selectProfileCompletion);
 
@@ -65,7 +71,7 @@ export default function ProfileSidebarRight() {
                             <p className="text-xl font-bold text-blue-800">
                                 {percent}%
                             </p>
-                            <p className="text-xs text-gray-500">completed</p>
+                            <p className="text-xs text-gray-500">{t`completed`}</p>
                         </div>
                     </div>
                 </div>
@@ -74,18 +80,16 @@ export default function ProfileSidebarRight() {
                     {percent >= 70 ? (
                         <div className="flex-1">
                             <p className="flex items-center justify-center gap-2 text-sm font-semibold text-blue-800 ">
-                                <PartyPopper size={28} /> Congratulations!
+                                <PartyPopper size={28} /> {t`Congratulations!`}
                             </p>
                             <p className="mt-2 text-xs text-center text-gray-600">
-                                You are ready to generate your CV. Keep
-                                completing your profile for a more attractive
-                                CV.
+                                {t`You are ready to generate your CV. Keep completing your profile for a more attractive CV.`}
                             </p>
                         </div>
                     ) : (
                         <p className="flex items-center justify-center gap-2 text-red-600">
-                            <AlertCircle size={18} /> Need {70 - percent}% more
-                            to complete CV
+                            <AlertCircle size={18} /> {t`Need`} {70 - percent}%{" "}
+                            {t`more to complete CV`}
                         </p>
                     )}
                 </div>

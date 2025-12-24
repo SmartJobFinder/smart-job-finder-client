@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/command";
 import { Check, ChevronsUpDown } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
+import { t } from "@/i18n/i18n";
 
 const ProvinceCombobox = () => {
     const [open, setOpen] = useState(false);
@@ -56,7 +57,7 @@ const ProvinceCombobox = () => {
                     aria-expanded={open}
                     className="w-full justify-between"
                 >
-                    {selected ? selected : "Chọn tỉnh/thành phố"}
+                    {selected ? selected : t`Select province/city`}
                     <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                 </Button>
             </PopoverTrigger>
@@ -64,9 +65,9 @@ const ProvinceCombobox = () => {
                 <Command>
                     <CommandInput
                         onValueChange={setSearchTerm}
-                        placeholder="Tìm tỉnh/thành..."
+                        placeholder={t`Search province/city...`}
                     />
-                    <CommandEmpty>Không tìm thấy.</CommandEmpty>
+                    <CommandEmpty>{t`Not found`}</CommandEmpty>
                     <CommandGroup>
                         {filteredProvinces.map((province) => (
                             <CommandItem

@@ -2,6 +2,7 @@
 
 import { AlertTriangle, X, CheckCircle, XCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { t } from "@/i18n/i18n";
 
 export default function JobValidationDialog({
     validationResult,
@@ -17,9 +18,9 @@ export default function JobValidationDialog({
     };
 
     const getStatusText = () => {
-        if (score >= 80) return "Safe to Post";
-        if (score >= 50) return "Review Recommended";
-        return "High Risk - Not Recommended";
+        if (score >= 80) return t`Safe to Post`;
+        if (score >= 50) return t`Review Recommended`;
+        return t`High Risk - Not Recommended`;
     };
 
     const getBgColor = () => {
@@ -42,11 +43,10 @@ export default function JobValidationDialog({
                     <div className="flex flex-col items-center justify-center space-y-4">
                         <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-blue-600"></div>
                         <h3 className="text-lg font-semibold text-gray-900">
-                            Validating Job Posting...
+                            {t`Validating Job Posting...`}
                         </h3>
                         <p className="text-sm text-gray-600 text-center">
-                            AI is analyzing your job posting for potential
-                            issues
+                            {t`AI is analyzing your job posting for potential issues`}
                         </p>
                     </div>
                 </div>
@@ -60,7 +60,7 @@ export default function JobValidationDialog({
                 {/* Header */}
                 <div className="flex items-center justify-between p-4 border-b">
                     <h2 className="text-lg font-semibold text-gray-900">
-                        Job Validation Assessment
+                        {t`Job Validation Assessment`}
                     </h2>
                     <button
                         onClick={onClose}
@@ -100,12 +100,12 @@ export default function JobValidationDialog({
                         <div className="mb-4 p-4 bg-blue-50 rounded-lg border border-blue-200">
                             <h4 className="text-sm font-semibold text-blue-900 mb-3 flex items-center">
                                 <CheckCircle className="w-4 h-4 mr-2" />
-                                AI Analysis Results
+                                {t`AI Analysis Results`}
                             </h4>
                             <div className="space-y-2 text-sm">
                                 <div className="flex justify-between items-center">
                                     <span className="text-gray-700">
-                                        Classification:
+                                        {t`Classification`}:
                                     </span>
                                     <span
                                         className={`font-semibold ${
@@ -115,15 +115,15 @@ export default function JobValidationDialog({
                                         }`}
                                     >
                                         {aiDetails.label === "legit"
-                                            ? "Legitimate"
-                                            : "Scam"}
+                                            ? t`Legitimate`
+                                            : t`Scam`}
                                     </span>
                                 </div>
 
                                 <div className="pt-2 border-t border-blue-200">
                                     <div className="flex justify-between items-center mb-1">
                                         <span className="text-gray-700">
-                                            Legitimate Probability:
+                                            {t`Legitimate Probability`}:
                                         </span>
                                         <span className="font-semibold text-green-600">
                                             {(
@@ -148,7 +148,7 @@ export default function JobValidationDialog({
                                 <div className="pt-2">
                                     <div className="flex justify-between items-center mb-1">
                                         <span className="text-gray-700">
-                                            Scam Probability:
+                                            {t`Scam Probability`}:
                                         </span>
                                         <span className="font-semibold text-red-600">
                                             {(
@@ -178,7 +178,7 @@ export default function JobValidationDialog({
                         <div className="mb-4">
                             <h3 className="font-semibold text-gray-900 mb-2 flex items-center">
                                 <XCircle className="w-4 h-4 mr-2 text-red-500" />
-                                Issues Detected:
+                                {t`Issues Detected`}:
                             </h3>
                             <ul className="space-y-1 text-sm text-gray-700">
                                 {issues.map((issue, index) => (
@@ -227,7 +227,7 @@ export default function JobValidationDialog({
                         onClick={onClose}
                         className="flex-1"
                     >
-                        Review Job Post
+                        {t`Review Job Post`}
                     </Button>
                     <Button
                         onClick={onProceed}
@@ -239,7 +239,7 @@ export default function JobValidationDialog({
                                 : "bg-green-600 hover:bg-green-700"
                         } text-white`}
                     >
-                        {score < 50 ? "Post Anyway" : "Proceed to Post"}
+                        {score < 50 ? t`Post Anyway` : t`Proceed to Post`}
                     </Button>
                 </div>
             </div>

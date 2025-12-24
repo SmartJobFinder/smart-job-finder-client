@@ -3,6 +3,7 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { CheckCircle } from "lucide-react";
+import { t } from "@/i18n/i18n";
 
 const SuccessDialog = ({ onClose, title, message }) => {
     return (
@@ -18,7 +19,7 @@ const SuccessDialog = ({ onClose, title, message }) => {
                         onClick={onClose}
                         className="w-full bg-blue-600 hover:bg-blue-700"
                     >
-                        Close
+                        {t`Close`}
                     </Button>
                 </div>
             </div>

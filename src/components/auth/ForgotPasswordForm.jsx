@@ -117,7 +117,7 @@ export default function ForgotPasswordForm({
                         theme.textPrimary
                     )}
                 >
-                    Forgot password
+                    {t`Forgot password`}
                 </h2>
                 <p className={clsx("mt-1 text-sm", theme.textSecondary)}>
                     Enter the email associated with your account and we’ll send
@@ -129,7 +129,7 @@ export default function ForgotPasswordForm({
                             className={clsx("h-4 w-4", theme.textPrimary)}
                         />
                         <span className="text-gray-700">
-                            Reset email sent. Please check your inbox.
+                            {t`Reset email sent. Please check your inbox.`}
                         </span>
                     </div>
                 )}
@@ -147,7 +147,7 @@ export default function ForgotPasswordForm({
                             htmlFor="fp-email"
                             className={clsx("font-medium", theme.textSecondary)}
                         >
-                            Email
+                            {t`Email`}
                         </Label>
                         <div className="relative mt-1">
                             <Mail
@@ -159,7 +159,7 @@ export default function ForgotPasswordForm({
                             <Input
                                 id="fp-email"
                                 type="email"
-                                placeholder="you@example.com"
+                                placeholder={t`you@example.com`}
                                 className={clsx(
                                     "pl-10",
                                     theme.ring,
@@ -174,7 +174,7 @@ export default function ForgotPasswordForm({
                         </div>
                         {!isEmailValid && email.length > 0 && (
                             <p className="mt-1 text-sm text-red-500">
-                                Please enter a valid email address.
+                                {t`Please enter a valid email address.`}
                             </p>
                         )}
                     </div>
@@ -192,7 +192,7 @@ export default function ForgotPasswordForm({
                                 )}
                             >
                                 <ArrowLeft className="w-4 h-4 mr-2" />
-                                Back
+                                {t`Back`}
                             </Button>
                         )}
 
@@ -213,7 +213,7 @@ export default function ForgotPasswordForm({
                                         theme.spinner
                                     )}
                                 />
-                                Sending…
+                                {t`Sending…`}
                             </Button>
                         )}
 
@@ -221,7 +221,7 @@ export default function ForgotPasswordForm({
                         {phase === "cooldown" && (
                             <span className="inline-flex items-center gap-2 px-4 py-2 text-sm text-gray-600 border rounded-xl">
                                 <Clock className="w-4 h-4" />
-                                You can resend in {formatMMSS(cooldown)}
+                                {t`You can resend in`} {formatMMSS(cooldown)}
                             </span>
                         )}
 
@@ -236,7 +236,7 @@ export default function ForgotPasswordForm({
                                     "w-[180px]"
                                 )}
                             >
-                                {justSent ? "Resend link" : "Send reset link"}
+                                {justSent ? t`Resend link` : t`Send reset link`}
                             </Button>
                         )}
                     </div>

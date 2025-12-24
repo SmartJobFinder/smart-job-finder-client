@@ -146,7 +146,7 @@ export default function CandidateRegisterForm({ role, onRegistered }) {
                 </div>
                 <div className="relative flex justify-center">
                     <span className="px-3 text-xs font-medium tracking-wider text-blue-500 bg-white">
-                        OR
+                        {t`OR`}
                     </span>
                 </div>
             </div>
@@ -164,14 +164,14 @@ export default function CandidateRegisterForm({ role, onRegistered }) {
                             htmlFor="fullName"
                             className="font-medium text-blue-900/80"
                         >
-                            Full Name
+                            {t`Full Name`}
                         </Label>
                         <div className="relative mt-1">
                             <User className="absolute w-4 h-4 text-blue-300 -translate-y-1/2 pointer-events-none left-3 top-1/2" />
                             <Input
                                 id="fullName"
                                 type="text"
-                                placeholder="Enter your full name"
+                                placeholder={t`Enter your full name`}
                                 className="pl-10 focus-visible:ring-2 focus-visible:ring-blue-500"
                                 {...register("fullName")}
                                 autoComplete="name"
@@ -190,14 +190,14 @@ export default function CandidateRegisterForm({ role, onRegistered }) {
                             htmlFor="email"
                             className="font-medium text-blue-900/80"
                         >
-                            Email
+                            {t`Email`}
                         </Label>
                         <div className="relative mt-1">
                             <Mail className="absolute w-4 h-4 text-blue-300 -translate-y-1/2 pointer-events-none left-3 top-1/2" />
                             <Input
                                 id="email"
                                 type="email"
-                                placeholder="you@example.com"
+                                placeholder={t`you@example.com`}
                                 className="pl-10 focus-visible:ring-2 focus-visible:ring-blue-500"
                                 {...register("email")}
                                 autoComplete="email"
@@ -216,14 +216,14 @@ export default function CandidateRegisterForm({ role, onRegistered }) {
                             htmlFor="phone"
                             className="font-medium text-blue-900/80"
                         >
-                            Phone Number
+                            {t`Phone Number`}
                         </Label>
                         <div className="relative mt-1">
                             <Phone className="absolute w-4 h-4 text-blue-300 -translate-y-1/2 pointer-events-none left-3 top-1/2" />
                             <Input
                                 id="phone"
                                 type="tel"
-                                placeholder="Enter your phone number"
+                                placeholder={t`Enter your phone number`}
                                 className="pl-10 focus-visible:ring-2 focus-visible:ring-blue-500"
                                 {...register("phone")}
                                 autoComplete="tel"
@@ -242,14 +242,14 @@ export default function CandidateRegisterForm({ role, onRegistered }) {
                             htmlFor="password"
                             className="font-medium text-blue-900/80"
                         >
-                            Password
+                            {t`Password`}
                         </Label>
                         <div className="relative mt-1">
                             <Lock className="absolute w-4 h-4 text-blue-300 -translate-y-1/2 pointer-events-none left-3 top-1/2" />
                             <Input
                                 id="password"
                                 type={showPassword ? "text" : "password"}
-                                placeholder="Enter password"
+                                placeholder={t`Enter password`}
                                 className="pl-10 pr-10 focus-visible:ring-2 focus-visible:ring-blue-500"
                                 {...register("password")}
                                 autoComplete="new-password"
@@ -259,8 +259,8 @@ export default function CandidateRegisterForm({ role, onRegistered }) {
                                 type="button"
                                 aria-label={
                                     showPassword
-                                        ? "Hide password"
-                                        : "Show password"
+                                        ? t`Hide password`
+                                        : t`Show password`
                                 }
                                 onClick={() => setShowPassword((s) => !s)}
                                 className="absolute text-blue-400 transition -translate-y-1/2 right-3 top-1/2 hover:text-blue-600"
@@ -298,29 +298,29 @@ export default function CandidateRegisterForm({ role, onRegistered }) {
                                     />
                                 </div>
                                 <div className="mt-1 text-[11px] font-medium text-blue-700">
-                                    Strength: {strengthLabel}
+                                    {t`Strength`}: {strengthLabel}
                                 </div>
 
                                 <ul className="grid grid-cols-2 mt-2 text-xs gap-x-3 gap-y-1">
                                     <Rule
                                         ok={rules.len}
-                                        label="At least 8 characters"
+                                        label={t`At least 8 characters`}
                                     />
                                     <Rule
                                         ok={rules.digit}
-                                        label="Contains a number"
+                                        label={t`Contains a number`}
                                     />
                                     <Rule
                                         ok={rules.upper}
-                                        label="Uppercase letter"
+                                        label={t`Uppercase letter`}
                                     />
                                     <Rule
                                         ok={rules.lower}
-                                        label="Lowercase letter"
+                                        label={t`Lowercase letter`}
                                     />
                                     <Rule
                                         ok={rules.special}
-                                        label="Special character"
+                                        label={t`Special character`}
                                     />
                                 </ul>
                             </div>
@@ -333,14 +333,14 @@ export default function CandidateRegisterForm({ role, onRegistered }) {
                             htmlFor="confirmPassword"
                             className="font-medium text-blue-900/80"
                         >
-                            Confirm Password
+                            {t`Confirm Password`}
                         </Label>
                         <div className="relative mt-1">
                             <Lock className="absolute w-4 h-4 text-blue-300 -translate-y-1/2 pointer-events-none left-3 top-1/2" />
                             <Input
                                 id="confirmPassword"
                                 type={showConfirmPassword ? "text" : "password"}
-                                placeholder="Re-enter your password"
+                                placeholder={t`Re-enter your password`}
                                 className="pl-10 pr-10 focus-visible:ring-2 focus-visible:ring-blue-500"
                                 {...register("confirmPassword")}
                                 autoComplete="new-password"
@@ -349,8 +349,8 @@ export default function CandidateRegisterForm({ role, onRegistered }) {
                                 type="button"
                                 aria-label={
                                     showConfirmPassword
-                                        ? "Hide confirm password"
-                                        : "Show confirm password"
+                                        ? t`Hide confirm password`
+                                        : t`Show confirm password`
                                 }
                                 onClick={() =>
                                     setShowConfirmPassword((s) => !s)
@@ -423,7 +423,7 @@ export default function CandidateRegisterForm({ role, onRegistered }) {
                             "disabled:opacity-50 disabled:cursor-not-allowed"
                         )}
                     >
-                        {isSubmitting ? "Creating account..." : "Sign Up"}
+                        {isSubmitting ? t`Creating account...` : t`Sign Up`}
                     </Button>
                 </form>
             </div>
@@ -442,7 +442,7 @@ export default function CandidateRegisterForm({ role, onRegistered }) {
                         className="mt-4 text-blue-700 border-blue-200 rounded-xl hover:bg-blue-50"
                         onClick={() => router.push("/login")}
                     >
-                        Go to Login
+                        {t`Go to Login`}
                     </Button>
                 </div>
             )}

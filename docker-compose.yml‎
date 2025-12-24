@@ -1,0 +1,17 @@
+services:
+  jobfind_fe:
+    image: itrong0703/jobfind-frontend:latest
+    container_name: jobfind_fe
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - NEXT_PUBLIC_API_BASE_URL=${NEXT_PUBLIC_API_BASE_URL}
+    env_file:
+      - .env
+    networks:
+      - jobfind-network
+
+networks:
+  jobfind-network:
+    external: true

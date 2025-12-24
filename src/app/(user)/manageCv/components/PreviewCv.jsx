@@ -9,6 +9,7 @@ import { useSelector } from "react-redux";
 import { getScaledHtml } from "@/hooks/getScaledHtml";
 import { ZoomIn, ZoomOut, Expand, FileDown, FileUser } from "lucide-react";
 import LoadingScreen from "@/components/ui/loadingScreen";
+import { t } from "@/i18n/i18n";
 
 export default function PreviewCv({
     templateId,
@@ -152,7 +153,7 @@ export default function PreviewCv({
                         onClick={resetZoom}
                         className="px-3 py-2 text-sm text-white transition-colors bg-gray-600 rounded-lg hover:bg-gray-700"
                     >
-                        Reset
+                        {t`Reset`}
                     </button>
 
                     <button
@@ -161,7 +162,7 @@ export default function PreviewCv({
                         aria-label="Toggle Fullscreen"
                     >
                         <Expand size={18} />
-                        Fullscreen
+                        {t`Fullscreen`}
                     </button>
 
                     <button
@@ -177,8 +178,8 @@ export default function PreviewCv({
                     >
                         <FileDown />
                         {completionPercent >= 70
-                            ? "Download PDF"
-                            : "Complete your profile"}
+                            ? t`Download PDF`
+                            : t`Complete your profile`}
                     </button>
                 </div>
             </div>

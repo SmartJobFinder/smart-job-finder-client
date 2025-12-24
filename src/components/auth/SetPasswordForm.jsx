@@ -115,7 +115,7 @@ export default function SetPasswordForm({
                         <Input
                             id="new-password"
                             type={showPw ? "text" : "password"}
-                            placeholder="Enter new password"
+                            placeholder={t`Enter new password`}
                             className="pl-10 pr-10 focus-visible:ring-2 focus-visible:ring-blue-500"
                             value={pw}
                             onChange={(e) => setPw(e.target.value)}
@@ -175,7 +175,7 @@ export default function SetPasswordForm({
                         <Input
                             id="confirm-password"
                             type={showCpw ? "text" : "password"}
-                            placeholder="Re-enter your new password"
+                            placeholder={t`Re-enter your new password`}
                             className="pl-10 pr-10 focus-visible:ring-2 focus-visible:ring-blue-500"
                             value={cpw}
                             onChange={(e) => setCpw(e.target.value)}

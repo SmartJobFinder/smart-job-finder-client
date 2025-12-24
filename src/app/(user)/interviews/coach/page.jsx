@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useRef, useEffect, useMemo } from "react";
+import { t } from "@/i18n/i18n";
 import { Button } from "@/components/ui/button";
 import {
     Card,
@@ -102,11 +103,11 @@ export default function AICoachPage() {
     const normalizedJobs = useMemo(() => {
         return jobs.map((job) => ({
             id: job.id,
-            jobTitle: job.jobTitle || job.title || "Untitled Job",
+            jobTitle: job.jobTitle || job.title || t`Untitled Job`,
             companyName:
                 job.companyName ||
                 job.company?.company_name ||
-                "Unknown Company",
+                t`Unknown Company`,
         }));
     }, [jobs]);
 
@@ -385,20 +386,20 @@ export default function AICoachPage() {
                 <div className="flex items-center justify-center gap-2">
                     <Sparkles className="w-8 h-8 text-blue-600" />
                     <h1 className="text-3xl font-bold text-gray-900">
-                        AI Interview Coach
+                        {t`AI Interview Coach`}
                     </h1>
                 </div>
                 <p className="text-gray-600">
-                    Practice your interview skills with AI-powered feedback
+                    {t`Practice your interview skills with AI-powered feedback`}
                 </p>
             </div>
 
             {/* Selection Section */}
             <Card>
                 <CardHeader>
-                    <CardTitle>Select Interview Context</CardTitle>
+                    <CardTitle>{t`Select Interview Context`}</CardTitle>
                     <CardDescription>
-                        Choose a job description or skill to practice with
+                        {t`Choose a job description or skill to practice with`}
                     </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
@@ -410,7 +411,7 @@ export default function AICoachPage() {
                                 setSelectedSkill(null);
                             }}
                         >
-                            By Job
+                            {t`By Job Description`}
                         </Button>
                         <Button
                             variant={mode === "skill" ? "default" : "outline"}
@@ -419,7 +420,7 @@ export default function AICoachPage() {
                                 setSelectedJobId(null);
                             }}
                         >
-                            By Skill
+                            {t`By Skill`}
                         </Button>
                     </div>
 
@@ -711,7 +712,7 @@ export default function AICoachPage() {
                             evaluation.suggestions.length > 0 && (
                                 <div className="space-y-2">
                                     <h4 className="font-semibold">
-                                        Suggestions for Improvement:
+                                        {t`Suggestions for Improvement:`}
                                     </h4>
                                     <ul className="space-y-2">
                                         {evaluation.suggestions.map(
@@ -735,7 +736,7 @@ export default function AICoachPage() {
                             <div className="space-y-2">
                                 <h4 className="font-semibold flex items-center gap-2">
                                     <Volume2 className="w-5 h-5" />
-                                    Listen to Feedback:
+                                    {t`Listen to Feedback:`}
                                 </h4>
                                 <audio
                                     ref={feedbackAudioRef}

@@ -236,8 +236,8 @@ export default function CVPage() {
                                 className="px-3 py-2 text-sm border border-gray-300 rounded-lg"
                                 disabled={loading}
                             >
-                                <option value="en">EN</option>
-                                <option value="vi">VI</option>
+                                <option value="en">{t`English`}</option>
+                                <option value="vi">{t`Vietnamese`}</option>
                             </select>
 
                             <button
@@ -282,9 +282,9 @@ export default function CVPage() {
                                 className="px-3 py-2 text-sm border border-gray-300 rounded-lg"
                                 disabled={loading}
                             >
-                                <option value="basic">{t`Mẫu Cơ Bản`}</option>
-                                <option value="two-columns">{t`Mẫu Hai Cột`}</option>
-                                <option value="right-sidebar">{t`Mẫu 3`}</option>
+                                <option value="basic">{t`Basic Template`}</option>
+                                <option value="two-columns">{t`Two Columns Template`}</option>
+                                <option value="right-sidebar">{t`Template 3`}</option>
                             </select>
 
                             <button

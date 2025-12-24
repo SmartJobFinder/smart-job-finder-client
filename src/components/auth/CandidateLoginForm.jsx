@@ -140,7 +140,7 @@ const CandidateLoginForm = ({ role, onGoogleNeedsPassword, onForgot }) => {
                                 <Input
                                     id="email"
                                     type="email"
-                                    placeholder="you@example.com"
+                                    placeholder={t`you@example.com`}
                                     autoComplete="email"
                                     className={clsx(
                                         "pl-10",
@@ -169,7 +169,7 @@ const CandidateLoginForm = ({ role, onGoogleNeedsPassword, onForgot }) => {
                                 <Input
                                     id="password"
                                     type={showPassword ? "text" : "password"}
-                                    placeholder="Enter your password"
+                                    placeholder={t`Enter your password`}
                                     autoComplete="current-password"
                                     className={clsx(
                                         "pl-10 pr-10",

@@ -505,7 +505,123 @@
         "msgid": "Payment History",
         "msgstr": ["결제 내역"]
       },
-      "Upgrade Vip": { "msgid": "Upgrade Vip", "msgstr": ["VIP 업그레이드"] }
+      "Upgrade Vip": { "msgid": "Upgrade Vip", "msgstr": ["VIP 업그레이드"] },
+      "Live Job": { "msgid": "Live Job", "msgstr": ["채용 중"] },
+      "New Jobs": { "msgid": "New Jobs", "msgstr": ["신규 공고"] },
+      "Graphics & Design": {
+        "msgid": "Graphics & Design",
+        "msgstr": ["그래픽 & 디자인"]
+      },
+      "Code & Programming": {
+        "msgid": "Code & Programming",
+        "msgstr": ["개발 & 프로그래밍"]
+      },
+      "Digital Marketing": {
+        "msgid": "Digital Marketing",
+        "msgstr": ["디지털 마케팅"]
+      },
+      "Video & Animation": {
+        "msgid": "Video & Animation",
+        "msgstr": ["비디오 & 애니메이션"]
+      },
+      "Music & Audio": {
+        "msgid": "Music & Audio",
+        "msgstr": ["음악 & 오디오"]
+      },
+      "Account & Finance": {
+        "msgid": "Account & Finance",
+        "msgstr": ["회계 & 재무"]
+      },
+      "Health & Care": {
+        "msgid": "Health & Care",
+        "msgstr": ["건강 & 케어"]
+      },
+      "Data & Science": {
+        "msgid": "Data & Science",
+        "msgstr": ["데이터 & 과학"]
+      },
+      "UI/UX Designer": {
+        "msgid": "UI/UX Designer",
+        "msgstr": ["UI/UX 디자이너"]
+      },
+      "Creative Director": {
+        "msgid": "Creative Director",
+        "msgstr": ["크리에이티브 디렉터"]
+      },
+      "Intern": {
+        "msgid": "Intern",
+        "msgstr": ["인턴"]
+      },
+      "Software Engineer": {
+        "msgid": "Software Engineer",
+        "msgstr": ["소프트웨어 엔지니어"]
+      },
+      "Võ Nhật Hào": {
+        "msgid": "Võ Nhật Hào",
+        "msgstr": ["Võ Nhật Hào"]
+      },
+      "Phạm Văn Phúc": {
+        "msgid": "Phạm Văn Phúc",
+        "msgstr": ["Phạm Văn Phúc"]
+      },
+      "Ngô Đức Huy": {
+        "msgid": "Ngô Đức Huy",
+        "msgstr": ["Ngô Đức Huy"]
+      },
+      "Nguyễn Đức Huy": {
+        "msgid": "Nguyễn Đức Huy",
+        "msgstr": ["Nguyễn Đức Huy"]
+      },
+      "JobFind has a clean, modern interface that makes job searching feel effortless. I found exactly what I was looking for in just a few days!": {
+        "msgid": "JobFind has a clean, modern interface that makes job searching feel effortless. I found exactly what I was looking for in just a few days!",
+        "msgstr": [
+          "JobFind는 깔끔하고 현대적인 인터페이스로 구직을 쉽게 만들어줍니다. 단 며칠 만에 원하는 것을 정확히 찾았어요!"
+        ]
+      },
+      "The job search and application process is incredibly smooth. JobFind helped me connect with companies that truly match my creative vision.": {
+        "msgid": "The job search and application process is incredibly smooth. JobFind helped me connect with companies that truly match my creative vision.",
+        "msgstr": [
+          "구직 및 지원 과정이 매우 순조로웠습니다. JobFind 덕분에 제 창의적 비전과 정말 잘 맞는 회사들과 연결될 수 있었어요."
+        ]
+      },
+      "As an intern looking for my first opportunity, JobFind gave me access to real openings and helpful tips. I landed my first internship thanks to this platform!": {
+        "msgid": "As an intern looking for my first opportunity, JobFind gave me access to real openings and helpful tips. I landed my first internship thanks to this platform!",
+        "msgstr": [
+          "첫 기회를 찾는 인턴으로서 JobFind는 실제 채용 공고와 유용한 팁에 접근할 수 있게 해주었습니다. 이 플랫폼 덕분에 첫 인턴십을 시작할 수 있었어요!"
+        ]
+      },
+      "Over 1,000 users – including myself – have found jobs through JobFind. It's not just a platform; it's a launchpad for your career.": {
+        "msgid": "Over 1,000 users – including myself – have found jobs through JobFind. It's not just a platform; it's a launchpad for your career.",
+        "msgstr": [
+          "저를 포함한 1,000명 이상의 사용자가 JobFind를 통해 일자리를 찾았습니다. 이것은 단순한 플랫폼이 아니라 커리어의 발판입니다."
+        ]
+      },
+      "Enter job description...": {
+        "msgid": "Enter job description...",
+        "msgstr": ["채용 설명 입력..."]
+      },
+      "Enter content...": {
+        "msgid": "Enter content...",
+        "msgstr": ["내용 입력..."]
+      },
+      "You've received feedback for this question. You can move on to the next one.": {
+        "msgid": "You've received feedback for this question. You can move on to the next one.",
+        "msgstr": [
+          "이 질문에 대한 피드백을 받았습니다. 다음 질문으로 넘어가실 수 있습니다."
+        ]
+      },
+      "Please answer and receive feedback before moving to the next question.": {
+        "msgid": "Please answer and receive feedback before moving to the next question.",
+        "msgstr": ["다음 질문으로 넘어가기 전에 답변하고 피드백을 받아주세요."]
+      },
+      "Finish interview": {
+        "msgid": "Finish interview",
+        "msgstr": ["인터뷰 종료"]
+      },
+      "Next question": {
+        "msgid": "Next question",
+        "msgstr": ["다음 질문"]
+      }
     }
   }
 }

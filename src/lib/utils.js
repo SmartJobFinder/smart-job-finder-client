@@ -1,5 +1,6 @@
 import { clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
+import { t } from "@/i18n/i18n";
 
 export function cn(...inputs) {
     return twMerge(clsx(inputs));
@@ -45,13 +46,13 @@ export function formatNumber(num) {
  */
 export function formatSalary(salaryMin, salaryMax, salaryType) {
     if (salaryType === 1) {
-        return "Negotiable";
+        return t`Negotiable`;
     }
     if (salaryMin && salaryMax) {
         return `${formatNumber(salaryMin)} - ${formatNumber(salaryMax)} VND`;
     }
     if (salaryMin) {
-        return `From ${formatNumber(salaryMin)} VND`;
+        return `${t`From`} ${formatNumber(salaryMin)} VND`;
     }
-    return "Not disclosed";
+    return t`Not disclosed`;
 }
