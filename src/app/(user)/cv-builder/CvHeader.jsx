@@ -7,8 +7,12 @@ export default function CvHeader({ info }) {
     <div className="pb-4 border-b border-gray-200">
       <div className="flex flex-col justify-between gap-4 sm:flex-row">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">{info?.fullName || "-"}</h1>
-          <p className="text-lg font-semibold text-gray-700">{info?.title || "-"}</p>
+          <h1 className="text-2xl font-bold text-gray-900">
+            {info?.fullName || "-"}
+          </h1>
+          <p className="text-lg font-semibold text-gray-700">
+            {info?.title || "-"}
+          </p>
         </div>
 
         <div className="flex flex-col items-start gap-1 text-sm text-gray-600 sm:items-end">

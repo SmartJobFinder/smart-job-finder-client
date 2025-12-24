@@ -2,21 +2,21 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const cvTemplateSlice = createSlice({
-    name: "cvTemplate",
-    initialState: {
-        html: "",
-        selectedTemplateId: null,
+  name: "cvTemplate",
+  initialState: {
+    html: "",
+    selectedTemplateId: null,
+  },
+  reducers: {
+    setPreviewHtml: (state, action) => {
+      state.html = action.payload;
     },
-    reducers: {
-        setPreviewHtml: (state, action) => {
-            state.html = action.payload;
-        },
-        setSelectedTemplateId: (state, action) => {
-            state.selectedTemplateId = action.payload;
-        },
+    setSelectedTemplateId: (state, action) => {
+      state.selectedTemplateId = action.payload;
     },
+  },
 });
 
 export const { setPreviewHtml, setSelectedTemplateId } =
-    cvTemplateSlice.actions;
+  cvTemplateSlice.actions;
 export default cvTemplateSlice.reducer;

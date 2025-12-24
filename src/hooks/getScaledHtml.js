@@ -1,10 +1,9 @@
 export function getScaledHtml(data, zoom, options = {}) {
-    if (!data) return "";
+  if (!data) return "";
 
-    const containerPadding =
-        options.templateType === "Classic" ? "20px" : "0px";
+  const containerPadding = options.templateType === "Classic" ? "20px" : "0px";
 
-    return `
+  return `
         <!DOCTYPE html>
         <html>
         <head>

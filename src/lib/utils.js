@@ -3,7 +3,7 @@ import { twMerge } from "tailwind-merge";
 import { t } from "@/i18n/i18n";
 
 export function cn(...inputs) {
-    return twMerge(clsx(inputs));
+  return twMerge(clsx(inputs));
 }
 
 /**
@@ -12,19 +12,19 @@ export function cn(...inputs) {
  * @returns {string} - Đường dẫn ảnh đã được xử lý
  */
 export function getImageUrl(src) {
-    if (!src) return "/logo_example.png";
+  if (!src) return "/logo_example.png";
 
-    // Nếu đã là URL tuyệt đối hoặc bắt đầu bằng "/", giữ nguyên
-    if (
-        src.startsWith("http://") ||
-        src.startsWith("https://") ||
-        src.startsWith("/")
-    ) {
-        return src;
-    }
+  // Nếu đã là URL tuyệt đối hoặc bắt đầu bằng "/", giữ nguyên
+  if (
+    src.startsWith("http://") ||
+    src.startsWith("https://") ||
+    src.startsWith("/")
+  ) {
+    return src;
+  }
 
-    // Thêm tiền tố URL API nếu là đường dẫn tương đối
-    return `http://localhost:8080/${src}`;
+  // Thêm tiền tố URL API nếu là đường dẫn tương đối
+  return `http://localhost:8080/${src}`;
 }
 
 /**
@@ -33,8 +33,8 @@ export function getImageUrl(src) {
  * @returns {string} - Số đã format
  */
 export function formatNumber(num) {
-    if (!num && num !== 0) return "";
-    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  if (!num && num !== 0) return "";
+  return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 }
 
 /**
@@ -45,14 +45,14 @@ export function formatNumber(num) {
  * @returns {string} - Formatted salary string
  */
 export function formatSalary(salaryMin, salaryMax, salaryType) {
-    if (salaryType === 1) {
-        return t`Negotiable`;
-    }
-    if (salaryMin && salaryMax) {
-        return `${formatNumber(salaryMin)} - ${formatNumber(salaryMax)} VND`;
-    }
-    if (salaryMin) {
-        return `${t`From`} ${formatNumber(salaryMin)} VND`;
-    }
-    return t`Not disclosed`;
+  if (salaryType === 1) {
+    return t`Negotiable`;
+  }
+  if (salaryMin && salaryMax) {
+    return `${formatNumber(salaryMin)} - ${formatNumber(salaryMax)} VND`;
+  }
+  if (salaryMin) {
+    return `${t`From`} ${formatNumber(salaryMin)} VND`;
+  }
+  return t`Not disclosed`;
 }

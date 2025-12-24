@@ -19,11 +19,9 @@ const toastSlice = createSlice({
       state.toasts.push(toast);
     },
     removeToast: (state, action) => {
-      state.toasts = state.toasts.filter(
-        (toast) => toast.id !== action.payload
-      );
+      state.toasts = state.toasts.filter(toast => toast.id !== action.payload);
     },
-    clearAllToasts: (state) => {
+    clearAllToasts: state => {
       state.toasts = [];
     },
   },

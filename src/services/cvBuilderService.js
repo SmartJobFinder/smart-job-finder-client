@@ -6,7 +6,7 @@ export const generateCvWithAI = async (jobId, language = "en") => {
 
     const payload = { jobId, language };
     const response = await api.post("/cv-builder", payload);
-    return response.data; 
+    return response.data;
   } catch (error) {
     console.error("Error generating CV with AI:", error);
     throw error;
@@ -26,4 +26,3 @@ export const generateCvWithAIGet = async (jobId, language = "en") => {
     throw error;
   }
 };
-
