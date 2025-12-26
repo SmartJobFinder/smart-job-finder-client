@@ -1,128 +1,170 @@
 "use client";
 
-import { useDispatch, useSelector } from "react-redux";
-import { setSelectedTemplateId } from "@/features/templateCv/cvTemplateSlice";
-import { useGetAllTemplatesQuery } from "@/services/cvTemplateService";
-import PreviewCv from "./PreviewCv";
-import { useEffect } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { CircleAlert, CircleCheckBig, Eye, Pencil, Trash2 } from "lucide-react";
+import { t } from "@/i18n/i18n";
 import LoadingScreen from "@/components/ui/loadingScreen";
-import { selectNormalizedProfile, selectProfileCompletion, setCompletion, setNormalizedProfile } from "@/features/profile/profileSlice";
 import { calculateProfileCompletion } from "@/features/profile/profileCompletion";
 import { normalizeProfileData } from "@/features/profile/normalizeProfileData";
 import { useGetCombinedProfileQuery } from "@/services/profileService";
-import { CircleAlert, CircleCheckBig } from "lucide-react";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  selectNormalizedProfile,
+  selectProfileCompletion,
+  setCompletion,
+  setNormalizedProfile,
+} from "@/features/profile/profileSlice";
+import CvPreviewModal from "../../cv-builder/CvPreviewModal";
+import { listSavedCvs, deleteSavedCv } from "@/services/cvSaveService";
+import { toast } from "react-toastify";
 
 export default function ManageCv() {
-    const dispatch = useDispatch();
-    const { data: combined, isSuccess } = useGetCombinedProfileQuery();
-    const { data: templates = [], isLoading } = useGetAllTemplatesQuery();
+  const dispatch = useDispatch();
+  const { data: combined, isSuccess } = useGetCombinedProfileQuery();
+  const completion = useSelector(selectProfileCompletion);
+  const [savedCvs, setSavedCvs] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [previewing, setPreviewing] = useState(null); // cv object
+  const [previewTemplate, setPreviewTemplate] = useState("basic");
 
-    const selectedTemplateId = useSelector(
-        (state) => state.cvTemplate.selectedTemplateId
-    );
+  // normalize profile
+  useEffect(() => {
+    if (isSuccess && combined) {
+      const normalized = normalizeProfileData(combined);
+      dispatch(setNormalizedProfile(normalized));
+      dispatch(setCompletion(calculateProfileCompletion(normalized)));
+    }
+  }, [isSuccess, combined, dispatch]);
 
-    const completion = useSelector(selectProfileCompletion);
-    const selectedTemplate = templates.find(
-        (tpl) => tpl.id === selectedTemplateId
-    );
+  useEffect(() => {
+    let alive = true;
+    (async () => {
+      setLoading(true);
+      try {
+        const data = await listSavedCvs();
+        if (alive) setSavedCvs(data || []);
+      } catch (e) {
+        console.error(e);
+        if (alive) toast.error("Failed to load saved CVs");
+      } finally {
+        if (alive) setLoading(false);
+      }
+    })();
+    return () => {
+      alive = false;
+    };
+  }, []);
 
-    // choose template default  
-    useEffect(() => {
-        if (!isLoading && templates.length > 0 && !selectedTemplateId) {
-            dispatch(setSelectedTemplateId(templates[0].id));
-        }
-    }, [isLoading, templates, selectedTemplateId, dispatch]);
+  const handleDelete = async id => {
+    try {
+      await deleteSavedCv(id);
+      setSavedCvs(prev => prev.filter(cv => cv.id !== id));
+      toast.success("Deleted CV");
+    } catch (e) {
+      console.error(e);
+      toast.error("Delete failed");
+    }
+  };
 
-    // normalize profile
-    useEffect(() => {
-        if (isSuccess && combined) {
-            const normalized = normalizeProfileData(combined);
-            dispatch(setNormalizedProfile(normalized));
-            dispatch(setCompletion(calculateProfileCompletion(normalized)));
-        }
-    }, [isSuccess, combined, dispatch]);
+  const handlePreview = cv => {
+    try {
+      const parsed = cv.content ? JSON.parse(cv.content) : {};
+      setPreviewing(parsed);
+      setPreviewTemplate(cv.template || "basic");
+    } catch (e) {
+      toast.error("Cannot preview this CV");
+    }
+  };
 
-    if (isLoading) return <LoadingScreen message="Loading ..." />;
+  if (loading) return <LoadingScreen message="Loading ..." />;
 
-    return (
-        <div className="space-y-6">
-            <div>
-                <div className="px-6 py-4 mb-4 border-b border-gray-100 bg-gradient-to-r from-blue-200 to-indigo-50 rounded-xl">
-                    <div className="flex justify-between max-w-6xl mx-auto">
-                        <h1 className="pl-4 text-2xl font-bold text-gray-900 border-l-4 border-blue-800">
-                            Cv Templates
-                        </h1>
-                        <h1 className="flex items-center gap-2 pl-4 text-2xl font-bold text-gray-900">
-                            {completion.percent < 100 ? (
-                                <>
-                                    {completion.percent}%{" Profile state"}
-                                    {completion.percent < 70 ? (
-                                        <>
-                                            <span className="text-gray-600">
-                                                complete your profile
-                                            </span>
-                                            <CircleAlert className="w-6 h-6 text-yellow-500" />
-                                        </>
-                                    ) : null}
-                                </>
-                            ) : (
-                                <>
-                                    100%
-                                    <CircleCheckBig className="w-6 h-6 text-blue-800" />
-                                </>
-                            )}
-                        </h1>
-                    </div>
-                </div>
-                <div className="flex flex-wrap gap-4">
-                    {templates.map((tpl) => {
-                        const isSelected = tpl.id === selectedTemplateId;
-                        return (
-                            <div
-                                key={tpl.id}
-                                onClick={() =>
-                                    dispatch(setSelectedTemplateId(tpl.id))
-                                }
-                                className={`cursor-pointer w-40 p-3 rounded-xl border transition-all duration-300 shadow-sm hover:shadow-md
-                                    ${
-                                        isSelected
-                                            ? "border-blue-600 bg-blue-50"
-                                            : "border-gray-200 bg-white hover:border-blue-300"
-                                    }`}
-                            >
-                                <div className="relative w-full h-40 p-2 overflow-hidden rounded-md">
-                                    <img
-                                        src={tpl.previewImageUrl}
-                                        alt={tpl.name}
-                                        className="object-contain w-full h-full"
-                                    />
-                                    <div className="absolute inset-0 transition-all hover:bg-black/20" />
-                                </div>
-
-                                <p
-                                    className={`mt-2 text-sm font-medium text-center truncate ${
-                                        isSelected
-                                            ? "text-blue-700"
-                                            : "text-gray-700"
-                                    }`}
-                                >
-                                    {tpl.name}
-                                </p>
-                            </div>
-                        );
-                    })}
-                </div>
-            </div>
-
-            {selectedTemplate && (
-                <div className="p-6 bg-white border border-gray-100 shadow-md rounded-xl">
-                    <PreviewCv
-                        templateId={selectedTemplate.id}
-                        templateName={selectedTemplate.name}
-                        completionPercent={completion.percent}
-                    />
-                </div>
-            )}
+  return (
+    <div className="space-y-6">
+      <div>
+        <div className="px-6 py-4 mb-4 border-b border-gray-100 bg-gradient-to-r from-blue-200 to-indigo-50 rounded-xl">
+          <div className="flex justify-between max-w-6xl mx-auto">
+            <h1 className="pl-4 text-2xl font-bold text-gray-900 border-l-4 border-blue-800">
+              {t`Cv Templates`}
+            </h1>
+            <h1 className="flex items-center gap-2 pl-4 text-2xl font-bold text-gray-900">
+              {completion.percent < 100 ? (
+                <>
+                  {completion.percent}% {t`Profile state`}
+                  {completion.percent < 70 ? (
+                    <>
+                      <span className="text-gray-600">
+                        {t`complete your profile`}
+                      </span>
+                      <CircleAlert className="w-6 h-6 text-yellow-500" />
+                    </>
+                  ) : null}
+                </>
+              ) : (
+                <>
+                  100%
+                  <CircleCheckBig className="w-6 h-6 text-blue-800" />
+                </>
+              )}
+            </h1>
+          </div>
         </div>
-    );
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {savedCvs.map(cv => (
+            <div
+              key={cv.id}
+              className="p-4 rounded-xl border border-gray-200 bg-white shadow-sm hover:shadow-md transition"
+            >
+              <div className="flex items-start justify-between gap-3">
+                <div className="space-y-1">
+                  <div className="text-sm uppercase text-gray-500">
+                    {cv.template || "basic"}
+                  </div>
+                  <div className="text-lg font-semibold text-gray-900 line-clamp-2">
+                    {cv.title || "Untitled CV"}
+                  </div>
+                </div>
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={() => handlePreview(cv)}
+                    className="p-2 rounded-lg border bg-gray-50 hover:bg-gray-100"
+                    title="Preview"
+                  >
+                    <Eye size={16} />
+                  </button>
+                  <a
+                    href={`/cv-builder?savedId=${cv.id}`}
+                    className="p-2 rounded-lg border bg-gray-50 hover:bg-gray-100"
+                    title="Edit"
+                  >
+                    <Pencil size={16} />
+                  </a>
+                  <button
+                    onClick={() => handleDelete(cv.id)}
+                    className="p-2 rounded-lg border bg-gray-50 hover:bg-gray-100 text-red-600"
+                    title="Delete"
+                  >
+                    <Trash2 size={16} />
+                  </button>
+                </div>
+              </div>
+            </div>
+          ))}
+          {savedCvs.length === 0 && (
+            <div className="col-span-full text-center text-gray-500">
+              {t`No saved CVs yet.`}
+            </div>
+          )}
+        </div>
+      </div>
+
+      {previewing && (
+        <CvPreviewModal
+          open={!!previewing}
+          onClose={() => setPreviewing(null)}
+          template={previewTemplate}
+          cv={previewing}
+        />
+      )}
+    </div>
+  );
 }

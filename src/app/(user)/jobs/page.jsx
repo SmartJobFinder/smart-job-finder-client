@@ -1,7 +1,7 @@
 import AppliedPage from "./applied/page";
 
 export default function JobsPage() {
-    return <AppliedPage />;
+  return <AppliedPage />;
 }
 // "use client";
 

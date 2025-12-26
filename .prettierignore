@@ -1,0 +1,39 @@
+# Dependencies
+node_modules
+package-lock.json
+
+# Build outputs
+.next
+out
+build
+dist
+
+# Cache
+.cache
+.parcel-cache
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment files
+.env
+.env.*
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Documentation
+docs/**/*.md
+README.md
+CHANGELOG.md
+
+# Config files that shouldn't be formatted
+public

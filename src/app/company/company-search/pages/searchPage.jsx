@@ -9,57 +9,54 @@ import RecommendedCompanies from "../components/RecommendedCompanies";
 import CallToAction from "../components/CallToAction";
 import CompanyGrid from "../components/CompanyGrid";
 import {
-    recommendedCompanies,
-    popularCompanies,
-    designCompanies,
+  recommendedCompanies,
+  popularCompanies,
+  designCompanies,
 } from "../utils/mockData";
 
 const SearchCompanyPage = () => {
-    const router = useRouter();
+  const router = useRouter();
 
-    const handleSearch = (searchParams) => {
-        const queryParams = new URLSearchParams();
+  const handleSearch = searchParams => {
+    const queryParams = new URLSearchParams();
 
-        if (searchParams.company) {
-            queryParams.append("company", searchParams.company);
-        }
+    if (searchParams.company) {
+      queryParams.append("company", searchParams.company);
+    }
 
-        if (searchParams.location) {
-            queryParams.append("location", searchParams.location);
-        }
+    if (searchParams.location) {
+      queryParams.append("location", searchParams.location);
+    }
 
-        router.push(
-            `/company/company-search/results?${queryParams.toString()}`
-        );
-    };
+    router.push(`/company/company-search/results?${queryParams.toString()}`);
+  };
 
-    return (
-        <div className="max-w-7xl mx-auto px-4 py-8">
-            <div className="text-center mb-8">
-                <h1 className="text-3xl md:text-4xl font-bold mb-2">
-                    Find your{" "}
-                    <span className="text-blue-500">dream companies</span>
-                </h1>
-                <p className="text-gray-600">
-                    Find the dream companies you dream work for
-                </p>
-            </div>
+  return (
+    <div className="max-w-7xl mx-auto px-4 py-8">
+      <div className="text-center mb-8">
+        <h1 className="text-3xl md:text-4xl font-bold mb-2">
+          Find your <span className="text-blue-500">dream companies</span>
+        </h1>
+        <p className="text-gray-600">
+          Find the dream companies you dream work for
+        </p>
+      </div>
 
-            <SearchBar onSearch={handleSearch} />
+      <SearchBar onSearch={handleSearch} />
 
-            <PopularSearches companies={popularCompanies} />
+      <PopularSearches companies={popularCompanies} />
 
-            <RecommendedCompanies companies={recommendedCompanies} />
+      <RecommendedCompanies companies={recommendedCompanies} />
 
-            <CallToAction />
+      <CallToAction />
 
-            <CompanyGrid
-                companies={designCompanies}
-                title="Design Companies"
-                viewMoreLink="/company/company-search/results?category=design"
-            />
-        </div>
-    );
+      <CompanyGrid
+        companies={designCompanies}
+        title="Design Companies"
+        viewMoreLink="/company/company-search/results?category=design"
+      />
+    </div>
+  );
 };
 
 export default SearchCompanyPage;
