@@ -35,6 +35,62 @@ NEXT_PUBLIC_SUB_DEST=/user/queue/noti
 - `npm start` — chạy production build
 - `npm run lint` — ESLint
 
+## 🐳 Docker Deployment
+
+### Prerequisites
+
+- Docker 20.10+
+- Docker Compose 2.0+
+
+### Quick Start
+
+1. **Tạo file .env từ template**:
+
+   ```bash
+   cp .env.example .env
+   # Edit .env với các giá trị của bạn
+   ```
+
+2. **Build và run với Docker Compose**:
+
+   ```bash
+   docker-compose -f docker-compose.dev.yml up -d
+   ```
+
+3. **Truy cập ứng dụng**: http://localhost:3000
+
+### Build Docker Image
+
+```bash
+docker build \
+  --build-arg NEXT_PUBLIC_API_BASE_URL=/api/v1 \
+  --build-arg NEXT_PUBLIC_WS_ENDPOINT=/ws \
+  --build-arg NEXT_PUBLIC_SUB_DEST=/user/queue/noti \
+  --build-arg NEXT_PUBLIC_GOOGLE_CLIENT_ID=your-client-id \
+  -t smart-job-finder-client:latest .
+```
+
+### Run Container
+
+```bash
+docker run -d \
+  -p 3000:3000 \
+  -e NEXT_PUBLIC_API_BASE_URL=/api/v1 \
+  -e NEXT_PUBLIC_WS_ENDPOINT=/ws \
+  -e NEXT_PUBLIC_SUB_DEST=/user/queue/noti \
+  -e NEXT_PUBLIC_GOOGLE_CLIENT_ID=your-client-id \
+  --name smart-job-finder-client \
+  smart-job-finder-client:latest
+```
+
+### Docker Files
+
+- `Dockerfile` - Multi-stage build (Node 20 + standalone output)
+- `docker-compose.dev.yml` - Development/local deployment
+- `docker-compose.yml` - Production deployment (pre-built image)
+- `.dockerignore` - Build context exclusions
+- `.env.example` - Environment variables template
+
 ## 🗂️ Cấu trúc chính
 
 ```
