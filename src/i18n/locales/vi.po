@@ -544,3 +544,105 @@ msgstr "Lịch sử thanh toán"
 
 msgid "Upgrade Vip"
 msgstr "Nâng cấp VIP"
+
+msgid "AI Evaluation"
+msgstr "Đánh giá AI"
+
+msgid "Speech & Content Analysis"
+msgstr "Phân tích Giọng nói & Nội dung"
+
+msgid "Record your answer and stop recording so the AI can analyze your speech, fluency, emotion, and overall response quality."
+msgstr "Ghi âm câu trả lời của bạn và dừng ghi âm để AI có thể phân tích giọng nói, độ lưu loát, cảm xúc và chất lượng phản hồi tổng thể."
+
+msgid "Speaking Speed"
+msgstr "Tốc độ nói"
+
+msgid "Fluency Level"
+msgstr "Mức độ lưu loát"
+
+msgid "Stress Score"
+msgstr "Chỉ số căng thẳng"
+
+msgid "Overall Evaluation"
+msgstr "Đánh giá tổng quan"
+
+msgid "Fluency Summary"
+msgstr "Tóm tắt lưu loát"
+
+msgid "Emotion Analysis"
+msgstr "Phân tích cảm xúc"
+
+msgid "Dominant emotion: "
+msgstr "Cảm xúc chủ đạo: "
+
+msgid "Tip: Aim for steady pacing (120–160 WPM), clear structure (STAR), and confident tone to improve fluency and reduce stress."
+msgstr "Mẹo: Hướng tới nhịp độ ổn định (120–160 WPM), cấu trúc rõ ràng (STAR), và giọng điệu tự tin để cải thiện sự lưu loát và giảm căng thẳng."
+
+msgid "Interview Question"
+msgstr "Câu hỏi phỏng vấn"
+
+msgid "AI is speaking…"
+msgstr "AI đang nói…"
+
+msgid "Ready"
+msgstr "Sẵn sàng"
+
+msgid "Playing…"
+msgstr "Đang phát…"
+
+msgid "Play"
+msgstr "Phát"
+
+msgid "Question hidden"
+msgstr "Câu hỏi đã ẩn"
+
+msgid "Hide script"
+msgstr "Ẩn kịch bản"
+
+msgid "Show script"
+msgstr "Hiện kịch bản"
+
+msgid "Transcript of your answer"
+msgstr "Bản ghi câu trả lời"
+
+msgid "WPM: "
+msgstr "WPM: "
+
+msgid "Fluency: "
+msgstr "Lưu loát: "
+
+msgid "Level: "
+msgstr "Cấp độ: "
+
+msgid "AI Interview Coach"
+msgstr "Huấn luyện viên Phỏng vấn AI"
+
+msgid "Status: "
+msgstr "Trạng thái: "
+
+msgid "Recording..."
+msgstr "Đang ghi âm..."
+
+msgid "Job Description"
+msgstr "Mô tả công việc"
+
+msgid "Requirements:"
+msgstr "Yêu cầu:"
+
+msgid "No requirements provided"
+msgstr "Không có yêu cầu"
+
+msgid "Start interview failed. Check Network/Backend logs."
+msgstr "Bắt đầu phỏng vấn thất bại. Kiểm tra Network/Backend logs."
+
+msgid "Missing jobId/sessionId/question. Please click Start again."
+msgstr "Thiếu jobId/sessionId/question. Vui lòng bấm Start lại."
+
+msgid "Failed to load saved CV"
+msgstr "Không thể tải CV đã lưu"
+
+msgid "Missing jobId"
+msgstr "Thiếu jobId"
+
+msgid "Generate CV failed. Please login again or retry."
+msgstr "Tạo CV thất bại. Vui lòng đăng nhập lại hoặc thử lại."

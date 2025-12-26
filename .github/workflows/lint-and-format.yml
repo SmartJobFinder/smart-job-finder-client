@@ -4,10 +4,18 @@ on:
   pull_request:
     branches:
       - main
+      - test
+      - feature-call-api
+      - dev/hao-vn
+      - pkucpkam
       - develop
   push:
     branches:
       - main
+      - test
+      - feature-call-api
+      - dev/hao-vn
+      - pkucpkam
       - develop
 
 jobs:

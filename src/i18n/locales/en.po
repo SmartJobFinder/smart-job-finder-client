@@ -544,3 +544,104 @@ msgstr "Payment History"
 
 msgid "Upgrade Vip"
 msgstr "Upgrade Vip"
+msgid "AI Evaluation"
+msgstr "AI Evaluation"
+
+msgid "Speech & Content Analysis"
+msgstr "Speech & Content Analysis"
+
+msgid "Record your answer and stop recording so the AI can analyze your speech, fluency, emotion, and overall response quality."
+msgstr "Record your answer and stop recording so the AI can analyze your speech, fluency, emotion, and overall response quality."
+
+msgid "Speaking Speed"
+msgstr "Speaking Speed"
+
+msgid "Fluency Level"
+msgstr "Fluency Level"
+
+msgid "Stress Score"
+msgstr "Stress Score"
+
+msgid "Overall Evaluation"
+msgstr "Overall Evaluation"
+
+msgid "Fluency Summary"
+msgstr "Fluency Summary"
+
+msgid "Emotion Analysis"
+msgstr "Emotion Analysis"
+
+msgid "Dominant emotion: "
+msgstr "Dominant emotion: "
+
+msgid "Tip: Aim for steady pacing (120–160 WPM), clear structure (STAR), and confident tone to improve fluency and reduce stress."
+msgstr "Tip: Aim for steady pacing (120–160 WPM), clear structure (STAR), and confident tone to improve fluency and reduce stress."
+
+msgid "Interview Question"
+msgstr "Interview Question"
+
+msgid "AI is speaking…"
+msgstr "AI is speaking…"
+
+msgid "Ready"
+msgstr "Ready"
+
+msgid "Playing…"
+msgstr "Playing…"
+
+msgid "Play"
+msgstr "Play"
+
+msgid "Question hidden"
+msgstr "Question hidden"
+
+msgid "Hide script"
+msgstr "Hide script"
+
+msgid "Show script"
+msgstr "Show script"
+
+msgid "Transcript of your answer"
+msgstr "Transcript of your answer"
+
+msgid "WPM: "
+msgstr "WPM: "
+
+msgid "Fluency: "
+msgstr "Fluency: "
+
+msgid "Level: "
+msgstr "Level: "
+
+msgid "AI Interview Coach"
+msgstr "AI Interview Coach"
+
+msgid "Status: "
+msgstr "Status: "
+
+msgid "Recording..."
+msgstr "Recording..."
+
+msgid "Job Description"
+msgstr "Job Description"
+
+msgid "Requirements:"
+msgstr "Requirements:"
+
+msgid "No requirements provided"
+msgstr "No requirements provided"
+
+msgid "Start interview failed. Check Network/Backend logs."
+msgstr "Start interview failed. Check Network/Backend logs."
+
+msgid "Missing jobId/sessionId/question. Please click Start again."
+msgstr "Missing jobId/sessionId/question. Please click Start again."
+
+msgid "Failed to load saved CV"
+msgstr "Failed to load saved CV"
+
+msgid "Missing jobId"
+msgstr "Missing jobId"
+
+msgid "Generate CV failed. Please login again or retry."
+msgstr "Generate CV failed. Please login again or retry."

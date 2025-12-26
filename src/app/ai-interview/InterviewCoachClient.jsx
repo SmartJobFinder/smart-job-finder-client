@@ -16,6 +16,7 @@ import {
   useStartInterviewMutation,
   useAnswerInterviewMutation,
 } from "@/services/aiInterviewService";
+import { t } from "@/i18n/i18n";
 
 export default function InterviewCoachClient() {
   const searchParams = useSearchParams();
@@ -128,7 +129,7 @@ export default function InterviewCoachClient() {
       safePlay(aUrl);
     } catch (e) {
       console.error(e);
-      alert("Start interview failed. Check Network/Backend logs.");
+      alert(t`Start interview failed. Check Network/Backend logs.`);
     }
   }, [jobId, startInterview, safePlay]);
 
@@ -218,7 +219,7 @@ export default function InterviewCoachClient() {
     try {
       if (!jobId || !sessionId || !currentQuestion) {
         throw new Error(
-          "Thiếu jobId/sessionId/question. Bấm Start lại giúp mình."
+          t`Missing jobId/sessionId/question. Please click Start again.`
         );
       }
 
@@ -352,10 +353,10 @@ export default function InterviewCoachClient() {
     <div className="max-w-5xl mx-auto my-6 space-y-6">
       {/* Job header */}
       {jobLoading ? (
-        <div className="text-sm text-gray-500">Loading job...</div>
+        <div className="text-sm text-gray-500">{t`Loading job...`}</div>
       ) : jobIsError ? (
         <div className="text-sm text-red-600">
-          Load job failed:{" "}
+          {t`Load job failed`}:{" "}
           {String(jobError?.data || jobError?.message || jobError)}
         </div>
       ) : (
@@ -366,9 +367,7 @@ export default function InterviewCoachClient() {
       {!sessionId && (
         <div className="bg-white rounded-xl border border-gray-100 shadow-sm p-6 flex flex-col items-center gap-4">
           <p className="text-sm text-gray-600 text-center max-w-xl">
-            Bấm <b>Start interview</b> để AI tạo câu hỏi đầu tiên cho công việc
-            này. Sau đó bạn thu âm câu trả lời, AI sẽ chấm điểm + feedback và
-            đưa câu hỏi tiếp theo.
+            {t`Click Start interview to have AI generate the first question for this job. Then record your answer, and AI will score it, provide feedback, and give you the next question.`}
           </p>
 
           <button
@@ -381,8 +380,15 @@ export default function InterviewCoachClient() {
                        disabled:opacity-50 disabled:cursor-not-allowed
                        transition transform hover:scale-[1.02]"
           >
-            {starting ? "Starting interview..." : "Start interview"}
+            {starting ? t`Starting interview...` : t`Start interview`}
           </button>
+
+          {starting && (
+            <div className="flex items-center gap-2 text-xs text-indigo-600 font-semibold">
+              <span className="h-3 w-3 rounded-full border-2 border-indigo-500 border-t-transparent animate-spin" />
+              <span>{t`Preparing your interview…`}</span>
+            </div>
+          )}
         </div>
       )}
 
@@ -390,7 +396,7 @@ export default function InterviewCoachClient() {
       {sessionId && (
         <>
           <QuestionCard
-            currentQuestion={currentQuestion || "Loading question..."}
+            currentQuestion={currentQuestion || t`Loading question...`}
             showQuestionScript={showQuestionScript}
             onToggleScript={handleToggleQuestionScript}
             onPlay={handlePlayQuestion}
