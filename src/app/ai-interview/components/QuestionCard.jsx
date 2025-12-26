@@ -1,3 +1,5 @@
+import { t } from "@/i18n/i18n";
+
 export default function QuestionCard({
   currentQuestion,
   showQuestionScript,
@@ -13,7 +15,7 @@ export default function QuestionCard({
       <div className="flex items-start justify-between gap-3">
         <div>
           <h2 className="text-base font-semibold text-gray-900">
-            Interview Question
+            {t`Interview Question`}
           </h2>
 
           <div className="mt-2 flex items-center gap-2">
@@ -23,12 +25,12 @@ export default function QuestionCard({
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
                 </span>
-                AI is speaking…
+                {t`AI is speaking…`}
                 <MiniWave />
               </span>
             ) : (
               <span className="text-[11px] uppercase tracking-wide text-gray-400">
-                Ready
+                {t`Ready`}
               </span>
             )}
           </div>
@@ -46,7 +48,7 @@ export default function QuestionCard({
             }`}
         >
           {/* Chỉ hiển thị "Playing..." khi user bấm play (manual play) */}
-          {isManualPlay && isPlaying ? "Playing…" : "Play"}
+          {isManualPlay && isPlaying ? t`Playing…` : t`Play`}
         </button>
       </div>
 
@@ -61,7 +63,7 @@ export default function QuestionCard({
             {currentQuestion}
           </p>
         ) : (
-          <p className="text-sm text-gray-400 italic">Question hidden</p>
+          <p className="text-sm text-gray-400 italic">{t`Question hidden`}</p>
         )}
 
         <button
@@ -69,7 +71,7 @@ export default function QuestionCard({
           onClick={onToggleScript}
           className="mt-3 text-xs font-semibold text-indigo-600 hover:text-indigo-700"
         >
-          {showQuestionScript ? "Hide script" : "Show script"}
+          {showQuestionScript ? t`Hide script` : t`Show script`}
         </button>
       </div>
     </div>

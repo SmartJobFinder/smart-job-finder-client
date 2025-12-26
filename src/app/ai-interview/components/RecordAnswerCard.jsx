@@ -1,3 +1,5 @@
+import { t } from "@/i18n/i18n";
+
 const fmt = s => {
   const mm = String(Math.floor(s / 60)).padStart(2, "0");
   const ss = String(s % 60).padStart(2, "0");
@@ -15,12 +17,10 @@ export default function RecordAnswerCard({
   return (
     <div className="bg-white shadow-sm rounded-lg p-5 border border-gray-100 flex flex-col gap-4">
       <h2 className="text-base font-semibold text-gray-900">
-        Record your answer
+        {t`Record your answer`}
       </h2>
       <p className="text-xs leading-relaxed text-gray-600">
-        Click the button below and answer the question as you would in a real
-        interview. When you finish, click stop so the AI can analyze and score
-        your answer for this specific question.
+        {t`Click the button below and answer the question as you would in a real interview. When you finish, click stop so the AI can analyze and score your answer for this specific question.`}
       </p>
 
       <div className="flex items-center justify-between rounded-md bg-gray-50 px-3 py-2">
@@ -32,13 +32,13 @@ export default function RecordAnswerCard({
           />
           <span className="text-xs font-medium text-gray-800">
             {isRecording
-              ? `Recording · ${fmt(recordingSeconds)}`
+              ? `${t`Recording`} · ${fmt(recordingSeconds)}`
               : recordedSeconds > 0
-                ? `Recorded · ${fmt(recordedSeconds)}`
-                : "Not recording"}
+                ? `${t`Recorded`} · ${fmt(recordedSeconds)}`
+                : t`Not recording`}
           </span>
         </div>
-        <span className="text-[11px] text-gray-500">Up to ~2 minutes</span>
+        <span className="text-[11px] text-gray-500">{t`Up to ~2 minutes`}</span>
       </div>
 
       <button
@@ -66,13 +66,13 @@ export default function RecordAnswerCard({
             }`}
           />
         </span>
-        {isRecording ? "Stop & submit" : "Start answering"}
+        {isRecording ? t`Stop & submit` : t`Start answering`}
       </button>
 
       {loading && (
         <div className="flex items-center gap-2 text-xs text-indigo-600 font-semibold">
           <span className="h-3 w-3 rounded-full border-2 border-indigo-500 border-t-transparent animate-spin" />
-          <span>Analyzing your answer…</span>
+          <span>{t`Analyzing your answer…`}</span>
         </div>
       )}
     </div>

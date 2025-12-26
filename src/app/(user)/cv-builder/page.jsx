@@ -130,7 +130,7 @@ export default function CVPage() {
         setHasGenerated(true);
       } catch (e) {
         console.error(e);
-        toast.error("Failed to load saved CV");
+        toast.error(t`Failed to load saved CV`);
       } finally {
         if (alive) setLoading(false);
       }
@@ -142,7 +142,7 @@ export default function CVPage() {
 
   const handleGenerateAI = async () => {
     if (!canGenerate) {
-      toast.error("Missing jobId");
+      toast.error(t`Missing jobId`);
       return;
     }
 
@@ -154,7 +154,7 @@ export default function CVPage() {
       toast.success(t`Generated CV successfully`);
     } catch (err) {
       console.error(err);
-      toast.error("Generate CV failed. Please login again or retry.");
+      toast.error(t`Generate CV failed. Please login again or retry.`);
     } finally {
       setLoading(false);
     }
