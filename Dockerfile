@@ -1,6 +1,6 @@
 # syntax=docker.io/docker/dockerfile:1
 
-FROM node:18-alpine AS base
+FROM node:20-alpine AS base
 
 # Install dependencies only when needed
 FROM base AS deps
@@ -42,6 +42,13 @@ ENV NEXT_PUBLIC_SUB_DEST=$NEXT_PUBLIC_SUB_DEST
 # Uncomment the following line in case you want to disable telemetry during the build.
 # ENV NEXT_TELEMETRY_DISABLED=1
 
+# Build i18n translations (must be done before Next.js build)
+RUN mkdir -p public/locales && \
+    npx ttag po2json ./src/i18n/locales/en.po > ./public/locales/en.po.json && \
+    npx ttag po2json ./src/i18n/locales/vi.po > ./public/locales/vi.po.json && \
+    npx ttag po2json ./src/i18n/locales/ko.po > ./public/locales/ko.po.json
+
+
 RUN \
   if [ -f yarn.lock ]; then yarn run build; \
   elif [ -f package-lock.json ]; then npm run build; \
@@ -77,7 +84,15 @@ ENV PORT=3000
 # https://nextjs.org/docs/pages/api-reference/config/next-config-js/output
 ENV HOSTNAME="0.0.0.0"
 
+# Runtime environment variables
 ARG NEXT_PUBLIC_API_BASE_URL
+ARG NEXT_PUBLIC_WS_ENDPOINT
+ARG NEXT_PUBLIC_SUB_DEST
+ARG NEXT_PUBLIC_GOOGLE_CLIENT_ID
+
 ENV NEXT_PUBLIC_API_BASE_URL=$NEXT_PUBLIC_API_BASE_URL
+ENV NEXT_PUBLIC_WS_ENDPOINT=$NEXT_PUBLIC_WS_ENDPOINT
+ENV NEXT_PUBLIC_SUB_DEST=$NEXT_PUBLIC_SUB_DEST
+ENV NEXT_PUBLIC_GOOGLE_CLIENT_ID=$NEXT_PUBLIC_GOOGLE_CLIENT_ID
 
 CMD ["node", "server.js"]
