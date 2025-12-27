@@ -6,11 +6,14 @@ const isAbsolute = /^https?:\/\//i.test(BASE);
 const normalizedProxy = PROXY_TARGET.replace(/\/$/, "");
 const normalizedBase = BASE.startsWith("/") ? BASE : `/${BASE}`;
 
+// Check if running in browser (client-side)
+const isBrowser = typeof window !== "undefined";
+
 const ABSOLUTE_BASE = isAbsolute
   ? BASE
-  : normalizedProxy
-    ? `${normalizedProxy}${normalizedBase}`
-    : BASE;
+  : normalizedProxy && !isBrowser
+    ? `${normalizedProxy}${normalizedBase}` // Server-side: use full URL
+    : normalizedBase; // Client-side: use relative URL for Next.js rewrites
 
 export const API_CONFIG = {
   BASE_URL: ABSOLUTE_BASE,

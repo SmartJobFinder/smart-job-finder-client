@@ -8,9 +8,6 @@ const nextConfig = {
     NEXT_PUBLIC_SUB_DEST: process.env.NEXT_PUBLIC_SUB_DEST, // e.g. /user/queue/noti
   },
   async rewrites() {
-    // Chỉ proxy ở DEV
-    if (process.env.NODE_ENV !== "development") return [];
-
     // Target có thể đọc từ env, fallback về IP dev
     const rawTarget =
       process.env.NEXT_PUBLIC_API_PROXY_TARGET || "http://localhost:8082";
