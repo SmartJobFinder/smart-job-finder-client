@@ -1,3 +1,5 @@
+"use client";
+
 import CompanyGuard from "@/components/recruiter/CompanyGuard";
 import { t } from "@/i18n/i18n";
 
