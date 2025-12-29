@@ -25,10 +25,11 @@ import {
 } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutThunk } from "@/features/auth/authSlice";
-import { t } from "@/i18n/i18n";
+import { useTranslation } from "@/i18n/i18n";
 import LanguageSelector from "@/components/ui/LanguageSelector";
 
 export default function RecruiterSidebar() {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const pathname = usePathname();
   const router = useRouter();

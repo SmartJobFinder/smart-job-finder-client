@@ -2266,3 +2266,643 @@ msgstr "Learn More"
 
 msgid "per page"
 msgstr "per page"
+
+# Payment History Page
+msgid "Search txnRef / providerTxn"
+msgstr "Search txnRef / providerTxn"
+
+msgid "Filter status"
+msgstr "Filter status"
+
+msgid "PAID"
+msgstr "PAID"
+
+msgid "PENDING"
+msgstr "PENDING"
+
+msgid "FAILED"
+msgstr "FAILED"
+
+msgid "REFUNDED"
+msgstr "REFUNDED"
+
+msgid "Refresh"
+msgstr "Refresh"
+
+msgid "Reference code"
+msgstr "Reference code"
+
+msgid "Transaction code"
+msgstr "Transaction code"
+
+msgid "Provider"
+msgstr "Provider"
+
+msgid "Amount"
+msgstr "Amount"
+
+msgid "Currency"
+msgstr "Currency"
+
+msgid "Bought At"
+msgstr "Bought At"
+
+msgid "Paid At"
+msgstr "Paid At"
+
+msgid "No payments found"
+msgstr "No payments found"
+
+msgid "Resolving your company..."
+msgstr "Resolving your company..."
+
+# Dashboard Page
+msgid "Total Applicants"
+msgstr "Total Applicants"
+
+msgid "Applicants (30d)"
+msgstr "Applicants (30d)"
+
+msgid "Currently posted"
+msgstr "Currently posted"
+
+msgid "All time"
+msgstr "All time"
+
+msgid "Last 30 days"
+msgstr "Last 30 days"
+
+msgid "Applications Trend (30 days)"
+msgstr "Applications Trend (30 days)"
+
+msgid "total applications"
+msgstr "total applications"
+
+msgid "applications"
+msgstr "applications"
+
+msgid "Weekdays"
+msgstr "Weekdays"
+
+msgid "Weekends"
+msgstr "Weekends"
+
+msgid "Peak Day"
+msgstr "Peak Day"
+
+msgid "Recent Activity & Insights"
+msgstr "Recent Activity & Insights"
+
+msgid "New Applications"
+msgstr "New Applications"
+
+msgid "Check the Applicants page to review new applications"
+msgstr "Check the Applicants page to review new applications"
+
+msgid "Job Posting"
+msgstr "Job Posting"
+
+msgid "Create new job postings to attract more candidates"
+msgstr "Create new job postings to attract more candidates"
+
+msgid "Analytics"
+msgstr "Analytics"
+
+msgid "View detailed analytics in the Analytics page"
+msgstr "View detailed analytics in the Analytics page"
+
+msgid "Quick Stats"
+msgstr "Quick Stats"
+
+msgid "Avg daily"
+msgstr "Avg daily"
+
+msgid "Peak day"
+msgstr "Peak day"
+
+# Settings Page
+msgid "Account Settings"
+msgstr "Account Settings"
+
+msgid "Manage your account information and security settings"
+msgstr "Manage your account information and security settings"
+
+msgid "Account Information"
+msgstr "Account Information"
+
+msgid "Your basic account information"
+msgstr "Your basic account information"
+
+msgid "Email Address"
+msgstr "Email Address"
+
+msgid "Not provided"
+msgstr "Not provided"
+
+msgid "Account Status"
+msgstr "Account Status"
+
+msgid "ACTIVE"
+msgstr "ACTIVE"
+
+msgid "INACTIVE"
+msgstr "INACTIVE"
+
+msgid "To update your profile information, please go to the"
+msgstr "To update your profile information, please go to the"
+
+msgid "Profile page"
+msgstr "Profile page"
+
+msgid "Set Password"
+msgstr "Set Password"
+
+msgid "You signed up with Google, so your account doesn't have a password."
+msgstr "You signed up with Google, so your account doesn't have a password."
+
+msgid "If you still want to set a password"
+msgstr "If you still want to set a password"
+
+msgid "Click here"
+msgstr "Click here"
+
+msgid "Change Password"
+msgstr "Change Password"
+
+msgid "Update your password to keep your account secure"
+msgstr "Update your password to keep your account secure"
+
+msgid "Current Password"
+msgstr "Current Password"
+
+msgid "Enter current password"
+msgstr "Enter current password"
+
+msgid "New Password"
+msgstr "New Password"
+
+msgid "Enter new password"
+msgstr "Enter new password"
+
+msgid "Password must contain"
+msgstr "Password must contain"
+
+msgid "At least 8 characters"
+msgstr "At least 8 characters"
+
+msgid "One uppercase letter"
+msgstr "One uppercase letter"
+
+msgid "One lowercase letter"
+msgstr "One lowercase letter"
+
+msgid "One number"
+msgstr "One number"
+
+msgid "One special character"
+msgstr "One special character"
+
+msgid "Confirm New Password"
+msgstr "Confirm New Password"
+
+msgid "Confirm new password"
+msgstr "Confirm new password"
+
+msgid "Changing..."
+msgstr "Changing..."
+
+msgid "Current password is required"
+msgstr "Current password is required"
+
+msgid "New password is required"
+msgstr "New password is required"
+
+msgid "Password does not meet all requirements"
+msgstr "Password does not meet all requirements"
+
+msgid "Please confirm your new password"
+msgstr "Please confirm your new password"
+
+msgid "Passwords do not match"
+msgstr "Passwords do not match"
+
+msgid "New password must be different from current password"
+msgstr "New password must be different from current password"
+
+msgid "Please fix the errors before saving"
+msgstr "Please fix the errors before saving"
+
+msgid "Password changed successfully!"
+msgstr "Password changed successfully!"
+
+msgid "Failed to change password"
+msgstr "Failed to change password"
+
+# Recruiter Sidebar
+msgid "All Job Posts"
+msgstr "All Job Posts"
+
+msgid "Draft Jobs"
+msgstr "Draft Jobs"
+
+msgid "Expired Jobs"
+msgstr "Expired Jobs"
+
+msgid "All Applicants"
+msgstr "All Applicants"
+
+msgid "Interviewed"
+msgstr "Interviewed"
+
+msgid "Company"
+msgstr "Company"
+
+msgid "Recruiter Dashboard"
+msgstr "Recruiter Dashboard"
+
+msgid "Overview of your hiring activities"
+msgstr "Overview of your hiring activities"
+
+msgid "Active Jobs"
+msgstr "Active Jobs"
+
+msgid "Total Applicants"
+msgstr "Total Applicants"
+
+msgid "Applicants (30d)"
+msgstr "Applicants (30d)"
+
+msgid "Currently posted"
+msgstr "Currently posted"
+
+msgid "All time"
+msgstr "All time"
+
+msgid "Last 30 days"
+msgstr "Last 30 days"
+
+msgid "Applications Trend (30 days)"
+msgstr "Applications Trend (30 days)"
+
+msgid "total applications"
+msgstr "total applications"
+
+msgid "applications"
+msgstr "applications"
+
+msgid "Weekdays"
+msgstr "Weekdays"
+
+msgid "Weekends"
+msgstr "Weekends"
+
+msgid "Peak Day"
+msgstr "Peak Day"
+
+msgid "Today"
+msgstr "Today"
+
+msgid "Recent Activity & Insights"
+msgstr "Recent Activity & Insights"
+
+msgid "New Applications"
+msgstr "New Applications"
+
+msgid "Check the Applicants page to review new applications"
+msgstr "Check the Applicants page to review new applications"
+
+msgid "Job Posting"
+msgstr "Job Posting"
+
+msgid "Create new job postings to attract more candidates"
+msgstr "Create new job postings to attract more candidates"
+
+msgid "View detailed analytics in the Analytics page"
+msgstr "View detailed analytics in the Analytics page"
+
+msgid "Quick Stats"
+msgstr "Quick Stats"
+
+msgid "Avg daily"
+msgstr "Avg daily"
+
+msgid "Peak day"
+msgstr "Peak day"
+
+msgid "Analytics"
+msgstr "Analytics"
+
+msgid "Analytics content here..."
+msgstr "Analytics content here..."
+
+msgid "Manage Jobs"
+msgstr "Manage Jobs"
+
+msgid "All Jobs"
+msgstr "All Jobs"
+
+msgid "Active"
+msgstr "Active"
+
+msgid "Drafts"
+msgstr "Drafts"
+
+msgid "Search jobs..."
+msgstr "Search jobs..."
+
+msgid "Filter by status"
+msgstr "Filter by status"
+
+msgid "No jobs found"
+msgstr "No jobs found"
+
+msgid "Create New Job"
+msgstr "Create New Job"
+
+msgid "Edit"
+msgstr "Edit"
+
+msgid "Delete"
+msgstr "Delete"
+
+msgid "View"
+msgstr "View"
+
+msgid "Published"
+msgstr "Published"
+
+msgid "Draft"
+msgstr "Draft"
+
+msgid "Closed"
+msgstr "Closed"
+
+msgid "Applicants"
+msgstr "Applicants"
+
+msgid "Views"
+msgstr "Views"
+
+msgid "Posted"
+msgstr "Posted"
+
+msgid "Expires"
+msgstr "Expires"
+
+msgid "Actions"
+msgstr "Actions"
+
+msgid "Create Job"
+msgstr "Create Job"
+
+msgid "Job Details"
+msgstr "Job Details"
+
+msgid "Job Title"
+msgstr "Job Title"
+
+msgid "Job Description"
+msgstr "Job Description"
+
+msgid "Requirements"
+msgstr "Requirements"
+
+msgid "Benefits"
+msgstr "Benefits"
+
+msgid "Salary Range"
+msgstr "Salary Range"
+
+msgid "Location"
+msgstr "Location"
+
+msgid "Job Type"
+msgstr "Job Type"
+
+msgid "Experience Level"
+msgstr "Experience Level"
+
+msgid "Number of Positions"
+msgstr "Number of Positions"
+
+msgid "Application Deadline"
+msgstr "Application Deadline"
+
+msgid "Save as Draft"
+msgstr "Save as Draft"
+
+msgid "Publish"
+msgstr "Publish"
+
+msgid "Preview"
+msgstr "Preview"
+
+msgid "Back"
+msgstr "Back"
+
+msgid "Next"
+msgstr "Next"
+
+msgid "Submit"
+msgstr "Submit"
+
+msgid "Full-time"
+msgstr "Full-time"
+
+msgid "Part-time"
+msgstr "Part-time"
+
+msgid "Contract"
+msgstr "Contract"
+
+msgid "Internship"
+msgstr "Internship"
+
+msgid "Entry Level"
+msgstr "Entry Level"
+
+msgid "Junior"
+msgstr "Junior"
+
+msgid "Mid Level"
+msgstr "Mid Level"
+
+msgid "Senior"
+msgstr "Senior"
+
+msgid "Manager"
+msgstr "Manager"
+
+msgid "Director"
+msgstr "Director"
+
+msgid "Company Profile"
+msgstr "Company Profile"
+
+msgid "Company Information"
+msgstr "Company Information"
+
+msgid "Company Name"
+msgstr "Company Name"
+
+msgid "Company Description"
+msgstr "Company Description"
+
+msgid "Company Size"
+msgstr "Company Size"
+
+msgid "Industry"
+msgstr "Industry"
+
+msgid "Website"
+msgstr "Website"
+
+msgid "Address"
+msgstr "Address"
+
+msgid "Founded Year"
+msgstr "Founded Year"
+
+msgid "Company Logo"
+msgstr "Company Logo"
+
+msgid "Company Banner"
+msgstr "Company Banner"
+
+msgid "Upload Logo"
+msgstr "Upload Logo"
+
+msgid "Upload Banner"
+msgstr "Upload Banner"
+
+msgid "Update Company"
+msgstr "Update Company"
+
+msgid "Company updated successfully"
+msgstr "Company updated successfully"
+
+msgid "Failed to update company"
+msgstr "Failed to update company"
+
+msgid "Payment History"
+msgstr "Payment History"
+
+msgid "Transaction ID"
+msgstr "Transaction ID"
+
+msgid "Date"
+msgstr "Date"
+
+msgid "Amount"
+msgstr "Amount"
+
+msgid "Payment Method"
+msgstr "Payment Method"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Invoice"
+msgstr "Invoice"
+
+msgid "Download"
+msgstr "Download"
+
+msgid "Paid"
+msgstr "Paid"
+
+msgid "Pending"
+msgstr "Pending"
+
+msgid "Failed"
+msgstr "Failed"
+
+msgid "Refunded"
+msgstr "Refunded"
+
+msgid "No payment history"
+msgstr "No payment history"
+
+msgid "Loading..."
+msgstr "Loading..."
+
+msgid "Error"
+msgstr "Error"
+
+msgid "Success"
+msgstr "Success"
+
+msgid "Warning"
+msgstr "Warning"
+
+msgid "Confirm"
+msgstr "Confirm"
+
+msgid "Are you sure?"
+msgstr "Are you sure?"
+
+msgid "Yes"
+msgstr "Yes"
+
+msgid "No"
+msgstr "No"
+
+msgid "Close"
+msgstr "Close"
+
+msgid "Apply"
+msgstr "Apply"
+
+msgid "Reset"
+msgstr "Reset"
+
+msgid "Clear"
+msgstr "Clear"
+
+msgid "Select"
+msgstr "Select"
+
+msgid "All"
+msgstr "All"
+
+msgid "None"
+msgstr "None"
+
+msgid "Search"
+msgstr "Search"
+
+msgid "Filter"
+msgstr "Filter"
+
+msgid "Sort"
+msgstr "Sort"
+
+msgid "Export"
+msgstr "Export"
+
+msgid "Import"
+msgstr "Import"
+
+msgid "Refresh"
+msgstr "Refresh"
+
+msgid "Settings"
+msgstr "Settings"
+
+msgid "Help"
+msgstr "Help"
+
+msgid "Logout"
+msgstr "Logout"
+
+msgid "Profile"
+msgstr "Profile"
+
+msgid "Notifications"
+msgstr "Notifications"
+
+msgid "Messages"
+msgstr "Messages"
+
+msgid "Dashboard"
+msgstr "Dashboard"

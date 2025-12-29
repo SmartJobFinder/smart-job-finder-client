@@ -27,6 +27,19 @@ export const useI18nLang = () =>
     () => currentLang // ssr fallback
   );
 
+/**
+ * Hook để sử dụng translation với auto re-render khi đổi ngôn ngữ
+ * Thay vì import { t } trực tiếp, dùng hook này để component tự động re-render
+ *
+ * @example
+ * const { t } = useTranslation();
+ * return <h1>{t`Welcome`}</h1>;
+ */
+export const useTranslation = () => {
+  const lang = useI18nLang(); // Subscribe to language changes
+  return { t, lang };
+};
+
 export const getCurrentLanguage = () => {
   const saved =
     typeof window !== "undefined" ? localStorage.getItem("lang") : null;
@@ -59,5 +72,5 @@ export const setLanguage = async lang => {
   emit(); // thông báo để UI re-render
 };
 
-// Export t function
+// Export t function (for backward compatibility, but prefer useTranslation hook)
 export { t };
