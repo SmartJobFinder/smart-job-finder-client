@@ -152,7 +152,7 @@ const HeroSection = () => {
                     disabled={isLoading}
                   >
                     <MapPin className="w-3 h-3 mr-1 sm:w-4 sm:h-4" />
-                    {isLoading ? "Loading..." : selectedProvince || t`City`}
+                    {isLoading ? t`Loading...` : selectedProvince || t`City`}
                     <ChevronDown className="w-3 h-3 ml-auto opacity-50" />
                   </Button>
                 </PopoverTrigger>
@@ -165,7 +165,7 @@ const HeroSection = () => {
                       value={searchProvinceTerm}
                     />
                     <CommandEmpty>
-                      {isSearching ? "Searching..." : t`Not found`}
+                      {isSearching ? t`Searching...` : t`Not found`}
                     </CommandEmpty>
                     <CommandGroup className="max-h-[300px] overflow-y-auto">
                       {filteredProvinces.map(name => (

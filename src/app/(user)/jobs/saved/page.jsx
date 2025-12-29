@@ -7,7 +7,7 @@ export default function SavedPage() {
 
   if (isLoading) return <LoadingScreen message="Loading ..." />;
   if (!jobs?.length)
-    return <div className="p-4 bg-green-50">You have no saved jobs !</div>;
+    return <div className="p-4 bg-green-50">{t`You have no saved jobs !`}</div>;
 
   return (
     <div className="space-y-3">

@@ -14,6 +14,7 @@ import CertificatesSection from "@/app/(user)/profile/components/sectionRenderer
 import SkillsSection from "@/app/(user)/profile/components/sectionRenderer/SkillsSection";
 import SoftSkillsSection from "@/app/(user)/profile/components/sectionRenderer/SoftSkillSection";
 import AwardsSection from "@/app/(user)/profile/components/sectionRenderer/AwardsSection";
+import { t } from "@/i18n/i18n";
 
 export const getProfileSectionData = profileData => [
   {
@@ -29,7 +30,7 @@ export const getProfileSectionData = profileData => [
   },
   {
     id: "aboutMe",
-    title: "About Me",
+    title: t`About Me`,
     description: "Introduce your strengths and years of experience",
     imageSrc: aboutMeImage,
     imageAlt: "About Me",
@@ -41,7 +42,7 @@ export const getProfileSectionData = profileData => [
   },
   {
     id: "education",
-    title: "Education",
+    title: t`Education`,
     description: "Share your background education",
     imageSrc: educationImage,
     imageAlt: "Education",
@@ -53,7 +54,7 @@ export const getProfileSectionData = profileData => [
   },
   {
     id: "workExperience",
-    title: "Work Experience",
+    title: t`Work Experience`,
     description: "Highlight detailed information about your job history",
     imageSrc: workExperienceImage,
     imageAlt: "Work Experience",
@@ -65,7 +66,7 @@ export const getProfileSectionData = profileData => [
   },
   {
     id: "candidateSkills",
-    title: "Skills",
+    title: t`Skills`,
     description: "Showcase your skills and proficiencies",
     imageSrc: skillsImage,
     imageAlt: "Skills",
@@ -77,7 +78,7 @@ export const getProfileSectionData = profileData => [
   },
   {
     id: "softSkills",
-    title: "Soft Skills",
+    title: t`Soft Skills`,
     description: "Provide your soft skills and proficiencies",
     imageSrc: languageImage,
     imageAlt: "Soft Skills",
@@ -102,7 +103,7 @@ export const getProfileSectionData = profileData => [
   // },
   {
     id: "certificates",
-    title: "Certificates",
+    title: t`Certificates`,
     description: "Provides evidence of your specific expertise and skills",
     imageSrc: certificatesImage,
     imageAlt: "Certificates",
@@ -114,7 +115,7 @@ export const getProfileSectionData = profileData => [
   },
   {
     id: "awards",
-    title: "Awards",
+    title: t`Awards`,
     description: "Showcase your achievements and recognitions",
     imageSrc: awardsImage,
     imageAlt: "Awards",

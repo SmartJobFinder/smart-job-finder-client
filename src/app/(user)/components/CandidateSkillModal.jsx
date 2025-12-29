@@ -208,7 +208,7 @@ export default function CandidateSkillModal({
             {/* Category */}
             <div className="flex flex-col gap-1">
               <label className="text-sm font-medium text-gray-700">
-                Category <span className="ml-1 text-red-500">*</span>
+                {t`Category`} <span className="ml-1 text-red-500">*</span>
               </label>
               <select
                 {...register("categoryId")}
@@ -218,7 +218,7 @@ export default function CandidateSkillModal({
                     : "border-gray-300 focus:border-blue-500"
                 } focus:outline-none focus:ring-2 focus:ring-blue-500/20`}
               >
-                <option value="">Select Category</option>
+                <option value="">{t`Select Category`}</option>
                 {categories.map(category => (
                   <option key={category.id} value={category.id}>
                     {category.name}
@@ -234,7 +234,7 @@ export default function CandidateSkillModal({
 
             <div className="flex flex-col gap-1">
               <label className="text-sm font-medium text-gray-700">
-                Industry <span className="ml-1 text-red-500">*</span>
+                {t`Industry`} <span className="ml-1 text-red-500">*</span>
               </label>
               <select
                 {...register("industryId")}
@@ -247,7 +247,7 @@ export default function CandidateSkillModal({
                   !watchedValues.categoryId ? "bg-gray-100" : ""
                 }`}
               >
-                <option value="">Select Industry</option>
+                <option value="">{t`Select Industry`}</option>
                 {industries.map(industry => (
                   <option key={industry.id} value={industry.id}>
                     {industry.name}

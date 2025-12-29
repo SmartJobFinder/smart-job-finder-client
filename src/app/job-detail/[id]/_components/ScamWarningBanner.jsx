@@ -1,13 +1,13 @@
 "use client";
 import { AlertTriangle, Shield, Info } from "lucide-react";
 import { useEffect } from "react";
+import { t } from "@/i18n/i18n";
 
 export default function ScamWarningBanner({ trustLabel, scamScore }) {
   const isHighRisk = trustLabel === "SUSPICIOUS";
   const isWarning = trustLabel === "WARNING";
   const hasWarning = isHighRisk || isWarning;
 
-  // ✅ THÊM DEBUG LOG
   useEffect(() => {
     console.log("ScamWarningBanner received:", {
       trustLabel,
@@ -70,7 +70,7 @@ export default function ScamWarningBanner({ trustLabel, scamScore }) {
                 isHighRisk ? "text-red-800" : "text-amber-800"
               }`}
             >
-              {isHighRisk ? "SCAM ALERT" : "CAUTION"}
+              {isHighRisk ? t`SCAM ALERT` : t`CAUTION`}
             </h3>
             {scamScore && (
               <span
@@ -80,7 +80,7 @@ export default function ScamWarningBanner({ trustLabel, scamScore }) {
                     : "bg-amber-200 text-amber-900"
                 }`}
               >
-                Risk Score: {Math.round(scamScore * 100)}%
+                {t`Risk Score`}: {Math.round(scamScore * 100)}%
               </span>
             )}
           </div>
@@ -93,17 +93,17 @@ export default function ScamWarningBanner({ trustLabel, scamScore }) {
             {isHighRisk ? (
               <>
                 <strong className="font-bold">
-                  This job posting has been flagged as potentially fraudulent
+                  {t`This job posting has been flagged as potentially fraudulent`}
                 </strong>{" "}
-                by our AI detection system. Please exercise extreme caution
-                before proceeding.
+                {t`by our AI detection system. Please exercise extreme caution
+                before proceeding.`}
               </>
             ) : (
               <>
                 <strong className="font-bold">
-                  This job posting requires careful verification
+                  {t`This job posting requires careful verification`}
                 </strong>{" "}
-                and has been flagged for review by our AI system.
+                {t`and has been flagged for review by our AI system.`}
               </>
             )}
           </p>

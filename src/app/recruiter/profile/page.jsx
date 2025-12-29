@@ -23,6 +23,7 @@ import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
 import { meThunk } from "@/features/auth/authSlice";
 import { useRouter } from "next/navigation";
+import { t } from "@/i18n/i18n";
 
 export default function RecruiterProfilePage() {
   const dispatch = useDispatch();
@@ -65,7 +66,7 @@ export default function RecruiterProfilePage() {
         console.error("Error loading user:", e);
         if (mounted) {
           setError(e.message || "Failed to load profile");
-          toast.error("Failed to load profile");
+          toast.error(t`Failed to load profile`);
         }
       } finally {
         if (mounted) setLoading(false);
@@ -98,18 +99,18 @@ export default function RecruiterProfilePage() {
 
     // Validate fullName
     if (!formData.fullName || !formData.fullName.trim()) {
-      errors.fullName = "Full name is required";
+      errors.fullName = t`Full name is required`;
     } else if (formData.fullName.trim().length < 2) {
-      errors.fullName = "Full name must be at least 2 characters";
+      errors.fullName = t`Full name must be at least 2 characters`;
     } else if (formData.fullName.trim().length > 100) {
-      errors.fullName = "Full name must not exceed 100 characters";
+      errors.fullName = t`Full name must not exceed 100 characters`;
     }
 
     // Validate phone (optional, but if provided must be valid)
     if (formData.phone && formData.phone.trim()) {
       const phoneRegex = /^[0-9]{10,11}$/;
       if (!phoneRegex.test(formData.phone.trim().replace(/\s/g, ""))) {
-        errors.phone = "Phone number must be 10-11 digits";
+        errors.phone = t`Phone number must be 10-11 digits`;
       }
     }
 
@@ -119,12 +120,12 @@ export default function RecruiterProfilePage() {
 
   const handleSave = async () => {
     if (!validateForm()) {
-      toast.error("Please fix the errors before saving");
+      toast.error(t`Please fix the errors before saving`);
       return;
     }
 
     if (!user || !user.id) {
-      toast.error("User ID not found");
+      toast.error(t`User ID not found`);
       return;
     }
 
@@ -154,10 +155,10 @@ export default function RecruiterProfilePage() {
         console.warn("Failed to update Redux store:", reduxError);
       }
 
-      toast.success("Profile updated successfully!");
+      toast.success(t`Profile updated successfully!`);
     } catch (error) {
       console.error("Error updating profile:", error);
-      const errorMessage = error.message || "Failed to update profile";
+      const errorMessage = error.message || t`Failed to update profile`;
       toast.error(errorMessage);
     } finally {
       setSaving(false);
@@ -206,7 +207,7 @@ ${user?.fullName || "Recruiter"}`);
 
   const statusBadge = useMemo(() => {
     const active = user?.isActive || user?.status === "ACTIVE";
-    const text = active ? "Active" : "Inactive";
+    const text = active ? t`Active` : t`Inactive`;
     const cls = active
       ? "bg-green-50 text-green-700 border-green-300"
       : "bg-gray-100 text-gray-600 border-gray-300";
@@ -224,7 +225,7 @@ ${user?.fullName || "Recruiter"}`);
       <div className="flex items-center justify-center min-h-[60vh]">
         <div className="text-center">
           <Loader2 className="w-10 h-10 text-blue-600 animate-spin mx-auto mb-4" />
-          <p className="text-gray-600">Loading profile...</p>
+          <p className="text-gray-600">{t`Loading profile...`}</p>
         </div>
       </div>
     );
@@ -237,7 +238,7 @@ ${user?.fullName || "Recruiter"}`);
           <div className="px-6 py-8 rounded-lg border bg-red-50 text-red-600 text-center">
             <AlertCircle className="w-12 h-12 mx-auto mb-4" />
             <h3 className="text-lg font-semibold mb-2">
-              Error Loading Profile
+              {t`Error Loading Profile`}
             </h3>
             <p className="text-sm mb-4">{error}</p>
             <Button
@@ -245,7 +246,7 @@ ${user?.fullName || "Recruiter"}`);
               variant="outline"
               className="border-red-300 hover:bg-red-100"
             >
-              Try Again
+              {t`Try Again`}
             </Button>
           </div>
         </div>
@@ -282,7 +283,7 @@ ${user?.fullName || "Recruiter"}`);
             <p className="text-white/90 flex items-center gap-2 text-sm">
               <ShieldCheck size={16} />
               <span className="uppercase tracking-wide font-medium">
-                {user?.roleName || "RECRUITER"}
+                {user?.roleName === "RECRUITER" ? t`RECRUITER` : user?.roleName}
               </span>
             </p>
             {user?.email && (
@@ -301,7 +302,7 @@ ${user?.fullName || "Recruiter"}`);
                 onClick={() => setIsEditing(true)}
               >
                 <Edit className="w-4 h-4 mr-2" />
-                Edit Profile
+                {t`Edit Profile`}
               </Button>
             ) : (
               <div className="flex gap-2">
@@ -314,12 +315,12 @@ ${user?.fullName || "Recruiter"}`);
                   {saving ? (
                     <>
                       <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                      Saving...
+                      {t`Saving...`}
                     </>
                   ) : (
                     <>
                       <Save className="w-4 h-4 mr-2" />
-                      Save
+                      {t`Save`}
                     </>
                   )}
                 </Button>
@@ -330,7 +331,7 @@ ${user?.fullName || "Recruiter"}`);
                   disabled={saving}
                 >
                   <X className="w-4 h-4 mr-2" />
-                  Cancel
+                  {t`Cancel`}
                 </Button>
               </div>
             )}
@@ -346,7 +347,7 @@ ${user?.fullName || "Recruiter"}`);
             <div className="p-6 border-b bg-gray-50">
               <h2 className="text-xl font-semibold flex items-center gap-2">
                 <UserCircle2 size={22} className="text-blue-600" />
-                General Information
+                {t`General Information`}
               </h2>
             </div>
 
@@ -367,7 +368,7 @@ ${user?.fullName || "Recruiter"}`);
                       name="fullName"
                       value={formData.fullName}
                       onChange={handleInputChange}
-                      placeholder="Enter your full name"
+                      placeholder={t`Enter your full name`}
                       className={`w-full transition-colors ${
                         formErrors.fullName
                           ? "border-red-500 focus:ring-red-500"
@@ -386,13 +387,13 @@ ${user?.fullName || "Recruiter"}`);
 
                   <div className="pt-2 border-t border-gray-100">
                     <Label className="text-sm font-medium mb-2 block">
-                      Account Status
+                      {t`Account Status`}
                     </Label>
                     <div className="px-3 py-2 bg-gray-50 border border-gray-200 rounded-md text-gray-700 text-sm">
                       {user?.status || (user?.isActive ? "ACTIVE" : "INACTIVE")}
                     </div>
                     <p className="text-gray-500 text-xs mt-1.5">
-                      Account status is managed by system administrators
+                      {t`Account status is managed by system administrators`}
                     </p>
                   </div>
                 </div>
@@ -400,7 +401,7 @@ ${user?.fullName || "Recruiter"}`);
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
                     <div className="text-gray-500 text-xs uppercase mb-2 font-medium">
-                      Full Name
+                      {t`FULL NAME`}
                     </div>
                     <div className="font-medium text-gray-900">
                       {user?.fullName || "—"}
@@ -409,7 +410,7 @@ ${user?.fullName || "Recruiter"}`);
 
                   <div>
                     <div className="text-gray-500 text-xs uppercase mb-2 font-medium">
-                      Status
+                      {t`STATUS`}
                     </div>
                     <div className="font-medium text-gray-900">
                       {user?.status || (user?.isActive ? "ACTIVE" : "INACTIVE")}
@@ -425,7 +426,7 @@ ${user?.fullName || "Recruiter"}`);
             <div className="p-6 border-b bg-gray-50">
               <h2 className="text-xl font-semibold flex items-center gap-2">
                 <BadgeCheck size={22} className="text-blue-600" />
-                Contact Information
+                {t`Contact Information`}
               </h2>
             </div>
 
@@ -435,7 +436,7 @@ ${user?.fullName || "Recruiter"}`);
                   {/* Email - Read only */}
                   <div>
                     <Label className="text-sm font-medium mb-2 block">
-                      Email Address
+                      {t`Email Address`}
                     </Label>
                     <div className="flex items-center gap-3 p-3 rounded-lg border bg-gray-50">
                       <Mail size={18} className="text-blue-600" />
@@ -446,7 +447,7 @@ ${user?.fullName || "Recruiter"}`);
                       </div>
                     </div>
                     <p className="text-gray-500 text-xs mt-1.5">
-                      Email cannot be changed
+                      {t`Email cannot be changed`}
                     </p>
                   </div>
 
@@ -488,7 +489,7 @@ ${user?.fullName || "Recruiter"}`);
                       </p>
                     )}
                     <p className="text-gray-500 text-xs mt-1.5">
-                      Enter 10-11 digit phone number
+                      {t`Enter 10-11 digit phone number`}
                     </p>
                   </div>
                 </div>
@@ -497,7 +498,7 @@ ${user?.fullName || "Recruiter"}`);
                   <div className="flex items-center gap-3 p-4 rounded-lg border bg-gradient-to-r from-blue-50 to-blue-100">
                     <Mail size={20} className="text-blue-600" />
                     <div className="flex-1 min-w-0">
-                      <div className="text-xs text-gray-600 mb-1">Email</div>
+                      <div className="text-xs text-gray-600 mb-1">{t`Email`}</div>
                       <div className="truncate font-medium text-gray-900">
                         {user?.email}
                       </div>
@@ -507,9 +508,9 @@ ${user?.fullName || "Recruiter"}`);
                   <div className="flex items-center gap-3 p-4 rounded-lg border bg-gradient-to-r from-green-50 to-green-100">
                     <Phone size={20} className="text-green-600" />
                     <div className="flex-1 min-w-0">
-                      <div className="text-xs text-gray-600 mb-1">Phone</div>
+                      <div className="text-xs text-gray-600 mb-1">{t`Phone`}</div>
                       <div className="font-medium text-gray-900">
-                        {user?.phone || "Not provided"}
+                        {user?.phone || t`Not provided`}
                       </div>
                     </div>
                   </div>
@@ -519,8 +520,7 @@ ${user?.fullName || "Recruiter"}`);
               <p className="text-xs text-gray-500 mt-4 p-3 bg-yellow-50 border border-yellow-200 rounded-lg flex items-start gap-2">
                 <AlertCircle size={14} className="flex-shrink-0 mt-0.5" />
                 <span>
-                  Email address cannot be changed. If you need to update your
-                  email, please contact our support team.
+                  {t`Email address cannot be changed. If you need to update your email, please contact our support team.`}
                 </span>
               </p>
             </div>
@@ -531,7 +531,7 @@ ${user?.fullName || "Recruiter"}`);
         <div className="space-y-6">
           <div className="rounded-xl border bg-white shadow-sm">
             <div className="p-6 border-b bg-gray-50">
-              <h2 className="text-lg font-semibold">Quick Actions</h2>
+              <h2 className="text-lg font-semibold">{t`Quick Actions`}</h2>
             </div>
 
             <div className="p-6">
@@ -541,30 +541,30 @@ ${user?.fullName || "Recruiter"}`);
                   onClick={handleUpgradeVip}
                 >
                   <Crown className="w-4 h-4 mr-2" />
-                  Upgrade to VIP
+                  {t`Upgrade to VIP`}
                 </Button>
 
                 <Link href="/recruiter/company" className="w-full">
                   <Button variant="outline" className="w-full">
-                    View Company Profile
+                    {t`View Company Profile`}
                   </Button>
                 </Link>
 
                 <Link href="/recruiter/manage-job" className="w-full">
                   <Button variant="outline" className="w-full">
-                    Manage Jobs
+                    {t`Manage Jobs`}
                   </Button>
                 </Link>
 
                 <Link href="/recruiter/applicants/all" className="w-full">
                   <Button variant="outline" className="w-full">
-                    View Applicants
+                    {t`View Applicants`}
                   </Button>
                 </Link>
 
                 <Link href="/recruiter/settings" className="w-full">
                   <Button variant="outline" className="w-full">
-                    Change Password
+                    {t`Change Password`}
                   </Button>
                 </Link>
               </div>
@@ -575,11 +575,10 @@ ${user?.fullName || "Recruiter"}`);
           <div className="rounded-xl border bg-gradient-to-br from-purple-50 to-pink-50 shadow-sm p-6">
             <h3 className="font-semibold text-gray-900 mb-2 flex items-center gap-2">
               <Mail size={18} className="text-purple-600" />
-              Need Help?
+              {t`Need Help?`}
             </h3>
             <p className="text-sm text-gray-600 mb-4">
-              Contact our support team for assistance with your recruiter
-              account.
+              {t`Contact our support team for assistance with your recruiter account.`}
             </p>
             <Button
               variant="outline"
@@ -588,7 +587,7 @@ ${user?.fullName || "Recruiter"}`);
               onClick={handleContactSupport}
             >
               <Mail size={14} className="mr-2" />
-              Contact Support
+              {t`Contact Support`}
             </Button>
             <p className="text-xs text-gray-500 mt-3 text-center">
               pvp.1803ac@gmail.com

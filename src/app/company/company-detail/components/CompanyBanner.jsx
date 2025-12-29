@@ -104,7 +104,7 @@ const CompanyBanner = () => {
             <div className="mt-2 text-sm text-white-600">
               {company.proCompany && (
                 <span className="px-2 py-0.5 mr-2 text-yellow-800 bg-yellow-100 rounded">
-                  Pro Company
+                  {t`Pro Company`}
                 </span>
               )}
               <a
@@ -114,10 +114,10 @@ const CompanyBanner = () => {
                 {company.website?.replace("https://", "")}
               </a>
               <span className="px-2 py-0.5 rounded bg-white mr-2">
-                {company.quantityEmployee}+ employees
+                {company.quantityEmployee}+ {t`employees`}
               </span>
               <span className="px-2 py-0.5 rounded bg-white">
-                {followCount?.totalFollowers ?? 0} followers
+                {followCount?.totalFollowers ?? 0} {t`followers`}
               </span>
             </div>
           </div>

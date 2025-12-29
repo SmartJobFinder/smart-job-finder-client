@@ -7,7 +7,7 @@ export default function ExpiredJobsPage() {
   return (
     <CompanyGuard>
       <div className="p-4">
-        <h1 className="text-xl font-semibold mb-4">Expired Jobs</h1>
+        <h1 className="text-xl font-semibold mb-4">{t`Expired Jobs`}</h1>
         <RecruiterJobsList tab="expired" />
       </div>
     </CompanyGuard>

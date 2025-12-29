@@ -95,7 +95,7 @@ const MyCompanyContactInfo = () => {
             <MapPin className="w-5 h-5 text-[#0A66C2] flex-shrink-0 mt-0.5" />
             <div>
               <p className="text-sm font-semibold text-gray-900 mb-1">
-                Address:
+                {t`Address`}:
               </p>
               <p className="text-sm text-gray-700">{fullAddress}</p>
             </div>
@@ -119,7 +119,9 @@ const MyCompanyContactInfo = () => {
           <div className="flex items-start gap-3">
             <Phone className="w-5 h-5 text-[#0A66C2] flex-shrink-0 mt-0.5" />
             <div>
-              <p className="text-sm font-semibold text-gray-900 mb-1">Phone:</p>
+              <p className="text-sm font-semibold text-gray-900 mb-1">
+                {t`Phone`}:
+              </p>
               <a
                 href={`tel:${company.phoneNumber}`}
                 className="text-sm text-blue-600 hover:underline"
@@ -134,7 +136,7 @@ const MyCompanyContactInfo = () => {
             <Globe className="w-5 h-5 text-[#0A66C2] flex-shrink-0 mt-0.5" />
             <div>
               <p className="text-sm font-semibold text-gray-900 mb-1">
-                Website:
+                {t`Website`}:
               </p>
               <a
                 href={company.website}
@@ -153,7 +155,7 @@ const MyCompanyContactInfo = () => {
             company.linkedinUrl) && (
             <div className="pt-4 border-t border-gray-200">
               <p className="text-sm font-semibold text-gray-900 mb-3">
-                Social Media:
+                {t`Social Media`}:
               </p>
               <div className="flex flex-wrap gap-2">
                 {company.facebookUrl && (
@@ -198,7 +200,7 @@ const MyCompanyContactInfo = () => {
             <div className="flex items-center justify-between mb-3">
               <p className="text-sm font-semibold text-gray-900 flex items-center gap-2">
                 <Map className="w-5 h-5 text-[#0A66C2]" />
-                View map
+                {t`View map`}
               </p>
               {!company.mapEmbedUrl && (
                 <Link href="/recruiter/company/edit">
@@ -208,7 +210,7 @@ const MyCompanyContactInfo = () => {
                     className="text-xs text-blue-600 hover:text-blue-700 hover:bg-blue-50"
                   >
                     <Edit className="w-3.5 h-3.5 mr-1" />
-                    Add Map
+                    {t`Add Map`}
                   </Button>
                 </Link>
               )}
@@ -235,11 +237,10 @@ const MyCompanyContactInfo = () => {
                   </div>
                   <div>
                     <p className="font-medium text-gray-700 mb-1">
-                      No map location added yet
+                      {t`No map location added yet`}
                     </p>
                     <p className="text-xs text-gray-500 mb-4 max-w-xs">
-                      Add a Google Maps embed URL to show your company location
-                      to candidates
+                      {t`Add a Google Maps embed URL to show your company location to candidates`}
                     </p>
                   </div>
                   <Link href="/recruiter/company/edit">
@@ -248,7 +249,7 @@ const MyCompanyContactInfo = () => {
                       className="bg-blue-600 hover:bg-blue-700 text-white"
                     >
                       <Edit className="w-4 h-4 mr-2" />
-                      Add Map Location
+                      {t`Add Map Location`}
                     </Button>
                   </Link>
                 </div>
@@ -264,7 +265,7 @@ const MyCompanyContactInfo = () => {
         <div className="px-6 py-4 bg-[#0A66C2]">
           <h3 className="text-lg font-semibold text-white flex items-center gap-2">
             <Share2 className="w-5 h-5" />
-            Share Company with Candidates
+            {t`Share Company with Candidates`}
           </h3>
         </div>
 
@@ -273,7 +274,7 @@ const MyCompanyContactInfo = () => {
           {/* Copy Link Section */}
           <div>
             <label className="block text-sm font-semibold text-gray-900 mb-2">
-              Copy company profile link
+              {t`Copy company profile link`}
             </label>
             <div className="flex gap-2">
               <input
@@ -293,12 +294,12 @@ const MyCompanyContactInfo = () => {
                 {copied ? (
                   <>
                     <Check className="w-4 h-4 mr-2" />
-                    Copied!
+                    {t`Copied`}
                   </>
                 ) : (
                   <>
                     <Copy className="w-4 h-4 mr-2" />
-                    Copy
+                    {t`Copy`}
                   </>
                 )}
               </Button>

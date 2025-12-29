@@ -24,9 +24,11 @@ export const Footer = () => {
             <h3 className="mb-4 text-xl font-bold">JobFind</h3>
             <p className="mb-4 text-gray-400">
               {t`Call now`}:{" "}
-              <span className="text-white">(028) 37 755 055</span>
+              <span className="text-white">(028) 12 345 678</span>
             </p>
-            <p className="text-sm text-gray-400">{t`Address`} </p>
+            <p className="text-sm text-gray-400">
+              {t`19 Nguyen Huu Tho Street, Tan Hung Ward, Ho Chi Minh City, Vietnam`}{" "}
+            </p>
           </div>
 
           {/* Quick Links */}

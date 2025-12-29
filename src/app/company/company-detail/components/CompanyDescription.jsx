@@ -19,21 +19,23 @@ const CompanyDescription = () => {
       <div className="mt-4 space-y-4">
         <div className="grid grid-cols-2 gap-4">
           <div className="p-3 rounded-lg bg-gray-50">
-            <h3 className="font-medium text-gray-700">Founded year</h3>
+            <h3 className="font-medium text-gray-700">{t`Founded year`}</h3>
             <p className="mt-1 text-blue-600">{company.foundedYear}</p>
           </div>
           <div className="p-3 rounded-lg bg-gray-50">
-            <h3 className="font-medium text-gray-700">Staff size</h3>
+            <h3 className="font-medium text-gray-700">{t`Staff size`}</h3>
             <p className="mt-1 text-blue-600">
-              {company.quantityEmployee}+ employees
+              {company.quantityEmployee}+ {t`employees`}
             </p>
           </div>
           <div className="p-3 rounded-lg bg-gray-50">
-            <h3 className="font-medium text-gray-700">Jobs posted</h3>
-            <p className="mt-1 text-blue-600">{company.jobsCount || 0} jobs</p>
+            <h3 className="font-medium text-gray-700">{t`Jobs posted`}</h3>
+            <p className="mt-1 text-blue-600">
+              {company.jobsCount || 0} {t`jobs`}
+            </p>
           </div>
           <div className="p-3 rounded-lg bg-gray-50">
-            <h3 className="font-medium text-gray-700">Fields of activity</h3>
+            <h3 className="font-medium text-gray-700">{t`Fields of activity`}</h3>
             <div className="flex flex-wrap gap-2 mt-1">
               {company.categories?.map((category, index) => (
                 <span
@@ -48,7 +50,7 @@ const CompanyDescription = () => {
         </div>
 
         <div className="pt-4 mt-4 border-t border-gray-200">
-          <h3 className="mb-3 font-semibold">Detailed description</h3>
+          <h3 className="mb-3 font-semibold">{t`Detailed description`}</h3>
           <div
             className={`leading-relaxed text-justify ${
               expanded ? "" : "line-clamp-6"
@@ -62,7 +64,7 @@ const CompanyDescription = () => {
               onClick={() => setExpanded(!expanded)}
               className="mt-4 text-sm font-medium hover:underline text-[#0A66C2]"
             >
-              {expanded ? "Collapse" : "View more"}{" "}
+              {expanded ? t`Collapse` : t`View more`}{" "}
               <span className="ml-1">{expanded ? "▲" : "▼"}</span>
             </button>
           )}
