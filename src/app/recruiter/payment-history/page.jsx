@@ -106,7 +106,7 @@ function PaymentsTable({
       {/* Toolbar */}
       <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between px-4 py-3 border-b">
         <h3 className="text-lg font-semibold">
-          Payment History:{" "}
+          {t`Payment History`}:{" "}
           <span className="text-gray-600">{data?.totalElements ?? 0}</span>
         </h3>
         <div className="flex flex-wrap items-center gap-2">
@@ -116,7 +116,7 @@ function PaymentsTable({
               value={localQuery}
               onChange={e => onLocalQueryChange(e.target.value)}
               className="w-64 pl-8 pr-3 py-2 border rounded-md"
-              placeholder="Search txnRef / providerTxn"
+              placeholder={t`Search txnRef / providerTxn`}
             />
           </div>
           <div className="flex items-center gap-2">
@@ -125,23 +125,23 @@ function PaymentsTable({
               value={localStatus}
               onChange={e => onLocalStatusChange(e.target.value)}
               className="px-2 py-2 border rounded-md"
-              title="Filter status"
+              title={t`Filter status`}
             >
-              <option value="ALL">All</option>
-              <option value="PAID">PAID</option>
-              <option value="PENDING">PENDING</option>
-              <option value="FAILED">FAILED</option>
-              <option value="REFUNDED">REFUNDED</option>
+              <option value="ALL">{t`All`}</option>
+              <option value="PAID">{t`PAID`}</option>
+              <option value="PENDING">{t`PENDING`}</option>
+              <option value="FAILED">{t`FAILED`}</option>
+              <option value="REFUNDED">{t`REFUNDED`}</option>
             </select>
           </div>
           <Button
             variant="outline"
             size="sm"
             onClick={onRefresh}
-            title="Refresh"
+            title={t`Refresh`}
           >
             <RefreshCcw className="w-4 h-4 mr-2" />
-            Refresh
+            {t`Refresh`}
           </Button>
         </div>
       </div>
@@ -151,14 +151,14 @@ function PaymentsTable({
         <table className="min-w-full text-sm">
           <thead className="bg-gray-50">
             <tr>
-              <th className={headerCell}>Reference code</th>
-              <th className={headerCell}>Transaction code</th>
-              <th className={headerCell}>Provider</th>
-              <th className={headerCell}>Status</th>
-              <th className={headerCell}>Amount</th>
-              <th className={headerCell}>Currency</th>
-              <th className={headerCell}>Bought At</th>
-              <th className={headerCell}>Paid At</th>
+              <th className={headerCell}>{t`Reference code`}</th>
+              <th className={headerCell}>{t`Transaction code`}</th>
+              <th className={headerCell}>{t`Provider`}</th>
+              <th className={headerCell}>{t`Status`}</th>
+              <th className={headerCell}>{t`Amount`}</th>
+              <th className={headerCell}>{t`Currency`}</th>
+              <th className={headerCell}>{t`Bought At`}</th>
+              <th className={headerCell}>{t`Paid At`}</th>
             </tr>
           </thead>
           <tbody>
@@ -166,7 +166,7 @@ function PaymentsTable({
               <tr>
                 <td colSpan={8} className="px-6 py-8 text-center text-gray-500">
                   <div className="inline-flex items-center gap-2">
-                    <Loader2 className="w-4 h-4 animate-spin" /> Loading...
+                    <Loader2 className="w-4 h-4 animate-spin" /> {t`Loading...`}
                   </div>
                 </td>
               </tr>
@@ -208,7 +208,7 @@ function PaymentsTable({
             ) : (
               <tr>
                 <td colSpan={8} className="px-6 py-8 text-center text-gray-500">
-                  No payments found
+                  {t`No payments found`}
                 </td>
               </tr>
             )}
@@ -345,11 +345,11 @@ export default function PaymentHistoryPage() {
     <CompanyGuard>
       <div className="p-4 space-y-4">
         <div className="flex items-center justify-between">
-          <h1 className="text-xl font-semibold">Payment History</h1>
+          <h1 className="text-xl font-semibold">{t`Payment History`}</h1>
           {(resolvingCompany || !resolvedCompanyId) && (
             <div className="text-sm text-gray-600 inline-flex items-center gap-2">
               <Loader2 className="w-4 h-4 animate-spin" />
-              Resolving your company...
+              {t`Resolving your company...`}
             </div>
           )}
         </div>

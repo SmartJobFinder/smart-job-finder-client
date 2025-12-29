@@ -130,19 +130,19 @@ export default function RecruiterSettingsPage() {
     const errors = {};
 
     if (!passwordForm.oldPassword.trim()) {
-      errors.oldPassword = "Current password is required";
+      errors.oldPassword = t`Current password is required`;
     }
 
     if (!passwordForm.newPassword.trim()) {
-      errors.newPassword = "New password is required";
+      errors.newPassword = t`New password is required`;
     } else if (!isPasswordValid) {
-      errors.newPassword = "Password does not meet all requirements";
+      errors.newPassword = t`Password does not meet all requirements`;
     }
 
     if (!passwordForm.confirmPassword.trim()) {
-      errors.confirmPassword = "Please confirm your new password";
+      errors.confirmPassword = t`Please confirm your new password`;
     } else if (passwordForm.newPassword !== passwordForm.confirmPassword) {
-      errors.confirmPassword = "Passwords do not match";
+      errors.confirmPassword = t`Passwords do not match`;
     }
 
     if (
@@ -150,8 +150,7 @@ export default function RecruiterSettingsPage() {
       passwordForm.newPassword &&
       passwordForm.oldPassword === passwordForm.newPassword
     ) {
-      errors.newPassword =
-        "New password must be different from current password";
+      errors.newPassword = t`New password must be different from current password`;
     }
 
     setPasswordErrors(errors);
@@ -160,7 +159,7 @@ export default function RecruiterSettingsPage() {
 
   const handleChangePassword = async () => {
     if (!validatePasswordForm()) {
-      toast.error("Please fix the errors before saving");
+      toast.error(t`Please fix the errors before saving`);
       return;
     }
 
@@ -169,7 +168,7 @@ export default function RecruiterSettingsPage() {
 
       await changePassword(passwordForm.oldPassword, passwordForm.newPassword);
 
-      toast.success("Password changed successfully!");
+      toast.success(t`Password changed successfully!`);
 
       // Reset form
       setPasswordForm({
@@ -180,7 +179,7 @@ export default function RecruiterSettingsPage() {
       setPasswordErrors({});
     } catch (error) {
       console.error("Error changing password:", error);
-      const errorMessage = error.message || "Failed to change password";
+      const errorMessage = error.message || t`Failed to change password`;
       toast.error(errorMessage);
     } finally {
       setChangingPassword(false);

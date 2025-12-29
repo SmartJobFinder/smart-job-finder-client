@@ -2266,3 +2266,644 @@ msgstr "Tìm hiểu thêm"
 
 msgid "per page"
 msgstr "mỗi trang"
+
+# Payment History Page
+msgid "Search txnRef / providerTxn"
+msgstr "Tìm mã giao dịch"
+
+msgid "Filter status"
+msgstr "Lọc trạng thái"
+
+msgid "PAID"
+msgstr "ĐÃ THANH TOÁN"
+
+msgid "PENDING"
+msgstr "ĐANG CHỜ"
+
+msgid "FAILED"
+msgstr "THẤT BẠI"
+
+msgid "REFUNDED"
+msgstr "ĐÃ HOÀN TIỀN"
+
+msgid "Refresh"
+msgstr "Làm mới"
+
+msgid "Reference code"
+msgstr "Mã tham chiếu"
+
+msgid "Transaction code"
+msgstr "Mã giao dịch"
+
+msgid "Provider"
+msgstr "Nhà cung cấp"
+
+msgid "Amount"
+msgstr "Số tiền"
+
+msgid "Currency"
+msgstr "Loại tiền"
+
+msgid "Bought At"
+msgstr "Thời gian mua"
+
+msgid "Paid At"
+msgstr "Thời gian thanh toán"
+
+msgid "No payments found"
+msgstr "Không tìm thấy giao dịch nào"
+
+msgid "Resolving your company..."
+msgstr "Đang xác định công ty của bạn..."
+
+# Dashboard Page
+msgid "Total Applicants"
+msgstr "Tổng số ứng viên"
+
+msgid "Applicants (30d)"
+msgstr "Ứng viên (30 ngày)"
+
+msgid "Currently posted"
+msgstr "Đang đăng"
+
+msgid "All time"
+msgstr "Tất cả thời gian"
+
+msgid "Last 30 days"
+msgstr "30 ngày qua"
+
+msgid "Applications Trend (30 days)"
+msgstr "Xu hướng ứng tuyển (30 ngày)"
+
+msgid "total applications"
+msgstr "tổng đơn ứng tuyển"
+
+msgid "applications"
+msgstr "đơn ứng tuyển"
+
+msgid "Weekdays"
+msgstr "Ngày thường"
+
+msgid "Weekends"
+msgstr "Cuối tuần"
+
+msgid "Peak Day"
+msgstr "Ngày cao điểm"
+
+msgid "Recent Activity & Insights"
+msgstr "Hoạt động gần đây & Thông tin chi tiết"
+
+msgid "New Applications"
+msgstr "Đơn ứng tuyển mới"
+
+msgid "Check the Applicants page to review new applications"
+msgstr "Kiểm tra trang Ứng viên để xem đơn ứng tuyển mới"
+
+msgid "Job Posting"
+msgstr "Đăng tin tuyển dụng"
+
+msgid "Create new job postings to attract more candidates"
+msgstr "Tạo tin tuyển dụng mới để thu hút thêm ứng viên"
+
+msgid "Analytics"
+msgstr "Phân tích"
+
+msgid "View detailed analytics in the Analytics page"
+msgstr "Xem phân tích chi tiết trong trang Phân tích"
+
+msgid "Quick Stats"
+msgstr "Thống kê nhanh"
+
+msgid "Avg daily"
+msgstr "Trung bình mỗi ngày"
+
+msgid "Peak day"
+msgstr "Ngày cao điểm"
+
+# Settings Page
+msgid "Account Settings"
+msgstr "Cài đặt tài khoản"
+
+msgid "Manage your account information and security settings"
+msgstr "Quản lý thông tin tài khoản và cài đặt bảo mật"
+
+msgid "Account Information"
+msgstr "Thông tin tài khoản"
+
+msgid "Your basic account information"
+msgstr "Thông tin cơ bản của tài khoản"
+
+msgid "Email Address"
+msgstr "Địa chỉ email"
+
+msgid "Not provided"
+msgstr "Chưa cung cấp"
+
+msgid "Account Status"
+msgstr "Trạng thái tài khoản"
+
+msgid "ACTIVE"
+msgstr "ĐANG HOẠT ĐỘNG"
+
+msgid "INACTIVE"
+msgstr "KHÔNG HOẠT ĐỘNG"
+
+msgid "To update your profile information, please go to the"
+msgstr "Để cập nhật thông tin hồ sơ, vui lòng truy cập"
+
+msgid "Profile page"
+msgstr "Trang hồ sơ"
+
+msgid "Set Password"
+msgstr "Đặt mật khẩu"
+
+msgid "You signed up with Google, so your account doesn't have a password."
+msgstr "Bạn đã đăng ký bằng Google nên tài khoản không có mật khẩu."
+
+msgid "If you still want to set a password"
+msgstr "Nếu bạn vẫn muốn đặt mật khẩu"
+
+msgid "Click here"
+msgstr "Nhấp vào đây"
+
+msgid "Change Password"
+msgstr "Đổi mật khẩu"
+
+msgid "Update your password to keep your account secure"
+msgstr "Cập nhật mật khẩu để giữ tài khoản an toàn"
+
+msgid "Current Password"
+msgstr "Mật khẩu hiện tại"
+
+msgid "Enter current password"
+msgstr "Nhập mật khẩu hiện tại"
+
+msgid "New Password"
+msgstr "Mật khẩu mới"
+
+msgid "Enter new password"
+msgstr "Nhập mật khẩu mới"
+
+msgid "Password must contain"
+msgstr "Mật khẩu phải chứa"
+
+msgid "At least 8 characters"
+msgstr "Ít nhất 8 ký tự"
+
+msgid "One uppercase letter"
+msgstr "Một chữ cái viết hoa"
+
+msgid "One lowercase letter"
+msgstr "Một chữ cái viết thường"
+
+msgid "One number"
+msgstr "Một chữ số"
+
+msgid "One special character"
+msgstr "Một ký tự đặc biệt"
+
+msgid "Confirm New Password"
+msgstr "Xác nhận mật khẩu mới"
+
+msgid "Confirm new password"
+msgstr "Xác nhận mật khẩu mới"
+
+msgid "Changing..."
+msgstr "Đang thay đổi..."
+
+msgid "Current password is required"
+msgstr "Vui lòng nhập mật khẩu hiện tại"
+
+msgid "New password is required"
+msgstr "Vui lòng nhập mật khẩu mới"
+
+msgid "Password does not meet all requirements"
+msgstr "Mật khẩu chưa đáp ứng đủ yêu cầu"
+
+msgid "Please confirm your new password"
+msgstr "Vui lòng xác nhận mật khẩu mới"
+
+msgid "Passwords do not match"
+msgstr "Mật khẩu không khớp"
+
+msgid "New password must be different from current password"
+msgstr "Mật khẩu mới phải khác mật khẩu hiện tại"
+
+msgid "Please fix the errors before saving"
+msgstr "Vui lòng sửa lỗi trước khi lưu"
+
+msgid "Password changed successfully!"
+msgstr "Đổi mật khẩu thành công!"
+
+msgid "Failed to change password"
+msgstr "Đổi mật khẩu thất bại"
+
+# Recruiter Sidebar
+msgid "All Job Posts"
+msgstr "Tất cả tin tuyển dụng"
+
+msgid "Draft Jobs"
+msgstr "Tin nháp"
+
+msgid "Expired Jobs"
+msgstr "Tin hết hạn"
+
+msgid "All Applicants"
+msgstr "Tất cả ứng viên"
+
+msgid "Interviewed"
+msgstr "Đã phỏng vấn"
+
+msgid "Company"
+msgstr "Công ty"
+
+
+msgid "Recruiter Dashboard"
+msgstr "Bảng điều khiển dành cho nhà tuyển dụng"
+
+msgid "Overview of your hiring activities"
+msgstr "Tổng quan về hoạt động tuyển dụng của bạn"
+
+msgid "Active Jobs"
+msgstr "Công việc đang tuyển"
+
+msgid "Total Applicants"
+msgstr "Tổng số ứng viên"
+
+msgid "Applicants (30d)"
+msgstr "Ứng viên (30 ngày)"
+
+msgid "Currently posted"
+msgstr "Đang đăng"
+
+msgid "All time"
+msgstr "Tất cả thời gian"
+
+msgid "Last 30 days"
+msgstr "30 ngày qua"
+
+msgid "Applications Trend (30 days)"
+msgstr "Trend ứng tuyển (30 ngày)"
+
+msgid "total applications"
+msgstr "Tổng số ứng tuyển"
+
+msgid "applications"
+msgstr "ứng tuyển"
+
+msgid "Weekdays"
+msgstr "Ngày thường"
+
+msgid "Weekends"
+msgstr "Cuối tuần"
+
+msgid "Peak Day"
+msgstr "Ngày cao điểm"
+
+msgid "Today"
+msgstr "Hôm nay"
+
+msgid "Recent Activity & Insights"
+msgstr "Hoạt động gần đây & Thông tin chi tiết"
+
+msgid "New Applications"
+msgstr "Ứng tuyển mới"
+
+msgid "Check the Applicants page to review new applications"
+msgstr "Kiểm tra trang ứng viên để xem ứng tuyển mới"
+
+msgid "Job Posting"
+msgstr "Tin đăng tuyển"
+
+msgid "Create new job postings to attract more candidates"
+msgstr "Tạo tin đăng tuyển mới để thu hút thêm ứng viên"
+
+msgid "View detailed analytics in the Analytics page"
+msgstr "Xem phân tích chi tiết trong trang Phân tích"
+
+msgid "Quick Stats"
+msgstr "Thống kê nhanh"
+
+msgid "Avg daily"
+msgstr "Trung bình mỗi ngày"
+
+msgid "Peak day"
+msgstr "Ngày cao điểm"
+
+msgid "Analytics"
+msgstr "Phân tích"
+
+msgid "Analytics content here..."
+msgstr "Nội dung phân tích ở đây..."
+
+msgid "Manage Jobs"
+msgstr "Quản lý công việc"
+
+msgid "All Jobs"
+msgstr "Tất cả công việc"
+
+msgid "Active"
+msgstr "Đang hoạt động"
+
+msgid "Drafts"
+msgstr "Bản nháp"
+
+msgid "Search jobs..."
+msgstr "Tìm kiếm công việc..."
+
+msgid "Filter by status"
+msgstr "Lọc theo trạng thái"
+
+msgid "No jobs found"
+msgstr "Không tìm thấy công việc"
+
+msgid "Create New Job"
+msgstr "Tạo công việc mới"
+
+msgid "Edit"
+msgstr "Chỉnh sửa"
+
+msgid "Delete"
+msgstr "Xóa"
+
+msgid "View"
+msgstr "Xem"
+
+msgid "Published"
+msgstr "Đã xuất bản"
+
+msgid "Draft"
+msgstr "Bản nháp"
+
+msgid "Closed"
+msgstr "Đã đóng"
+
+msgid "Applicants"
+msgstr "Ứng viên"
+
+msgid "Views"
+msgstr "Lượt xem"
+
+msgid "Posted"
+msgstr "Đã đăng"
+
+msgid "Expires"
+msgstr "Hết hạn"
+
+msgid "Actions"
+msgstr "Hành động"
+
+msgid "Create Job"
+msgstr "Tạo công việc"
+
+msgid "Job Details"
+msgstr "Chi tiết công việc"
+
+msgid "Job Title"
+msgstr "Tiêu đề công việc"
+
+msgid "Job Description"
+msgstr "Mô tả công việc"
+
+msgid "Requirements"
+msgstr "Yêu cầu"
+
+msgid "Benefits"
+msgstr "Quyền lợi"
+
+msgid "Salary Range"
+msgstr "Mức lương"
+
+msgid "Location"
+msgstr "Địa chỉ"
+
+msgid "Job Type"
+msgstr "Loại hình công việc"
+
+msgid "Experience Level"
+msgstr "Cấp bậc kinh nghiệm"
+
+msgid "Number of Positions"
+msgstr "Số lượng vị trí"
+
+msgid "Application Deadline"
+msgstr "Hạn nộp hồ sơ"
+
+msgid "Save as Draft"
+msgstr "Lưu bản nháp"
+
+msgid "Publish"
+msgstr "Xuất bản"
+
+msgid "Preview"
+msgstr "Xem trước"
+
+msgid "Back"
+msgstr "Quay lại"
+
+msgid "Next"
+msgstr "Tiếp theo"
+
+msgid "Submit"
+msgstr "Gửi"
+
+msgid "Full-time"
+msgstr "Toàn thời gian"
+
+msgid "Part-time"
+msgstr "Bán thời gian"
+
+msgid "Contract"
+msgstr "Hợp đồng"
+
+msgid "Internship"
+msgstr "Thực tập"
+
+msgid "Entry Level"
+msgstr "Mới ra trường"
+
+msgid "Junior"
+msgstr "Nhân viên"
+
+msgid "Mid Level"
+msgstr "Trung cấp"
+
+msgid "Senior"
+msgstr "Cao cấp"
+
+msgid "Manager"
+msgstr "Quản lý"
+
+msgid "Director"
+msgstr "Giám đốc"
+
+msgid "Company Profile"
+msgstr "Hồ sơ công ty"
+
+msgid "Company Information"
+msgstr "Thông tin công ty"
+
+msgid "Company Name"
+msgstr "Tên công ty"
+
+msgid "Company Description"
+msgstr "Mô tả công ty"
+
+msgid "Company Size"
+msgstr "Quy mô công ty"
+
+msgid "Industry"
+msgstr "Ngành nghề"
+
+msgid "Website"
+msgstr "Website"
+
+msgid "Address"
+msgstr "Địa chỉ"
+
+msgid "Founded Year"
+msgstr "Năm thành lập"
+
+msgid "Company Logo"
+msgstr "Logo công ty"
+
+msgid "Company Banner"
+msgstr "Banner công ty"
+
+msgid "Upload Logo"
+msgstr "Tải lên logo"
+
+msgid "Upload Banner"
+msgstr "Tải lên banner"
+
+msgid "Update Company"
+msgstr "Cập nhật công ty"
+
+msgid "Company updated successfully"
+msgstr "Cập nhật công ty thành công"
+
+msgid "Failed to update company"
+msgstr "Không cập nhật công ty"
+
+msgid "Payment History"
+msgstr "Lịch sử thanh toán"
+
+msgid "Transaction ID"
+msgstr "Mã giao dịch"
+
+msgid "Date"
+msgstr "Ngày"
+
+msgid "Amount"
+msgstr "Số tiền"
+
+msgid "Payment Method"
+msgstr "Phương thức thanh toán"
+
+msgid "Status"
+msgstr "Trạng thái"
+
+msgid "Invoice"
+msgstr "Hóa đơn"
+
+msgid "Download"
+msgstr "Tải xuống"
+
+msgid "Paid"
+msgstr "Đã thanh toán"
+
+msgid "Pending"
+msgstr "Đang chờ"
+
+msgid "Failed"
+msgstr "Thất bại"
+
+msgid "Refunded"
+msgstr "Hoàn tiền"
+
+msgid "No payment history"
+msgstr "Không có lịch sử thanh toán"
+
+msgid "Loading..."
+msgstr "Đang tải..."
+
+msgid "Error"
+msgstr "Lỗi"
+
+msgid "Success"
+msgstr "Thành công"
+
+msgid "Warning"
+msgstr "Cảnh báo"
+
+msgid "Confirm"
+msgstr "Xác nhận"
+
+msgid "Are you sure?"
+msgstr "Bạn có chắc chắn?"
+
+msgid "Yes"
+msgstr "Có"
+
+msgid "No"
+msgstr "Không"
+
+msgid "Close"
+msgstr "Đóng"
+
+msgid "Apply"
+msgstr "Áp dụng"
+
+msgid "Reset"
+msgstr "Đặt lại"
+
+msgid "Clear"
+msgstr "Xóa"
+
+msgid "Select"
+msgstr "Chọn"
+
+msgid "All"
+msgstr "Tất cả"
+
+msgid "None"
+msgstr "Không"
+
+msgid "Search"
+msgstr "Tìm kiếm"
+
+msgid "Filter"
+msgstr "Lọc"
+
+msgid "Sort"
+msgstr "Sắp xếp"
+
+msgid "Export"
+msgstr "Xuất"
+
+msgid "Import"
+msgstr "Nhập"
+
+msgid "Refresh"
+msgstr "Làm mới"
+
+msgid "Settings"
+msgstr "Cài đặt"
+
+msgid "Help"
+msgstr "Trợ giúp"
+
+msgid "Logout"
+msgstr "Đăng xuất"
+
+msgid "Profile"
+msgstr "Hồ sơ"
+
+msgid "Notifications"
+msgstr "Thông báo"
+
+msgid "Messages"
+msgstr "Tin nhắn"
+
+msgid "Dashboard"
+msgstr "Bảng điều khiển"

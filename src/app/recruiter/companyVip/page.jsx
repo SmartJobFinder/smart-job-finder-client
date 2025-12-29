@@ -560,15 +560,14 @@ export default function CompanyVip() {
         <div className="flex items-center gap-2 mb-4">
           <div className="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-medium text-blue-700 bg-blue-50 rounded-md">
             <Briefcase className="w-3 h-3" />
-            <span>VIP Packages</span>
+            <span>{t`VIP Packages`}</span>
           </div>
         </div>
         <h1 className="mb-2 text-2xl font-semibold text-gray-900">
-          Upgrade to VIP Company
+          {t`Upgrade to VIP Company`}
         </h1>
         <p className="text-sm leading-relaxed text-gray-600">
-          Unlock premium job posting with extended visibility & priority
-          support. Get your company featured and attract top talent faster.
+          {t`Unlock premium job posting with extended visibility & priority support. Get your company featured and attract top talent faster.`}
         </p>
       </div>
 
@@ -595,7 +594,7 @@ export default function CompanyVip() {
       {/* Why Choose VIP Section */}
       <div className="p-6 border border-blue-100 rounded-lg bg-gradient-to-r from-blue-50 to-indigo-50">
         <h2 className="mb-4 text-lg font-semibold text-center text-gray-900">
-          Why Choose VIP Company Package?
+          {t`Why Choose VIP Company Package?`}
         </h2>
         <div className="grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
           <div className="flex items-start gap-3 p-4 bg-white border border-gray-100 rounded-lg">
@@ -604,11 +603,10 @@ export default function CompanyVip() {
             </div>
             <div>
               <h3 className="mb-1 font-medium text-gray-900">
-                Maximum Visibility
+                {t`Maximum Visibility`}
               </h3>
               <p className="text-sm text-gray-600">
-                Your company profile and job posts appear at the top of search
-                results, ensuring maximum exposure to qualified candidates.
+                {t`Your company profile and job posts appear at the top of search results, ensuring maximum exposure to qualified candidates.`}
               </p>
             </div>
           </div>
@@ -619,11 +617,10 @@ export default function CompanyVip() {
             </div>
             <div>
               <h3 className="mb-1 font-medium text-gray-900">
-                Priority Support
+                {t`Priority Support`}
               </h3>
               <p className="text-sm text-gray-600">
-                Get dedicated 24/7 support from our recruitment experts to
-                optimize your hiring strategy and get faster results.
+                {t`Get dedicated 24/7 support from our recruitment experts to optimize your hiring strategy and get faster results.`}
               </p>
             </div>
           </div>
@@ -634,11 +631,10 @@ export default function CompanyVip() {
             </div>
             <div>
               <h3 className="mb-1 font-medium text-gray-900">
-                Premium Branding
+                {t`Premium Branding`}
               </h3>
               <p className="text-sm text-gray-600">
-                Showcase your company with VIP badge and featured profile,
-                building trust and attracting premium candidates.
+                {t`Showcase your company with VIP badge and featured profile, building trust and attracting premium candidates.`}
               </p>
             </div>
           </div>
@@ -649,11 +645,10 @@ export default function CompanyVip() {
             </div>
             <div>
               <h3 className="mb-1 font-medium text-gray-900">
-                Advanced Analytics
+                {t`Advanced Analytics`}
               </h3>
               <p className="text-sm text-gray-600">
-                Track your job posting performance with detailed analytics and
-                insights to optimize your recruitment strategy.
+                {t`Track your job posting performance with detailed analytics and insights to optimize your recruitment strategy.`}
               </p>
             </div>
           </div>
@@ -663,7 +658,7 @@ export default function CompanyVip() {
       {/* Plans Section */}
       <div className="p-6 bg-white border border-gray-200 rounded-lg">
         <h2 className="mb-6 text-lg font-semibold text-center text-gray-900">
-          Choose Your VIP Package
+          {t`Choose Your VIP Package`}
         </h2>
 
         {/* 3 Column Grid - Responsive */}
@@ -686,7 +681,7 @@ export default function CompanyVip() {
                   )}
                 >
                   <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-blue-600 text-white shadow-sm">
-                    Most Popular
+                    {t`Most Popular`}
                   </span>
                 </div>
               )}
@@ -726,7 +721,7 @@ export default function CompanyVip() {
                     {plan.priceLabel}
                   </div>
                   <p className="text-xs text-gray-500 transition-colors duration-300 group-hover:text-gray-600">
-                    per package
+                    {t`per package`}
                   </p>
                 </CardHeader>
 
@@ -775,30 +770,30 @@ export default function CompanyVip() {
       {/* Comparison Table Section */}
       <div className="p-6 bg-white border border-gray-200 rounded-lg">
         <h2 className="mb-6 text-lg font-semibold text-center text-gray-900">
-          Compare VIP Packages
+          {t`Compare VIP Packages`}
         </h2>
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
               <tr className="border-b border-gray-200">
                 <th className="px-4 py-3 font-semibold text-left text-gray-900">
-                  Feature
+                  {t`Feature`}
                 </th>
                 <th className="px-4 py-3 font-semibold text-center text-gray-900 border-l border-gray-200">
-                  VIP 1 Month
+                  {t`VIP 1 Month`}
                 </th>
                 <th className="px-4 py-3 font-semibold text-center text-gray-900 border-l border-gray-200">
-                  VIP 3 Months
+                  {t`VIP 3 Months`}
                 </th>
                 <th className="px-4 py-3 font-semibold text-center text-gray-900 border-l border-gray-200">
-                  VIP 6 Months
+                  {t`VIP 6 Months`}
                 </th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-100">
               <tr className="hover:bg-gray-50">
                 <td className="px-4 py-3 font-medium text-gray-900">
-                  VIP Company Badge
+                  {t`VIP Company Badge`}
                 </td>
                 <td className="px-4 py-3 text-center">
                   <Check className="w-4 h-4 mx-auto text-green-500" />
@@ -812,7 +807,7 @@ export default function CompanyVip() {
               </tr>
               <tr className="hover:bg-gray-50">
                 <td className="px-4 py-3 font-medium text-gray-900">
-                  Top Search Ranking
+                  {t`Top Search Ranking`}
                 </td>
                 <td className="px-4 py-3 text-center">
                   <Check className="w-4 h-4 mx-auto text-green-500" />
@@ -826,7 +821,7 @@ export default function CompanyVip() {
               </tr>
               <tr className="hover:bg-gray-50">
                 <td className="px-4 py-3 font-medium text-gray-900">
-                  Job Post Priority
+                  {t`Job Post Priority`}
                 </td>
                 <td className="px-4 py-3 text-center">
                   <Check className="w-4 h-4 mx-auto text-green-500" />
@@ -840,7 +835,7 @@ export default function CompanyVip() {
               </tr>
               <tr className="hover:bg-gray-50">
                 <td className="px-4 py-3 font-medium text-gray-900">
-                  24/7 Priority Support
+                  {t`24/7 Priority Support`}
                 </td>
                 <td className="px-4 py-3 text-center">
                   <Check className="w-4 h-4 mx-auto text-green-500" />
@@ -854,7 +849,7 @@ export default function CompanyVip() {
               </tr>
               <tr className="hover:bg-gray-50">
                 <td className="px-4 py-3 font-medium text-gray-900">
-                  Advanced Analytics
+                  {t`Advanced Analytics`}
                 </td>
                 <td className="px-4 py-3 text-center">
                   <Check className="w-4 h-4 mx-auto text-green-500" />
@@ -868,7 +863,7 @@ export default function CompanyVip() {
               </tr>
               <tr className="hover:bg-gray-50">
                 <td className="px-4 py-3 font-medium text-gray-900">
-                  Featured Profile
+                  {t`Featured Profile`}
                 </td>
                 <td className="px-4 py-3 text-center">
                   <Check className="w-4 h-4 mx-auto text-green-500" />
@@ -888,7 +883,7 @@ export default function CompanyVip() {
       {/* Success Stories Section */}
       <div className="p-6 bg-white border border-gray-200 rounded-lg">
         <h2 className="mb-6 text-lg font-semibold text-center text-gray-900">
-          Companies Trusting Our VIP Program
+          {t`Companies Trusting Our VIP Program`}
         </h2>
         <div className="grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
           <div className="p-4 border border-gray-100 rounded-lg bg-gray-50">

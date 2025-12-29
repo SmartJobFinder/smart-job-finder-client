@@ -16,9 +16,10 @@ import {
   getRecruiterKpi,
   getRecruiterTrend,
 } from "@/services/analyticsService";
-import { t } from "@/i18n/i18n";
+import { useTranslation } from "@/i18n/i18n";
 
 const RecruiterDashboard = () => {
+  const { t } = useTranslation();
   const [companyId, setCompanyId] = useState(null);
   const [kpi, setKpi] = useState(null);
   const [trend, setTrend] = useState([]);
@@ -194,9 +195,9 @@ const RecruiterDashboard = () => {
                   {stat.value}
                 </div>
                 <div className={`text-xs mt-1 ${stat.textColor} opacity-70`}>
-                  {stat.title === "Active Jobs" && "Currently posted"}
-                  {stat.title === "Total Applicants" && "All time"}
-                  {stat.title === "Applicants (30d)" && "Last 30 days"}
+                  {stat.title === t`Active Jobs` && t`Currently posted`}
+                  {stat.title === t`Total Applicants` && t`All time`}
+                  {stat.title === t`Applicants (30d)` && t`Last 30 days`}
                 </div>
               </CardContent>
             </Card>
@@ -270,7 +271,7 @@ const RecruiterDashboard = () => {
                       {/* Tooltip (hover) */}
                       <div className="opacity-0 group-hover:opacity-100 transition-all duration-300 absolute -top-12 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-xs px-3 py-2 rounded-lg shadow-lg whitespace-nowrap z-10">
                         <div className="font-semibold">{point.count}</div>
-                        <div className="text-xs opacity-75">applications</div>
+                        <div className="text-xs opacity-75">{t`applications`}</div>
                         <div className="absolute top-full left-1/2 -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900" />
                       </div>
 
