@@ -162,6 +162,16 @@ const AiMatchModal = ({ onClose, job }) => {
     return XCircle;
   };
 
+  const translateMatchLevel = level => {
+    // AI service returns Vietnamese, translate to current language
+    const translations = {
+      "Phù hợp": t`Suitable`,
+      "Trung bình": t`Average`,
+      "Không phù hợp": t`Not Suitable`,
+    };
+    return translations[level] || level;
+  };
+
   // Loading state
   if (loading) {
     return (
@@ -372,7 +382,7 @@ const AiMatchModal = ({ onClose, job }) => {
                 <div className="flex justify-between items-center">
                   <span className="text-gray-700">{t`Match Level`}:</span>
                   <span className={`font-semibold ${getStatusColor()}`}>
-                    {result.matchLevel}
+                    {translateMatchLevel(result.matchLevel)}
                   </span>
                 </div>
 

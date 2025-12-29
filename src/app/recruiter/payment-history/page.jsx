@@ -6,6 +6,7 @@ import CompanyGuard from "@/components/recruiter/CompanyGuard";
 import { getMyCompany } from "@/services/companyService";
 import { Button } from "@/components/ui/button";
 import { Loader2, Search, Filter, RefreshCcw } from "lucide-react";
+import { t } from "@/i18n/i18n";
 
 const NEXT_PUBLIC_API_BASE = `${process.env.NEXT_PUBLIC_API_PROXY_TARGET}${process.env.NEXT_PUBLIC_API_BASE_URL}/`;
 const API_BASE_URL = (NEXT_PUBLIC_API_BASE || "").replace(/\/+$/, "");
@@ -219,11 +220,11 @@ function PaymentsTable({
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 px-4 py-3 border-t">
         <div className="flex items-center gap-3 text-sm text-gray-600">
           <span>
-            View{" "}
+            {t`View`}{" "}
             <span className="ml-1 mr-1 font-medium">
               {data?.size ?? pageSize}
             </span>{" "}
-            per page
+            {t`per page`}
           </span>
           <select
             className="px-2 py-1 border rounded-md"

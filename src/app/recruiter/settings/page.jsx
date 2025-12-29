@@ -19,6 +19,8 @@ import CompanyGuard from "@/components/recruiter/CompanyGuard";
 import { toast } from "react-toastify";
 import { changePassword, getCurrentUser } from "@/services/userService";
 import { useSelector } from "react-redux";
+import SetPasswordEmailSent from "@/components/auth/SetPasswordEmailSent";
+import { t } from "@/i18n/i18n";
 
 // Password Rule Component
 function PasswordRule({ ok, label }) {
@@ -51,6 +53,7 @@ export default function RecruiterSettingsPage() {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [changingPassword, setChangingPassword] = useState(false);
   const [passwordErrors, setPasswordErrors] = useState({});
+  const [showSetPwSent, setShowSetPwSent] = useState(false);
   const displayUser = accountInfo || user;
 
   useEffect(() => {
@@ -184,13 +187,32 @@ export default function RecruiterSettingsPage() {
     }
   };
 
+  // Show SetPasswordEmailSent if user clicked "Set Password"
+  if (showSetPwSent) {
+    return (
+      <CompanyGuard>
+        <div className="p-6 max-w-5xl mx-auto">
+          <Card>
+            <CardContent className="pt-6">
+              <h2 className="text-xl font-semibold mb-4">{t`Set Password`}</h2>
+              <SetPasswordEmailSent
+                email={displayUser?.email}
+                onBack={() => setShowSetPwSent(false)}
+              />
+            </CardContent>
+          </Card>
+        </div>
+      </CompanyGuard>
+    );
+  }
+
   return (
     <CompanyGuard>
       <div className="p-6 max-w-5xl mx-auto space-y-6">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">Account Settings</h1>
+          <h1 className="text-2xl font-bold text-gray-900">{t`Account Settings`}</h1>
           <p className="text-gray-500 mt-1">
-            Manage your account information and security settings
+            {t`Manage your account information and security settings`}
           </p>
         </div>
 
@@ -201,10 +223,10 @@ export default function RecruiterSettingsPage() {
               <div>
                 <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
                   <User size={20} className="text-blue-600" />
-                  Account Information
+                  {t`Account Information`}
                 </h3>
                 <p className="text-sm text-gray-500 mb-6">
-                  Your basic account information
+                  {t`Your basic account information`}
                 </p>
               </div>
 
@@ -223,7 +245,7 @@ export default function RecruiterSettingsPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <Label className="text-sm font-medium text-gray-700">
-                    Full Name
+                    {t`Full Name`}
                   </Label>
                   <div className="mt-1 px-3 py-2 bg-gray-50 border border-gray-200 rounded-md text-sm text-gray-900">
                     {displayUser?.fullName || "—"}
@@ -232,7 +254,7 @@ export default function RecruiterSettingsPage() {
 
                 <div>
                   <Label className="text-sm font-medium text-gray-700">
-                    Email Address
+                    {t`Email Address`}
                   </Label>
                   <div className="mt-1 px-3 py-2 bg-gray-50 border border-gray-200 rounded-md text-sm text-gray-900">
                     {displayUser?.email || "—"}
@@ -241,16 +263,16 @@ export default function RecruiterSettingsPage() {
 
                 <div>
                   <Label className="text-sm font-medium text-gray-700">
-                    Phone Number
+                    {t`Phone Number`}
                   </Label>
                   <div className="mt-1 px-3 py-2 bg-gray-50 border border-gray-200 rounded-md text-sm text-gray-900">
-                    {displayUser?.phone || "Not provided"}
+                    {displayUser?.phone || t`Not provided`}
                   </div>
                 </div>
 
                 <div>
                   <Label className="text-sm font-medium text-gray-700">
-                    Account Status
+                    {t`Account Status`}
                   </Label>
                   <div className="mt-1">
                     <span
@@ -262,7 +284,7 @@ export default function RecruiterSettingsPage() {
                       }`}
                     >
                       {displayUser?.status ||
-                        (displayUser?.isActive ? "ACTIVE" : "INACTIVE")}
+                        (displayUser?.isActive ? t`ACTIVE` : t`INACTIVE`)}
                     </span>
                   </div>
                 </div>
@@ -271,15 +293,45 @@ export default function RecruiterSettingsPage() {
               <div className="pt-4 border-t">
                 <p className="text-xs text-gray-500">
                   <AlertCircle size={12} className="inline mr-1" />
-                  To update your profile information, please go to the{" "}
+                  {t`To update your profile information, please go to the`}{" "}
                   <a
                     href="/recruiter/profile"
                     className="text-blue-600 hover:underline"
                   >
-                    Profile page
+                    {t`Profile page`}
                   </a>
                   .
                 </p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Set Password Card (for Google users) */}
+        <Card>
+          <CardContent className="pt-6">
+            <div className="space-y-4">
+              <div>
+                <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
+                  <Lock size={20} className="text-blue-600" />
+                  {t`Password`}
+                </h3>
+                <div className="flex items-center text-sm text-gray-600">
+                  <Lock className="w-4 h-4 mr-2 text-gray-400" />
+                  {t`You signed up with Google, so your account doesn't have a password.`}
+                </div>
+              </div>
+
+              <div className="text-sm">
+                <p className="mb-2 text-gray-600">
+                  {t`If you still want to set a password`}
+                </p>
+                <Button
+                  onClick={() => setShowSetPwSent(true)}
+                  className="bg-blue-600 hover:bg-blue-700"
+                >
+                  {t`Click here`}
+                </Button>
               </div>
             </div>
           </CardContent>
@@ -292,10 +344,10 @@ export default function RecruiterSettingsPage() {
               <div>
                 <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
                   <Lock size={20} className="text-blue-600" />
-                  Change Password
+                  {t`Change Password`}
                 </h3>
                 <p className="text-sm text-gray-500 mb-6">
-                  Update your password to keep your account secure
+                  {t`Update your password to keep your account secure`}
                 </p>
               </div>
 
@@ -303,7 +355,7 @@ export default function RecruiterSettingsPage() {
                 {/* Current Password */}
                 <div>
                   <Label htmlFor="oldPassword" className="text-sm font-medium">
-                    Current Password
+                    {t`Current Password`}
                   </Label>
                   <div className="relative mt-1">
                     <Lock className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4" />
@@ -313,7 +365,7 @@ export default function RecruiterSettingsPage() {
                       type={showOldPassword ? "text" : "password"}
                       value={passwordForm.oldPassword}
                       onChange={handlePasswordInputChange}
-                      placeholder="Enter current password"
+                      placeholder={t`Enter current password`}
                       className={`pl-10 pr-10 ${
                         passwordErrors.oldPassword ? "border-red-500" : ""
                       }`}
@@ -342,7 +394,7 @@ export default function RecruiterSettingsPage() {
                 {/* New Password */}
                 <div>
                   <Label htmlFor="newPassword" className="text-sm font-medium">
-                    New Password
+                    {t`New Password`}
                   </Label>
                   <div className="relative mt-1">
                     <Lock className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4" />
@@ -352,7 +404,7 @@ export default function RecruiterSettingsPage() {
                       type={showNewPassword ? "text" : "password"}
                       value={passwordForm.newPassword}
                       onChange={handlePasswordInputChange}
-                      placeholder="Enter new password"
+                      placeholder={t`Enter new password`}
                       className={`pl-10 pr-10 ${
                         passwordErrors.newPassword ? "border-red-500" : ""
                       }`}
@@ -381,28 +433,28 @@ export default function RecruiterSettingsPage() {
                   {passwordForm.newPassword && (
                     <div className="mt-2 p-3 bg-gray-50 rounded-lg border">
                       <p className="text-xs font-medium text-gray-700 mb-2">
-                        Password must contain:
+                        {t`Password must contain`}:
                       </p>
                       <ul className="space-y-1">
                         <PasswordRule
                           ok={passwordRules.length}
-                          label="At least 8 characters"
+                          label={t`At least 8 characters`}
                         />
                         <PasswordRule
                           ok={passwordRules.upper}
-                          label="One uppercase letter"
+                          label={t`One uppercase letter`}
                         />
                         <PasswordRule
                           ok={passwordRules.lower}
-                          label="One lowercase letter"
+                          label={t`One lowercase letter`}
                         />
                         <PasswordRule
                           ok={passwordRules.digit}
-                          label="One number"
+                          label={t`One number`}
                         />
                         <PasswordRule
                           ok={passwordRules.special}
-                          label="One special character"
+                          label={t`One special character`}
                         />
                       </ul>
                     </div>
@@ -415,7 +467,7 @@ export default function RecruiterSettingsPage() {
                     htmlFor="confirmPassword"
                     className="text-sm font-medium"
                   >
-                    Confirm New Password
+                    {t`Confirm New Password`}
                   </Label>
                   <div className="relative mt-1">
                     <Lock className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4" />
@@ -425,7 +477,7 @@ export default function RecruiterSettingsPage() {
                       type={showConfirmPassword ? "text" : "password"}
                       value={passwordForm.confirmPassword}
                       onChange={handlePasswordInputChange}
-                      placeholder="Confirm new password"
+                      placeholder={t`Confirm new password`}
                       className={`pl-10 pr-10 ${
                         passwordErrors.confirmPassword ? "border-red-500" : ""
                       }`}
@@ -462,12 +514,12 @@ export default function RecruiterSettingsPage() {
                     {changingPassword ? (
                       <>
                         <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                        Changing...
+                        {t`Changing...`}
                       </>
                     ) : (
                       <>
                         <Save className="w-4 h-4 mr-2" />
-                        Change Password
+                        {t`Change Password`}
                       </>
                     )}
                   </Button>
@@ -485,7 +537,7 @@ export default function RecruiterSettingsPage() {
                       }}
                       disabled={changingPassword}
                     >
-                      Cancel
+                      {t`Cancel`}
                     </Button>
                   )}
                 </div>

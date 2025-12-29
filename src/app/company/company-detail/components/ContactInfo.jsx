@@ -41,7 +41,7 @@ const ContactInfo = () => {
       <div className="mt-4 space-y-3 text-sm">
         <p className="flex items-center gap-2">
           <MapPin className="w-4 h-4 text-[#0A66C2]" />
-          <strong>Address:</strong> {fullAddress}
+          <strong>{t`Address`}:</strong> {fullAddress}
         </p>
         <p className="flex items-center gap-2">
           <Mail className="w-4 h-4 text-[#0A66C2]" />
@@ -55,7 +55,7 @@ const ContactInfo = () => {
         </p>
         <p className="flex items-center gap-2">
           <Phone className="w-4 h-4 text-[#0A66C2]" />
-          <strong>Phone:</strong>{" "}
+          <strong>{t`Phone`}:</strong>{" "}
           <a
             href={`tel:${company.phoneNumber}`}
             className="text-blue-600 hover:underline"
@@ -65,7 +65,7 @@ const ContactInfo = () => {
         </p>
         <p className="flex items-center gap-2">
           <Globe className="w-4 h-4 text-[#0A66C2]" />
-          <strong>Website:</strong>{" "}
+          <strong>{t`Website`}:</strong>{" "}
           <a
             href={company.website}
             target="_blank"
@@ -123,7 +123,7 @@ const ContactInfo = () => {
 
         <div className="flex items-center gap-2 mt-4">
           <Map className="w-4 h-4 text-[#0A66C2]" />
-          <strong>View map</strong>
+          <strong>{t`View map`}</strong>
         </div>
       </div>
       <iframe

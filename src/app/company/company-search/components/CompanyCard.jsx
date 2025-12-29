@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { t } from "@/i18n/i18n";
 
 const CompanyCard = ({ company }) => {
   // Đảm bảo company có dữ liệu
@@ -15,7 +16,7 @@ const CompanyCard = ({ company }) => {
     <div className="bg-white border rounded-lg p-6 relative hover:shadow-md transition-shadow">
       {/* Job Count Badge */}
       <div className="absolute top-6 right-6 text-indigo-600 font-medium">
-        {company.jobCount || 3} Jobs
+        {company.jobCount || 3} {t`Jobs`}
       </div>
 
       {/* Logo and Company Name */}
@@ -45,7 +46,7 @@ const CompanyCard = ({ company }) => {
       {/* Tags */}
       <div className="flex flex-wrap gap-2">
         <span className="px-4 py-1 bg-amber-50 text-amber-500 rounded-full border border-amber-200 text-sm">
-          Business Service
+          {t`Business Service`}
         </span>
         {company.tags?.map((tag, index) => (
           <span

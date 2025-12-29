@@ -125,7 +125,7 @@ export default function SetPasswordEmailSent({ email, onBack }) {
             className="rounded-xl border-blue-200 text-blue-700 hover:bg-blue-50"
           >
             <ArrowLeft className="mr-2 h-4 w-4" />
-            Back
+            {t`Back`}
           </Button>
         )}
 
@@ -136,7 +136,7 @@ export default function SetPasswordEmailSent({ email, onBack }) {
             className="rounded-xl border border-blue-200"
           >
             <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-            Sending…
+            {t`Sending…`}
           </Button>
         )}
 
@@ -148,7 +148,7 @@ export default function SetPasswordEmailSent({ email, onBack }) {
             className="rounded-xl"
           >
             <Clock className="mr-2 h-4 w-4" />
-            Resend in {formatMMSS(cooldown)}
+            {t`Resend in ${formatMMSS(cooldown)}`}
           </Button>
         )}
 

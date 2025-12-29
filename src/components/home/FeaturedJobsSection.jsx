@@ -288,7 +288,7 @@ const FeaturedJobsSection = () => {
                         letterSpacing: "0.15em",
                       }}
                     >
-                      {isHighRisk ? "SCAM ALERT" : "CAUTION"}
+                      {isHighRisk ? t`SCAM ALERT` : t`CAUTION`}
                     </div>
                   </div>
                 </div>
@@ -297,7 +297,7 @@ const FeaturedJobsSection = () => {
               {/* BOOSTED Badge */}
               {job.boosted && (
                 <span className="absolute top-2 sm:top-3 right-2 sm:right-3 px-2 py-0.5 text-[10px] font-semibold rounded-full bg-amber-100 text-amber-800 border border-amber-200 z-10">
-                  BOOSTED
+                  {t`BOOSTED`}
                 </span>
               )}
 

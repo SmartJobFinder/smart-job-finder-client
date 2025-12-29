@@ -24,7 +24,7 @@ export default function ProfileSidebarRight() {
     <aside className="w-full">
       <div className="p-6 bg-white border border-gray-100 shadow-lg rounded-2xl">
         <h2 className="mb-6 text-xl font-bold text-center text-gray-800">
-          Profile Strength
+          {t`Profile Strength`}
         </h2>
 
         <div className="flex justify-center mb-4">
@@ -110,7 +110,7 @@ export default function ProfileSidebarRight() {
           onClick={handleClick}
           className="flex items-center justify-center w-full gap-2 py-3 text-sm font-bold text-white transition-colors bg-blue-800 rounded-lg shadow-md hover:bg-blue-600"
         >
-          Preview & Download CV
+          {t`Preview & Download CV`}
         </button>
       </div>
     </aside>

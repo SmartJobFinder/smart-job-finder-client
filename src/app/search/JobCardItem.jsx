@@ -71,9 +71,9 @@ export default function JobCardItem({ job, onToast, isGrid = false }) {
     const diffTime = now - postDate;
     const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
 
-    if (diffDays < 1) return "Posted today";
-    if (diffDays === 1) return "Posted 1 day ago";
-    return `Posted ${diffDays} days ago`;
+    if (diffDays < 1) return t`Posted today`;
+    if (diffDays === 1) return t`Posted 1 day ago`;
+    return `${t`Posted`} ${diffDays} ${t`days ago`}`;
   }
 
   function getExpiredIn(dateString) {
@@ -85,10 +85,10 @@ export default function JobCardItem({ job, onToast, isGrid = false }) {
     const diffTime = expDate - now;
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
-    if (diffDays < 0) return "Expired";
-    if (diffDays === 0) return "Expires today";
-    if (diffDays === 1) return "Expires in 1 day";
-    return `Expires in ${diffDays} days`;
+    if (diffDays < 0) return t`Expired`;
+    if (diffDays === 0) return t`Expires today`;
+    if (diffDays === 1) return t`Expires in 1 day`;
+    return `${t`Expires in`} ${diffDays} ${t`days`}`;
   }
 
   const guardOr = useCallback(
@@ -187,7 +187,7 @@ export default function JobCardItem({ job, onToast, isGrid = false }) {
                 letterSpacing: "0.25em",
               }}
             >
-              {isHighRisk ? "SCAM ALERT" : "CAUTION"}
+              {isHighRisk ? t`SCAM ALERT` : t`CAUTION`}
             </div>
           </div>
         </div>
@@ -252,7 +252,7 @@ export default function JobCardItem({ job, onToast, isGrid = false }) {
             {isProCompany && (
               <span className="ml-2 inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full text-[10px] font-semibold text-blue-700 bg-blue-50 border border-blue-200">
                 <Crown size={12} className="text-blue-600" />
-                VIP COMPANY
+                {t`VIP COMPANY`}
               </span>
             )}
           </div>
@@ -286,7 +286,7 @@ export default function JobCardItem({ job, onToast, isGrid = false }) {
 
               {job.salaryDisplay && (
                 <div className="flex items-baseline gap-2">
-                  Salary:
+                  {t`Salary`}:
                   <p className="text-sm font-medium text-green-600">
                     {job.salaryDisplay}
                   </p>
@@ -373,7 +373,7 @@ export default function JobCardItem({ job, onToast, isGrid = false }) {
             </button>
           </div>
 
-          {isLoggedIn && applied && <ApplicationBadge status="Applied" />}
+          {isLoggedIn && applied && <ApplicationBadge status={t`Applied`} />}
 
           {!isGrid && (
             <button

@@ -88,12 +88,12 @@ function ApplicationMini({ jobId }) {
       )}
       {data.description && (
         <div>
-          <strong>Note:</strong> {data.description}
+          <strong>{t`Note`}</strong> {data.description}
         </div>
       )}
       {data.createdAt && (
         <div>
-          <strong>Applied:</strong> {formatDateTime(data.createdAt)}
+          <strong>{t`Applied`}</strong> {formatDateTime(data.createdAt)}
         </div>
       )}
     </div>
@@ -127,7 +127,7 @@ export default function CandidateInterviewsPage() {
 
   if (isLoading) return <LoadingScreen message="Loading interviews..." />;
   if (isError)
-    return <p className="text-rose-600">Failed to load interview list.</p>;
+    return <p className="text-rose-600">{t`Failed to load interview list.`}</p>;
 
   return (
     <div className="max-w-5xl mx-auto space-y-4">
@@ -176,7 +176,9 @@ export default function CandidateInterviewsPage() {
                   </div>
                   <div className="flex items-center gap-2">
                     <Clock className="w-4 h-4 text-gray-600" />
-                    <span>Duration: {iv.durationMinutes} minutes</span>
+                    <span>
+                      {t`Duration`}: {iv.durationMinutes} {t`minutes`}
+                    </span>
                   </div>
                 </div>
 
@@ -189,11 +191,11 @@ export default function CandidateInterviewsPage() {
                       className="inline-flex items-center gap-2 px-3 py-2 text-sm font-medium text-white bg-blue-700 rounded-md hover:bg-blue-700"
                     >
                       <Video className="w-4 h-4" />
-                      Open interview
+                      {t`Open interview`}
                     </button>
                   ) : (
                     <span className="text-sm text-gray-500">
-                      The meeting link is not available yet.
+                      {t`The meeting link is not available yet.`}
                     </span>
                   )}
 
@@ -208,8 +210,8 @@ export default function CandidateInterviewsPage() {
                   >
                     <FileText className="w-4 h-4" />
                     {openAppJobId === iv.jobId
-                      ? "Hide Application"
-                      : "Application"}
+                      ? t`Hide Application`
+                      : t`Application`}
                   </button>
                 </div>
               </div>
@@ -223,7 +225,7 @@ export default function CandidateInterviewsPage() {
                       className="inline-flex items-center gap-2 px-3 py-2 text-sm font-medium border rounded-md border-emerald-300 text-emerald-700 hover:bg-emerald-50 disabled:opacity-50"
                     >
                       <CheckCircle2 className="w-4 h-4" />
-                      Accept
+                      {t`Accept`}
                     </button>
                     <button
                       disabled={updating}
@@ -231,7 +233,7 @@ export default function CandidateInterviewsPage() {
                       className="inline-flex items-center gap-2 px-3 py-2 text-sm font-medium border rounded-md border-rose-300 text-rose-700 hover:bg-rose-50 disabled:opacity-50"
                     >
                       <XCircle className="w-4 h-4" />
-                      Decline
+                      {t`Decline`}
                     </button>
                   </div>
                 )}

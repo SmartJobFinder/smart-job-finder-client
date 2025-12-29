@@ -645,3 +645,1624 @@ msgstr "Missing jobId"
 
 msgid "Generate CV failed. Please login again or retry."
 msgstr "Generate CV failed. Please login again or retry."
+
+msgid "General"
+msgstr "General"
+
+msgid "Skills Requirements"
+msgstr "Skills Requirements"
+
+msgid "Salary"
+msgstr "Salary"
+
+msgid "Salary:"
+msgstr "Salary:"
+
+msgid "Work Location"
+msgstr "Work Location"
+
+msgid "Work Types"
+msgstr "Work Types"
+
+msgid "Levels"
+msgstr "Levels"
+
+msgid "19 Nguyen Huu Tho Street, Tan Hung Ward, Ho Chi Minh City, Vietnam"
+msgstr "19 Nguyen Huu Tho Street, Tan Hung Ward, Ho Chi Minh City, Vietnam"
+
+msgid "Age"
+msgstr "Age"
+
+msgid "All"
+msgstr "All"
+
+msgid "Active"
+msgstr "Active"
+
+msgid "Actions"
+msgstr "Actions"
+
+msgid "Back"
+msgstr "Back"
+
+msgid "Contact"
+msgstr "Contact"
+
+msgid "Details"
+msgstr "Details"
+
+msgid "Edit"
+msgstr "Edit"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Gender"
+msgstr "Gender"
+
+msgid "Location"
+msgstr "Location"
+
+msgid "Normal"
+msgstr "Normal"
+
+msgid "Password"
+msgstr "Password"
+
+msgid "Save"
+msgstr "Save"
+
+msgid "Search"
+msgstr "Search"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Total"
+msgstr "Total"
+
+msgid "Update"
+msgstr "Update"
+
+msgid "View"
+msgstr "View"
+
+msgid "AI Analysis Results"
+msgstr "AI Analysis Results"
+
+msgid "AI CV Match Assessment"
+msgstr "AI CV Match Assessment"
+
+msgid "Similarity Score"
+msgstr "Similarity Score"
+
+msgid "Match Level"
+msgstr "Match Level"
+
+msgid "Excellent Match"
+msgstr "Excellent Match"
+
+msgid "Recommendations"
+msgstr "Recommendations"
+
+msgid "Active Jobs"
+msgstr "Active Jobs"
+
+msgid "Draft"
+msgstr "Draft"
+
+msgid "Expired"
+msgstr "Expired"
+
+msgid "Posted"
+msgstr "Posted"
+
+msgid "Create job"
+msgstr "Create job"
+
+msgid "Post a job"
+msgstr "Post a job"
+
+msgid "Profile"
+msgstr "Profile"
+
+msgid "Full name"
+msgstr "Full name"
+
+msgid "Education"
+msgstr "Education"
+
+msgid "Work Experience"
+msgstr "Work Experience"
+
+msgid "Career Objective"
+msgstr "Career Objective"
+
+msgid "Today"
+msgstr "Today"
+
+msgid "Expired Date:"
+msgstr "Expired Date:"
+
+msgid "Page"
+msgstr "Page"
+
+msgid "Next page"
+msgstr "Next page"
+
+msgid "Previous page"
+msgstr "Previous page"
+
+msgid "Loading..."
+msgstr "Loading..."
+
+msgid "Searching..."
+msgstr "Searching..."
+
+msgid "Saving..."
+msgstr "Saving..."
+
+msgid "No content"
+msgstr "No content"
+
+msgid "Suitable"
+msgstr "Suitable"
+
+msgid "Average"
+msgstr "Average"
+
+msgid "Not Suitable"
+msgstr "Not Suitable"
+msgid "Warning"
+msgstr "Warning"
+
+msgid "Confirm Password"
+msgstr "Confirm Password"
+
+msgid "Hide confirm password"
+msgstr "Hide confirm password"
+
+msgid "Show confirm password"
+msgstr "Show confirm password"
+
+msgid "Please confirm the new password"
+msgstr "Please confirm the new password"
+
+msgid "Generated CV successfully"
+msgstr "Generated CV successfully"
+
+msgid "CV updated successfully"
+msgstr "CV updated successfully"
+
+msgid "CV saved successfully"
+msgstr "CV saved successfully"
+
+msgid "Saved"
+msgstr "Saved"
+
+msgid "Job created successfully!"
+msgstr "Job created successfully!"
+
+msgid "Your job has been created and will be approved within 24 hours."
+msgstr "Your job has been created and will be approved within 24 hours."
+
+msgid "No saved CVs yet."
+msgstr "No saved CVs yet."
+
+msgid "Tip: Log in first so the system can use your saved profile."
+msgstr "Tip: Log in first so the system can use your saved profile."
+
+msgid "Save CV failed. Please try again."
+msgstr "Save CV failed. Please try again."
+
+msgid "Failed to load application details."
+msgstr "Failed to load application details."
+
+msgid "Load job failed"
+msgstr "Load job failed"
+
+msgid "Failed to convert job or profile data"
+msgstr "Failed to convert job or profile data"
+
+msgid "Failed to check CV matching"
+msgstr "Failed to check CV matching"
+
+msgid "Failed to validate job posting"
+msgstr "Failed to validate job posting"
+
+msgid "Unable to Analyze CV Match"
+msgstr "Unable to Analyze CV Match"
+
+msgid "employees"
+msgstr "employees"
+
+msgid "Welcome"
+msgstr "Welcome"
+
+msgid "Hide"
+msgstr "Hide"
+
+msgid "Students"
+msgstr "Students"
+
+msgid "Projects"
+msgstr "Projects"
+
+msgid "English"
+msgstr "English"
+
+msgid "Vietnamese"
+msgstr "Vietnamese"
+
+msgid "Preview"
+msgstr "Preview"
+
+msgid "Regenerate"
+msgstr "Regenerate"
+
+msgid "Reach"
+msgstr "Reach"
+
+msgid "Applied"
+msgstr "Applied"
+
+msgid "Fullscreen"
+msgstr "Fullscreen"
+
+msgid "completed"
+msgstr "completed"
+
+msgid "Congratulations!"
+msgstr "Congratulations!"
+
+msgid "Need"
+msgstr "Need"
+
+msgid "Unnamed"
+msgstr "Unnamed"
+
+msgid "Level"
+msgstr "Level"
+
+msgid "Recording"
+msgstr "Recording"
+
+msgid "Recorded"
+msgstr "Recorded"
+
+msgid "jobs"
+msgstr "jobs"
+
+msgid "followers"
+msgstr "followers"
+
+msgid "open jobs"
+msgstr "open jobs"
+
+msgid "companies"
+msgstr "companies"
+
+msgid "job postings"
+msgstr "job postings"
+
+msgid "tab"
+msgstr "tab"
+
+msgid "button"
+msgstr "button"
+
+msgid "Completion"
+msgstr "Completion"
+
+msgid "Strength"
+msgstr "Strength"
+
+msgid "Suggestion"
+msgstr "Suggestion"
+
+msgid "Classification"
+msgstr "Classification"
+
+msgid "Write here..."
+msgstr "Write here..."
+
+msgid "Generating CV..."
+msgstr "Generating CV..."
+
+msgid "Loading job..."
+msgstr "Loading job..."
+
+msgid "Starting interview..."
+msgstr "Starting interview..."
+
+msgid "Loading question..."
+msgstr "Loading question..."
+
+msgid "Popular searches"
+msgstr "Popular searches"
+
+msgid "Try changing your search or filter"
+msgstr "Try changing your search or filter"
+
+msgid "Enter job description..."
+msgstr "Enter job description..."
+
+msgid "Enter content..."
+msgstr "Enter content..."
+
+msgid "Analyzing..."
+msgstr "Analyzing..."
+
+msgid "Analyzing Your Profile..."
+msgstr "Analyzing Your Profile..."
+
+msgid "Search Applicants"
+msgstr "Search Applicants"
+
+msgid "Validating Job Posting..."
+msgstr "Validating Job Posting..."
+
+msgid "Creating..."
+msgstr "Creating..."
+
+msgid "Search for more ..."
+msgstr "Search for more ..."
+
+msgid "Enter your password"
+msgstr "Enter your password"
+
+msgid "Enter your full name"
+msgstr "Enter your full name"
+
+msgid "Enter your phone number"
+msgstr "Enter your phone number"
+
+msgid "Please wait a moment"
+msgstr "Please wait a moment"
+
+msgid "and search your company address"
+msgstr "and search your company address"
+
+msgid "This feature will automatically generate a tailored CV based on your profile and the job description. After generating, you can review and edit before exporting as PDF."
+msgstr "This feature will automatically generate a tailored CV based on your profile and the job description. After generating, you can review and edit before exporting as PDF."
+
+msgid "Generate a strong professional summary matched to the job."
+msgstr "Generate a strong professional summary matched to the job."
+
+msgid "Suggest skills you should highlight for this position."
+msgstr "Suggest skills you should highlight for this position."
+
+msgid "Export clean PDF templates after reviewing and editing."
+msgstr "Export clean PDF templates after reviewing and editing."
+
+msgid "Practice your interview skills with AI-powered feedback"
+msgstr "Practice your interview skills with AI-powered feedback"
+
+msgid "There is no interview scheduled yet. Start applying now."
+msgstr "There is no interview scheduled yet. Start applying now."
+
+msgid "You are ready to generate your CV. Keep completing your profile for a more attractive CV."
+msgstr "You are ready to generate your CV. Keep completing your profile for a more attractive CV."
+
+msgid "Your account name is synchronized with profile information."
+msgstr "Your account name is synchronized with profile information."
+
+msgid "You signed up with Google, so your account doesn't have a password."
+msgstr "You signed up with Google, so your account doesn't have a password."
+
+msgid "Register for free to advertise your company and reach thousands of potential candidates!"
+msgstr "Register for free to advertise your company and reach thousands of potential candidates!"
+
+msgid "Based on your profile, interests, and recent activity"
+msgstr "Based on your profile, interests, and recent activity"
+
+msgid "Follow the companies you care about"
+msgstr "Follow the companies you care about"
+
+msgid "AI is comparing your skills and experience with job requirements"
+msgstr "AI is comparing your skills and experience with job requirements"
+
+msgid "Your profile is an excellent match for this position"
+msgstr "Your profile is an excellent match for this position"
+
+msgid "Smart input: Paste the entire iframe HTML or just the embed URL - we'll extract it automatically!"
+msgstr "Smart input: Paste the entire iframe HTML or just the embed URL - we'll extract it automatically!"
+
+msgid "CV Preview"
+msgstr "CV Preview"
+
+msgid "Professional Summary"
+msgstr "Professional Summary"
+
+msgid "Build CV with AI"
+msgstr "Build CV with AI"
+
+msgid "Generate CV with AI"
+msgstr "Generate CV with AI"
+
+msgid "Smart Summary"
+msgstr "Smart Summary"
+
+msgid "Targeted Skills"
+msgstr "Targeted Skills"
+
+msgid "Export PDF"
+msgstr "Export PDF"
+
+msgid "Basic Template"
+msgstr "Basic Template"
+
+msgid "Two Columns Template"
+msgstr "Two Columns Template"
+
+msgid "Template 3"
+msgstr "Template 3"
+
+msgid "Export as PDF"
+msgstr "Export as PDF"
+
+msgid "Generate again"
+msgstr "Generate again"
+
+msgid "Work Experience / Projects"
+msgstr "Work Experience / Projects"
+
+msgid "Update your profile"
+msgstr "Update your profile"
+
+msgid "Complete your profile"
+msgstr "Complete your profile"
+
+msgid "Your Activities"
+msgstr "Your Activities"
+
+msgid "View more"
+msgstr "View more"
+
+msgid "Cv Templates"
+msgstr "Cv Templates"
+
+msgid "Download PDF"
+msgstr "Download PDF"
+
+msgid "of your profile to start generating professional CV."
+msgstr "of your profile to start generating professional CV."
+
+msgid "Create job"
+msgstr "Create job"
+
+msgid "Post a job"
+msgstr "Post a job"
+
+msgid "Review Job Post"
+msgstr "Review Job Post"
+
+msgid "Post Anyway"
+msgstr "Post Anyway"
+
+msgid "Proceed to Post"
+msgstr "Proceed to Post"
+
+msgid "Safe to Post"
+msgstr "Safe to Post"
+
+msgid "Job Validation Assessment"
+msgstr "Job Validation Assessment"
+
+msgid "Issues Detected"
+msgstr "Issues Detected"
+
+msgid "Legitimate"
+msgstr "Legitimate"
+
+msgid "Scam"
+msgstr "Scam"
+
+msgid "High risk"
+msgstr "High risk"
+
+msgid "Legitimate Probability"
+msgstr "Legitimate Probability"
+
+msgid "Scam Probability"
+msgstr "Scam Probability"
+
+msgid "Trust Status:"
+msgstr "Trust Status:"
+
+msgid "AI is analyzing your job posting for potential issues"
+msgstr "AI is analyzing your job posting for potential issues"
+
+msgid "My Interviews"
+msgstr "My Interviews"
+
+msgid "Create Interview"
+msgstr "Create Interview"
+
+msgid "Start interview"
+msgstr "Start interview"
+
+msgid "Finish interview"
+msgstr "Finish interview"
+
+msgid "Next question"
+msgstr "Next question"
+
+msgid "Record your answer"
+msgstr "Record your answer"
+
+msgid "Select Interview Context"
+msgstr "Select Interview Context"
+
+msgid "By Job Description"
+msgstr "By Job Description"
+
+msgid "By Skill"
+msgstr "By Skill"
+
+msgid "Choose a job description or skill to practice with"
+msgstr "Choose a job description or skill to practice with"
+
+msgid "Companies Follow"
+msgstr "Companies Follow"
+
+msgid "Company Name"
+msgstr "Company Name"
+
+msgid "Company Overview"
+msgstr "Company Overview"
+
+msgid "Edit Company"
+msgstr "Edit Company"
+
+msgid "Founded Year"
+msgstr "Founded Year"
+
+msgid "Recommended companies"
+msgstr "Recommended companies"
+
+msgid "No companies found"
+msgstr "No companies found"
+
+msgid "Unknown Company"
+msgstr "Unknown Company"
+
+msgid "All companies"
+msgstr "All companies"
+
+msgid "Your company will be recommended by JobFind"
+msgstr "Your company will be recommended by JobFind"
+
+msgid "All Applicants"
+msgstr "All Applicants"
+
+msgid "New Applications"
+msgstr "New Applications"
+
+msgid "Total Applicants"
+msgstr "Total Applicants"
+
+msgid "Applicants (30d)"
+msgstr "Applicants (30d)"
+
+msgid "Applications Trend (30 days)"
+msgstr "Applications Trend (30 days)"
+
+msgid "See Application"
+msgstr "See Application"
+
+msgid "No application found."
+msgstr "No application found."
+
+msgid "Loading application..."
+msgstr "Loading application..."
+
+msgid "Proceed to Apply"
+msgstr "Proceed to Apply"
+
+msgid "Ready to apply!"
+msgstr "Ready to apply!"
+
+msgid "Notifications"
+msgstr "Notifications"
+
+msgid "Mark all read"
+msgstr "Mark all read"
+
+msgid "Mark completed"
+msgstr "Mark completed"
+
+msgid "No content"
+msgstr "No content"
+
+msgid "Not available"
+msgstr "Not available"
+
+msgid "Not specified"
+msgstr "Not specified"
+
+msgid "Unknown"
+msgstr "Unknown"
+
+msgid "N/A"
+msgstr "N/A"
+
+msgid "Empty"
+msgstr "Empty"
+
+msgid "No interviews"
+msgstr "No interviews"
+
+msgid "Click here"
+msgstr "Click here"
+
+msgid "Go to"
+msgstr "Go to"
+
+msgid "Go to Login"
+msgstr "Go to Login"
+
+msgid "Sign Up"
+msgstr "Sign Up"
+
+msgid "Forgot password"
+msgstr "Forgot password"
+
+msgid "Send reset link"
+msgstr "Send reset link"
+
+msgid "Resend email"
+msgstr "Resend email"
+
+msgid "Resend link"
+msgstr "Resend link"
+
+msgid "Back to edit"
+msgstr "Back to edit"
+
+msgid "View service packages"
+msgstr "View service packages"
+
+msgid "Quick Stats"
+msgstr "Quick Stats"
+
+msgid "Analytics"
+msgstr "Analytics"
+
+msgid "Recent Activity & Insights"
+msgstr "Recent Activity & Insights"
+
+msgid "Overview of your hiring activities"
+msgstr "Overview of your hiring activities"
+
+msgid "Peak Day"
+msgstr "Peak Day"
+
+msgid "Peak day"
+msgstr "Peak day"
+
+msgid "Avg daily"
+msgstr "Avg daily"
+
+msgid "Weekdays"
+msgstr "Weekdays"
+
+msgid "Weekends"
+msgstr "Weekends"
+
+msgid "View detailed analytics in the Analytics page"
+msgstr "View detailed analytics in the Analytics page"
+
+msgid "VIP 1 month"
+msgstr "VIP 1 month"
+
+msgid "VIP 3 months"
+msgstr "VIP 3 months"
+
+msgid "VIP 6 months"
+msgstr "VIP 6 months"
+
+msgid "Tag VIP Company"
+msgstr "Tag VIP Company"
+
+msgid "Your job will stand out more on search page"
+msgstr "Your job will stand out more on search page"
+
+msgid "Are you suitable?"
+msgstr "Are you suitable?"
+
+msgid "Check suitability with AI"
+msgstr "Check suitability with AI"
+
+msgid "AI Interview Coaching"
+msgstr "AI Interview Coaching"
+
+msgid "Similarity Score"
+msgstr "Similarity Score"
+
+msgid "Excellent Match"
+msgstr "Excellent Match"
+
+msgid "Partial Match"
+msgstr "Partial Match"
+
+msgid "Low Match"
+msgstr "Low Match"
+
+msgid "High Risk - Not Recommended"
+msgstr "High Risk - Not Recommended"
+
+msgid "Review Recommended"
+msgstr "Review Recommended"
+
+msgid "Consider exploring other opportunities"
+msgstr "Consider exploring other opportunities"
+
+msgid "About Me"
+msgstr "About Me"
+
+msgid "Education"
+msgstr "Education"
+
+msgid "Work Experience"
+msgstr "Work Experience"
+
+msgid "Skills"
+msgstr "Skills"
+
+msgid "Soft Skills"
+msgstr "Soft Skills"
+
+msgid "Technical Skills"
+msgstr "Technical Skills"
+
+msgid "Profile Strength"
+msgstr "Profile Strength"
+
+msgid "Preview & Download CV"
+msgstr "Preview & Download CV"
+
+msgid "Male"
+msgstr "Male"
+
+msgid "Female"
+msgstr "Female"
+
+msgid "Your profile partially matches the requirements"
+msgstr "Your profile partially matches the requirements"
+
+msgid "Your profile has limited match with this position"
+msgstr "Your profile has limited match with this position"
+
+msgid "Consider updating your skills and experience"
+msgstr "Consider updating your skills and experience"
+
+msgid "Add relevant projects or certifications"
+msgstr "Add relevant projects or certifications"
+
+msgid "Highlight matching skills in your cover letter"
+msgstr "Highlight matching skills in your cover letter"
+
+msgid "Showcase your soft skills"
+msgstr "Showcase your soft skills"
+
+msgid "Ensure all information is accurate and up-to-date"
+msgstr "Ensure all information is accurate and up-to-date"
+
+msgid "Add missing sections listed above"
+msgstr "Add missing sections listed above"
+
+msgid "Update your profile to improve future matches"
+msgstr "Update your profile to improve future matches"
+
+msgid "Complete your profile to at least 80%"
+msgstr "Complete your profile to at least 80%"
+
+msgid "Profile Completion:"
+msgstr "Profile Completion:"
+
+msgid "Proceed with confidence to apply"
+msgstr "Proceed with confidence to apply"
+
+msgid "Missing Sections"
+msgstr "Missing Sections"
+
+msgid "Next Steps"
+msgstr "Next Steps"
+
+msgid "Suggestions for Improvement:"
+msgstr "Suggestions for Improvement:"
+
+msgid "Posted"
+msgstr "Posted"
+
+msgid "days ago"
+msgstr "days ago"
+
+msgid "day ago"
+msgstr "day ago"
+
+msgid "Expires in"
+msgstr "Expires in"
+
+msgid "days"
+msgstr "days"
+
+msgid "day"
+msgstr "day"
+
+msgid "Applied jobs"
+msgstr "Applied jobs"
+
+msgid "Dashboard"
+msgstr "Dashboard"
+
+msgid "Manage CV"
+msgstr "Manage CV"
+
+msgid "My Jobs"
+msgstr "My Jobs"
+
+msgid "Saved Jobs"
+msgstr "Saved Jobs"
+
+msgid "If you still want to set a password"
+msgstr "If you still want to set a password"
+
+msgid "Email:"
+msgstr "Email:"
+
+msgid "Password"
+msgstr "Password"
+
+msgid "Account Information"
+msgstr "Account Information"
+
+msgid "Applied"
+msgstr "Applied"
+
+msgid "View CV"
+msgstr "View CV"
+
+msgid "Download CV"
+msgstr "Download CV"
+
+msgid "View Application"
+msgstr "View Application"
+
+msgid "Withdraw Application"
+msgstr "Withdraw Application"
+
+msgid "Application Status"
+msgstr "Application Status"
+
+msgid "Application Date"
+msgstr "Application Date"
+
+msgid "Default (A-Z)"
+msgstr "Default (A-Z)"
+
+msgid "Company Name (A-Z)"
+msgstr "Company Name (A-Z)"
+
+msgid "Company Name (Z-A)"
+msgstr "Company Name (Z-A)"
+
+msgid "Location (A-Z)"
+msgstr "Location (A-Z)"
+
+msgid "Location (Z-A)"
+msgstr "Location (Z-A)"
+
+msgid "Founded Year (Newest)"
+msgstr "Founded Year (Newest)"
+
+msgid "Founded Year (Oldest)"
+msgstr "Founded Year (Oldest)"
+
+msgid "Oldest"
+msgstr "Oldest"
+
+msgid "Most Popular"
+msgstr "Most Popular"
+
+msgid "Highest Salary"
+msgstr "Highest Salary"
+
+msgid "Lowest Salary"
+msgstr "Lowest Salary"
+
+msgid "Most Relevant"
+msgstr "Most Relevant"
+
+msgid "Founded in"
+msgstr "Founded in"
+
+msgid "VIP COMPANY"
+msgstr "VIP COMPANY"
+
+msgid "Verified"
+msgstr "Verified"
+
+msgid "Hot"
+msgstr "Hot"
+
+msgid "New"
+msgstr "New"
+
+msgid "Urgent"
+msgstr "Urgent"
+
+msgid "job"
+msgstr "job"
+
+msgid "employee"
+msgstr "employee"
+
+msgid "Active"
+msgstr "Active"
+
+msgid "Inactive"
+msgstr "Inactive"
+
+msgid "Published"
+msgstr "Published"
+
+msgid "Phone number"
+msgstr "Phone number"
+
+msgid "Enter your email"
+msgstr "Enter your email"
+
+msgid "Required"
+msgstr "Required"
+
+msgid "Optional"
+msgstr "Optional"
+
+msgid "Select"
+msgstr "Select"
+
+msgid "Clear all"
+msgstr "Clear all"
+
+msgid "Apply"
+msgstr "Apply"
+
+msgid "Certificates"
+msgstr "Certificates"
+
+msgid "Awards"
+msgstr "Awards"
+
+msgid "Sort by:"
+msgstr "Sort by:"
+
+msgid "You signed up with Google, so your account doesn’t have a password."
+msgstr "You signed up with Google, so your account doesn’t have a password."
+
+msgid "Update profile information"
+msgstr "Update profile information"
+
+msgid "Dashboard"
+msgstr "Dashboard"
+
+msgid "Profile"
+msgstr "Profile"
+
+msgid "Manage CV"
+msgstr "Manage CV"
+
+msgid "My Interviews"
+msgstr "My Interviews"
+
+msgid "Companies Follow"
+msgstr "Companies Follow"
+
+msgid "My Jobs"
+msgstr "My Jobs"
+
+msgid "Saved Jobs"
+msgstr "Saved Jobs"
+
+msgid "Settings"
+msgstr "Settings"
+
+msgid "Click the link in your inbox to set a password. You can still keep using Google Sign-In."
+msgstr "Click the link in your inbox to set a password. You can still keep using Google Sign-In."
+
+msgid "Tip: If you can’t find the email, check Spam or search for “JobFind”."
+msgstr "Tip: If you can’t find the email, check Spam or search for “JobFind”."
+
+msgid "Back"
+msgstr "Back"
+
+msgid "Sending…"
+msgstr "Sending…"
+
+msgid "Resend in"
+msgstr "Resend in"
+
+msgid "Open"
+msgstr "Open"
+
+msgid "Job Detail"
+msgstr "Job Detail"
+
+msgid "Note"
+msgstr "Note"
+
+msgid "Failed to load interview list."
+msgstr "Failed to load interview list."
+
+msgid "My interview schedule"
+msgstr "My interview schedule"
+
+msgid "Duration"
+msgstr "Duration"
+
+msgid "minutes"
+msgstr "minutes"
+
+msgid "Open interview"
+msgstr "Open interview"
+
+msgid "The meeting link is not available yet."
+msgstr "The meeting link is not available yet."
+
+msgid "Hide Application"
+msgstr "Hide Application"
+
+msgid "Application"
+msgstr "Application"
+
+msgid "Accept"
+msgstr "Accept"
+
+msgid "Decline"
+msgstr "Decline"
+
+msgid "View CV (PDF)"
+msgstr "View CV (PDF)"
+
+msgid "All Cities"
+msgstr "All Cities"
+
+msgid "This company currently has no job postings"
+msgstr "This company currently has no job postings"
+
+msgid "No jobs found matching your search criteria"
+msgstr "No jobs found matching your search criteria"
+
+msgid "days left to apply"
+msgstr "days left to apply"
+
+msgid "Posted today"
+msgstr "Posted today"
+
+msgid "Posted 1 day ago"
+msgstr "Posted 1 day ago"
+
+msgid "Expires today"
+msgstr "Expires today"
+
+msgid "Expires in 1 day"
+msgstr "Expires in 1 day"
+
+msgid "SCAM ALERT"
+msgstr "SCAM ALERT"
+
+msgid "CAUTION"
+msgstr "CAUTION"
+
+msgid "You have no saved jobs !"
+msgstr "You have no saved jobs !"
+
+msgid "Apply Now"
+msgstr "Apply Now"
+
+msgid "Company name, job title..."
+msgstr "Company name, job title..."
+
+msgid "Pro Company"
+msgstr "Pro Company"
+
+msgid "Staff size"
+msgstr "Staff size"
+
+msgid "Jobs posted"
+msgstr "Jobs posted"
+
+msgid "jobs"
+msgstr "jobs"
+
+msgid "Fields of activity"
+msgstr "Fields of activity"
+
+msgid "Detailed description"
+msgstr "Detailed description"
+
+msgid "Address"
+msgstr "Address"
+
+msgid "Share Company with Candidates"
+msgstr "Share Company with Candidates"
+
+msgid "View map"
+msgstr "View map"
+
+msgid "Social Media"
+msgstr "Social Media"
+
+msgid "Phone"
+msgstr "Phone"  
+
+msgid "Website"
+msgstr "Website"
+
+msgid "Add Map"
+msgstr "Add Map"
+
+msgid "No map location added yet"
+msgstr "No map location added yet"
+
+msgid "Add a Google Maps embed URL to show your company location to candidates"
+msgstr "Add a Google Maps embed URL to show your company location to candidates"
+
+msgid "Add Map Location"
+msgstr "Add Map Location"
+
+msgid "Copy company profile link"   
+msgstr "Copy company profile link"
+
+msgid "Copy"
+msgstr "Copy"
+
+msgid "Copied"
+msgstr "Copied"
+
+msgid "Business Service"
+msgstr "Business Service"
+
+msgid "Displaying"
+msgstr "Displaying"
+
+msgid "out of"
+msgstr "out of"
+
+msgid "Select Industry"
+msgstr "Select Industry"
+
+msgid "Select Category"
+msgstr "Select Category"
+
+msgid "Category"
+msgstr "Category"
+
+msgid "Risk Score"
+msgstr "Risk Score"
+
+msgid "This job posting has been flagged as potentially fraudulent"
+msgstr "This job posting has been flagged as potentially fraudulent"
+
+msgid "by our AI detection system. Please exercise extreme caution before proceeding."
+msgstr "by our AI detection system. Please exercise extreme caution before proceeding."
+
+msgid "This job posting requires careful verification"
+msgstr "This job posting requires careful verification"
+
+msgid "and has been flagged for review by our AI system."
+msgstr "and has been flagged for review by our AI system."
+msgid "Report"
+msgstr "Report"
+
+msgid "Report Job Posting"
+msgstr "Report Job Posting"
+
+msgid "Report User"
+msgstr "Report User"
+
+msgid "Report Company"
+msgstr "Report Company"
+
+msgid "Content"
+msgstr "Content"
+
+msgid "Report type"
+msgstr "Report type"
+
+msgid "Report Description"
+msgstr "Report Description"
+
+msgid "Please provide details for your report below."
+msgstr "Please provide details for your report below."
+
+msgid "Enter detailed description..."
+msgstr "Enter detailed description..."
+
+msgid "I confirm this report is accurate and complies with our policies."
+msgstr "I confirm this report is accurate and complies with our policies."
+
+msgid "Cancel"
+msgstr "Cancel"
+
+msgid "Submit"
+msgstr "Submit"
+
+msgid "Submitting..."
+msgstr "Submitting..."
+
+msgid "You must confirm the report is accurate"
+msgstr "You must confirm the report is accurate"
+
+msgid "Report submitted successfully"
+msgstr "Report submitted successfully"
+
+msgid "Failed to submit report"
+msgstr "Failed to submit report"
+
+msgid "BOOSTED"
+msgstr "BOOSTED"
+
+msgid "Change Password"
+msgstr "Change Password"
+
+msgid "Update your password to keep your account secure"
+msgstr "Update your password to keep your account secure"
+
+msgid "Current Password"
+msgstr "Current Password"
+
+msgid "New Password"
+msgstr "New Password"
+
+msgid "Confirm New Password"
+msgstr "Confirm New Password"
+
+msgid "Enter current password"
+msgstr "Enter current password"
+
+msgid "Enter new password"
+msgstr "Enter new password"
+
+msgid "Confirm new password"
+msgstr "Confirm new password"
+
+msgid "Password must contain"
+msgstr "Password must contain"
+
+msgid "At least 8 characters"
+msgstr "At least 8 characters"
+
+msgid "One uppercase letter"
+msgstr "One uppercase letter"
+
+msgid "One lowercase letter"
+msgstr "One lowercase letter"
+
+msgid "One number"
+msgstr "One number"
+
+msgid "One special character"
+msgstr "One special character"
+
+msgid "Current password is required"
+msgstr "Current password is required"
+
+msgid "New password is required"
+msgstr "New password is required"
+
+msgid "Password does not meet all requirements"
+msgstr "Password does not meet all requirements"
+
+msgid "Please confirm your new password"
+msgstr "Please confirm your new password"
+
+msgid "Passwords do not match"
+msgstr "Passwords do not match"
+
+msgid "New password must be different from current password"
+msgstr "New password must be different from current password"
+
+msgid "Changing..."
+msgstr "Changing..."
+
+msgid "Please fix the errors before saving"
+msgstr "Please fix the errors before saving"
+
+msgid "Password changed successfully!"
+msgstr "Password changed successfully!"
+
+msgid "Failed to change password"
+msgstr "Failed to change password"
+
+msgid "Set Password"
+msgstr "Set Password"
+
+msgid "Manage Jobs - All"
+msgstr "Manage Jobs"
+
+msgid "Draft Jobs"
+msgstr "Draft Jobs"
+
+msgid "Expired Jobs"
+msgstr "Expired Jobs"
+
+msgid "Page size"
+msgstr "Page size"
+
+msgid "Account Settings"
+msgstr "Account Settings"
+
+msgid "Manage your account information and security settings"
+msgstr "Manage your account information and security settings"
+
+msgid "Account Information"
+msgstr "Account Information"
+
+msgid "Your basic account information"
+msgstr "Your basic account information"
+
+msgid "Full Name"
+msgstr "Full Name"
+
+msgid "Email Address"
+msgstr "Email Address"
+
+msgid "Phone Number"
+msgstr "Phone Number"
+
+msgid "Account Status"
+msgstr "Account Status"
+
+msgid "To update your profile information, please go to the"
+msgstr "To update your profile information, please go to the"
+
+msgid "Profile page"
+msgstr "Profile page"
+
+msgid "RECRUITER"
+msgstr "RECRUITER"
+
+msgid "Edit Profile"
+msgstr "Edit Profile"
+
+msgid "General Information"
+msgstr "General Information"
+
+msgid "FULL NAME"
+msgstr "FULL NAME"
+
+msgid "STATUS"
+msgstr "STATUS"
+
+msgid "ACTIVE"
+msgstr "ACTIVE"
+
+msgid "INACTIVE"
+msgstr "INACTIVE"
+
+msgid "Active"
+msgstr "Active"
+
+msgid "Inactive"
+msgstr "Inactive"
+
+msgid "Contact Information"
+msgstr "Contact Information"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Phone"
+msgstr "Phone"
+
+msgid "Email address cannot be changed. If you need to update your email, please contact our support team."
+msgstr "Email address cannot be changed. If you need to update your email, please contact our support team."
+
+msgid "Email cannot be changed"
+msgstr "Email cannot be changed"
+
+msgid "Quick Actions"
+msgstr "Quick Actions"
+
+msgid "Upgrade to VIP"
+msgstr "Upgrade to VIP"
+
+msgid "View Company Profile"
+msgstr "View Company Profile"
+
+msgid "View Applicants"
+msgstr "View Applicants"
+
+msgid "Need Help?"
+msgstr "Need Help?"
+
+msgid "Contact our support team for assistance with your recruiter account."
+msgstr "Contact our support team for assistance with your recruiter account."
+
+msgid "Contact Support"
+msgstr "Contact Support"
+
+msgid "Saving..."
+msgstr "Saving..."
+
+msgid "Save"
+msgstr "Save"
+
+msgid "Loading profile..."
+msgstr "Loading profile..."
+
+msgid "Error Loading Profile"
+msgstr "Error Loading Profile"
+
+msgid "Try Again"
+msgstr "Try Again"
+
+msgid "Enter your full name"
+msgstr "Enter your full name"
+
+msgid "Full name is required"
+msgstr "Full name is required"
+
+msgid "Full name must be at least 2 characters"
+msgstr "Full name must be at least 2 characters"
+
+msgid "Full name must not exceed 100 characters"
+msgstr "Full name must not exceed 100 characters"
+
+msgid "Phone number must be 10-11 digits"
+msgstr "Phone number must be 10-11 digits"
+
+msgid "Please fix the errors before saving"
+msgstr "Please fix the errors before saving"
+
+msgid "User ID not found"
+msgstr "User ID not found"
+
+msgid "Profile updated successfully!"
+msgstr "Profile updated successfully!"
+
+msgid "Failed to update profile"
+msgstr "Failed to update profile"
+
+msgid "Failed to load profile"
+msgstr "Failed to load profile"
+
+msgid "Account status is managed by system administrators"
+msgstr "Account status is managed by system administrators"
+
+msgid "Not provided"
+msgstr "Not provided"
+
+msgid "Enter 10-11 digit phone number"
+msgstr "Enter 10-11 digit phone number"
+
+msgid "VIP Packages"
+msgstr "VIP Packages"
+
+msgid "Upgrade to VIP Company"
+msgstr "Upgrade to VIP Company"
+
+msgid "Unlock premium job posting with extended visibility & priority support. Get your company featured and attract top talent faster."
+msgstr "Unlock premium job posting with extended visibility & priority support. Get your company featured and attract top talent faster."
+
+msgid "Why Choose VIP Company Package?"
+msgstr "Why Choose VIP Company Package?"
+
+msgid "Maximum Visibility"
+msgstr "Maximum Visibility"
+
+msgid "Your company and all job posts appear at the top of search results, ensuring maximum exposure to qualified candidates."
+msgstr "Your company and all job posts appear at the top of search results, ensuring maximum exposure to qualified candidates."
+
+msgid "Priority Support"
+msgstr "Priority Support"
+
+msgid "Get dedicated 24/7 support from our recruitment experts to optimize your hiring strategy and get faster results."
+msgstr "Get dedicated 24/7 support from our recruitment experts to optimize your hiring strategy and get faster results."
+
+msgid "Premium Branding"
+msgstr "Premium Branding"
+
+msgid "Showcase your company with VIP badge and featured profile, building trust and attracting premium candidates."
+msgstr "Showcase your company with VIP badge and featured profile, building trust and attracting premium candidates."
+
+msgid "Advanced Analytics"
+msgstr "Advanced Analytics"
+
+msgid "Track your job posting performance with detailed analytics and insights to optimize your recruitment strategy."
+msgstr "Track your job posting performance with detailed analytics and insights to optimize your recruitment strategy."
+
+msgid "Choose Your VIP Package"
+msgstr "Choose Your VIP Package"
+
+msgid "Most Popular"
+msgstr "Most Popular"
+
+msgid "per package"
+msgstr "per package"
+
+msgid "Get more jobs posted than normal companies every month"
+msgstr "Get more jobs posted than normal companies every month"
+
+msgid "24/7 Support"
+msgstr "24/7 Support"
+
+msgid "Choose Plan"
+msgstr "Choose Plan"
+
+msgid "Compare VIP Packages"
+msgstr "Compare VIP Packages"
+
+msgid "Feature"
+msgstr "Feature"
+
+msgid "VIP 1 Month"
+msgstr "VIP 1 Month"
+
+msgid "VIP 3 Months"
+msgstr "VIP 3 Months"
+
+msgid "VIP 6 Months"
+msgstr "VIP 6 Months"
+
+msgid "VIP Company Badge"
+msgstr "VIP Company Badge"
+
+msgid "Top Search Ranking"
+msgstr "Top Search Ranking"
+
+msgid "Job Post Priority"
+msgstr "Job Post Priority"
+
+msgid "24/7 Priority Support"
+msgstr "24/7 Priority Support"
+
+msgid "Featured Profile"
+msgstr "Featured Profile"
+
+msgid "Companies Trusting Our VIP Program"
+msgstr "Companies Trusting Our VIP Program"
+
+msgid "Frequently Asked Questions"
+msgstr "Frequently Asked Questions"
+
+msgid "What is the VIP Company Package?"
+msgstr "What is the VIP Company Package?"
+
+msgid "The VIP Company Package is our premium subscription service that gives your company enhanced visibility, priority job posting placement, and dedicated support to attract top talent faster."
+msgstr "The VIP Company Package is our premium subscription service that gives your company enhanced visibility, priority job posting placement, and dedicated support to attract top talent faster."
+
+msgid "How long does each package last?"
+msgstr "How long does each package last?"
+
+msgid "Our packages are available in 1-month, 3-month, and 6-month durations. All packages include the same premium features, with longer packages offering better value."
+msgstr "Our packages are available in 1-month, 3-month, and 6-month durations. All packages include the same premium features, with longer packages offering better value."
+
+msgid "Can I cancel my VIP subscription?"
+msgstr "Can I cancel my VIP subscription?"
+
+msgid "VIP packages are one-time purchases for the selected duration. You can purchase a new package anytime, but there are no refunds or cancellations once payment is completed."
+msgstr "VIP packages are one-time purchases for the selected duration. You can purchase a new package anytime, but there are no refunds or cancellations once payment is completed."
+
+msgid "What payment methods do you accept?"
+msgstr "What payment methods do you accept?"
+
+msgid "We currently accept VNPay as our primary payment method. All transactions are secure and processed through our trusted payment gateway with 5% encryption."
+msgstr "We currently accept VNPay as our primary payment method. All transactions are secure and processed through our trusted payment gateway with 5% encryption."
+
+msgid "Ready to Attract Top Talent?"
+msgstr "Ready to Attract Top Talent?"
+
+msgid "Join thousands of successful companies that have upgraded to VIP and transformed their recruitment process."
+msgstr "Join thousands of successful companies that have upgraded to VIP and transformed their recruitment process."
+
+msgid "Get Most Popular Plan"
+msgstr "Get Most Popular Plan"
+
+msgid "Learn More"
+msgstr "Learn More"
+
+msgid "per page"
+msgstr "per page"

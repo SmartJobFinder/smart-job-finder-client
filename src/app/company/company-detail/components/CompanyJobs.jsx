@@ -76,7 +76,7 @@ const CompanyJobs = () => {
       <div className="grid grid-cols-1 gap-4 mt-4 sm:grid-cols-2 lg:grid-cols-3">
         <input
           type="text"
-          placeholder="Company name, job title..."
+          placeholder={t`Company name, job title...`}
           className="w-full h-10 px-4 border border-gray-300 rounded focus:outline-none focus:border-[#0A66C2] focus:ring-1 focus:ring-[#0A66C2]"
           value={searchTerm}
           onChange={e => setSearchTerm(e.target.value)}
@@ -87,7 +87,7 @@ const CompanyJobs = () => {
           onChange={e => setLocation(e.target.value)}
           disabled={isLoadingCities}
         >
-          <option value="">All Cities</option>
+          <option value="">{t`All Cities`}</option>
           {cities.map(city => (
             <option key={city} value={city}>
               {city}
@@ -108,8 +108,8 @@ const CompanyJobs = () => {
         {filteredJobs.length === 0 ? (
           <div className="p-4 text-center text-gray-500 border border-gray-200 rounded-lg">
             {jobs.length === 0
-              ? "This company currently has no job postings"
-              : "No jobs found matching your search criteria"}
+              ? t`This company currently has no job postings`
+              : t`No jobs found matching your search criteria`}
           </div>
         ) : (
           filteredJobs.map(job => (
@@ -144,8 +144,8 @@ const CompanyJobs = () => {
                     {job.location}
                   </span>
                   <span className="px-2 py-1 rounded bg-[#F5F7FA]">
-                    {calculateRemainingDays(job.expired_date)} days left to
-                    apply
+                    {calculateRemainingDays(job.expired_date)}{" "}
+                    {t`days left to apply`}
                   </span>
                 </div>
               </div>
@@ -155,7 +155,7 @@ const CompanyJobs = () => {
                 </div>
                 <Link href={`/job-detail/${job.id}/applicationJob`}>
                   <button className="px-4 py-1 text-sm text-white rounded bg-blue-700 hover:bg-[#085aab]">
-                    Apply Now
+                    {t`Apply Now`}
                   </button>
                 </Link>
               </div>

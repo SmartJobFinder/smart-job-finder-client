@@ -646,3 +646,1623 @@ msgstr "Thiếu jobId"
 
 msgid "Generate CV failed. Please login again or retry."
 msgstr "Tạo CV thất bại. Vui lòng đăng nhập lại hoặc thử lại."
+
+msgid "General"
+msgstr "Tổng quan"
+
+msgid "Skills Requirements"
+msgstr "Yêu cầu kỹ năng"
+
+msgid "Salary"
+msgstr "Mức lương"
+
+msgid "Salary:"
+msgstr "Mức lương:"
+
+msgid "Work Location"
+msgstr "Địa chỉ làm việc"
+
+msgid "Work Types"
+msgstr "Hình thức làm việc"
+
+msgid "Levels"
+msgstr "Cấp độ"
+
+msgid "19 Nguyen Huu Tho Street, Tan Hung Ward, Ho Chi Minh City, Vietnam"
+msgstr "19 Nguyễn Hữu Thọ, Phường Tân Hưng, TP. Hồ Chí Minh, Việt Nam"
+
+msgid "Age"
+msgstr "Tuổi"
+
+msgid "All"
+msgstr "Tất cả"
+
+msgid "Active"
+msgstr "Đang hoạt động"
+
+msgid "Actions"
+msgstr "Hành động"
+
+msgid "Back"
+msgstr "Quay lại"
+
+msgid "Contact"
+msgstr "Liên hệ"
+
+msgid "Details"
+msgstr "Chi tiết"
+
+msgid "Edit"
+msgstr "Chỉnh sửa"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Gender"
+msgstr "Giới tính"
+
+msgid "Location"
+msgstr "Địa chỉ"
+
+msgid "Normal"
+msgstr "Bình thường"
+
+msgid "Password"
+msgstr "Mật khẩu"
+
+msgid "Save"
+msgstr "Lưu"
+
+msgid "Search"
+msgstr "Tìm kiếm"
+
+msgid "Status"
+msgstr "Trạng thái"
+
+msgid "Total"
+msgstr "Tổng"
+
+msgid "Update"
+msgstr "Cập nhật"
+
+msgid "View"
+msgstr "Xem"
+
+msgid "AI Analysis Results"
+msgstr "Kết quả phân tích AI"
+
+msgid "AI CV Match Assessment"
+msgstr "Đánh giá phù hợp CV với AI"
+
+msgid "Similarity Score"
+msgstr "Điểm tương đồng"
+
+msgid "Match Level"
+msgstr "Mức độ phù hợp"
+
+msgid "Excellent Match"
+msgstr "Rất phù hợp"
+
+msgid "Recommendations"
+msgstr "Gợi ý"
+
+msgid "Active Jobs"
+msgstr "Việc làm đang hoạt động"
+
+msgid "Draft"
+msgstr "Bản nháp"
+
+msgid "Expired"
+msgstr "Hết hạn"
+
+msgid "Posted"
+msgstr "Đã đăng"
+
+msgid "Create job"
+msgstr "Tạo việc làm"
+
+msgid "Post a job"
+msgstr "Đăng tin tuyển dụng"
+
+msgid "Profile"
+msgstr "Hồ sơ"
+
+msgid "Full name"
+msgstr "Họ và tên"
+
+msgid "Education"
+msgstr "Học vấn"
+
+msgid "Work Experience"
+msgstr "Kinh nghiệm làm việc"
+
+msgid "Career Objective"
+msgstr "Mục tiêu nghề nghiệp"
+
+msgid "Today"
+msgstr "Hôm nay"
+
+msgid "Expired Date:"
+msgstr "Ngày hết hạn:"
+
+msgid "Page"
+msgstr "Trang"
+
+msgid "Next page"
+msgstr "Trang tiếp theo"
+
+msgid "Previous page"
+msgstr "Trang trước đó"
+
+msgid "Loading..."
+msgstr "Đang tải..."
+
+msgid "Searching..."
+msgstr "Đang tìm kiếm..."
+
+msgid "Saving..."
+msgstr "Đang lưu..."
+
+msgid "No content"
+msgstr "Không có nội dung"
+
+msgid "Suitable"
+msgstr "Phù hợp"
+
+msgid "Average"
+msgstr "Trung bình"
+
+msgid "Not Suitable"
+msgstr "Không phù hợp"
+
+msgid "Warning"
+msgstr "Cảnh báo"
+
+msgid "Confirm Password"
+msgstr "Xác nhận mật khẩu"
+
+msgid "Hide confirm password"
+msgstr "Ẩn xác nhận mật khẩu"
+
+msgid "Show confirm password"
+msgstr "Hiện xác nhận mật khẩu"
+
+msgid "Please confirm the new password"
+msgstr "Vui lòng xác nhận mật khẩu mới"
+
+msgid "Generated CV successfully"
+msgstr "Tạo CV thành công"
+
+msgid "CV updated successfully"
+msgstr "Cập nhật CV thành công"
+
+msgid "CV saved successfully"
+msgstr "Lưu CV thành công"
+
+msgid "Saved"
+msgstr "Đã lưu"
+
+msgid "Job created successfully!"
+msgstr "Tạo việc làm thành công!"
+
+msgid "Your job has been created and will be approved within 24 hours."
+msgstr "Việc làm của bạn đã được tạo và sẽ được duyệt trong vòng 24 giờ."
+
+msgid "No saved CVs yet."
+msgstr "Chưa có CV đã lưu."
+
+msgid "Tip: Log in first so the system can use your saved profile."
+msgstr "Mẹo: Đăng nhập trước để hệ thống sử dụng hồ sơ đã lưu của bạn."
+
+msgid "Save CV failed. Please try again."
+msgstr "Lưu CV thất bại. Vui lòng thử lại."
+
+msgid "Failed to load application details."
+msgstr "Không thể tải chi tiết đơn ứng tuyển."
+
+msgid "Load job failed"
+msgstr "Tải việc làm thất bại"
+
+msgid "Failed to convert job or profile data"
+msgstr "Không thể chuyển đổi dữ liệu công việc hoặc hồ sơ."
+
+msgid "Failed to check CV matching"
+msgstr "Không thể kiểm tra CV matching"
+
+msgid "Failed to validate job posting"
+msgstr "Không thể xác thực tin tuyển dụng"
+
+msgid "Unable to Analyze CV Match"
+msgstr "Không thể phân tích CV matching"
+
+msgid "employees"
+msgstr "nhân viên"
+
+msgid "Welcome"
+msgstr "Chào mừng"
+
+msgid "Hide"
+msgstr "Ẩn"
+
+msgid "Students"
+msgstr "Sinh viên"
+
+msgid "Projects"
+msgstr "Dự án"
+
+msgid "English"
+msgstr "Tiếng Anh"
+
+msgid "Vietnamese"
+msgstr "Tiếng Việt"
+
+msgid "Preview"
+msgstr "Xem trước"
+
+msgid "Regenerate"
+msgstr "Tạo lại"
+
+msgid "Reach"
+msgstr "Tiếp cận"
+
+msgid "Applied"
+msgstr "Đã ứng tuyển"
+
+msgid "Fullscreen"
+msgstr "Toàn màn hình"
+
+msgid "completed"
+msgstr "đã hoàn thành"
+
+msgid "Congratulations!"
+msgstr "Chúc mừng!"
+
+msgid "Need"
+msgstr "Cần"
+
+msgid "Unnamed"
+msgstr "Chưa đặt tên"
+
+msgid "Level"
+msgstr "Cấp"
+
+msgid "Recording"
+msgstr "Đang ghi âm"
+
+msgid "Recorded"
+msgstr "Đã ghi âm"
+
+msgid "jobs"
+msgstr "việc làm"
+
+msgid "followers"
+msgstr "người theo dõi"
+
+msgid "open jobs"
+msgstr "việc làm đang tuyển"
+
+msgid "companies"
+msgstr "công ty"
+
+msgid "job postings"
+msgstr "tin tuyển dụng"
+
+msgid "tab"
+msgstr "tab"
+
+msgid "button"
+msgstr "nút"
+
+msgid "Completion"
+msgstr "Hoàn thành"
+
+msgid "Strength"
+msgstr "Điểm mạnh"
+
+msgid "Suggestion"
+msgstr "Gợi ý"
+
+msgid "Classification"
+msgstr "Phân loại"
+
+msgid "Write here..."
+msgstr "Viết tại đây..."
+
+msgid "Generating CV..."
+msgstr "Đang tạo CV..."
+
+msgid "Loading job..."
+msgstr "Đang tải việc làm..."
+
+msgid "Starting interview..."
+msgstr "Đang bắt đầu phỏng vấn..."
+
+msgid "Loading question..."
+msgstr "Đang tải câu hỏi..."
+
+msgid "Popular searches"
+msgstr "Tìm kiếm phổ biến"
+
+msgid "Try changing your search or filter"
+msgstr "Thay đổi tìm kiếm hoặc lọc"
+
+msgid "Enter job description..."
+msgstr "Nhập mô tả công việc..."
+
+msgid "Enter content..."
+msgstr "Nhập nội dung..."
+
+msgid "Analyzing..."
+msgstr "Đang phân tích..."
+
+msgid "Analyzing Your Profile..."
+msgstr "Đang phân tích hồ sơ của bạn..."
+
+msgid "Search Applicants"
+msgstr "Tìm kiếm ứng viên"
+
+msgid "Validating Job Posting..."
+msgstr "Đang xác thực tin tuyển dụng..."
+
+msgid "Creating..."
+msgstr "Đang tạo..."
+
+msgid "Search for more ..."
+msgstr "Tìm kiếm thêm..."
+
+msgid "Enter your password"
+msgstr "Nhập mật khẩu"
+
+msgid "Enter your full name"
+msgstr "Nhập họ và tên"
+
+msgid "Enter your phone number"
+msgstr "Nhập số điện thoại"
+
+msgid "Please wait a moment"
+msgstr "Vui lòng đợi một chút"
+
+msgid "and search your company address"
+msgstr "và tìm kiếm địa chỉ công ty"
+
+msgid "This feature will automatically generate a tailored CV based on your profile and the job description. After generating, you can review and edit before exporting as PDF."
+msgstr "Tính năng này sẽ tự động tạo CV phù hợp dựa trên hồ sơ và mô tả công việc của bạn. Sau khi tạo, bạn có thể xem xét và chỉnh sửa trước khi xuất PDF."
+
+msgid "Generate a strong professional summary matched to the job."
+msgstr "Tạo tóm tắt chuyên môn phù hợp với công việc."
+
+msgid "Suggest skills you should highlight for this position."
+msgstr "Gợi ý kỹ năng bạn nên nhấn mạnh cho vị trí này."
+
+msgid "Export clean PDF templates after reviewing and editing."
+msgstr "Xuất mẫu PDF sạch sau khi xem xét và chỉnh sửa."
+
+msgid "Practice your interview skills with AI-powered feedback"
+msgstr "Thực hành kỹ năng phỏng vấn với phản hồi AI"
+
+msgid "There is no interview scheduled yet. Start applying now."
+msgstr "Chưa có lịch phỏng vấn. Bắt đầu ứng tuyển ngay."
+
+msgid "You are ready to generate your CV. Keep completing your profile for a more attractive CV."
+msgstr "Bạn đã sẵn sàng tạo CV. Tiếp tục hoàn thiện hồ sơ để có CV hấp dẫn hơn."
+
+msgid "Your account name is synchronized with profile information."
+msgstr "Tên tài khoản được đồng bộ với thông tin hồ sơ."
+
+msgid "You signed up with Google, so your account doesn't have a password."
+msgstr "Bạn đã đăng ký với Google, nên tài khoản không có mật khẩu."
+
+msgid "Register for free to advertise your company and reach thousands of potential candidates!"
+msgstr "Đăng ký miễn phí để quảng cáo công ty và tiếp cận hàng nghìn ứng viên tiềm năng!"
+
+msgid "Based on your profile, interests, and recent activity"
+msgstr "Dựa trên hồ sơ, sở thích và hoạt động gần đây"
+
+msgid "Follow the companies you care about"
+msgstr "Theo dõi các công ty bạn quan tâm"
+
+msgid "AI is comparing your skills and experience with job requirements"
+msgstr "AI đang so sánh kỹ năng và kinh nghiệm của bạn với yêu cầu công việc"
+
+msgid "Your profile is an excellent match for this position"
+msgstr "Hồ sơ của bạn rất phù hợp với vị trí này"
+
+msgid "Smart input: Paste the entire iframe HTML or just the embed URL - we'll extract it automatically!"
+msgstr "Nhập thông minh: Dán toàn bộ HTML iframe hoặc chỉ URL nhúng - chúng tôi sẽ tự động trích xuất!"
+
+msgid "CV Preview"
+msgstr "Xem trước CV"
+
+msgid "Professional Summary"
+msgstr "Tóm tắt chuyên môn"
+
+msgid "Build CV with AI"
+msgstr "Tạo CV với AI"
+
+msgid "Generate CV with AI"
+msgstr "Tạo CV với AI"
+
+msgid "Smart Summary"
+msgstr "Tóm tắt thông minh"
+
+msgid "Targeted Skills"
+msgstr "Kỹ năng mục tiêu"
+
+msgid "Export PDF"
+msgstr "Xuất PDF"
+
+msgid "Basic Template"
+msgstr "Mẫu cơ bản"
+
+msgid "Two Columns Template"
+msgstr "Mẫu 2 cột"
+
+msgid "Template 3"
+msgstr "Mẫu 3"
+
+msgid "Export as PDF"
+msgstr "Xuất PDF"
+
+msgid "Generate again"
+msgstr "Tạo lại"
+
+msgid "Work Experience / Projects"
+msgstr "Kinh nghiệm làm việc / Dự án"
+
+msgid "Update your profile"
+msgstr "Cập nhật hồ sơ"
+
+msgid "Complete your profile"
+msgstr "Hoàn thiện hồ sơ"
+
+msgid "Your Activities"
+msgstr "Hoạt động của bạn"
+
+msgid "View more"
+msgstr "Xem thêm"
+
+msgid "Cv Templates"
+msgstr "Mẫu CV"
+
+msgid "Download PDF"
+msgstr "Tải xuống PDF"
+
+msgid "of your profile to start generating professional CV."
+msgstr "hồ sơ của bạn để bắt đầu tạo CV chuyên nghiệp."
+
+msgid "Create job"
+msgstr "Tạo việc làm"
+
+msgid "Post a job"
+msgstr "Đăng tin tuyển dụng"
+
+msgid "Review Job Post"
+msgstr "Xem xét tin tuyển dụng"
+
+msgid "Post Anyway"
+msgstr "Vẫn đăng"
+
+msgid "Proceed to Post"
+msgstr "Tiếp tục đăng"
+
+msgid "Safe to Post"
+msgstr "An toàn đăng"
+
+msgid "Job Validation Assessment"
+msgstr "Đánh giá xác thực việc làm"
+
+msgid "Issues Detected"
+msgstr "Phát hiện vấn đề"
+
+msgid "Legitimate"
+msgstr "Hợp lệ"
+
+msgid "Scam"
+msgstr "Lừa đảo"
+
+msgid "High risk"
+msgstr "Rủi ro cao"
+
+msgid "Legitimate Probability"
+msgstr "Xác suất hợp lệ"
+
+msgid "Scam Probability"
+msgstr "Xác suất lừa đảo"
+
+msgid "Trust Status:"
+msgstr "Trạng thái tin cậy:"
+
+msgid "AI is analyzing your job posting for potential issues"
+msgstr "AI đang phân tích tin tuyển dụng của bạn để tìm vấn đề tiềm ẩn"
+
+msgid "My Interviews"
+msgstr "Phỏng vấn của tôi"
+
+msgid "Create Interview"
+msgstr "Tạo phỏng vấn"
+
+msgid "Start interview"
+msgstr "Bắt đầu phỏng vấn"
+
+msgid "Finish interview"
+msgstr "Kết thúc phỏng vấn"
+
+msgid "Next question"
+msgstr "Câu hỏi tiếp theo"
+
+msgid "Record your answer"
+msgstr "Ghi âm câu trả lời"
+
+msgid "Select Interview Context"
+msgstr "Chọn ngữ cảnh phỏng vấn"
+
+msgid "By Job Description"
+msgstr "Theo mô tả công việc"
+
+msgid "By Skill"
+msgstr "Theo kỹ năng"
+
+msgid "Choose a job description or skill to practice with"
+msgstr "Chọn mô tả công việc hoặc kỹ năng để luyện tập"
+
+msgid "Companies Follow"
+msgstr "Công ty theo dõi"
+
+msgid "Company Name"
+msgstr "Tên công ty"
+
+msgid "Company Overview"
+msgstr "Tổng quan về công ty"
+
+msgid "Edit Company"
+msgstr "Chỉnh sửa công ty"
+
+msgid "Founded Year"
+msgstr "Năm thành lập"
+
+msgid "Recommended companies"
+msgstr "Công ty được đề xuất"
+
+msgid "No companies found"
+msgstr "Không tìm thấy công ty"
+
+msgid "Unknown Company"
+msgstr "Công ty không xác nhận"
+
+msgid "All companies"
+msgstr "Tất cả các công ty"
+
+msgid "Your company will be recommended by JobFind"
+msgstr "Công ty của bạn sẽ được JobFind đề xuất"
+
+msgid "All Applicants"
+msgstr "Tất cả các ứng viên"
+
+msgid "New Applications"
+msgstr "Ứng tuyển mới"
+
+msgid "Total Applicants"
+msgstr "Tổng số ứng viên"
+
+msgid "Applicants (30d)"
+msgstr "Ứng viên (30 ngày)"
+
+msgid "Applications Trend (30 days)"
+msgstr "Trend ứng tuyển (30 ngày)"
+
+msgid "See Application"
+msgstr "Xem ứng tuyển"
+
+msgid "No application found."
+msgstr "Không tìm thấy ứng tuyển."
+
+msgid "Loading application..."
+msgstr "Đang tải ứng tuyển..."
+
+msgid "Proceed to Apply"
+msgstr "Tiếp tục ứng tuyển"
+
+msgid "Ready to apply!"
+msgstr "Sẵn sàng ứng tuyển!"
+
+msgid "Notifications"
+msgstr "Thông báo"
+
+msgid "Mark all read"
+msgstr "Đánh dấu đã đọc"
+
+msgid "Mark completed"
+msgstr "Đánh dấu hoàn thành"
+
+msgid "No content"
+msgstr "Không có nội dung"
+
+msgid "Not available"
+msgstr "Không có sẵn"
+
+msgid "Not specified"
+msgstr "Không xác nhận"
+
+msgid "Unknown"
+msgstr "Không xác nhận"
+
+msgid "N/A"
+msgstr "N/A"
+
+msgid "Empty"
+msgstr "Trống"
+
+msgid "No interviews"
+msgstr "Không có phỏng vấn"
+
+msgid "Click here"
+msgstr "Nhấp vào đây"
+
+msgid "Go to"
+msgstr "Đến"
+
+msgid "Go to Login"
+msgstr "Đến trang đăng nhập"
+
+msgid "Sign Up"
+msgstr "Đăng ký"
+
+msgid "Forgot password"
+msgstr "Quên mật khẩu"
+
+msgid "Send reset link"
+msgstr "Gửi liên kết đặt lại"
+
+msgid "Resend email"
+msgstr "Gửi lại email"
+
+msgid "Resend link"
+msgstr "Gửi lại liên kết"
+
+msgid "Back to edit"
+msgstr "Quay lại chỉnh sửa"
+
+msgid "View service packages"
+msgstr "Xem gói dịch vụ"
+
+msgid "Quick Stats"
+msgstr "Thống kê nhanh"
+
+msgid "Analytics"
+msgstr "Phân tích"
+
+msgid "Recent Activity & Insights"
+msgstr "Hoạt động gần đây & Thống tin chi tiết"
+
+msgid "Overview of your hiring activities"
+msgstr "Tổng quan về hoạt động tuyển dụng của bạn"
+
+msgid "Peak Day"
+msgstr "Ngày cao điểm"
+
+msgid "Peak day"
+msgstr "Ngày cao điểm"
+
+msgid "Avg daily"
+msgstr "Trung bình hàng ngày"
+
+msgid "Weekdays"
+msgstr "Ngày trong tuần"
+
+msgid "Weekends"
+msgstr "Cuối tuần"
+
+msgid "View detailed analytics in the Analytics page"
+msgstr "Xem phân tích chi tiết trong trang Phân tích"
+
+msgid "VIP 1 month"
+msgstr "VIP 1 tháng"
+
+msgid "VIP 3 months"
+msgstr "VIP 3 tháng"
+
+msgid "VIP 6 months"
+msgstr "VIP 6 tháng"
+
+msgid "Tag VIP Company"
+msgstr "Gán thẻ công ty VIP"
+
+msgid "Your job will stand out more on search page"
+msgstr "Việc làm của bạn sẽ nổi bật hơn trên trang tìm kiếm"
+
+msgid "Are you suitable?"
+msgstr "Bạn có phù hợp không?"
+
+msgid "Check suitability with AI"
+msgstr "Kiểm tra phù hợp với AI"
+
+msgid "AI Interview Coaching"
+msgstr "Huấn luyện phỏng vấn AI"
+
+msgid "Similarity Score"
+msgstr "Điểm tương đồng"
+
+msgid "Excellent Match"
+msgstr "Rất phù hợp"
+
+msgid "Partial Match"
+msgstr "Phù hợp một phần"
+
+msgid "Low Match"
+msgstr "Phù hợp thấp"
+
+msgid "High Risk - Not Recommended"
+msgstr "Rủi ro cao - Không khuyên dùng"
+
+msgid "Review Recommended"
+msgstr "Khuyến nghị xem xét"
+
+msgid "Consider exploring other opportunities"
+msgstr "Xem xét khám phá các cơ hội khác"
+
+msgid "About Me"
+msgstr "Về tôi"
+
+msgid "Education"
+msgstr "Học vấn"
+
+msgid "Work Experience"
+msgstr "Kinh nghiệm làm việc"
+
+msgid "Skills"
+msgstr "Kỹ năng"
+
+msgid "Soft Skills"
+msgstr "Kỹ năng mềm"
+
+msgid "Technical Skills"
+msgstr "Kỹ năng kỹ thuật"
+
+msgid "Profile Strength"
+msgstr "Điểm mạnh hồ sơ"
+
+msgid "Preview & Download CV"
+msgstr "Xem trước & Tải CV"
+
+msgid "Male"
+msgstr "Nam"
+
+msgid "Female"
+msgstr "Nữ"
+
+msgid "Your profile partially matches the requirements"
+msgstr "Hồ sơ của bạn đáp ứng một phần các yêu cầu."
+
+msgid "Your profile has limited match with this position"
+msgstr "Hồ sơ của bạn có độ phù hợp hạn chế với vị trí này."
+
+msgid "Consider updating your skills and experience"
+msgstr "Xem xét cập nhật kỹ năng và kinh nghiệm."
+
+msgid "Add relevant projects or certifications"
+msgstr "Thêm dự án hoặc chứng chỉ liên quan."
+
+msgid "Highlight matching skills in your cover letter"
+msgstr "Làm nổi bật kỹ năng phù hợp trong thư xin việc."
+
+msgid "Showcase your soft skills"
+msgstr "Thể hiện kỹ năng mềm của bạn."
+
+msgid "Ensure all information is accurate and up-to-date"
+msgstr "Đảm bảo tất cả thông tin chính xác và cập nhật."
+
+msgid "Add missing sections listed above"
+msgstr "Thêm các phần còn thiếu được liệt kê ở trên."
+
+msgid "Update your profile to improve future matches"
+msgstr "Cập nhật hồ sơ để cải thiện độ phù hợp trong tương lai."
+
+msgid "Complete your profile to at least 80%"
+msgstr "Hoàn thiện hồ sơ ít nhất 80%."
+
+msgid "Profile Completion:"
+msgstr "Hoàn thiện hồ sơ:"
+
+msgid "Proceed with confidence to apply"
+msgstr "Tiếp tục ứng tuyển với sự tự tin"
+
+msgid "Missing Sections"
+msgstr "Các phần còn thiếu"
+
+msgid "Next Steps"
+msgstr "Bước tiếp theo"
+
+msgid "Suggestions for Improvement:"
+msgstr "Gợi ý cải thiện:"
+
+msgid "Posted"
+msgstr "Đã đăng"
+
+msgid "days ago"
+msgstr "vài ngày trước"
+
+msgid "day ago"
+msgstr "ngày trước"
+
+msgid "Expires in"
+msgstr "Hết hạn trong"
+
+msgid "days"
+msgstr "ngày"
+
+msgid "day"
+msgstr "ngày"
+
+msgid "Applied jobs"
+msgstr "Việc làm đã ứng tuyển"
+
+msgid "Dashboard"
+msgstr "Bảng điều khiển"
+
+msgid "Manage CV"
+msgstr "Quản lý CV"
+
+msgid "My Jobs"
+msgstr "Việc làm của tôi"
+
+msgid "Saved Jobs"
+msgstr "Việc làm đã lưu"
+
+msgid "If you still want to set a password"
+msgstr "Nếu bạn vẫn muốn đặt mật khẩu"
+
+msgid "Email:"
+msgstr "Email:"
+
+msgid "Password"
+msgstr "Mật khẩu"
+
+msgid "Account Information"
+msgstr "Thông tin tài khoản"
+
+msgid "Applied"
+msgstr "Đã ứng tuyển"
+
+msgid "View CV"
+msgstr "Xem CV"
+
+msgid "Download CV"
+msgstr "Tải CV"
+
+msgid "View Application"
+msgstr "Xem đơn ứng tuyển"
+
+msgid "Withdraw Application"
+msgstr "Rút đơn ứng tuyển"
+
+msgid "Application Status"
+msgstr "Trạng thái đơn"
+
+msgid "Application Date"
+msgstr "Ngày ứng tuyển"
+
+msgid "Default (A-Z)"
+msgstr "Mặc định (A-Z)"
+
+msgid "Company Name (A-Z)"
+msgstr "Tên công ty (A-Z)"
+
+msgid "Company Name (Z-A)"
+msgstr "Tên công ty (Z-A)"
+
+msgid "Location (A-Z)"
+msgstr "Địa chỉ (A-Z)"
+
+msgid "Location (Z-A)"
+msgstr "Địa chỉ (Z-A)"
+
+msgid "Founded Year (Newest)"
+msgstr "Năm thành lập (Mới nhất)"
+
+msgid "Founded Year (Oldest)"
+msgstr "Năm thành lập (Cũ nhất)"
+
+msgid "Oldest"
+msgstr "Cũ nhất"
+
+msgid "Most Popular"
+msgstr "Phổ biến nhất"
+
+msgid "Highest Salary"
+msgstr "Lương cao nhất"
+
+msgid "Lowest Salary"
+msgstr "Lương thấp nhất"
+
+msgid "Most Relevant"
+msgstr "Liên quan nhất"
+
+msgid "Founded in"
+msgstr "Thành lập năm"
+
+msgid "VIP COMPANY"
+msgstr "CÔNG TY VIP"
+
+msgid "Verified"
+msgstr "Đã xác minh"
+
+msgid "Hot"
+msgstr "Hot"
+
+msgid "New"
+msgstr "Mới"
+
+msgid "Urgent"
+msgstr "Khẩn cấp"
+
+msgid "job"
+msgstr "việc làm"
+
+msgid "employee"
+msgstr "nhân viên"
+
+msgid "Active"
+msgstr "Đang hoạt động"
+
+msgid "Inactive"
+msgstr "Không hoạt động"
+
+msgid "Published"
+msgstr "Đã đăng"
+
+msgid "Phone number"
+msgstr "Số điện thoại"
+
+msgid "Enter your email"
+msgstr "Nhập email của bạn"
+
+msgid "Required"
+msgstr "Bắt buộc"
+
+msgid "Optional"
+msgstr "Tùy chọn"
+
+msgid "Select"
+msgstr "Chọn"
+
+msgid "Clear all"
+msgstr "Xóa tất cả"
+
+msgid "Certificates"
+msgstr "Chứng chỉ"
+
+msgid "Awards"
+msgstr "Giải thưởng"
+
+msgid "Sort by:"
+msgstr "Sắp xếp theo:"
+
+msgid "You signed up with Google, so your account doesn’t have a password."
+msgstr "Bạn đã đăng ký bằng Google nên tài khoản của bạn không có mật khẩu."
+
+msgid "Update profile information"
+msgstr "Cập nhật thông tin hồ sơ"
+
+msgid "Dashboard"
+msgstr "Bảng điều khiển"
+
+msgid "Profile"
+msgstr "Hồ sơ"
+
+msgid "Manage CV"
+msgstr "Quản lý CV"
+
+msgid "My Interviews"
+msgstr "Phỏng vấn của tôi"
+
+msgid "Companies Follow"
+msgstr "Công ty theo dõi"
+
+msgid "My Jobs"
+msgstr "Việc làm của tôi"
+
+msgid "Saved Jobs"
+msgstr "Việc làm đã lưu"
+
+msgid "Settings"
+msgstr "Cài đặt"
+
+msgid "Click the link in your inbox to set a password. You can still keep using Google Sign-In."
+msgstr "Nhấp vào liên kết trong hộp thư đến của bạn để đặt mật khẩu. Bạn vẫn có thể tiếp tục sử dụng Đăng nhập bằng Google."
+
+msgid "Tip: If you can’t find the email, check Spam or search for “JobFind”."
+msgstr "Mẹo: Nếu bạn không tìm thấy email, hãy kiểm tra Spam hoặc tìm kiếm “JobFind”."
+
+msgid "Back"
+msgstr "Quay lại"
+
+msgid "Sending…"
+msgstr "Đang gửi…"
+
+msgid "Resend in"
+msgstr "Gửi lại trong"
+
+msgid "Open"
+msgstr "Mở"
+
+msgid "Job Detail"
+msgstr "Chi tiết việc làm"
+
+msgid "Note"
+msgstr "Ghi chú"
+
+msgid "Failed to load interview list."
+msgstr "Không thể tải danh sách phỏng vấn."
+
+msgid "My interview schedule"
+msgstr "Lịch phỏng vấn của tôi"
+
+msgid "Duration"
+msgstr "Thời gian"
+
+msgid "minutes"
+msgstr "phút"
+
+msgid "Open interview"
+msgstr "Mở phỏng vấn"
+
+msgid "The meeting link is not available yet."
+msgstr "Liên kết cuộc họp chưa có sẵn."
+
+msgid "Hide Application"
+msgstr "Ẩn đơn ứng tuyển"
+
+msgid "Application"
+msgstr "Đơn ứng tuyển"
+
+msgid "Accept"
+msgstr "Chấp nhận"
+
+msgid "Decline"
+msgstr "Từ chối"
+
+msgid "View CV (PDF)"
+msgstr "Xem CV (PDF)"
+
+msgid "All Cities"
+msgstr "Tất cả các thành phố"
+
+msgid "This company currently has no job postings"
+msgstr "Công ty này hiện không có việc làm"
+
+msgid "No jobs found matching your search criteria"
+msgstr "Không tìm thấy việc làm phù hợp với yêu cầu tìm kiếm của bạn"
+
+msgid "days left to apply"
+msgstr "ngày còn để ứng tuyển"
+
+msgid "Posted today"
+msgstr "Đăng hôm nay"
+
+msgid "Posted 1 day ago"
+msgstr "Đăng 1 ngày trước"
+
+msgid "Expires today"
+msgstr "Hết hạn hôm nay"
+
+msgid "Expires in 1 day"
+msgstr "Hết hạn trong 1 ngày"
+
+msgid "SCAM ALERT"
+msgstr "SCAM ALERT"
+
+msgid "CAUTION"
+msgstr "CAUTION"
+
+msgid "You have no saved jobs !"
+msgstr "Bạn không có việc làm đã lưu !"
+
+msgid "Apply Now"
+msgstr "Ứng tuyển ngay"
+
+msgid "Company name, job title..."
+msgstr "Tên công ty, vị trí..."
+
+msgid "Pro Company"
+msgstr "Công ty Pro"
+
+msgid "Staff size"
+msgstr "Quy mô đội ngũ"
+
+msgid "Jobs posted"
+msgstr "Việc làm đăng tải"
+
+msgid "jobs"
+msgstr "công việc"
+
+msgid "Fields of activity"
+msgstr "Các lĩnh vực hoạt động"
+
+msgid "Detailed description"
+msgstr "Mô tả chi tiết"
+
+msgid "Address"
+msgstr "Địa chỉ"
+
+msgid "Share Company with Candidates"
+msgstr "Chia sẻ công ty với ứng viên"
+
+msgid "View map"
+msgstr "Xem bản đồ"
+
+msgid "Social Media"
+msgstr "Mạng xã hội"
+
+msgid "Phone"
+msgstr "Liên hệ"
+
+msgid "Website"
+msgstr "Trang web"
+
+msgid "Add Map"
+msgstr "Thêm bản đồ"
+
+msgid "No map location added yet"
+msgstr "Chưa thêm vị trí bản đồ"
+
+msgid "Add a Google Maps embed URL to show your company location to candidates"
+msgstr "Thêm URL bản đồ Google Maps để hiển thị vị trí công ty của bạn cho ứng viên"
+
+msgid "Add Map Location"
+msgstr "Thêm vị trí bản đồ"
+
+msgid "Copy company profile link"
+msgstr "Sao chép đường dẫn hồ sơ công ty"
+
+msgid "Copied"
+msgstr "Đã sao chép"
+
+msgid "Copy"
+msgstr "Sao chép"
+
+msgid "Business Service"
+msgstr "Dịch vụ kinh doanh"
+
+msgid "Displaying"
+msgstr "Hiển thị"
+
+msgid "out of"
+msgstr "trong"
+
+msgid "Select Industry"
+msgstr "Chọn ngành nghề"
+
+msgid "Select Category"
+msgstr "Chọn danh mục"
+
+msgid "Category"
+msgstr "Danh mục"
+
+msgid "Risk Score"
+msgstr "Risk Score" 
+
+msgid "This job posting has been flagged as potentially fraudulent"
+msgstr "Tin tuyển dụng này đã bị gắn cờ là có khả năng lừa đảo."
+
+msgid "by our AI detection system. Please exercise extreme caution before proceeding."
+msgstr "Do hệ thống AI phát hiện ra. Vui lòng cẩn trọng khi tiếp tục."
+
+msgid "This job posting requires careful verification"
+msgstr "Thông tin tuyển dụng này cần được xác minh cẩn thận."
+
+msgid "and has been flagged for review by our AI system."
+msgstr "và đã được hệ thống AI của chúng tôi đánh dấu để xem xét."
+
+msgid "Report"
+msgstr "Báo cáo"
+
+msgid "Report Job Posting"
+msgstr "Báo cáo tin tuyển dụng"
+
+msgid "Report User"
+msgstr "Báo cáo người dùng"
+
+msgid "Report Company"
+msgstr "Báo cáo công ty"
+
+msgid "Content"
+msgstr "Nội dung"
+
+msgid "Report type"
+msgstr "Loại báo cáo"
+
+msgid "Report Description"
+msgstr "Mô tả báo cáo"
+
+msgid "Please provide details for your report below."
+msgstr "Vui lòng cung cấp chi tiết cho báo cáo của bạn bên dưới."
+
+msgid "Enter detailed description..."
+msgstr "Nhập mô tả chi tiết..."
+
+msgid "I confirm this report is accurate and complies with our policies."
+msgstr "Tôi xác nhận báo cáo này chính xác và tuân thủ các chính sách của chúng tôi."
+
+msgid "Cancel"
+msgstr "Hủy"
+
+msgid "Submit"
+msgstr "Gửi"
+
+msgid "Submitting..."
+msgstr "Đang gửi..."
+
+msgid "You must confirm the report is accurate"
+msgstr "Bạn phải xác nhận báo cáo là chính xác"
+
+msgid "Report submitted successfully"
+msgstr "Báo cáo đã được gửi thành công"
+
+msgid "Failed to submit report"
+msgstr "Không thể gửi báo cáo"
+
+msgid "BOOSTED"
+msgstr "BOOSTED"
+
+msgid "Change Password"
+msgstr "Thay đổi mật khẩu"
+
+msgid "Update your password to keep your account secure"
+msgstr "Cập nhật mật khẩu để bảo vệ tài khoản của bạn"
+
+msgid "Current Password"
+msgstr "Mật khẩu hiện tại"
+
+msgid "New Password"
+msgstr "Mật khẩu mới"
+
+msgid "Confirm New Password"
+msgstr "Xác nhận mật khẩu mới"
+
+msgid "Enter current password"
+msgstr "Nhập mật khẩu hiện tại"
+
+msgid "Enter new password"
+msgstr "Nhập mật khẩu mới"
+
+msgid "Confirm new password"
+msgstr "Xác nhận mật khẩu mới"
+
+msgid "Password must contain"
+msgstr "Mật khẩu phải chứa"
+
+msgid "At least 8 characters"
+msgstr "Ít nhất 8 ký tự"
+
+msgid "One uppercase letter"
+msgstr "Một ký tự hoa"
+
+msgid "One lowercase letter"
+msgstr "Một ký tự thường"
+
+msgid "One number"
+msgstr "Một số"
+
+msgid "One special character"
+msgstr "Một ký tự đặc biệt"
+
+msgid "Current password is required"
+msgstr "Mật khẩu hiện tại là bắt buộc"
+
+msgid "New password is required"
+msgstr "Mật khẩu mới là bắt buộc"
+
+msgid "Password does not meet all requirements"
+msgstr "Mật khẩu không đáp ứng tất cả yêu cầu"
+
+msgid "Please confirm your new password"
+msgstr "Vui lòng xác nhận mật khẩu mới"
+
+msgid "Passwords do not match"
+msgstr "Mật khẩu không khớp"
+
+msgid "New password must be different from current password"
+msgstr "Mật khẩu mới phải khác mật khẩu hiện tại"
+
+msgid "Changing..."
+msgstr "Đang thay đổi..."
+
+msgid "Please fix the errors before saving"
+msgstr "Vui lòng sửa lỗi trước khi lưu"
+
+msgid "Password changed successfully!"
+msgstr "Mật khẩu đã thay đổi thành công!"
+
+msgid "Failed to change password"
+msgstr "Không thể thay đổi mật khẩu"
+
+msgid "Set Password"
+msgstr "Đặt mật khẩu"
+
+msgid "Manage Jobs - All"
+msgstr "Quản lý công việc"
+
+msgid "Draft Jobs"
+msgstr "Bản nháp"
+
+msgid "Expired Jobs"
+msgstr "Bài đăng hết hạn"
+
+msgid "Page size"
+msgstr "Kích thước trang"
+
+msgid "Account Settings"
+msgstr "Cài đặt tài khoản"
+
+msgid "Manage your account information and security settings"
+msgstr "Quản lý thông tin tài khoản và cài đặt bảo mật của bạn"
+
+msgid "Account Information"
+msgstr "Thông tin tài khoản"
+
+msgid "Your basic account information"
+msgstr "Thông tin tài khoản cơ bản của bạn"
+
+msgid "Full Name"
+msgstr "Họ và tên"
+
+msgid "Email Address"
+msgstr "Địa chỉ email"
+
+msgid "Phone Number"
+msgstr "Số điện thoại"
+
+msgid "Account Status"
+msgstr "Trạng thái tài khoản"
+
+msgid "To update your profile information, please go to the"
+msgstr "Để cập nhật thông tin hồ sơ, vui lòng vào"
+
+msgid "Profile page"
+msgstr "trang Hồ sơ"
+
+msgid "RECRUITER"
+msgstr "NHÀ TUYỂN DỤNG"
+
+msgid "Edit Profile"
+msgstr "Chỉnh sửa hồ sơ"
+
+msgid "General Information"
+msgstr "Thông tin chung"
+
+msgid "FULL NAME"
+msgstr "HỌ VÀ TÊN"
+
+msgid "STATUS"
+msgstr "TRẠNG THÁI"
+
+msgid "ACTIVE"
+msgstr "HOẠT ĐỘNG"
+
+msgid "INACTIVE"
+msgstr "KHÔNG HOẠT ĐỘNG"
+
+msgid "Active"
+msgstr "Hoạt động"
+
+msgid "Inactive"
+msgstr "Không hoạt động"
+
+msgid "Contact Information"
+msgstr "Thông tin liên hệ"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Phone"
+msgstr "Số điện thoại"
+
+msgid "Email address cannot be changed. If you need to update your email, please contact our support team."
+msgstr "Địa chỉ email không thể thay đổi. Nếu bạn cần cập nhật email, vui lòng liên hệ với đội ngũ hỗ trợ."
+
+msgid "Email cannot be changed"
+msgstr "Email không thể thay đổi"
+
+msgid "Quick Actions"
+msgstr "Hành động nhanh"
+
+msgid "Upgrade to VIP"
+msgstr "Nâng cấp VIP"
+
+msgid "View Company Profile"
+msgstr "Xem hồ sơ công ty"
+
+msgid "View Applicants"
+msgstr "Xem người ứng tuyển"
+
+msgid "Need Help?"
+msgstr "Cần trợ giúp?"
+
+msgid "Contact our support team for assistance with your recruiter account."
+msgstr "Liên hệ đội ngũ hỗ trợ để được hỗ trợ với tài khoản nhà tuyển dụng của bạn."
+
+msgid "Contact Support"
+msgstr "Liên hệ hỗ trợ"
+
+msgid "Saving..."
+msgstr "Đang lưu..."
+
+msgid "Save"
+msgstr "Lưu"
+
+msgid "Loading profile..."
+msgstr "Đang tải hồ sơ..."
+
+msgid "Error Loading Profile"
+msgstr "Lỗi tải hồ sơ"
+
+msgid "Try Again"
+msgstr "Thử lại"
+
+msgid "Enter your full name"
+msgstr "Nhập họ và tên"
+
+msgid "Full name is required"
+msgstr "Họ và tên là bắt buộc"
+
+msgid "Full name must be at least 2 characters"
+msgstr "Họ và tên phải có ít nhất 2 ký tự"
+
+msgid "Full name must not exceed 100 characters"
+msgstr "Họ và tên không được vượt quá 100 ký tự"
+
+msgid "Phone number must be 10-11 digits"
+msgstr "Số điện thoại phải có 10-11 chữ số"
+
+msgid "Please fix the errors before saving"
+msgstr "Vui lòng sửa lỗi trước khi lưu"
+
+msgid "User ID not found"
+msgstr "Không tìm thấy ID người dùng"
+
+msgid "Profile updated successfully!"
+msgstr "Cập nhật hồ sơ thành công!"
+
+msgid "Failed to update profile"
+msgstr "Không thể cập nhật hồ sơ"
+
+msgid "Failed to load profile"
+msgstr "Không thể tải hồ sơ"
+
+msgid "Account status is managed by system administrators"
+msgstr "Trạng thái tài khoản được quản lý bởi quản trị viên"
+
+msgid "Not provided"
+msgstr "Chưa cung cấp"
+
+msgid "Enter 10-11 digit phone number"
+msgstr "Nhập số điện thoại 10-11 chữ số"
+
+msgid "VIP Packages"
+msgstr "Gói VIP"
+
+msgid "Upgrade to VIP Company"
+msgstr "Nâng cấp gói VIP"
+
+msgid "Unlock premium job posting with extended visibility & priority support. Get your company featured and attract top talent faster."
+msgstr "Mở khóa tin tuyển dụng cao cấp với khả năng hiển thị cao & hỗ trợ ưu tiên. Hiển thị công ty của bạn và thu hút nhân tài xuất sắc nhanh hơn."
+
+msgid "Why Choose VIP Company Package?"
+msgstr "Tại sao chọn gói VIP?"
+
+msgid "Maximum Visibility"
+msgstr "Hiển thị cao"
+
+msgid "Your company and all job posts appear at the top of search results, ensuring maximum exposure to qualified candidates."
+msgstr "Công ty và tất cả tin tuyển dụng của bạn xuất hiện ở đầu kết quả tìm kiếm, đảm bảo tối đa sự tiếp cận với ứng viên tiềm năng."
+
+msgid "Priority Support"
+msgstr "Hỗ trợ ưu tiên"
+
+msgid "Get dedicated 24/7 support from our recruitment experts to optimize your hiring strategy and get faster results."
+msgstr "Nhận được sự hỗ trợ tận tâm 24/7 từ các chuyên gia tuyển dụng của chúng tôi để tối ưu hóa chiến lược tuyển dụng và đạt được kết quả nhanh hơn."
+
+msgid "Premium Branding"
+msgstr "Thương hiệu cao cấp"
+
+msgid "Showcase your company with VIP badge and featured profile, building trust and attracting premium candidates."
+msgstr "Hiển thị công ty của bạn với huy hiệu VIP và hồ sơ nổi bật, xây dựng niềm tin và thu hút ứng viên cao cấp."
+
+msgid "Advanced Analytics"
+msgstr "Phân tích cao cấp"
+
+msgid "Track your job posting performance with detailed analytics and insights to optimize your recruitment strategy."
+msgstr "Theo dõi hiệu suất tin tuyển dụng của bạn với phân tích chi tiết và thông tin chi tiết để tối ưu hóa chiến lược tuyển dụng."
+
+msgid "Choose Your VIP Package"
+msgstr "Chọn gói VIP của bạn"
+
+msgid "Most Popular"
+msgstr "Phổ biến nhất"
+
+msgid "per package"
+msgstr "mỗi gói"
+
+msgid "Get more jobs posted than normal companies every month"
+msgstr "Đăng nhiều tin tuyển dụng hơn các công ty thông thường mỗi tháng"
+
+msgid "24/7 Support"
+msgstr "Hỗ trợ 24/7"
+
+msgid "Choose Plan"
+msgstr "Chọn gói"
+
+msgid "Compare VIP Packages"
+msgstr "So sánh gói VIP"
+
+msgid "Feature"
+msgstr "Tính năng"
+
+msgid "VIP 1 Month"
+msgstr "VIP 1 tháng"
+
+msgid "VIP 3 Months"
+msgstr "VIP 3 tháng"
+
+msgid "VIP 6 Months"
+msgstr "VIP 6 tháng"
+
+msgid "VIP Company Badge"
+msgstr "Huy hiệu công ty VIP"
+
+msgid "Top Search Ranking"
+msgstr "Xếp hạng tìm kiếm hàng đầu"
+
+msgid "Job Post Priority"
+msgstr "Ưu tiên đăng tin"
+
+msgid "24/7 Priority Support"
+msgstr "Hỗ trợ ưu tiên 24/7"
+
+msgid "Featured Profile"
+msgstr "Hồ sơ nổi bật"
+
+msgid "Companies Trusting Our VIP Program"
+msgstr "Các công ty tin tưởng chương trình VIP của chúng tôi"
+
+msgid "Frequently Asked Questions"
+msgstr "Câu hỏi thường gặp"
+
+msgid "What is the VIP Company Package?"
+msgstr "Gói cung cấp VIP là gì?"
+
+msgid "The VIP Company Package is our premium subscription service that gives your company enhanced visibility, priority job posting placement, and dedicated support to attract top talent faster."
+msgstr "Gói cung cấp VIP là dịch vụ đăng ký cao cấp của chúng tôi, cung cấp cho công ty của bạn sự xuất hiện cao hơn, ưu tiên trong việc đăng tin tuyển dụng và hỗ trợ chuyên nghiệp để thu hút nhân tài xuất sắc nhanh hơn."
+
+msgid "How long does each package last?"
+msgstr "Mỗi gói kéo dài bao lâu?"
+
+msgid "Our packages are available in 1-month, 3-month, and 6-month durations. All packages include the same premium features, with longer packages offering better value."
+msgstr "Các gói của chúng tôi có thời hạn 1 tháng, 3 tháng và 6 tháng. Tất cả các gói bao gồm các tính năng cao cấp, với các gói dài hơn mang lại giá trị tốt hơn."
+
+msgid "Can I cancel my VIP subscription?"
+msgstr "Tôi có thể hủy gói VIP không?"
+
+msgid "VIP packages are one-time purchases for the selected duration. You can purchase a new package anytime, but there are no refunds or cancellations once payment is completed."
+msgstr "Gói VIP là hình thức mua một lần cho khoảng thời gian đã chọn. Bạn có thể mua gói mới bất cứ lúc nào, nhưng không được hoàn tiền hoặc hủy bỏ sau khi thanh toán hoàn tất."
+
+msgid "What payment methods do you accept?"
+msgstr "Bạn chấp nhận phương thức thanh toán nào?"
+
+msgid "We currently accept VNPay as our primary payment method. All transactions are secure and processed through our trusted payment gateway with 5% encryption."
+msgstr "Chúng tôi chấp nhận VNPay là phương thức thanh toán chính. Tất cả các giao dịch đều an toàn và được xử lý thông qua cổng thanh toán tín dụng tín nhiệm với mã hóa 5%."
+
+msgid "Ready to Attract Top Talent?"
+msgstr "Bạn sẵn sàng thu hút nhân tài xuất sắc?"
+
+msgid "Join thousands of successful companies that have upgraded to VIP and transformed their recruitment process."
+msgstr "Tham gia cùng hàng nghìn công ty thành công đã nâng cấp VIP và chuyển đổi quy trình tuyển dụng."
+
+msgid "Get Most Popular Plan"
+msgstr "Chọn gói dịch vụ phổ biến nhất"
+
+msgid "Learn More"
+msgstr "Tìm hiểu thêm"
+
+msgid "per page"
+msgstr "mỗi trang"

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { t } from "@/i18n/i18n";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -28,9 +29,9 @@ export default function ReportModal({ open, onClose, type, contentId }) {
   const [loading, setLoading] = useState(false);
 
   const reportTypeText = {
-    0: "Report Job Posting",
-    1: "Report User",
-    2: "Report Company",
+    0: t`Report Job Posting`,
+    1: t`Report User`,
+    2: t`Report Company`,
   };
 
   useEffect(() => {
@@ -42,7 +43,7 @@ export default function ReportModal({ open, onClose, type, contentId }) {
 
   const handleSubmit = async () => {
     if (!agree) {
-      toast.warning("You must confirm the report is accurate");
+      toast.warning(t`You must confirm the report is accurate`);
       return;
     }
     try {
@@ -52,11 +53,11 @@ export default function ReportModal({ open, onClose, type, contentId }) {
         reportedContentId: contentId,
         description,
       });
-      toast.success("Report submitted successfully");
+      toast.success(t`Report submitted successfully`);
       onClose();
     } catch (err) {
       console.error("Report error", err);
-      toast.error(err?.response?.data?.message || "Failed to submit report");
+      toast.error(err?.response?.data?.message || t`Failed to submit report`);
     } finally {
       setLoading(false);
     }
@@ -66,14 +67,16 @@ export default function ReportModal({ open, onClose, type, contentId }) {
     <Dialog open={open} onOpenChange={onClose}>
       <DialogContent className="sm:max-w-[500px] gap-4">
         <DialogHeader>
-          <DialogTitle>Report {reportTypeText[type] || "Content"}</DialogTitle>
+          <DialogTitle>
+            {t`Report`} {reportTypeText[type] || t`Content`}
+          </DialogTitle>
           <DialogDescription>
-            Please provide details for your report below.
+            {t`Please provide details for your report below.`}
           </DialogDescription>
         </DialogHeader>
 
         <Label htmlFor="reportType" className={`pb-0`}>
-          Report type
+          {t`Report type`}
         </Label>
         <Select value={String(type)} disabled>
           <SelectTrigger className="w-full font-semibold">
@@ -81,20 +84,20 @@ export default function ReportModal({ open, onClose, type, contentId }) {
           </SelectTrigger>
           <SelectContent>
             <SelectContent>
-              <SelectItem value="0">Report Job Posting</SelectItem>
-              <SelectItem value="1">Report User</SelectItem>
-              <SelectItem value="2">Report Company</SelectItem>
+              <SelectItem value="0">{t`Report Job Posting`}</SelectItem>
+              <SelectItem value="1">{t`Report User`}</SelectItem>
+              <SelectItem value="2">{t`Report Company`}</SelectItem>
             </SelectContent>
           </SelectContent>
         </Select>
 
         <Label htmlFor="description" className={`pb-0`}>
-          Report Description
+          {t`Report Description`}
         </Label>
         <Textarea
           value={description}
           onChange={e => setDescription(e.target.value)}
-          placeholder="Enter detailed description..."
+          placeholder={t`Enter detailed description...`}
           className="min-h-[100px] "
         />
 
@@ -108,17 +111,17 @@ export default function ReportModal({ open, onClose, type, contentId }) {
             htmlFor="confirm-report"
             className="text-sm leading-tight text-gray-600"
           >
-            I confirm this report is accurate and complies with our policies.
+            {t`I confirm this report is accurate and complies with our policies.`}
           </label>
         </div>
 
         {/* Actions */}
         <div className="flex justify-end gap-2 pt-4">
           <Button variant="outline" onClick={onClose}>
-            Cancel
+            {t`Cancel`}
           </Button>
           <Button onClick={handleSubmit} disabled={loading}>
-            {loading ? "Submitting..." : "Submit"}
+            {loading ? t`Submitting...` : t`Submit`}
           </Button>
         </div>
       </DialogContent>

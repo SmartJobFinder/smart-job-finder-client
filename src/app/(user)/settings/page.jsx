@@ -1,10 +1,12 @@
 "use client";
 
 import SetPasswordEmailSent from "@/components/auth/SetPasswordEmailSent";
-import { Mail, User, Lock, Trash2, ChevronRight } from "lucide-react";
+import { Mail, User, ChevronRight, Lock } from "lucide-react";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { t } from "@/i18n/i18n";
+import ChangePasswordCard from "./components/ChangePasswordCard";
+import { Button } from "@/components/ui/button";
 
 export default function SettingsPage() {
   const user = useSelector(state => state.auth.user);
@@ -53,25 +55,27 @@ export default function SettingsPage() {
         </a>
       </section>
 
-      {/* Password */}
+      {/* Set Password Section (for Google users) */}
       <section className="p-6 bg-white border rounded-lg shadow-sm">
-        <h2 className="text-lg font-semibold">{t`Password`}</h2>
-        <div className="flex items-center mt-2 text-sm text-gray-600">
+        <h2 className="text-lg font-semibold mb-4 flex items-center gap-2">
+          <Lock size={20} className="text-blue-600" />
+          {t`Password`}
+        </h2>
+        <div className="flex items-center text-sm text-gray-600 mb-3">
           <Lock className="w-4 h-4 mr-2 text-gray-400" />
-          {t`You signed up with Google, so your account doesn’t have a password.`}
+          {t`You signed up with Google, so your account doesn't have a password.`}
         </div>
 
-        <div className="mt-3 text-sm">
+        <div className="text-sm">
           <p className="mb-2 text-gray-600">
             {t`If you still want to set a password`}
-            {"  "}
           </p>
-          <button
+          <Button
             onClick={() => setShowSetPwSent(true)}
-            className="inline-flex items-center px-4 py-2 mt-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 "
+            className="bg-blue-600 hover:bg-blue-700"
           >
             {t`Click here`}
-          </button>
+          </Button>
         </div>
       </section>
 
@@ -137,6 +141,8 @@ export default function SettingsPage() {
                     Delete your account
                 </button>
             </section> */}
+      {/* Change Password Card */}
+      <ChangePasswordCard />
     </div>
   );
 }

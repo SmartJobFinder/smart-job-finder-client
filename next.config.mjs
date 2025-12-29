@@ -44,6 +44,14 @@ const nextConfig = {
       },
     ],
   },
+  webpack: (config, { isServer }) => {
+    // Exclude jodit-react from server-side bundle to prevent SSR errors
+    if (isServer) {
+      config.externals = config.externals || [];
+      config.externals.push("jodit-react", "jodit");
+    }
+    return config;
+  },
 };
 
 export default nextConfig;

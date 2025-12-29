@@ -158,7 +158,7 @@ export default function SearchBar() {
               disabled={isLoading}
             >
               <MapPin className="mr-1" size={14} />
-              {isLoading ? "Loading..." : selectedProvince || "All Cities"}
+              {isLoading ? t`Loading...` : selectedProvince || t`All Cities`}
               <ChevronDown className="w-3 h-3 ml-1 opacity-50" />
             </Button>
           </PopoverTrigger>
@@ -171,11 +171,11 @@ export default function SearchBar() {
                 value={searchProvinceTerm}
               />
               <CommandEmpty>
-                {isSearching ? "Searching..." : t`Not found`}
+                {isSearching ? t`Searching...` : t`Not found`}
               </CommandEmpty>
               <CommandGroup className="max-h-[300px] overflow-y-auto">
                 <CommandItem value="" onSelect={() => handleProvinceSelect("")}>
-                  All Cities
+                  {t`All Cities`}
                   <Check
                     className={cn(
                       "ml-auto h-4 w-4",
