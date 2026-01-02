@@ -2906,3 +2906,33 @@ msgstr "Messages"
 
 msgid "Dashboard"
 msgstr "Dashboard"
+
+msgid "AI Practice History"
+msgstr "AI Practice History"
+
+msgid "Excellent"
+msgstr "Excellent"
+
+msgid "Very Good"
+msgstr "Very Good"
+
+msgid "Good"
+msgstr "Good"
+
+msgid "Fair"
+msgstr "Fair"
+
+msgid "Below Average"
+msgstr "Below Average"
+
+msgid "Needs Improvement"
+msgstr "Needs Improvement"
+
+msgid "Loading AI practice history..."
+msgstr "Loading AI practice history..."
+
+msgid "Improve Profile"
+msgstr "Improve Profile"
+
+msgid "Update Profile"
+msgstr "Update Profile"

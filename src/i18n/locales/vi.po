@@ -2907,3 +2907,33 @@ msgstr "Tin nhắn"
 
 msgid "Dashboard"
 msgstr "Bảng điều khiển"
+
+msgid "AI Practice History"
+msgstr "Lịch sử luyện tập AI"
+
+msgid "Excellent"
+msgstr "Xuất sắc"
+
+msgid "Very Good"
+msgstr "Rất tốt"
+
+msgid "Good"
+msgstr "Tốt"
+
+msgid "Fair"
+msgstr "Khá"
+
+msgid "Below Average"
+msgstr "Dưới trung bình"
+
+msgid "Needs Improvement"
+msgstr "Cần cải thiện"
+
+msgid "Loading AI practice history..."
+msgstr "Đang tải lịch sử luyện tập AI..."
+
+msgid "Improve Profile"
+msgstr "Cải thiện hồ sơ"
+
+msgid "Update Profile"
+msgstr "Cập nhật hồ sơ"

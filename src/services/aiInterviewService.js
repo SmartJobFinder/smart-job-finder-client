@@ -38,12 +38,14 @@ const axiosBaseQuery =
 export const aiInterviewApi = createApi({
   reducerPath: "aiInterviewApi",
   baseQuery: axiosBaseQuery("/ai-interview"),
+  tagTypes: ["InterviewHistory"],
   endpoints: builder => ({
     startInterview: builder.mutation({
       query: jobId => ({
         url: `/start?jobId=${encodeURIComponent(jobId)}`,
         method: "POST",
       }),
+      invalidatesTags: ["InterviewHistory"],
     }),
 
     answerInterview: builder.mutation({
@@ -52,9 +54,30 @@ export const aiInterviewApi = createApi({
         method: "POST",
         data: formData,
       }),
+      invalidatesTags: ["InterviewHistory"],
+    }),
+
+    getInterviewHistory: builder.query({
+      query: ({ jobId, limit = 10 }) => ({
+        url: `/history${jobId ? `?jobId=${encodeURIComponent(jobId)}&limit=${limit}` : `?limit=${limit}`}`,
+        method: "GET",
+      }),
+      providesTags: ["InterviewHistory"],
+    }),
+
+    getInterviewSessionDetail: builder.query({
+      query: sessionId => ({
+        url: `/history/${encodeURIComponent(sessionId)}`,
+        method: "GET",
+      }),
     }),
   }),
 });
 
-export const { useStartInterviewMutation, useAnswerInterviewMutation } =
-  aiInterviewApi;
+export const {
+  useStartInterviewMutation,
+  useAnswerInterviewMutation,
+  useGetInterviewHistoryQuery,
+  useGetInterviewSessionDetailQuery,
+  useLazyGetInterviewSessionDetailQuery,
+} = aiInterviewApi;

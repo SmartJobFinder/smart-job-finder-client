@@ -2,6 +2,10 @@
 const stripTrailingSlash = u => (u ? u.replace(/\/+$/, "") : u);
 const nextConfig = {
   output: "standalone",
+  // Extend HTTP proxy timeout for long-running requests (e.g., AI generation)
+  experimental: {
+    proxyTimeout: 300000, // 5 minutes
+  },
   env: {
     NEXT_PUBLIC_API_BASE_URL: process.env.NEXT_PUBLIC_API_BASE_URL,
     NEXT_PUBLIC_WS_ENDPOINT: process.env.NEXT_PUBLIC_WS_ENDPOINT, // e.g. /ws
@@ -55,3 +59,4 @@ const nextConfig = {
 };
 
 export default nextConfig;
+
