@@ -33,9 +33,8 @@ function StatusBadge({ status }) {
   };
   return (
     <span
-      className={`inline-flex items-center px-2 py-0.5 text-xs font-semibold border rounded ${
-        map[status] || "bg-gray-100 text-gray-700 border-gray-200"
-      }`}
+      className={`inline-flex items-center px-2 py-0.5 text-xs font-semibold border rounded ${map[status] || "bg-gray-100 text-gray-700 border-gray-200"
+        }`}
     >
       {status}
     </span>
@@ -136,12 +135,6 @@ export default function CandidateInterviewsPage() {
           <h1 className="pl-4 text-2xl font-bold text-gray-900 border-l-4 border-blue-800">
             {t`My interview schedule`}
           </h1>
-          <Link href="/interviews/coach">
-            <Button className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700">
-              <Sparkles className="w-4 h-4 mr-2" />
-              {t`AI Interview Coach`}
-            </Button>
-          </Link>
         </div>
       </div>
 
