@@ -14,16 +14,19 @@ import {
   Crown,
 } from "lucide-react";
 import { getImageUrl } from "@/lib/utils";
+import { useTranslation } from "@/i18n/i18n";
 
 const ResultItem = ({ company }) => {
+  const { t } = useTranslation();
+
   const formatCompanySize = size => {
     const numSize = parseInt(size, 10);
 
-    if (numSize <= 10) return "1-10 employees";
-    if (numSize <= 50) return "11-50 employees";
-    if (numSize <= 200) return "51-200 employees";
-    if (numSize <= 500) return "201-500 employees";
-    return "500+ employees";
+    if (numSize <= 10) return t`1-10 employees`;
+    if (numSize <= 50) return t`11-50 employees`;
+    if (numSize <= 200) return t`51-200 employees`;
+    if (numSize <= 500) return t`201-500 employees`;
+    return t`500+ employees`;
   };
 
   return (
@@ -64,7 +67,7 @@ const ResultItem = ({ company }) => {
               {company.proCompany && (
                 <span className="ml-2 inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full text-[10px] font-semibold text-blue-700 bg-blue-50 border border-blue-200">
                   <Crown size={12} className="text-blue-600" />
-                  VIP COMPANY
+                  {t`VIP COMPANY`}
                 </span>
               )}
             </h3>
@@ -72,7 +75,7 @@ const ResultItem = ({ company }) => {
             <div className="flex items-center space-x-2">
               <span className="text-sm font-medium text-green-600 bg-green-50 px-3 py-1 rounded-full flex items-center">
                 <Briefcase className="mr-1 h-3.5 w-3.5" />
-                {company.jobsCount || 0} jobs
+                {company.jobsCount || 0} {t`jobs`}
               </span>
             </div>
           </div>
@@ -106,7 +109,7 @@ const ResultItem = ({ company }) => {
             {company.foundedYear && (
               <div className="flex items-center">
                 <Calendar className="h-4 w-4 mr-1 text-gray-400" />
-                Founded in {company.foundedYear}
+                {t`Founded in`} {company.foundedYear}
               </div>
             )}
           </div>

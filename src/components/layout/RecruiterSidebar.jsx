@@ -25,11 +25,11 @@ import {
 } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutThunk } from "@/features/auth/authSlice";
-import { useTranslation } from "@/i18n/i18n";
+import { useTranslation, t } from "@/i18n/i18n";
 import LanguageSelector from "@/components/ui/LanguageSelector";
 
 export default function RecruiterSidebar() {
-  const { t } = useTranslation();
+  const { lang } = useTranslation();
   const dispatch = useDispatch();
   const pathname = usePathname();
   const router = useRouter();
@@ -37,7 +37,7 @@ export default function RecruiterSidebar() {
   const [expandedSections, setExpandedSections] = useState({});
 
   const navItems = [
-    { href: "/recruiter/dashboard", label: "Dashboard", icon: BarChart3 },
+    { href: "/recruiter/dashboard", label: t`Dashboard`, icon: BarChart3 },
     {
       label: t`Manage Jobs`,
       icon: Briefcase,

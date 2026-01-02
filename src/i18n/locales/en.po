@@ -2936,3 +2936,177 @@ msgstr "Improve Profile"
 
 msgid "Update Profile"
 msgstr "Update Profile"
+
+msgid "Please check your email, we have sent you a password reset link."
+msgstr "Please check your email, we have sent you a password reset link."
+
+msgid "Failed to send the email. Please try again."
+msgstr "Failed to send the email. Please try again."
+
+msgid "Forgot password"
+msgstr "Forgot password"
+
+msgid "Enter the email associated with your account and we'll send a reset link."
+msgstr "Enter the email associated with your account and we'll send a reset link."
+
+msgid "Reset email sent. Please check your inbox."
+msgstr "Reset email sent. Please check your inbox."
+
+msgid "Please enter a valid email address."
+msgstr "Please enter a valid email address."
+
+msgid "Sending…"
+msgstr "Sending…"
+
+msgid "You can resend in"
+msgstr "You can resend in"
+
+msgid "Resend link"
+msgstr "Resend link"
+
+msgid "Send reset link"
+msgstr "Send reset link"
+
+msgid "Tip: If you don't see the email, check your spam folder or search for “JobFind”."
+msgstr "Tip: If you don't see the email, check your spam folder or search for “JobFind”."
+
+msgid "From First Job to Big Future"
+msgstr "From First Job to Big Future"
+
+msgid "Log in now to get the most out of Job Find's tools and increase your chances of finding the hottest jobs."
+msgstr "Log in now to get the most out of Job Find's tools and increase your chances of finding the hottest jobs."
+
+msgid "Create an ATS-friendly CV"
+msgstr "Create an ATS-friendly CV"
+
+msgid "Apply faster with a saved profile"
+msgstr "Apply faster with a saved profile"
+
+msgid "Manage applications and track application status updates"
+msgstr "Manage applications and track application status updates"
+
+msgid "See salary ranges for each position"
+msgstr "See salary ranges for each position"
+
+msgid "Save favorite jobs to apply later"
+msgstr "Save favorite jobs to apply later"
+
+msgid "Recruiting Made Simple."
+msgstr "Recruiting Made Simple."
+
+msgid "Log in to access powerful recruiting tools"
+msgstr "Log in to access powerful recruiting tools"
+
+msgid "Post job ads for free"
+msgstr "Post job ads for free"
+
+msgid "Find suitable candidates"
+msgstr "Find suitable candidates"
+
+msgid "Manage application profiles"
+msgstr "Manage application profiles"
+
+msgid "A set-password link has been sent to your email."
+msgstr "A set-password link has been sent to your email."
+
+msgid "Click the link in your inbox to set a password. You can still keep using Google Sign-In."
+msgstr "Click the link in your inbox to set a password. You can still keep using Google Sign-In."
+
+msgid "Resend in ${formattedCooldown}"
+msgstr "Resend in ${formattedCooldown}"
+
+msgid "Resend email"
+msgstr "Resend email"
+
+msgid "Open"
+msgstr "Open"
+
+msgid "Gmail"
+msgstr "Gmail"
+
+msgid "Tip: If you can’t find the email, check Spam or search for “JobFind”."
+msgstr "Tip: If you can’t find the email, check Spam or search for “JobFind”."
+
+msgid "All Job Posts"
+msgstr "All Job Posts"
+
+msgid "Draft Jobs"
+msgstr "Draft Jobs"
+
+msgid "Expired Jobs"
+msgstr "Expired Jobs"
+
+msgid "All Applicants"
+msgstr "All Applicants"
+
+msgid "Interviewed"
+msgstr "Interviewed"
+
+msgid "Collapse"
+msgstr "Collapse"
+
+msgid "Category is required"
+msgstr "Category is required"
+
+msgid "Industry is required"
+msgstr "Industry is required"
+
+msgid "Skill is required"
+msgstr "Skill is required"
+
+msgid "Level is required"
+msgstr "Level is required"
+
+msgid "Failed to fetch categories"
+msgstr "Failed to fetch categories"
+
+msgid "Failed to fetch levels"
+msgstr "Failed to fetch levels"
+
+msgid "Failed to fetch industries"
+msgstr "Failed to fetch industries"
+
+msgid "Failed to fetch skills"
+msgstr "Failed to fetch skills"
+
+msgid "This skill already exists in your profile."
+msgstr "This skill already exists in your profile."
+
+msgid "Add"
+msgstr "Add"
+
+msgid "Loading ..."
+msgstr "Loading ..."
+
+msgid "Skill"
+msgstr "Skill"
+
+msgid "Select Skill"
+msgstr "Select Skill"
+
+msgid "Select Level"
+msgstr "Select Level"
+
+msgid "Company name"
+msgstr "Company name"
+
+msgid "Select industry"
+msgstr "Select industry"
+
+msgid "1-10 employees"
+msgstr "1-10 employees"
+
+msgid "11-50 employees"
+msgstr "11-50 employees"
+
+msgid "51-200 employees"
+msgstr "51-200 employees"
+
+msgid "201-500 employees"
+msgstr "201-500 employees"
+
+msgid "500+ employees"
+msgstr "500+ employees"
+
+msgid "Founded in"
+msgstr "Founded in"

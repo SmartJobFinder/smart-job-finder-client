@@ -173,7 +173,7 @@ const FilterSidebar = ({
                   onChange={e => handleFoundingYearChange(e.target.value)}
                   className="text-blue-600 border-gray-300 focus:ring-blue-500"
                 />
-                <span className="text-sm text-gray-700">All</span>
+                <span className="text-sm text-gray-700">{t`All`}</span>
               </label>
 
               {[2024, 2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015].map(

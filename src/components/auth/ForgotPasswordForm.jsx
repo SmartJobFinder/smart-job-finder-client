@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { ArrowLeft, CheckCircle2, Clock, Loader2, Mail } from "lucide-react";
+import { t } from "@/i18n/i18n";
 
 const COOLDOWN_SEC = 120;
 const formatMMSS = sec => {
@@ -87,7 +88,7 @@ export default function ForgotPasswordForm({
     try {
       await dispatch(forgotPasswordThunk(email)).unwrap();
       toast.success(
-        "Please check your email, we have sent you a password reset link.",
+        t`Please check your email, we have sent you a password reset link.`,
         {
           autoClose: 3000,
         }
@@ -97,7 +98,7 @@ export default function ForgotPasswordForm({
       setPhase("cooldown");
     } catch (err) {
       toast.error(
-        err?.message || "Failed to send the email. Please try again."
+        err?.message || t`Failed to send the email. Please try again.`
       );
       setPhase("ready"); // ⬅️ quay lại trạng thái sẵn sàng
     }
@@ -115,8 +116,7 @@ export default function ForgotPasswordForm({
           {t`Forgot password`}
         </h2>
         <p className={clsx("mt-1 text-sm", theme.textSecondary)}>
-          Enter the email associated with your account and we’ll send a reset
-          link.
+          {t`Enter the email associated with your account and we'll send a reset link.`}
         </p>
         {justSent && (
           <div className="inline-flex items-center gap-2 px-3 py-2 mt-3 text-sm bg-white border rounded-lg shadow-sm">
@@ -228,8 +228,7 @@ export default function ForgotPasswordForm({
           theme.gradient
         )}
       >
-        Tip: If you don’t see the email, check your spam folder or search for
-        “JobFind”.
+        {t`Tip: If you don't see the email, check your spam folder or search for “JobFind”.`}
       </div>
     </div>
   );

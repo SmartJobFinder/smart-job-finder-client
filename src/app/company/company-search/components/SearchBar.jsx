@@ -1,5 +1,5 @@
 "use client";
-import { t } from "@/i18n/i18n";
+import { useTranslation } from "@/i18n/i18n";
 import React, {
   useState,
   useEffect,
@@ -43,6 +43,7 @@ const SearchBar = ({
   onSearch,
   initialValues = { company: "", location: "", categoryIds: [] },
 }) => {
+  const { t } = useTranslation();
   const { locations, industries, fetchLocations, fetchIndustries, isLoading } =
     useCompanySearchStore();
 

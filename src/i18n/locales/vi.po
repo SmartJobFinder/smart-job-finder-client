@@ -2937,3 +2937,177 @@ msgstr "Cải thiện hồ sơ"
 
 msgid "Update Profile"
 msgstr "Cập nhật hồ sơ"
+
+msgid "Please check your email, we have sent you a password reset link."
+msgstr "Vui lòng kiểm tra email, chúng tôi đã gửi link đặt lại mật khẩu cho bạn."
+
+msgid "Failed to send the email. Please try again."
+msgstr "Gửi email thất bại. Vui lòng thử lại."
+
+msgid "Forgot password"
+msgstr "Quên mật khẩu"
+
+msgid "Enter the email associated with your account and we'll send a reset link."
+msgstr "Nhập liên kết email với tài khoản của bạn và chúng tôi sẽ gửi liên kết để đặt lại."
+
+msgid "Reset email sent. Please check your inbox."
+msgstr "Link đặt lại đã được gửi. Vui lòng kiểm tra hộp thư đến."
+
+msgid "Please enter a valid email address."
+msgstr "Vui lòng nhập địa chỉ email hợp lệ."
+
+msgid "Sending…"
+msgstr "Đang gửi…"
+
+msgid "You can resend in"
+msgstr "Bạn có thể gửi lại sau"
+
+msgid "Resend link"
+msgstr "Gửi lại liên kết"
+
+msgid "Send reset link"
+msgstr "Gửi liên kết đặt lại"
+
+msgid "Tip: If you don't see the email, check your spam folder or search for “JobFind”."
+msgstr "Mẹo: Nếu không thấy email, hãy kiểm tra thư mục Spam hoặc tìm kiếm “JobFind”."
+
+msgid "From First Job to Big Future"
+msgstr "Từ Công việc Đầu tiên đến Tương lai Lớn"
+
+msgid "Log in now to get the most out of Job Find's tools and increase your chances of finding the hottest jobs."
+msgstr "Đăng nhập ngay để tận dụng tối đa các công cụ của Job Find và tăng cơ hội tìm được những công việc hấp dẫn nhất."
+
+msgid "Create an ATS-friendly CV"
+msgstr "Tạo CV chuẩn ATS"
+
+msgid "Apply faster with a saved profile"
+msgstr "Ứng tuyển nhanh hơn với hồ sơ đã lưu"
+
+msgid "Manage applications and track application status updates"
+msgstr "Quản lý đơn ứng tuyển và theo dõi cập nhật trạng thái"
+
+msgid "See salary ranges for each position"
+msgstr "Xem mức lương cho từng vị trí"
+
+msgid "Save favorite jobs to apply later"
+msgstr "Lưu công việc yêu thích để ứng tuyển sau"
+
+msgid "Recruiting Made Simple."
+msgstr "Tuyển dụng đơn giản hóa."
+
+msgid "Log in to access powerful recruiting tools"
+msgstr "Đăng nhập để truy cập các công cụ tuyển dụng mạnh mẽ"
+
+msgid "Post job ads for free"
+msgstr "Đăng tin tuyển dụng miễn phí"
+
+msgid "Find suitable candidates"
+msgstr "Tìm ứng viên phù hợp"
+
+msgid "Manage application profiles"
+msgstr "Quản lý hồ sơ ứng viên"
+
+msgid "A set-password link has been sent to your email."
+msgstr "Liên kết đặt mật khẩu đã được gửi đến email của bạn."
+
+msgid "Click the link in your inbox to set a password. You can still keep using Google Sign-In."
+msgstr "Nhấp vào liên kết trong hộp thư đến để đặt mật khẩu. Bạn vẫn có thể tiếp tục sử dụng Google Sign-In."
+
+msgid "Resend in ${formattedCooldown}"
+msgstr "Gửi lại sau ${formattedCooldown}"
+
+msgid "Resend email"
+msgstr "Gửi lại email"
+
+msgid "Open"
+msgstr "Mở"
+
+msgid "Gmail"
+msgstr "Gmail"
+
+msgid "Tip: If you can’t find the email, check Spam or search for “JobFind”."
+msgstr "Mẹo: Nếu bạn không tìm thấy email, hãy kiểm tra Spam hoặc tìm kiếm “JobFind”."
+
+msgid "All Job Posts"
+msgstr "Tất cả tin đăng"
+
+msgid "Draft Jobs"
+msgstr "Tin nháp"
+
+msgid "Expired Jobs"
+msgstr "Tin hết hạn"
+
+msgid "All Applicants"
+msgstr "Tất cả ứng viên"
+
+msgid "Interviewed"
+msgstr "Đã phỏng vấn"
+
+msgid "Collapse"
+msgstr "Thu gọn"
+
+msgid "Category is required"
+msgstr "Danh mục là bắt buộc"
+
+msgid "Industry is required"
+msgstr "Ngành nghề là bắt buộc"
+
+msgid "Skill is required"
+msgstr "Kỹ năng là bắt buộc"
+
+msgid "Level is required"
+msgstr "Cấp độ là bắt buộc"
+
+msgid "Failed to fetch categories"
+msgstr "Không thể tải danh mục"
+
+msgid "Failed to fetch levels"
+msgstr "Không thể tải cấp độ"
+
+msgid "Failed to fetch industries"
+msgstr "Không thể tải ngành nghề"
+
+msgid "Failed to fetch skills"
+msgstr "Không thể tải kỹ năng"
+
+msgid "This skill already exists in your profile."
+msgstr "Kỹ năng này đã tồn tại trong hồ sơ của bạn."
+
+msgid "Add"
+msgstr "Thêm"
+
+msgid "Loading ..."
+msgstr "Đang tải ..."
+
+msgid "Skill"
+msgstr "Kỹ năng"
+
+msgid "Select Skill"
+msgstr "Chọn kỹ năng"
+
+msgid "Select Level"
+msgstr "Chọn cấp độ"
+
+msgid "Company name"
+msgstr "Tên công ty"
+
+msgid "Select industry"
+msgstr "Chọn ngành nghề"
+
+msgid "1-10 employees"
+msgstr "1-10 nhân viên"
+
+msgid "11-50 employees"
+msgstr "11-50 nhân viên"
+
+msgid "51-200 employees"
+msgstr "51-200 nhân viên"
+
+msgid "201-500 employees"
+msgstr "201-500 nhân viên"
+
+msgid "500+ employees"
+msgstr "500+ nhân viên"
+
+msgid "Founded in"
+msgstr "Thành lập năm"
