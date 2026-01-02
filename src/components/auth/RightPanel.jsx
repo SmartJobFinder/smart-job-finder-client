@@ -31,7 +31,7 @@ export default function RightPanel({ activeTab }) {
                   className="mr-2"
                 />
                 <span className="text-gray-600">
-                  | From First Job to Big Future
+                  | {t`From First Job to Big Future`}
                 </span>
               </div>
               <div className="flex justify-center mb-8">
@@ -39,16 +39,15 @@ export default function RightPanel({ activeTab }) {
               </div>
               <div className="mb-6">
                 <h4 className="mb-2 font-semibold">
-                  Log in now to get the most out of Job Find&apos;s tools and
-                  increase your chances of finding the hottest jobs.
+                  {t`Log in now to get the most out of Job Find's tools and increase your chances of finding the hottest jobs.`}
                 </h4>
                 <ul className="mt-4 space-y-2">
                   {[
-                    "Create an ATS-friendly CV",
-                    "Apply faster with a saved profile",
-                    "Manage applications and track application status updates",
-                    "See salary ranges for each position",
-                    "Save favorite jobs to apply later",
+                    t`Create an ATS-friendly CV`,
+                    t`Apply faster with a saved profile`,
+                    t`Manage applications and track application status updates`,
+                    t`See salary ranges for each position`,
+                    t`Save favorite jobs to apply later`,
                   ].map((benefit, index) => (
                     <li key={index} className="flex items-start">
                       <div className="mr-2 text-blue-500">•</div>
@@ -68,7 +67,9 @@ export default function RightPanel({ activeTab }) {
                   height={32}
                   className="mr-2"
                 />
-                <span className="text-gray-600">| Recruiting Made Simple.</span>
+                <span className="text-gray-600">
+                  | {t`Recruiting Made Simple.`}
+                </span>
               </div>
               <div className="flex justify-center mb-8">
                 <Image
@@ -80,13 +81,13 @@ export default function RightPanel({ activeTab }) {
               </div>
               <div className="mb-6">
                 <h4 className="mb-2 font-semibold">
-                  Log in to access powerful recruiting tools
+                  {t`Log in to access powerful recruiting tools`}
                 </h4>
                 <ul className="mt-4 space-y-2">
                   {[
-                    "Post job ads for free",
-                    "Find suitable candidates",
-                    "Manage application profiles",
+                    t`Post job ads for free`,
+                    t`Find suitable candidates`,
+                    t`Manage application profiles`,
                   ].map((benefit, index) => (
                     <li key={index} className="flex items-start">
                       <div className="mr-2 text-orange-500">•</div>

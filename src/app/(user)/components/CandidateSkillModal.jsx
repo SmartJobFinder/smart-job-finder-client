@@ -4,6 +4,8 @@ import { useForm, FormProvider } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { X, Save } from "lucide-react";
+import { useTranslation } from "@/i18n/i18n";
+import { toast } from "react-toastify";
 import api from "@/lib/api";
 import LoadingScreen from "@/components/ui/loadingScreen";
 
@@ -28,6 +30,9 @@ export default function CandidateSkillModal({
   const [levels, setLevels] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+
+  // Get translation function with reactivity
+  const { t } = useTranslation();
 
   const methods = useForm({
     resolver: yupResolver(validationSchema),
@@ -56,7 +61,7 @@ export default function CandidateSkillModal({
       setCategories(response.data);
       return response.data;
     } catch (err) {
-      setError("Failed to fetch categories");
+      setError(t`Failed to fetch categories`);
       console.error(err);
     } finally {
       setIsLoading(false);
@@ -70,7 +75,7 @@ export default function CandidateSkillModal({
       setLevels(response.data);
       return response.data;
     } catch (err) {
-      setError("Failed to fetch levels");
+      setError(t`Failed to fetch levels`);
       console.error(err);
     } finally {
       setIsLoading(false);
@@ -85,7 +90,7 @@ export default function CandidateSkillModal({
       setIndustries(response.data);
       return response.data;
     } catch (err) {
-      setError("Failed to fetch industries");
+      setError(t`Failed to fetch industries`);
       console.error(err);
     } finally {
       setIsLoading(false);
@@ -102,7 +107,7 @@ export default function CandidateSkillModal({
       setSkills(response.data);
       return response.data;
     } catch (err) {
-      setError("Failed to fetch skills");
+      setError(t`Failed to fetch skills`);
       console.error(err);
     } finally {
       setIsLoading(false);
@@ -172,7 +177,7 @@ export default function CandidateSkillModal({
         skill.skillId.toString() === data.skillId && skill.id !== initialData.id
     );
     if (isDuplicate) {
-      toast.error("This skill already exists in your profile.");
+      toast.error(t`This skill already exists in your profile.`);
       return;
     }
 
@@ -190,7 +195,7 @@ export default function CandidateSkillModal({
       <div className="w-full max-w-md p-4 bg-white rounded-lg shadow-lg">
         <div className="flex items-center justify-between pb-3 mb-4 border-b">
           <h2 className="text-xl font-semibold text-gray-800">
-            {Object.keys(initialData).length > 0 ? "Edit" : "Add"}{" "}
+            {Object.keys(initialData).length > 0 ? t`Edit` : t`Add`}{" "}
             {sectionTitle}
           </h2>
           <button
@@ -202,7 +207,7 @@ export default function CandidateSkillModal({
         </div>
         <FormProvider {...methods}>
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-            {isLoading && <p>Loading ...</p>}
+            {isLoading && <p>{t`Loading ...`}</p>}
             {error && <p className="text-red-500">{error}</p>}
 
             {/* Category */}
@@ -264,7 +269,7 @@ export default function CandidateSkillModal({
             {/* Skill */}
             <div className="flex flex-col gap-1">
               <label className="text-sm font-medium text-gray-700">
-                Skill <span className="ml-1 text-red-500">*</span>
+                {t`Skill`} <span className="ml-1 text-red-500">*</span>
               </label>
               <select
                 {...register("skillId")}
@@ -277,7 +282,7 @@ export default function CandidateSkillModal({
                   !watchedValues.industryId ? "bg-gray-100" : ""
                 }`}
               >
-                <option value="">Select Skill</option>
+                <option value="">{t`Select Skill`}</option>
                 {skills.map(skill => (
                   <option key={skill.id} value={skill.id}>
                     {skill.name}
@@ -291,7 +296,7 @@ export default function CandidateSkillModal({
 
             <div className="flex flex-col gap-1">
               <label className="text-sm font-medium text-gray-700">
-                Level <span className="ml-1 text-red-500">*</span>
+                {t`Level`} <span className="ml-1 text-red-500">*</span>
               </label>
               <select
                 {...register("levelId")}
@@ -301,7 +306,7 @@ export default function CandidateSkillModal({
                     : "border-gray-300 focus:border-blue-500"
                 } focus:outline-none focus:ring-2 focus:ring-blue-500/20`}
               >
-                <option value="">Select Level</option>
+                <option value="">{t`Select Level`}</option>
                 {levels.map(level => (
                   <option key={level.id} value={level.id}>
                     {level.name}
@@ -320,7 +325,7 @@ export default function CandidateSkillModal({
                 onClick={onClose}
                 className="px-3 py-1.5 text-sm border border-gray-300 rounded-md hover:bg-gray-100"
               >
-                Cancel
+                {t`Cancel`}
               </button>
               <button
                 type="submit"
@@ -332,7 +337,7 @@ export default function CandidateSkillModal({
                 }`}
               >
                 <Save className="inline w-4 h-4 mr-1" />
-                Save
+                {t`Save`}
               </button>
             </div>
           </form>

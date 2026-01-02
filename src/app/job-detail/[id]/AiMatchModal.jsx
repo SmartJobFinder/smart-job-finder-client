@@ -24,6 +24,7 @@ const AiMatchModal = ({ onClose, job }) => {
   const [result, setResult] = useState(null);
   const [error, setError] = useState(null);
   const [profileCompletion, setProfileCompletion] = useState(null);
+  const remaining = profileCompletion ? 80 - profileCompletion.percent : 0;
 
   // Get combined profile
   const { data: combinedProfile, isLoading: isLoadingProfile } =
@@ -259,9 +260,7 @@ const AiMatchModal = ({ onClose, job }) => {
                   </div>
                   {profileCompletion.percent < 80 && (
                     <p className="text-xs text-gray-600 mt-2">
-                      {t`Need ${
-                        80 - profileCompletion.percent
-                      }% more to use AI matching`}
+                      {t`Need ${remaining}% more to use AI matching`}
                     </p>
                   )}
                 </div>

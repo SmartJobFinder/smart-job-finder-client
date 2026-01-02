@@ -16,10 +16,10 @@ import {
   getRecruiterKpi,
   getRecruiterTrend,
 } from "@/services/analyticsService";
-import { useTranslation } from "@/i18n/i18n";
+import { useTranslation, t } from "@/i18n/i18n";
 
 const RecruiterDashboard = () => {
-  const { t } = useTranslation();
+  const { lang } = useTranslation();
   const [companyId, setCompanyId] = useState(null);
   const [kpi, setKpi] = useState(null);
   const [trend, setTrend] = useState([]);
@@ -121,7 +121,7 @@ const RecruiterDashboard = () => {
         textColor: "text-purple-700",
       },
     ],
-    [kpi]
+    [kpi, lang]
   );
 
   // Tính toán dữ liệu cho biểu đồ cột

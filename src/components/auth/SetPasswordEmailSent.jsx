@@ -23,6 +23,7 @@ export default function SetPasswordEmailSent({ email, onBack }) {
   const [phase, setPhase] = useState("sending"); // 'sending' | 'cooldown' | 'ready'
   const [cooldown, setCooldown] = useState(0);
   const sentOnce = useRef(false);
+  const formattedCooldown = formatMMSS(cooldown);
 
   // Khôi phục cooldown nếu đã gửi trước đó (theo email)
   useEffect(() => {
@@ -51,7 +52,7 @@ export default function SetPasswordEmailSent({ email, onBack }) {
       setPhase("sending");
       try {
         await dispatch(sendSetPasswordLinkThunk(email)).unwrap();
-        toast.success("A set-password link has been sent to your email.", {
+        toast.success(t`A set-password link has been sent to your email.`, {
           autoClose: 3000,
         });
         setCooldown(COOLDOWN_SEC);
@@ -64,7 +65,7 @@ export default function SetPasswordEmailSent({ email, onBack }) {
         } catch {}
       } catch (err) {
         toast.error(
-          err?.message || "Failed to send the email. Please try again."
+          err?.message || t`Failed to send the email. Please try again.`
         );
         setPhase("ready");
       }
@@ -87,7 +88,7 @@ export default function SetPasswordEmailSent({ email, onBack }) {
     setPhase("sending");
     try {
       await dispatch(sendSetPasswordLinkThunk(email)).unwrap();
-      toast.success("A set-password link has been sent to your email.", {
+      toast.success(t`A set-password link has been sent to your email.`, {
         autoClose: 3000,
       });
       setCooldown(COOLDOWN_SEC);
@@ -97,7 +98,7 @@ export default function SetPasswordEmailSent({ email, onBack }) {
       } catch {}
     } catch (err) {
       toast.error(
-        err?.message || "Failed to send the email. Please try again."
+        err?.message || t`Failed to send the email. Please try again.`
       );
       setPhase("ready");
     }
@@ -148,7 +149,7 @@ export default function SetPasswordEmailSent({ email, onBack }) {
             className="rounded-xl"
           >
             <Clock className="mr-2 h-4 w-4" />
-            {t`Resend in ${formatMMSS(cooldown)}`}
+            {t`Resend in ${formattedCooldown}`}
           </Button>
         )}
 
@@ -172,7 +173,7 @@ export default function SetPasswordEmailSent({ email, onBack }) {
           rel="noreferrer"
           className="text-sm text-blue-600 hover:text-blue-700 hover:underline underline-offset-2"
         >
-          {t`Open`} Gmail
+          {t`Open`} {t`Gmail`}
         </a>
       </div>
 

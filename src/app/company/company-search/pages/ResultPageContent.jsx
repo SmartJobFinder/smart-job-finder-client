@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { t } from "@/i18n/i18n";
+import { useTranslation } from "@/i18n/i18n";
 import {
   Building,
   MapPin,
@@ -18,17 +18,20 @@ import FilterSidebar from "../components/FilterSidebar";
 import ResultItem from "../components/ResultItem";
 import useCompanySearchStore from "../store/companySearchStore";
 
-const companySizes = [
-  { id: "1-10", label: "1-10 employees" },
-  { id: "11-50", label: "11-50 employees" },
-  { id: "51-200", label: "51-200 employees" },
-  { id: "201-500", label: "201-500 employees" },
-  { id: "501+", label: "501+ employees" },
-];
-
 const ITEMS_PER_PAGE = 10;
 
 const ResultPageContent = () => {
+  const { t } = useTranslation();
+
+  // Define company sizes with translation
+  const companySizes = [
+    { id: "1-10", label: t`1-10 employees` },
+    { id: "11-50", label: t`11-50 employees` },
+    { id: "51-200", label: t`51-200 employees` },
+    { id: "201-500", label: t`201-500 employees` },
+    { id: "501+", label: t`500+ employees` },
+  ];
+
   const router = useRouter();
   const searchParams = useSearchParams();
   const [showFilterOnMobile, setShowFilterOnMobile] = useState(false);
