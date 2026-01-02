@@ -2,9 +2,7 @@
 
 import { useState, useMemo } from "react";
 import { t } from "@/i18n/i18n";
-import {
-  useGetInterviewHistoryQuery,
-} from "@/services/aiInterviewService";
+import { useGetInterviewHistoryQuery } from "@/services/aiInterviewService";
 import InterviewSessionDetailModal from "@/app/job-detail/[id]/_components/InterviewSessionDetailModal";
 import LoadingScreen from "@/components/ui/loadingScreen";
 import {
@@ -24,7 +22,13 @@ function calculateScore(wpm, fluencyLevel, stressScore) {
   let normalizer = 0;
 
   if (fluencyLevel) {
-    const fluencyScores = { excellent: 10, good: 8, normal: 6.5, fair: 5, poor: 3 };
+    const fluencyScores = {
+      excellent: 10,
+      good: 8,
+      normal: 6.5,
+      fair: 5,
+      poor: 3,
+    };
     const fluencyScore = fluencyScores[fluencyLevel.toLowerCase()] ?? 6;
     totalScore += fluencyScore * 0.4;
     normalizer += 0.4;
@@ -98,7 +102,11 @@ function getScoreLabel(score) {
 }
 
 export default function AIPracticeHistoryPage() {
-  const { data: history, isLoading, isError } = useGetInterviewHistoryQuery({ limit: 50 });
+  const {
+    data: history,
+    isLoading,
+    isError,
+  } = useGetInterviewHistoryQuery({ limit: 50 });
   const [selectedSessionId, setSelectedSessionId] = useState(null);
 
   const sessions = useMemo(() => {
@@ -110,7 +118,8 @@ export default function AIPracticeHistoryPage() {
     }));
   }, [history]);
 
-  if (isLoading) return <LoadingScreen message={t`Loading AI practice history...`} />;
+  if (isLoading)
+    return <LoadingScreen message={t`Loading AI practice history...`} />;
 
   return (
     <div className="max-w-5xl mx-auto space-y-6">
@@ -138,12 +147,21 @@ export default function AIPracticeHistoryPage() {
           <span className="text-sm font-medium text-gray-700">{t`Score Scale`}</span>
         </div>
         <div className="flex gap-1 mb-2">
-          <div className="flex-1 h-2.5 rounded-l bg-red-400" title="0-4: Needs Improvement" />
-          <div className="flex-1 h-2.5 bg-orange-400" title="4-5: Below Average" />
+          <div
+            className="flex-1 h-2.5 rounded-l bg-red-400"
+            title="0-4: Needs Improvement"
+          />
+          <div
+            className="flex-1 h-2.5 bg-orange-400"
+            title="4-5: Below Average"
+          />
           <div className="flex-1 h-2.5 bg-yellow-400" title="5-6: Average" />
           <div className="flex-1 h-2.5 bg-lime-400" title="6-7: Fair" />
           <div className="flex-1 h-2.5 bg-green-400" title="7-8: Good" />
-          <div className="flex-1 h-2.5 rounded-r bg-emerald-500" title="8-10: Excellent" />
+          <div
+            className="flex-1 h-2.5 rounded-r bg-emerald-500"
+            title="8-10: Excellent"
+          />
         </div>
         <div className="flex justify-between text-xs text-gray-500">
           <span>0</span>
@@ -187,7 +205,7 @@ export default function AIPracticeHistoryPage() {
             {t`All Sessions`} ({sessions.length})
           </h2>
 
-          {sessions.map((session) => (
+          {sessions.map(session => (
             <div
               key={session.session_id}
               onClick={() => setSelectedSessionId(session.session_id)}
@@ -215,15 +233,23 @@ export default function AIPracticeHistoryPage() {
 
                 {/* Score Badge */}
                 <div className="flex items-center gap-3">
-                  <div className={`px-3 py-2 rounded-lg ${getScoreBg(session.calculatedScore)}`}>
+                  <div
+                    className={`px-3 py-2 rounded-lg ${getScoreBg(session.calculatedScore)}`}
+                  >
                     <div className="flex items-center gap-2">
-                      <Star className={`w-5 h-5 ${getScoreColor(session.calculatedScore)}`} />
+                      <Star
+                        className={`w-5 h-5 ${getScoreColor(session.calculatedScore)}`}
+                      />
                       <div>
-                        <p className={`text-lg font-bold ${getScoreColor(session.calculatedScore)}`}>
+                        <p
+                          className={`text-lg font-bold ${getScoreColor(session.calculatedScore)}`}
+                        >
                           {formatScore(session.calculatedScore)}/10
                         </p>
                         {session.calculatedScore != null && (
-                          <p className={`text-xs ${getScoreColor(session.calculatedScore)}`}>
+                          <p
+                            className={`text-xs ${getScoreColor(session.calculatedScore)}`}
+                          >
                             {getScoreLabel(session.calculatedScore)}
                           </p>
                         )}

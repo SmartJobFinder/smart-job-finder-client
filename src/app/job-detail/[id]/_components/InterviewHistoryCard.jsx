@@ -1,7 +1,15 @@
 "use client";
 
 import React, { useState } from "react";
-import { History, Calendar, MessageSquare, Star, ChevronDown, ChevronUp, Eye } from "lucide-react";
+import {
+  History,
+  Calendar,
+  MessageSquare,
+  Star,
+  ChevronDown,
+  ChevronUp,
+  Eye,
+} from "lucide-react";
 import { useGetInterviewHistoryQuery } from "@/services/aiInterviewService";
 import { t } from "@/i18n/i18n";
 import InterviewSessionDetailModal from "./InterviewSessionDetailModal";
@@ -27,7 +35,11 @@ export default function InterviewHistoryCard({ jobId, isLoggedIn }) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [selectedSessionId, setSelectedSessionId] = useState(null);
 
-  const { data: history, isLoading, isError } = useGetInterviewHistoryQuery(
+  const {
+    data: history,
+    isLoading,
+    isError,
+  } = useGetInterviewHistoryQuery(
     { jobId, limit: 5 },
     { skip: !isLoggedIn || !jobId }
   );
@@ -100,23 +112,28 @@ export default function InterviewHistoryCard({ jobId, isLoggedIn }) {
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 text-sm text-gray-600">
                       <Calendar className="w-4 h-4 text-gray-400 flex-shrink-0" />
-                      <span className="truncate">{formatDate(session.started_at)}</span>
+                      <span className="truncate">
+                        {formatDate(session.started_at)}
+                      </span>
                     </div>
-                    
+
                     <div className="flex items-center gap-4 mt-2 text-sm">
                       <div className="flex items-center gap-1 text-gray-500">
                         <MessageSquare className="w-4 h-4" />
-                        <span>{session.questions_count || 0} {t`questions`}</span>
+                        <span>
+                          {session.questions_count || 0} {t`questions`}
+                        </span>
                       </div>
-                      
-                      {session.average_score !== null && session.average_score !== undefined && (
-                        <div className="flex items-center gap-1">
-                          <Star className="w-4 h-4 text-yellow-500" />
-                          <span className="font-semibold text-yellow-600">
-                            {formatScore(session.average_score)}/10
-                          </span>
-                        </div>
-                      )}
+
+                      {session.average_score !== null &&
+                        session.average_score !== undefined && (
+                          <div className="flex items-center gap-1">
+                            <Star className="w-4 h-4 text-yellow-500" />
+                            <span className="font-semibold text-yellow-600">
+                              {formatScore(session.average_score)}/10
+                            </span>
+                          </div>
+                        )}
                     </div>
                   </div>
 

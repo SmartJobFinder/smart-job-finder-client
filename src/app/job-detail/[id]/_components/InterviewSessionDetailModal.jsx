@@ -40,7 +40,11 @@ function calculateScore(wpm, fluencyLevel, stressScore) {
 
   if (fluencyLevel) {
     const fluencyScores = {
-      excellent: 10, good: 8, normal: 6.5, fair: 5, poor: 3,
+      excellent: 10,
+      good: 8,
+      normal: 6.5,
+      fair: 5,
+      poor: 3,
     };
     const fluencyScore = fluencyScores[fluencyLevel.toLowerCase()] ?? 6;
     totalScore += fluencyScore * 0.4;
@@ -103,14 +107,19 @@ function getScoreLabel(score) {
 }
 
 export default function InterviewSessionDetailModal({ sessionId, onClose }) {
-  const { data: session, isLoading, isError } = useGetInterviewSessionDetailQuery(sessionId);
+  const {
+    data: session,
+    isLoading,
+    isError,
+  } = useGetInterviewSessionDetailQuery(sessionId);
 
   // Calculate scores for questions (use backend score if available, otherwise calculate)
   const questionsWithScores = useMemo(() => {
     if (!session?.questions) return [];
     return session.questions.map(q => ({
       ...q,
-      calculatedScore: q.score ?? calculateScore(q.wpm, q.fluency_level, q.stress_score),
+      calculatedScore:
+        q.score ?? calculateScore(q.wpm, q.fluency_level, q.stress_score),
     }));
   }, [session?.questions]);
 
@@ -118,16 +127,18 @@ export default function InterviewSessionDetailModal({ sessionId, onClose }) {
   const averageScore = useMemo(() => {
     // Use backend average if available
     if (session?.average_score != null) return session.average_score;
-    
+
     // Otherwise calculate from questions
     const scores = questionsWithScores
       .map(q => q.calculatedScore)
       .filter(s => s != null);
     if (scores.length === 0) return null;
-    return Math.round((scores.reduce((a, b) => a + b, 0) / scores.length) * 10) / 10;
+    return (
+      Math.round((scores.reduce((a, b) => a + b, 0) / scores.length) * 10) / 10
+    );
   }, [session?.average_score, questionsWithScores]);
 
-  const handleBackdropClick = (e) => {
+  const handleBackdropClick = e => {
     if (e.target === e.currentTarget) {
       onClose();
     }
@@ -187,14 +198,22 @@ export default function InterviewSessionDetailModal({ sessionId, onClose }) {
 
                 <div className={`rounded-xl p-4 ${getScoreBg(averageScore)}`}>
                   <div className="flex items-center gap-2 mb-1">
-                    <Star className={`w-4 h-4 ${getScoreColor(averageScore)}`} />
-                    <span className={`text-xs font-medium ${getScoreColor(averageScore)}`}>{t`Avg Score`}</span>
+                    <Star
+                      className={`w-4 h-4 ${getScoreColor(averageScore)}`}
+                    />
+                    <span
+                      className={`text-xs font-medium ${getScoreColor(averageScore)}`}
+                    >{t`Avg Score`}</span>
                   </div>
-                  <p className={`text-2xl font-bold ${getScoreColor(averageScore)}`}>
+                  <p
+                    className={`text-2xl font-bold ${getScoreColor(averageScore)}`}
+                  >
                     {formatScore(averageScore)}/10
                   </p>
                   {averageScore != null && (
-                    <p className={`text-xs font-medium ${getScoreColor(averageScore)}`}>
+                    <p
+                      className={`text-xs font-medium ${getScoreColor(averageScore)}`}
+                    >
                       {getScoreLabel(averageScore)}
                     </p>
                   )}
@@ -228,12 +247,24 @@ export default function InterviewSessionDetailModal({ sessionId, onClose }) {
                   <span className="text-xs font-medium text-gray-600">{t`Score Scale`}</span>
                 </div>
                 <div className="flex gap-1">
-                  <div className="flex-1 h-2 rounded-l bg-red-400" title="0-4: Needs Improvement" />
-                  <div className="flex-1 h-2 bg-orange-400" title="4-5: Below Average" />
-                  <div className="flex-1 h-2 bg-yellow-400" title="5-6: Average" />
+                  <div
+                    className="flex-1 h-2 rounded-l bg-red-400"
+                    title="0-4: Needs Improvement"
+                  />
+                  <div
+                    className="flex-1 h-2 bg-orange-400"
+                    title="4-5: Below Average"
+                  />
+                  <div
+                    className="flex-1 h-2 bg-yellow-400"
+                    title="5-6: Average"
+                  />
                   <div className="flex-1 h-2 bg-lime-400" title="6-7: Fair" />
                   <div className="flex-1 h-2 bg-green-400" title="7-8: Good" />
-                  <div className="flex-1 h-2 rounded-r bg-emerald-500" title="8-10: Excellent" />
+                  <div
+                    className="flex-1 h-2 rounded-r bg-emerald-500"
+                    title="8-10: Excellent"
+                  />
                 </div>
                 <div className="flex justify-between text-[9px] text-gray-400 mt-1">
                   <span>0</span>
@@ -298,7 +329,6 @@ export default function InterviewSessionDetailModal({ sessionId, onClose }) {
                     {/* Metrics */}
                     {q.answer_text && (
                       <div className="ml-8 flex flex-wrap gap-3">
-
                         {q.wpm !== null && q.wpm !== undefined && (
                           <div className="flex items-center gap-1 px-2 py-1 rounded-full text-xs font-semibold bg-blue-100 text-blue-600">
                             <Mic className="w-3.5 h-3.5" />
@@ -321,11 +351,15 @@ export default function InterviewSessionDetailModal({ sessionId, onClose }) {
                         )}
 
                         {q.stress_score != null && (
-                          <div className={`flex items-center gap-1 px-2 py-1 rounded-full text-xs font-semibold ${
-                            q.stress_score <= 0.3 ? 'bg-green-100 text-green-600' :
-                            q.stress_score <= 0.6 ? 'bg-yellow-100 text-yellow-600' :
-                            'bg-red-100 text-red-600'
-                          }`}>
+                          <div
+                            className={`flex items-center gap-1 px-2 py-1 rounded-full text-xs font-semibold ${
+                              q.stress_score <= 0.3
+                                ? "bg-green-100 text-green-600"
+                                : q.stress_score <= 0.6
+                                  ? "bg-yellow-100 text-yellow-600"
+                                  : "bg-red-100 text-red-600"
+                            }`}
+                          >
                             <Activity className="w-3.5 h-3.5" />
                             {t`Stress:`} {(q.stress_score * 100).toFixed(0)}%
                           </div>
