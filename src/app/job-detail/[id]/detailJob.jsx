@@ -33,6 +33,7 @@ import CompanyCard from "./_components/CompanyCard";
 import GeneralCard from "./_components/GeneralCard";
 import SkillsChips from "./_components/SkillsChips";
 import ScamWarningBanner from "./_components/ScamWarningBanner";
+import InterviewHistoryCard from "./_components/InterviewHistoryCard";
 import { formatList } from "./_utils/formatters";
 import { mapJobToView } from "./_utils/jobMapper";
 import { t } from "@/i18n/i18n";
@@ -510,6 +511,9 @@ export default function DetailJob({ job }) {
               AI
             </span>
           </button>
+
+          {/* Interview History Card */}
+          <InterviewHistoryCard jobId={djId} isLoggedIn={isLoggedIn} />
 
           <style jsx>{`
             .shine {

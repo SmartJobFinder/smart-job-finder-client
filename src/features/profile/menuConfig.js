@@ -5,6 +5,7 @@ import {
   FileText,
   Heart,
   LayoutDashboard,
+  Mic,
   Settings,
   User,
 } from "lucide-react";
@@ -45,6 +46,11 @@ export const menuItems = router => [
     label: t`Saved Jobs`,
     icon: Heart,
     onClick: () => router.push("/jobs/saved"),
+  },
+  {
+    label: t`AI Practice History`,
+    icon: Mic,
+    onClick: () => router.push("/ai-practice-history"),
   },
   {
     label: t`Settings`,
