@@ -33,8 +33,9 @@ function StatusBadge({ status }) {
   };
   return (
     <span
-      className={`inline-flex items-center px-2 py-0.5 text-xs font-semibold border rounded ${map[status] || "bg-gray-100 text-gray-700 border-gray-200"
-        }`}
+      className={`inline-flex items-center px-2 py-0.5 text-xs font-semibold border rounded ${
+        map[status] || "bg-gray-100 text-gray-700 border-gray-200"
+      }`}
     >
       {status}
     </span>

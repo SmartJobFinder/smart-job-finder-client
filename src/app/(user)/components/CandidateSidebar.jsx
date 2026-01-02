@@ -99,8 +99,9 @@ export default function CandidateSidebar() {
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className={`flex items-center px-2 py-3 rounded cursor-pointer hover:bg-blue-600 hover:text-white ${isActive ? "bg-blue-600 text-white" : ""
-                    }`}
+                  className={`flex items-center px-2 py-3 rounded cursor-pointer hover:bg-blue-600 hover:text-white ${
+                    isActive ? "bg-blue-600 text-white" : ""
+                  }`}
                   prefetch={false}
                 >
                   {item.icon}

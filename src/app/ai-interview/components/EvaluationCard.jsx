@@ -88,7 +88,11 @@ function getScoreLabel(score) {
 
 export default function EvaluationCard({ feedback }) {
   const calculatedScore = feedback
-    ? calculateScore(feedback.wpm, feedback.fluency_level, feedback.stress_score)
+    ? calculateScore(
+        feedback.wpm,
+        feedback.fluency_level,
+        feedback.stress_score
+      )
     : null;
 
   return (
@@ -112,8 +116,12 @@ export default function EvaluationCard({ feedback }) {
           <div className={`rounded-xl p-4 mb-4 ${getScoreBg(calculatedScore)}`}>
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <div className={`flex items-center justify-center w-14 h-14 rounded-full bg-white shadow-sm`}>
-                  <span className={`text-2xl font-bold ${getScoreColor(calculatedScore)}`}>
+                <div
+                  className={`flex items-center justify-center w-14 h-14 rounded-full bg-white shadow-sm`}
+                >
+                  <span
+                    className={`text-2xl font-bold ${getScoreColor(calculatedScore)}`}
+                  >
                     {calculatedScore != null ? calculatedScore.toFixed(1) : "—"}
                   </span>
                 </div>
@@ -121,7 +129,9 @@ export default function EvaluationCard({ feedback }) {
                   <p className="text-xs font-medium text-gray-500 uppercase tracking-wide">
                     {t`Overall Score`}
                   </p>
-                  <p className={`text-lg font-bold ${getScoreColor(calculatedScore)}`}>
+                  <p
+                    className={`text-lg font-bold ${getScoreColor(calculatedScore)}`}
+                  >
                     {getScoreLabel(calculatedScore)}
                   </p>
                 </div>
@@ -131,17 +141,29 @@ export default function EvaluationCard({ feedback }) {
                 <p className="text-xs text-gray-500 mt-1">/10</p>
               </div>
             </div>
-            
+
             {/* Score Scale Legend */}
             <div className="mt-3 pt-3 border-t border-gray-200/50">
               <p className="text-[10px] font-medium text-gray-500 mb-2">{t`Score Scale`}</p>
               <div className="flex gap-1">
-                <div className="flex-1 h-2 rounded-l bg-red-400" title="0-4: Needs Improvement" />
-                <div className="flex-1 h-2 bg-orange-400" title="4-5: Below Average" />
-                <div className="flex-1 h-2 bg-yellow-400" title="5-6: Average" />
+                <div
+                  className="flex-1 h-2 rounded-l bg-red-400"
+                  title="0-4: Needs Improvement"
+                />
+                <div
+                  className="flex-1 h-2 bg-orange-400"
+                  title="4-5: Below Average"
+                />
+                <div
+                  className="flex-1 h-2 bg-yellow-400"
+                  title="5-6: Average"
+                />
                 <div className="flex-1 h-2 bg-lime-400" title="6-7: Fair" />
                 <div className="flex-1 h-2 bg-green-400" title="7-8: Good" />
-                <div className="flex-1 h-2 rounded-r bg-emerald-500" title="8-10: Excellent" />
+                <div
+                  className="flex-1 h-2 rounded-r bg-emerald-500"
+                  title="8-10: Excellent"
+                />
               </div>
               <div className="flex justify-between text-[9px] text-gray-400 mt-1">
                 <span>0</span>
