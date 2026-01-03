@@ -22,7 +22,7 @@ npm run dev   # http://localhost:3000
 ### Biến môi trường tối thiểu (`.env.local`)
 
 ```bash
-NEXT_PUBLIC_API_PROXY_TARGET=http://localhost:8080   # backend gốc khi dev
+NEXT_PUBLIC_API_PROXY_TARGET=http://localhost:8082   # backend gốc khi dev
 NEXT_PUBLIC_API_BASE_URL=/api/v1
 NEXT_PUBLIC_WS_ENDPOINT=/ws
 NEXT_PUBLIC_SUB_DEST=/user/queue/noti
