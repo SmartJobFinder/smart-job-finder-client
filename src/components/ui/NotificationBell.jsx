@@ -36,8 +36,9 @@ const HIDDEN_POLL_MS = 60_000; // tab ẩn thì 60s poll API 1 lần
 
 export default function NotificationBell({ className = "" }) {
   const router = useRouter();
-  const NEXT_PUBLIC_API_BASE = `${process.env.NEXT_PUBLIC_API_PROXY_TARGET}${process.env.NEXT_PUBLIC_API_BASE_URL}/`;
-  const API_BASE = (NEXT_PUBLIC_API_BASE || "").replace(/\/+$/, "");
+  // Use Next.js proxy (relative path) instead of direct backend URL
+  // This ensures cookies and authentication headers are properly sent
+  const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL || "/api/v1";
   const WS_ENDPOINT = process.env.NEXT_PUBLIC_WS_ENDPOINT || "/ws";
   const SUB_DEST_TEMPLATE =
     process.env.NEXT_PUBLIC_SUB_DEST || "/user/queue/noti";
@@ -483,7 +484,7 @@ export default function NotificationBell({ className = "" }) {
                     )}
                     {(it.jobId || it.link) && (
                       <div className="mt-1 text-xs text-blue-600 hover:underline underline-offset-2 cursor-pointer">
-                        Xem chi tiết
+                        {t`View Details`}
                       </div>
                     )}
                   </div>
