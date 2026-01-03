@@ -1,18 +1,18 @@
 services:
   jobfind_fe:
-    # For production: comment build and uncomment image
-    # image: nhathao512/jobfind-client-app:latest
+    # Production: pull from Docker Hub
+    image: ${DOCKER_USERNAME}/smart-job-finder-client:latest
 
-    # For development: build locally
-    build:
-      context: .
-      dockerfile: Dockerfile
-      args:
-        NEXT_PUBLIC_API_PROXY_TARGET: ${NEXT_PUBLIC_API_PROXY_TARGET}
-        NEXT_PUBLIC_API_BASE_URL: ${NEXT_PUBLIC_API_BASE_URL}
-        NEXT_PUBLIC_WS_ENDPOINT: ${NEXT_PUBLIC_WS_ENDPOINT}
-        NEXT_PUBLIC_SUB_DEST: ${NEXT_PUBLIC_SUB_DEST}
-        NEXT_PUBLIC_GOOGLE_CLIENT_ID: ${NEXT_PUBLIC_GOOGLE_CLIENT_ID}
+    # For local development, uncomment build section:
+    # build:
+    #   context: .
+    #   dockerfile: Dockerfile
+    #   args:
+    #     NEXT_PUBLIC_API_PROXY_TARGET: ${NEXT_PUBLIC_API_PROXY_TARGET}
+    #     NEXT_PUBLIC_API_BASE_URL: ${NEXT_PUBLIC_API_BASE_URL}
+    #     NEXT_PUBLIC_WS_ENDPOINT: ${NEXT_PUBLIC_WS_ENDPOINT}
+    #     NEXT_PUBLIC_SUB_DEST: ${NEXT_PUBLIC_SUB_DEST}
+    #     NEXT_PUBLIC_GOOGLE_CLIENT_ID: ${NEXT_PUBLIC_GOOGLE_CLIENT_ID}
 
     container_name: jobfind_fe
     restart: unless-stopped
@@ -38,4 +38,4 @@ services:
 
 networks:
   jobfind-network:
-    external: true
+    driver: bridge
