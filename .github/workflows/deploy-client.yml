@@ -4,6 +4,11 @@ on:
   push:
     branches:
       - main
+      - test
+      - feature-call-api
+      - dev/hao-vn
+      - pkucpkam
+      - develop
   workflow_dispatch:
 
 jobs:
