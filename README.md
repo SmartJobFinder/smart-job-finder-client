@@ -10,7 +10,12 @@
 - Axios, WebSocket (STOMP), Jitsi SDK
 - i18n với `ttag`
 
-## 🚀 Bắt đầu nhanh
+## � Screenshots
+
+![Homepage](public/homepage-screenshot.png)
+_Trang chủ Smart Job Finder - Tìm việc làm phù hợp với đam mê & kỹ năng_
+
+## �🚀 Bắt đầu nhanh
 
 ```bash
 git clone https://github.com/Group-3-KTC/job-find-user-app.git
