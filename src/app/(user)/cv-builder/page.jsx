@@ -54,6 +54,7 @@ function mapApiToCv(apiRes) {
       age: null,
       phone: apiRes?.phone ?? "",
       email: apiRes?.email ?? "",
+      avatar: apiRes?.avatar ?? "",
     },
     edu: (apiRes?.educations ?? []).map((e, idx) => ({
       id: idx + 1,
@@ -154,7 +155,13 @@ export default function CVPage() {
       toast.success(t`Generated CV successfully`);
     } catch (err) {
       console.error(err);
-      toast.error(t`Generate CV failed. Please login again or retry.`);
+      if (err.response?.status === 401) {
+        toast.error(t`Session expired. Please login again.`);
+      } else if (err.response?.data?.message) {
+        toast.error(err.response.data.message);
+      } else {
+        toast.error(t`Generate CV failed. Please retry.`);
+      }
     } finally {
       setLoading(false);
     }
@@ -238,11 +245,10 @@ export default function CVPage() {
               <button
                 onClick={handleGenerateAI}
                 disabled={!canGenerate || loading}
-                className={`px-4 py-2 text-sm font-semibold text-white rounded-lg shadow-md ${
-                  !canGenerate || loading
-                    ? "bg-gray-400 cursor-not-allowed"
-                    : "bg-emerald-600 hover:bg-emerald-700"
-                }`}
+                className={`px-4 py-2 text-sm font-semibold text-white rounded-lg shadow-md ${!canGenerate || loading
+                  ? "bg-gray-400 cursor-not-allowed"
+                  : "bg-emerald-600 hover:bg-emerald-700"
+                  }`}
               >
                 {t`Generate CV with AI`}
               </button>
@@ -315,8 +321,6 @@ export default function CVPage() {
 
           {/* ===== CV VIEW - Render theo template ===== */}
           <div className="space-y-6 bg-white p-6 rounded-lg shadow-sm">
-            {/* CvHeader chỉ render cho basic và two-columns, không render cho right-sidebar */}
-            {selectedTemplate !== "right-sidebar" && <CvHeader info={info} />}
 
             {/* Render khác nhau tùy theo template */}
             {selectedTemplate === "basic" && (
@@ -457,6 +461,15 @@ function TwoColumnsEditableView({ cv, setCv }) {
       <div className="md:col-span-1 space-y-4">
         {/* Header Block - Compact */}
         <div className="border border-black rounded-xl p-4">
+          {info.avatar && (
+            <div className="flex justify-center mb-4">
+              <img
+                src={info.avatar}
+                alt="Avatar"
+                className="w-24 h-24 rounded-full object-cover border-4 border-gray-200"
+              />
+            </div>
+          )}
           <div className="text-xl font-bold text-black">
             {info.fullName || "-"}
           </div>

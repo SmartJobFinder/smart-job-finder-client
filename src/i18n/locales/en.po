@@ -3110,3 +3110,106 @@ msgstr "500+ employees"
 
 msgid "Founded in"
 msgstr "Founded in"
+
+msgid "UPLOADING..."
+msgstr "UPLOADING..."
+
+msgid "ANALYZING..."
+msgstr "ANALYZING..."
+
+msgid "Uploading audio..."
+msgstr "Uploading audio..."
+
+msgid "Audio uploaded "
+msgstr "Audio uploaded "
+
+msgid "Speech-to-text & Emotion analysis"
+msgstr "Speech-to-text & Emotion analysis"
+
+msgid "AI evaluation & feedback generation"
+msgstr "AI evaluation & feedback generation"
+
+msgid "Please wait 15-45 seconds..."
+msgstr "Please wait 15-45 seconds..."
+
+msgid "Loading question..."
+msgstr "Loading question..."
+
+msgid "Processing failed"
+msgstr "Processing failed"
+
+msgid "Unknown error"
+msgstr "Unknown error"
+
+msgid "Loading interview history..."
+msgstr "Loading interview history..."
+
+msgid "No interview history yet"
+msgstr "No interview history yet"
+
+msgid "Start an AI Interview to see your history here"
+msgstr "Start an AI Interview to see your history here"
+
+msgid "Interview History"
+msgstr "Interview History"
+
+msgid "questions"
+msgstr "questions"
+
+msgid "Interview Session Details"
+msgstr "Interview Session Details"
+
+msgid "Failed to load session details"
+msgstr "Failed to load session details"
+
+msgid "Stress:"
+msgstr "Stress:"
+
+msgid "AI Practice History"
+msgstr "AI Practice History"
+
+msgid "Review your AI interview practice sessions and track your progress"
+msgstr "Review your AI interview practice sessions and track your progress"
+
+msgid "All Sessions"
+msgstr "All Sessions"
+
+msgid "Practice Session"
+msgstr "Practice Session"
+
+msgid "Failed to load practice history"
+msgstr "Failed to load practice history"
+
+msgid "No practice sessions yet"
+msgstr "No practice sessions yet"
+
+msgid "Start practicing with AI Interview Coach to improve your interview skills"
+msgstr "Start practicing with AI Interview Coach to improve your interview skills"
+
+msgid "Go to a job detail page and click \"AI Interview Coach\" button to start"
+msgstr "Go to a job detail page and click \"AI Interview Coach\" button to start"
+
+msgid "Loading AI practice history..."
+msgstr "Loading AI practice history..."
+
+msgid "Questions"
+msgstr "Questions"
+
+msgid "Started"
+msgstr "Started"
+
+msgid "Ended"
+msgstr "Ended"
+
+msgid "Questions & Answers"
+msgstr "Questions & Answers"
+
+msgid "Question"
+msgstr "Question"
+
+msgid "Your Answer"
+msgstr "Your Answer"
+
+msgid "AI Feedback"
+msgstr "AI Feedback"
+

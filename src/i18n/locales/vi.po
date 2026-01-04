@@ -3111,3 +3111,106 @@ msgstr "500+ nhân viên"
 
 msgid "Founded in"
 msgstr "Thành lập năm"
+
+msgid "UPLOADING..."
+msgstr "ĐANG TẢI LÊN..."
+
+msgid "ANALYZING..."
+msgstr "ĐANG PHÂN TÍCH..."
+
+msgid "Uploading audio..."
+msgstr "Đang tải lên âm thanh..."
+
+msgid "Audio uploaded "
+msgstr "Đã tải lên âm thanh "
+
+msgid "Speech-to-text & Emotion analysis"
+msgstr "Chuyển giọng nói thành văn bản & Phân tích cảm xúc"
+
+msgid "AI evaluation & feedback generation"
+msgstr "AI đánh giá & tạo phản hồi"
+
+msgid "Please wait 15-45 seconds..."
+msgstr "Vui lòng đợi 15-45 giây..."
+
+msgid "Loading question..."
+msgstr "Đang tải câu hỏi..."
+
+msgid "Processing failed"
+msgstr "Xử lý thất bại"
+
+msgid "Unknown error"
+msgstr "Lỗi không xác định"
+
+msgid "Loading interview history..."
+msgstr "Đang tải lịch sử phỏng vấn..."
+
+msgid "No interview history yet"
+msgstr "Chưa có lịch sử phỏng vấn"
+
+msgid "Start an AI Interview to see your history here"
+msgstr "Bắt đầu phỏng vấn AI để xem lịch sử tại đây"
+
+msgid "Interview History"
+msgstr "Lịch sử phỏng vấn"
+
+msgid "questions"
+msgstr "câu hỏi"
+
+msgid "Interview Session Details"
+msgstr "Chi tiết phiên phỏng vấn"
+
+msgid "Failed to load session details"
+msgstr "Không thể tải chi tiết phiên"
+
+msgid "Stress:"
+msgstr "Căng thẳng:"
+
+msgid "AI Practice History"
+msgstr "Lịch sử luyện tập AI"
+
+msgid "Review your AI interview practice sessions and track your progress"
+msgstr "Xem lại các phiên luyện tập phỏng vấn AI và theo dõi tiến độ của bạn"
+
+msgid "All Sessions"
+msgstr "Tất cả các phiên"
+
+msgid "Practice Session"
+msgstr "Phiên luyện tập"
+
+msgid "Failed to load practice history"
+msgstr "Không thể tải lịch sử luyện tập"
+
+msgid "No practice sessions yet"
+msgstr "Chưa có phiên luyện tập nào"
+
+msgid "Start practicing with AI Interview Coach to improve your interview skills"
+msgstr "Bắt đầu luyện tập với Huấn luyện viên Phỏng vấn AI để cải thiện kỹ năng của bạn"
+
+msgid "Go to a job detail page and click \"AI Interview Coach\" button to start"
+msgstr "Truy cập trang chi tiết việc làm và nhấp vào nút \"Huấn luyện viên Phỏng vấn AI\" để bắt đầu"
+
+msgid "Loading AI practice history..."
+msgstr "Đang tải lịch sử luyện tập AI..."
+
+msgid "Questions"
+msgstr "Câu hỏi"
+
+msgid "Started"
+msgstr "Bắt đầu"
+
+msgid "Ended"
+msgstr "Kết thúc"
+
+msgid "Questions & Answers"
+msgstr "Câu hỏi & Trả lời"
+
+msgid "Question"
+msgstr "Câu hỏi"
+
+msgid "Your Answer"
+msgstr "Câu trả lời của bạn"
+
+msgid "AI Feedback"
+msgstr "Phản hồi AI"
+
