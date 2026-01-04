@@ -5,7 +5,6 @@ import {
   History,
   Calendar,
   MessageSquare,
-  Star,
   ChevronDown,
   ChevronUp,
   Eye,
@@ -24,11 +23,6 @@ function formatDate(isoString) {
     hour: "2-digit",
     minute: "2-digit",
   });
-}
-
-function formatScore(score) {
-  if (score === null || score === undefined) return "—";
-  return score.toFixed(1);
 }
 
 export default function InterviewHistoryCard({ jobId, isLoggedIn }) {
@@ -124,16 +118,6 @@ export default function InterviewHistoryCard({ jobId, isLoggedIn }) {
                           {session.questions_count || 0} {t`questions`}
                         </span>
                       </div>
-
-                      {session.average_score !== null &&
-                        session.average_score !== undefined && (
-                          <div className="flex items-center gap-1">
-                            <Star className="w-4 h-4 text-yellow-500" />
-                            <span className="font-semibold text-yellow-600">
-                              {formatScore(session.average_score)}/10
-                            </span>
-                          </div>
-                        )}
                     </div>
                   </div>
 

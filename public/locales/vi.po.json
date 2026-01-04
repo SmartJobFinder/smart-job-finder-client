@@ -4776,7 +4776,7 @@
             "AI Practice History": {
                 "msgid": "AI Practice History",
                 "msgstr": [
-                    "Lịch sử luyện tập AI"
+                    "Lịch sử Luyện tập AI"
                 ]
             },
             "Excellent": {
@@ -5095,6 +5095,192 @@
                 "msgid": "500+ employees",
                 "msgstr": [
                     "500+ nhân viên"
+                ]
+            },
+            "UPLOADING...": {
+                "msgid": "UPLOADING...",
+                "msgstr": [
+                    "ĐANG TẢI LÊN..."
+                ]
+            },
+            "ANALYZING...": {
+                "msgid": "ANALYZING...",
+                "msgstr": [
+                    "ĐANG PHÂN TÍCH..."
+                ]
+            },
+            "Uploading audio...": {
+                "msgid": "Uploading audio...",
+                "msgstr": [
+                    "Đang tải lên âm thanh..."
+                ]
+            },
+            "Audio uploaded ✓": {
+                "msgid": "Audio uploaded ✓",
+                "msgstr": [
+                    "Đã tải lên âm thanh ✓"
+                ]
+            },
+            "Speech-to-text & Emotion analysis": {
+                "msgid": "Speech-to-text & Emotion analysis",
+                "msgstr": [
+                    "Chuyển giọng nói thành văn bản & Phân tích cảm xúc"
+                ]
+            },
+            "AI evaluation & feedback generation": {
+                "msgid": "AI evaluation & feedback generation",
+                "msgstr": [
+                    "AI đánh giá & tạo phản hồi"
+                ]
+            },
+            "Please wait 15-45 seconds...": {
+                "msgid": "Please wait 15-45 seconds...",
+                "msgstr": [
+                    "Vui lòng đợi 15-45 giây..."
+                ]
+            },
+            "Processing failed": {
+                "msgid": "Processing failed",
+                "msgstr": [
+                    "Xử lý thất bại"
+                ]
+            },
+            "Unknown error": {
+                "msgid": "Unknown error",
+                "msgstr": [
+                    "Lỗi không xác định"
+                ]
+            },
+            "Loading interview history...": {
+                "msgid": "Loading interview history...",
+                "msgstr": [
+                    "Đang tải lịch sử phỏng vấn..."
+                ]
+            },
+            "No interview history yet": {
+                "msgid": "No interview history yet",
+                "msgstr": [
+                    "Chưa có lịch sử phỏng vấn"
+                ]
+            },
+            "Start an AI Interview to see your history here": {
+                "msgid": "Start an AI Interview to see your history here",
+                "msgstr": [
+                    "Bắt đầu phỏng vấn AI để xem lịch sử tại đây"
+                ]
+            },
+            "Interview History": {
+                "msgid": "Interview History",
+                "msgstr": [
+                    "Lịch sử phỏng vấn"
+                ]
+            },
+            "questions": {
+                "msgid": "questions",
+                "msgstr": [
+                    "câu hỏi"
+                ]
+            },
+            "Interview Session Details": {
+                "msgid": "Interview Session Details",
+                "msgstr": [
+                    "Chi tiết phiên phỏng vấn"
+                ]
+            },
+            "Failed to load session details": {
+                "msgid": "Failed to load session details",
+                "msgstr": [
+                    "Không thể tải chi tiết phiên"
+                ]
+            },
+            "Stress:": {
+                "msgid": "Stress:",
+                "msgstr": [
+                    "Căng thẳng:"
+                ]
+            },
+            "Review your AI interview practice sessions and track your progress": {
+                "msgid": "Review your AI interview practice sessions and track your progress",
+                "msgstr": [
+                    "Xem lại các phiên luyện tập phỏng vấn AI và theo dõi tiến độ của bạn"
+                ]
+            },
+            "All Sessions": {
+                "msgid": "All Sessions",
+                "msgstr": [
+                    "Tất cả các phiên"
+                ]
+            },
+            "Practice Session": {
+                "msgid": "Practice Session",
+                "msgstr": [
+                    "Phiên luyện tập"
+                ]
+            },
+            "Failed to load practice history": {
+                "msgid": "Failed to load practice history",
+                "msgstr": [
+                    "Không thể tải lịch sử luyện tập"
+                ]
+            },
+            "No practice sessions yet": {
+                "msgid": "No practice sessions yet",
+                "msgstr": [
+                    "Chưa có phiên luyện tập nào"
+                ]
+            },
+            "Start practicing with AI Interview Coach to improve your interview skills": {
+                "msgid": "Start practicing with AI Interview Coach to improve your interview skills",
+                "msgstr": [
+                    "Bắt đầu luyện tập với Huấn luyện viên Phỏng vấn AI để cải thiện kỹ năng của bạn"
+                ]
+            },
+            "Go to a job detail page and click \"AI Interview Coach\" button to start": {
+                "msgid": "Go to a job detail page and click \"AI Interview Coach\" button to start",
+                "msgstr": [
+                    "Truy cập trang chi tiết việc làm và nhấp vào nút \"Huấn luyện viên Phỏng vấn AI\" để bắt đầu"
+                ]
+            },
+            "Questions": {
+                "msgid": "Questions",
+                "msgstr": [
+                    "Câu hỏi"
+                ]
+            },
+            "Started": {
+                "msgid": "Started",
+                "msgstr": [
+                    "Bắt đầu"
+                ]
+            },
+            "Ended": {
+                "msgid": "Ended",
+                "msgstr": [
+                    "Kết thúc"
+                ]
+            },
+            "Questions & Answers": {
+                "msgid": "Questions & Answers",
+                "msgstr": [
+                    "Câu hỏi & Trả lời"
+                ]
+            },
+            "Question": {
+                "msgid": "Question",
+                "msgstr": [
+                    "Câu hỏi"
+                ]
+            },
+            "Your Answer": {
+                "msgid": "Your Answer",
+                "msgstr": [
+                    "Câu trả lời của bạn"
+                ]
+            },
+            "AI Feedback": {
+                "msgid": "AI Feedback",
+                "msgstr": [
+                    "Phản hồi AI"
                 ]
             }
         }

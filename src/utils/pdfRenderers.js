@@ -60,9 +60,7 @@ const renderTemplateBasic = (doc, cv) => {
   // Title/Location/Age
   doc.setFont("helvetica", "normal");
   doc.setFontSize(12);
-  const headerInfo = `${info.title || ""} - ${info.location || ""}${
-    info.age ? ` • ${info.age} ${t`years old`}` : ""
-  }`;
+  const headerInfo = `${info.title || ""} - ${info.location || ""}${info.age ? ` • ${info.age} ${t`years old`}` : ""}`;
   cursorY = writeParagraph(doc, cursorY, headerInfo, 11);
 
   // Gender
@@ -131,103 +129,151 @@ const renderTemplateBasic = (doc, cv) => {
 // =======================================================
 // === MẪU 2: MẪU HAI CỘT (Layout khác biệt) ===
 // =======================================================
-
-// Thêm vào file hiện tại của bạn (cùng chỗ với các template khác)
+// FIX: Thông tin chung bên dưới căn trái đúng sidebar
+// Avatar giữ nguyên như bản cũ
 
 const renderTemplateTwoColumns = (doc, cv) => {
-  const info = cv.information;
+  const info = cv.information || {};
 
   // ====== CÀI ĐẶT CHUNG ======
-  const leftColWidth = 68; // Cột trái rộng hơn chút cho đẹp
-  const leftPadding = 14;
-  const rightX = marginX + leftColWidth + 12;
+  const pageHeight = 297;
+  const sidebarWidth = 78; // leftColWidth + 10
+  const sidebarX = 0;
+
+  const leftPadding = 12;
+  const leftTextX = sidebarX + leftPadding; // ✅ dùng cho text (CONTACT, DETAILS...)
+
+  const rightX = sidebarWidth + 12;
   const rightWidth = pageWidth - rightX - marginX;
 
-  // Nền cột trái: màu xanh xám hiện đại (hoặc bạn có thể đổi thành #2c3e50, #34495e...)
-  doc.setFillColor(33, 57, 82); // Màu xanh đậm sang trọng
-  doc.rect(0, 0, leftColWidth + 10, 297, "F");
+  const sidebarColor = { r: 164, g: 74, b: 74 }; // #A44A4A
 
-  // Đường viền trắng nhẹ giữa 2 cột (tùy chọn)
-  doc.setDrawColor(255, 255, 255);
-  doc.setLineWidth(0.3);
-  doc.line(leftColWidth + 10, 0, leftColWidth + 10, 297);
+  // ====== VẼ NỀN + ĐƯỜNG PHÂN CÁCH ======
+  const drawBackground = () => {
+    doc.setFillColor(sidebarColor.r, sidebarColor.g, sidebarColor.b);
+    doc.rect(sidebarX, 0, sidebarWidth, pageHeight, "F");
+
+    doc.setDrawColor(255, 255, 255);
+    doc.setLineWidth(0.3);
+    doc.line(sidebarWidth, 0, sidebarWidth, pageHeight);
+  };
+
+  drawBackground();
 
   // ====================================
-  // === CỘT TRÁI - SIDEBAR (Trắng chữ trên nền tối) ===
+  // === CỘT TRÁI - SIDEBAR ===
   // ====================================
   let yLeft = 24;
 
-  // Helper cho cột trái
   const leftSectionTitle = text => {
     doc.setFont("helvetica", "bold");
     doc.setFontSize(13);
     doc.setTextColor(255, 255, 255);
-    doc.text(text.toUpperCase(), marginX + leftPadding, yLeft);
+    doc.text(String(text).toUpperCase(), leftTextX, yLeft);
     yLeft += 9;
   };
 
   const leftText = (text, fontSize = 10, bold = false) => {
+    if (!text) return;
     doc.setFont("helvetica", bold ? "bold" : "normal");
     doc.setFontSize(fontSize);
     doc.setTextColor(220, 220, 220);
-    const lines = doc.splitTextToSize(text, leftColWidth - leftPadding - 5);
+
+    const maxWidth = sidebarWidth - leftPadding - 8;
+    const lines = doc.splitTextToSize(String(text), maxWidth);
+
     lines.forEach(line => {
-      doc.text(line, marginX + leftPadding, yLeft);
+      doc.text(line, leftTextX, yLeft);
       yLeft += 5.5;
     });
     yLeft += 2;
   };
 
   const leftBullet = text => {
-    doc.setTextColor(255, 255, 255);
+    if (!text) return;
+    doc.setFont("helvetica", "normal");
     doc.setFontSize(10);
-    doc.text("• " + text, marginX + leftPadding + 3, yLeft);
-    yLeft += 5.8;
+    doc.setTextColor(255, 255, 255);
+
+    const maxWidth = sidebarWidth - leftPadding - 10;
+    const lines = doc.splitTextToSize("• " + String(text), maxWidth);
+
+    lines.forEach(line => {
+      doc.text(line, leftTextX + 2, yLeft);
+      yLeft += 5.8;
+    });
   };
 
-  // Ảnh đại diện tròn (nếu có link ảnh - jspdf không hỗ trợ tốt ảnh base64 dài, nên giả lập bằng hình tròn)
-  // Nếu bạn dùng jspdf + html2canvas thì mới có ảnh thật được
-  doc.setFillColor(255, 255, 255);
-  doc.circle(marginX + leftPadding + 15, yLeft + 15, 22, "F");
-  yLeft += 55; // chừa chỗ cho ảnh
+  // ====== AVATAR ======
+  yLeft -= 10;
 
-  // Tên + chức danh nổi bật
+  const avatarSize = 36;
+  const avatarX = sidebarX + (sidebarWidth - avatarSize) / 2; // Căn giữa
+  const avatarY = yLeft;
+
+  if (info.avatar) {
+    try {
+      // Thêm ảnh avatar
+      doc.addImage(
+        info.avatar,
+        "JPEG",
+        avatarX,
+        avatarY,
+        avatarSize,
+        avatarSize,
+        undefined,
+        "NONE"
+      );
+    } catch (e) {
+      console.error("Failed to load avatar:", e);
+      // Fallback: vẽ hình chữ nhật trắng
+      doc.setFillColor(255, 255, 255);
+      doc.rect(avatarX, avatarY, avatarSize, avatarSize, "F");
+    }
+  } else {
+    // Không có ảnh: vẽ hình chữ nhật trắng
+    doc.setFillColor(255, 255, 255);
+    doc.rect(avatarX, avatarY, avatarSize, avatarSize, "F");
+  }
+  yLeft += avatarSize + 12; // Khoảng cách phía dưới avatar
+
+  // Name
   doc.setTextColor(255, 255, 255);
   doc.setFont("helvetica", "bold");
   doc.setFontSize(20);
-  doc.text(info.fullName || "YOUR NAME", marginX + leftPadding, yLeft);
+  doc.text(info.fullName || "YOUR NAME", leftTextX, yLeft);
   yLeft += 9;
 
   doc.setFont("helvetica", "normal");
   doc.setFontSize(11);
   doc.setTextColor(180, 220, 255);
-  doc.text(info.title || "Senior Position", marginX + leftPadding, yLeft);
+  doc.text(info.title || "Senior Position", leftTextX, yLeft);
   yLeft += 15;
 
-  // Contact
+  // ====== CONTACT ======
   leftSectionTitle(t`Contact`);
-  leftText(`${info.location || ""}`);
-  leftText(`${info.phone || ""}`);
-  leftText(`${info.email || ""}`);
+  leftText(info.location || "");
+  leftText(info.phone || "");
+  leftText(info.email || "");
   if (info.linkedin) leftText(info.linkedin);
   if (info.github) leftText(info.github);
   yLeft += 8;
 
-  // Personal Info
+  // ====== DETAILS ======
   leftSectionTitle(t`Details`);
   if (info.age) leftText(`${t`Age`}: ${info.age} ${t`years old`}`);
   leftText(`${t`Gender`}: ${info.gender || ""}`);
   if (info.nationality) leftText(`${t`Nationality`}: ${info.nationality}`);
   yLeft += 8;
 
-  // Skills
+  // ====== SKILLS ======
   if (cv.skills?.length > 0) {
     leftSectionTitle(t`Skills`);
     cv.skills.forEach(skill => leftBullet(skill));
     yLeft += 8;
   }
 
-  // Languages (nếu có thêm field)
+  // ====== LANGUAGES (OPTIONAL) ======
   if (cv.languages?.length > 0) {
     leftSectionTitle(t`Languages`);
     cv.languages.forEach(lang => leftBullet(lang));
@@ -239,79 +285,62 @@ const renderTemplateTwoColumns = (doc, cv) => {
   let yRight = 24;
 
   const rightSectionTitle = text => {
-    doc.setTextColor(33, 57, 82); // màu chính của sidebar
+    doc.setTextColor(sidebarColor.r, sidebarColor.g, sidebarColor.b);
     doc.setFont("helvetica", "bold");
     doc.setFontSize(14);
-    doc.text(text.toUpperCase(), rightX, yRight);
+    doc.text(String(text).toUpperCase(), rightX, yRight);
     yRight += 4;
-    doc.setDrawColor(33, 57, 82);
+
+    doc.setDrawColor(sidebarColor.r, sidebarColor.g, sidebarColor.b);
     doc.setLineWidth(0.8);
-    doc.line(rightX, yRight, rightX + 40, yRight); // gạch chân ngắn đẹp
-    doc.setTextColor(0, 0, 0);
+    doc.line(rightX, yRight, rightX + 40, yRight);
     yRight += 10;
   };
 
-  const rightParagraph = (text, fontSize = 10.5, bold = false) => {
-    doc.setFont("helvetica", bold ? "bold" : "normal");
+  const rightParagraph = (text, fontSize = 10.5) => {
+    if (!text) return;
+    doc.setFont("helvetica", "normal");
     doc.setFontSize(fontSize);
     doc.setTextColor(50, 50, 50);
-    const lines = doc.splitTextToSize(text, rightWidth);
+
+    const lines = doc.splitTextToSize(String(text), rightWidth);
     lines.forEach(line => {
-      if (yRight > 280) {
-        doc.addPage();
-        // Reset nền cột trái cho trang mới
-        doc.setFillColor(33, 57, 82);
-        doc.rect(0, 0, leftColWidth + 10, 297, "F");
-        yRight = 24;
-      }
       doc.text(line, rightX, yRight);
       yRight += fontSize * 0.6 + 1.2;
     });
     yRight += 3;
   };
 
-  // Professional Summary
   if (cv.introduce) {
     rightSectionTitle(t`Professional Summary`);
-    rightParagraph(cv.introduce, 10.5);
+    rightParagraph(cv.introduce);
     yRight += 5;
   }
 
-  // Experience
   if (cv.experience?.length > 0) {
     rightSectionTitle(t`Work Experience`);
     cv.experience.forEach(exp => {
-      // Position + Company
       doc.setFont("helvetica", "bold");
       doc.setFontSize(11.5);
       doc.setTextColor(0, 0, 0);
       doc.text(
-        (exp.position || "") + " at " + (exp.companyName || ""),
+        `${exp.position || ""}${exp.companyName ? " at " + exp.companyName : ""}`,
         rightX,
         yRight
       );
       yRight += 6;
 
-      // Duration + Location (nếu có)
       doc.setFont("helvetica", "italic");
       doc.setFontSize(9.5);
       doc.setTextColor(100, 100, 100);
-      doc.text(
-        (exp.duration || "") + (exp.location ? " • " + exp.location : ""),
-        rightX,
-        yRight
-      );
+      doc.text(exp.duration || "", rightX, yRight);
       yRight += 7;
 
-      // Description
-      if (exp.description) {
-        rightParagraph(exp.description, 10.2);
-      }
+      if (exp.description) rightParagraph(exp.description, 10.2);
       yRight += 6;
     });
   }
 
-  // Education
   if (cv.edu?.length > 0) {
     rightSectionTitle(t`Education`);
     cv.edu.forEach(e => {
@@ -323,7 +352,7 @@ const renderTemplateTwoColumns = (doc, cv) => {
       doc.setFont("helvetica", "normal");
       doc.setFontSize(10.5);
       doc.text(
-        (e.majors || "") + (e.degree ? ", " + e.degree : ""),
+        `${e.majors || ""}${e.degree ? ", " + e.degree : ""}`,
         rightX,
         yRight
       );
@@ -336,8 +365,6 @@ const renderTemplateTwoColumns = (doc, cv) => {
       yRight += 10;
     });
   }
-
-  // Projects / Certificates (tuỳ chọn thêm sau)
 };
 
 // =======================================================

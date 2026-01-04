@@ -9,6 +9,7 @@ export default function QuestionCard({
   questionAudioRef,
   isPlaying,
   isManualPlay = false,
+  status = "ready", // ✅ NEW: "ready" | "analyzing" | "submitting"
 }) {
   return (
     <div className="bg-white shadow-sm rounded-lg p-5 border border-gray-100">
@@ -27,6 +28,11 @@ export default function QuestionCard({
                 </span>
                 {t`AI is speaking…`}
                 <MiniWave />
+              </span>
+            ) : status === "analyzing" || status === "submitting" ? (
+              <span className="inline-flex items-center gap-2 text-xs font-semibold px-2 py-1 rounded-full bg-blue-50 text-blue-700 border border-blue-200">
+                <span className="h-2 w-2 rounded-full border-2 border-blue-500 border-t-transparent animate-spin" />
+                {status === "submitting" ? t`UPLOADING...` : t`ANALYZING...`}
               </span>
             ) : (
               <span className="text-[11px] uppercase tracking-wide text-gray-400">

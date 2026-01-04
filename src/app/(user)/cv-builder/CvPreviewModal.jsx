@@ -48,14 +48,38 @@ function BasicPreview({ cv }) {
   const info = cv?.information || {};
   return (
     <div className="space-y-6">
-      <HeaderBlock info={info} />
+      <div className="pb-4 border-b border-gray-200">
+        <div className="text-2xl font-bold text-gray-900">
+          {info?.fullName || "-"}
+        </div>
+        <div className="text-lg font-semibold text-gray-700">
+          {info?.title || "-"}
+        </div>
+        <div className="mt-2 text-xs text-gray-600 space-y-1">
+          {info?.email ? <div>{info.email}</div> : null}
+          {info?.phone ? <div>{info.phone}</div> : null}
+        </div>
+      </div>
 
-      <TwoTextBlock
-        leftTitle={t`Professional Summary`}
-        left={cv?.introduce}
-        rightTitle={t`Career Objective`}
-        right={cv?.objective}
-      />
+      <Section title={t`Professional Summary`}>
+        {cv?.introduce ? (
+          <div className="text-sm text-gray-700 whitespace-pre-line">
+            {cv.introduce}
+          </div>
+        ) : (
+          <Empty />
+        )}
+      </Section>
+
+      <Section title={t`Career Objective`}>
+        {cv?.objective ? (
+          <div className="text-sm text-gray-700 whitespace-pre-line">
+            {cv.objective}
+          </div>
+        ) : (
+          <Empty />
+        )}
+      </Section>
 
       <Section title={t`Education`}>
         {(cv?.edu || []).length ? (
@@ -132,7 +156,27 @@ function TwoColumnsPreview({ cv }) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
       <div className="md:col-span-1 space-y-4">
-        <HeaderBlock info={info} compact />
+        <div className="border rounded-xl p-4">
+          {info.avatar && (
+            <div className="flex justify-center mb-4">
+              <img
+                src={info.avatar}
+                alt="Avatar"
+                className="w-24 h-24 rounded-full object-cover border-4 border-gray-200"
+              />
+            </div>
+          )}
+          <div className="text-xl font-bold text-gray-900">
+            {info?.fullName || "-"}
+          </div>
+          <div className="text-sm font-semibold text-gray-700">
+            {info?.title || "-"}
+          </div>
+          <div className="mt-2 text-xs text-gray-600 space-y-1">
+            {info?.email ? <div>{info.email}</div> : null}
+            {info?.phone ? <div>{info.phone}</div> : null}
+          </div>
+        </div>
         <Section title={t`Skills`}>
           {(cv?.skills || []).length ? (
             <div className="flex flex-wrap gap-2">

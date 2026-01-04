@@ -71,6 +71,15 @@ export const aiInterviewApi = createApi({
         method: "GET",
       }),
     }),
+
+    getAnswerResult: builder.query({
+      query: ({ jobId, sessionId, aiJobId }) => ({
+        url: `/answer/result?jobId=${jobId}&sessionId=${sessionId}&aiJobId=${aiJobId}`,
+        method: "GET",
+      }),
+      // Disable cache - always fetch fresh data for polling
+      keepUnusedDataFor: 0,
+    }),
   }),
 });
 
@@ -80,4 +89,6 @@ export const {
   useGetInterviewHistoryQuery,
   useGetInterviewSessionDetailQuery,
   useLazyGetInterviewSessionDetailQuery,
+  useGetAnswerResultQuery,
+  useLazyGetAnswerResultQuery,
 } = aiInterviewApi;

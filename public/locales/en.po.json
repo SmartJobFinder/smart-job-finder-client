@@ -5096,6 +5096,192 @@
                 "msgstr": [
                     "500+ employees"
                 ]
+            },
+            "UPLOADING...": {
+                "msgid": "UPLOADING...",
+                "msgstr": [
+                    "UPLOADING..."
+                ]
+            },
+            "ANALYZING...": {
+                "msgid": "ANALYZING...",
+                "msgstr": [
+                    "ANALYZING..."
+                ]
+            },
+            "Uploading audio...": {
+                "msgid": "Uploading audio...",
+                "msgstr": [
+                    "Uploading audio..."
+                ]
+            },
+            "Audio uploaded ✓": {
+                "msgid": "Audio uploaded ✓",
+                "msgstr": [
+                    "Audio uploaded ✓"
+                ]
+            },
+            "Speech-to-text & Emotion analysis": {
+                "msgid": "Speech-to-text & Emotion analysis",
+                "msgstr": [
+                    "Speech-to-text & Emotion analysis"
+                ]
+            },
+            "AI evaluation & feedback generation": {
+                "msgid": "AI evaluation & feedback generation",
+                "msgstr": [
+                    "AI evaluation & feedback generation"
+                ]
+            },
+            "Please wait 15-45 seconds...": {
+                "msgid": "Please wait 15-45 seconds...",
+                "msgstr": [
+                    "Please wait 15-45 seconds..."
+                ]
+            },
+            "Processing failed": {
+                "msgid": "Processing failed",
+                "msgstr": [
+                    "Processing failed"
+                ]
+            },
+            "Unknown error": {
+                "msgid": "Unknown error",
+                "msgstr": [
+                    "Unknown error"
+                ]
+            },
+            "Loading interview history...": {
+                "msgid": "Loading interview history...",
+                "msgstr": [
+                    "Loading interview history..."
+                ]
+            },
+            "No interview history yet": {
+                "msgid": "No interview history yet",
+                "msgstr": [
+                    "No interview history yet"
+                ]
+            },
+            "Start an AI Interview to see your history here": {
+                "msgid": "Start an AI Interview to see your history here",
+                "msgstr": [
+                    "Start an AI Interview to see your history here"
+                ]
+            },
+            "Interview History": {
+                "msgid": "Interview History",
+                "msgstr": [
+                    "Interview History"
+                ]
+            },
+            "questions": {
+                "msgid": "questions",
+                "msgstr": [
+                    "questions"
+                ]
+            },
+            "Interview Session Details": {
+                "msgid": "Interview Session Details",
+                "msgstr": [
+                    "Interview Session Details"
+                ]
+            },
+            "Failed to load session details": {
+                "msgid": "Failed to load session details",
+                "msgstr": [
+                    "Failed to load session details"
+                ]
+            },
+            "Stress:": {
+                "msgid": "Stress:",
+                "msgstr": [
+                    "Stress:"
+                ]
+            },
+            "Review your AI interview practice sessions and track your progress": {
+                "msgid": "Review your AI interview practice sessions and track your progress",
+                "msgstr": [
+                    "Review your AI interview practice sessions and track your progress"
+                ]
+            },
+            "All Sessions": {
+                "msgid": "All Sessions",
+                "msgstr": [
+                    "All Sessions"
+                ]
+            },
+            "Practice Session": {
+                "msgid": "Practice Session",
+                "msgstr": [
+                    "Practice Session"
+                ]
+            },
+            "Failed to load practice history": {
+                "msgid": "Failed to load practice history",
+                "msgstr": [
+                    "Failed to load practice history"
+                ]
+            },
+            "No practice sessions yet": {
+                "msgid": "No practice sessions yet",
+                "msgstr": [
+                    "No practice sessions yet"
+                ]
+            },
+            "Start practicing with AI Interview Coach to improve your interview skills": {
+                "msgid": "Start practicing with AI Interview Coach to improve your interview skills",
+                "msgstr": [
+                    "Start practicing with AI Interview Coach to improve your interview skills"
+                ]
+            },
+            "Go to a job detail page and click \"AI Interview Coach\" button to start": {
+                "msgid": "Go to a job detail page and click \"AI Interview Coach\" button to start",
+                "msgstr": [
+                    "Go to a job detail page and click \"AI Interview Coach\" button to start"
+                ]
+            },
+            "Questions": {
+                "msgid": "Questions",
+                "msgstr": [
+                    "Questions"
+                ]
+            },
+            "Started": {
+                "msgid": "Started",
+                "msgstr": [
+                    "Started"
+                ]
+            },
+            "Ended": {
+                "msgid": "Ended",
+                "msgstr": [
+                    "Ended"
+                ]
+            },
+            "Questions & Answers": {
+                "msgid": "Questions & Answers",
+                "msgstr": [
+                    "Questions & Answers"
+                ]
+            },
+            "Question": {
+                "msgid": "Question",
+                "msgstr": [
+                    "Question"
+                ]
+            },
+            "Your Answer": {
+                "msgid": "Your Answer",
+                "msgstr": [
+                    "Your Answer"
+                ]
+            },
+            "AI Feedback": {
+                "msgid": "AI Feedback",
+                "msgstr": [
+                    "AI Feedback"
+                ]
             }
         }
     }

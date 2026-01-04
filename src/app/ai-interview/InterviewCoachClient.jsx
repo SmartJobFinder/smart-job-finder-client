@@ -16,6 +16,7 @@ import {
   useStartInterviewMutation,
   useAnswerInterviewMutation,
 } from "@/services/aiInterviewService";
+import { useInterviewResultPolling } from "@/hooks/useInterviewResultPolling";
 import { t } from "@/i18n/i18n";
 
 export default function InterviewCoachClient() {
@@ -59,6 +60,10 @@ export default function InterviewCoachClient() {
   const [recordingSeconds, setRecordingSeconds] = useState(0);
   const [recordedSeconds, setRecordedSeconds] = useState(0);
 
+  // ========= POLLING STATE =========
+  const [aiJobId, setAiJobId] = useState(null); // From answer response
+  const [pollingEnabled, setPollingEnabled] = useState(false);
+
   const questionAudioRef = useRef(null);
 
   // ========= MEDIA RECORDER =========
@@ -71,6 +76,18 @@ export default function InterviewCoachClient() {
   const [startInterview, { isLoading: starting }] = useStartInterviewMutation();
   const [answerInterview, { isLoading: submitting }] =
     useAnswerInterviewMutation();
+
+  // ========= POLLING HOOK =========
+  const {
+    result,
+    error: pollingError,
+    isPolling,
+  } = useInterviewResultPolling({
+    jobId: jobId ? Number(jobId) : null,
+    sessionId,
+    aiJobId,
+    enabled: pollingEnabled,
+  });
 
   // ========= HELPERS =========
   const handleToggleQuestionScript = () => setShowQuestionScript(p => !p);
@@ -132,6 +149,45 @@ export default function InterviewCoachClient() {
       alert(t`Start interview failed. Check Network/Backend logs.`);
     }
   }, [jobId, startInterview, safePlay]);
+
+  // ========= HANDLE POLLING RESULT =========
+  useEffect(() => {
+    if (!result) return;
+
+    console.log("Polling result received:", result);
+
+    // Stop polling
+    setPollingEnabled(false);
+
+    // Extract data (handle both snake_case and camelCase from backend)
+    const ansText = result.answer_text ?? result.answerText ?? "";
+
+    const evalObj = {
+      evaluation: result.evaluation ?? "",
+      wpm: result.wpm ?? null,
+      emotion_summary: result.emotion_summary ?? result.emotionSummary ?? "",
+      dominant_emotion: result.dominant_emotion ?? result.dominantEmotion ?? "",
+      stress_score: result.stress_score ?? result.stressScore ?? null,
+      fluency_summary: result.fluency_summary ?? result.fluencySummary ?? "",
+      fluency_level: result.fluency_level ?? result.fluencyLevel ?? "",
+    };
+
+    setTranscript(ansText);
+    setFeedback(evalObj);
+
+    // Next question
+    const nextQ = result.next_question_text ?? result.nextQuestionText ?? "";
+    const nextAudio =
+      result.next_question_audio_url ?? result.nextQuestionAudioUrl ?? null;
+
+    setCurrentQuestion(nextQ || "");
+    setAiQuestionAudioUrl(nextAudio || null);
+    setShowQuestionScript(false);
+    safePlay(nextAudio);
+
+    // Reset for next answer
+    setAiJobId(null);
+  }, [result, safePlay]);
 
   // ========= STOP ALL MIC =========
   const stopMic = useCallback(() => {
@@ -205,8 +261,12 @@ export default function InterviewCoachClient() {
 
     const blob = await new Promise(resolve => {
       recorder.onstop = () => {
+        // ✅ FIX: Force audio/webm type for Blob (not video/webm)
+        const mimeType = recorder.mimeType?.includes("mp4")
+          ? "audio/mp4"
+          : "audio/webm";
         const b = new Blob(chunksRef.current, {
-          type: recorder.mimeType || "audio/webm",
+          type: mimeType,
         });
         resolve(b);
       };
@@ -232,38 +292,33 @@ export default function InterviewCoachClient() {
       // file name + ext
       const ext = blob.type.includes("mp4") ? "mp4" : "webm";
       const file = new File([blob], `answer.${ext}`, {
-        type: blob.type || "audio/webm",
+        type: blob.type, // Blob already has correct audio/* type
       });
       fd.append("file", file);
 
       const data = await answerInterview(fd).unwrap();
 
-      const ansText = data.answer_text ?? data.answerText ?? "";
+      console.log("Full answer response:", data);
+      console.log("Response keys:", Object.keys(data || {}));
 
-      const evalObj = data
-        ? {
-            evaluation: data.evaluation ?? "",
-            wpm: data.wpm ?? null,
-            emotion_summary: data.emotion_summary ?? "",
-            dominant_emotion: data.dominant_emotion ?? "",
-            stress_score: data.stress_score ?? null,
-            fluency_summary: data.fluency_summary ?? "",
-            fluency_level: data.fluency_level ?? "",
-          }
-        : null;
+      const receivedAiJobId = data.jobId || data.job_id || data.id;
+      const status = data.status;
 
-      setTranscript(ansText);
-      setFeedback(evalObj);
+      console.log("Answer enqueued:", { receivedAiJobId, status, data });
 
-      // next question
-      const nextQ = data.next_question_text ?? data.nextQuestionText ?? "";
-      const nextAudio =
-        data.next_question_audio_url ?? data.nextQuestionAudioUrl ?? null;
+      if (!receivedAiJobId) {
+        console.warn("No jobId received from backend! Polling won't work.");
+        alert("Server returned but no jobId. Check console for details.");
+        return;
+      }
 
-      setCurrentQuestion(nextQ || "");
-      setAiQuestionAudioUrl(nextAudio || null);
-      setShowQuestionScript(false); // Mặc định ẩn script cho next question
-      safePlay(nextAudio);
+      // ✅ Start polling
+      setAiJobId(receivedAiJobId);
+      setPollingEnabled(true);
+
+      // Clear previous result
+      setTranscript("");
+      setFeedback(null);
     } catch (e) {
       console.error(e);
       alert(
@@ -288,7 +343,8 @@ export default function InterviewCoachClient() {
       return;
     }
 
-    if (submitting) return;
+    // ✅ Disable if polling
+    if (submitting || isPolling) return;
 
     if (!isRecording) {
       await startRecording();
@@ -301,6 +357,7 @@ export default function InterviewCoachClient() {
     startRecording,
     stopRecordingAndSubmit,
     submitting,
+    isPolling,
   ]);
 
   // ========= PLAY QUESTION AUDIO EVENTS =========
@@ -395,6 +452,95 @@ export default function InterviewCoachClient() {
       {/* AFTER START: show interview UI */}
       {sessionId && (
         <>
+          {/* ✅ MOVED: Loading indicator at TOP for visibility */}
+          {(submitting || isPolling) && (
+            <div className="sticky top-0 z-50 mb-4 bg-gradient-to-r from-blue-50 to-indigo-50 border-2 border-blue-300 rounded-xl p-5 shadow-lg animate-pulse">
+              <div className="flex items-start gap-4">
+                <div className="relative">
+                  <div className="h-12 w-12 rounded-full bg-gradient-to-r from-blue-500 to-indigo-500 flex items-center justify-center shadow-md">
+                    <div className="h-7 w-7 rounded-full border-3 border-white border-t-transparent animate-spin" />
+                  </div>
+                  <div className="absolute -bottom-1 -right-1 h-5 w-5 bg-green-400 rounded-full border-2 border-white animate-ping" />
+                </div>
+                <div className="flex-1">
+                  <p className="text-lg font-bold text-blue-900 mb-2">
+                    {submitting
+                      ? t`Uploading your answer...`
+                      : t`AI is analyzing your answer...`}
+                  </p>
+
+                  {/* Progress Steps */}
+                  <div className="space-y-2 bg-white/50 rounded-lg p-3">
+                    <div className="flex items-center gap-2">
+                      <div
+                        className={`h-4 w-4 rounded-full flex items-center justify-center ${submitting ? "bg-blue-500" : "bg-green-500"}`}
+                      >
+                        {!submitting && (
+                          <span className="text-white text-xs">✓</span>
+                        )}
+                        {submitting && (
+                          <span className="h-2 w-2 rounded-full bg-white animate-pulse" />
+                        )}
+                      </div>
+                      <span
+                        className={`text-sm ${submitting ? "text-blue-700 font-bold" : "text-green-700"}`}
+                      >
+                        {submitting
+                          ? t`Uploading audio...`
+                          : t`Audio uploaded ✓`}
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div
+                        className={`h-4 w-4 rounded-full flex items-center justify-center ${isPolling ? "bg-blue-500" : "bg-gray-300"}`}
+                      >
+                        {isPolling && (
+                          <span className="h-2 w-2 rounded-full bg-white animate-pulse" />
+                        )}
+                      </div>
+                      <span
+                        className={`text-sm ${isPolling ? "text-blue-700 font-bold" : "text-gray-400"}`}
+                      >
+                        {t`Speech-to-text & Emotion analysis`}
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div
+                        className={`h-4 w-4 rounded-full flex items-center justify-center ${isPolling ? "bg-indigo-500" : "bg-gray-300"}`}
+                      >
+                        {isPolling && (
+                          <span className="h-2 w-2 rounded-full bg-white animate-pulse" />
+                        )}
+                      </div>
+                      <span
+                        className={`text-sm ${isPolling ? "text-indigo-700 font-bold" : "text-gray-400"}`}
+                      >
+                        {t`AI evaluation & feedback generation`}
+                      </span>
+                    </div>
+                  </div>
+
+                  <p className="text-sm text-blue-600 mt-3 flex items-center gap-2 font-medium">
+                    <svg
+                      className="w-5 h-5 animate-spin"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                    {t`Please wait 15-45 seconds...`}
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
+
           <QuestionCard
             currentQuestion={currentQuestion || t`Loading question...`}
             showQuestionScript={showQuestionScript}
@@ -404,6 +550,9 @@ export default function InterviewCoachClient() {
             questionAudioRef={questionAudioRef}
             isPlaying={isQuestionPlaying}
             isManualPlay={isManualPlay}
+            status={
+              submitting ? "submitting" : isPolling ? "analyzing" : "ready"
+            }
           />
 
           <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
@@ -413,9 +562,21 @@ export default function InterviewCoachClient() {
                 recordingSeconds={recordingSeconds}
                 recordedSeconds={recordedSeconds}
                 onToggleRecording={handleToggleRecording}
-                disabled={submitting}
-                loading={submitting}
+                disabled={submitting || isPolling}
+                loading={submitting || isPolling}
               />
+
+              {/* ✅ NEW: Error indicator */}
+              {pollingError && (
+                <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+                  <p className="text-sm font-semibold text-red-900">{t`Processing failed`}</p>
+                  <p className="text-xs text-red-600 mt-1">
+                    {pollingError?.data?.message ||
+                      pollingError?.message ||
+                      t`Unknown error`}
+                  </p>
+                </div>
+              )}
               <TranscriptCard
                 transcript={transcript}
                 wpm={feedback?.wpm}
