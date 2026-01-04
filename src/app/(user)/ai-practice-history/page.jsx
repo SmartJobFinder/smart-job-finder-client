@@ -5,12 +5,7 @@ import { t } from "@/i18n/i18n";
 import { useGetInterviewHistoryQuery } from "@/services/aiInterviewService";
 import InterviewSessionDetailModal from "@/app/job-detail/[id]/_components/InterviewSessionDetailModal";
 import LoadingScreen from "@/components/ui/loadingScreen";
-import {
-  Mic,
-  Calendar,
-  MessageSquare,
-  ChevronRight,
-} from "lucide-react";
+import { Mic, Calendar, MessageSquare, ChevronRight } from "lucide-react";
 
 function formatDate(isoString) {
   if (!isoString) return "—";
@@ -86,7 +81,7 @@ export default function AIPracticeHistoryPage() {
             {t`All Sessions`} ({sessions.length})
           </h2>
 
-          {sessions.map((session) => (
+          {sessions.map(session => (
             <div
               key={session.session_id}
               onClick={() => setSelectedSessionId(session.session_id)}

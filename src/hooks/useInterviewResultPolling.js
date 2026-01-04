@@ -16,8 +16,7 @@ export function useInterviewResultPolling({
   aiJobId,
   enabled = true,
 }) {
-  const [trigger, { data, error, isFetching }] =
-    useLazyGetAnswerResultQuery();
+  const [trigger, { data, error, isFetching }] = useLazyGetAnswerResultQuery();
   const [isPolling, setIsPolling] = useState(false);
   const intervalRef = useRef(null);
 

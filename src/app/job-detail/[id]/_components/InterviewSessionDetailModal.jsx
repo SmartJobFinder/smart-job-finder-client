@@ -32,7 +32,7 @@ export default function InterviewSessionDetailModal({ sessionId, onClose }) {
     isError,
   } = useGetInterviewSessionDetailQuery(sessionId);
 
-  const handleBackdropClick = (e) => {
+  const handleBackdropClick = e => {
     if (e.target === e.currentTarget) {
       onClose();
     }
@@ -176,12 +176,13 @@ export default function InterviewSessionDetailModal({ sessionId, onClose }) {
 
                         {q.stress_score != null && (
                           <div
-                            className={`flex items-center gap-1 px-2 py-1 rounded-full text-xs font-semibold ${q.stress_score <= 0.3
+                            className={`flex items-center gap-1 px-2 py-1 rounded-full text-xs font-semibold ${
+                              q.stress_score <= 0.3
                                 ? "bg-green-100 text-green-600"
                                 : q.stress_score <= 0.6
                                   ? "bg-yellow-100 text-yellow-600"
                                   : "bg-red-100 text-red-600"
-                              }`}
+                            }`}
                           >
                             <Activity className="w-3.5 h-3.5" />
                             {t`Stress:`} {Number(q.stress_score).toFixed(4)}

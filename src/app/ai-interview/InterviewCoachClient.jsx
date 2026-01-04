@@ -78,7 +78,11 @@ export default function InterviewCoachClient() {
     useAnswerInterviewMutation();
 
   // ========= POLLING HOOK =========
-  const { result, error: pollingError, isPolling } = useInterviewResultPolling({
+  const {
+    result,
+    error: pollingError,
+    isPolling,
+  } = useInterviewResultPolling({
     jobId: jobId ? Number(jobId) : null,
     sessionId,
     aiJobId,
@@ -99,7 +103,7 @@ export default function InterviewCoachClient() {
       const a = questionAudioRef.current;
       if (!a) return;
       a.currentTime = 0;
-      a.play().catch(() => { });
+      a.play().catch(() => {});
     }, 50);
   }, []);
 
@@ -108,7 +112,7 @@ export default function InterviewCoachClient() {
       // Manual play - user bấm nút Play
       setIsManualPlay(true);
       questionAudioRef.current.currentTime = 0;
-      questionAudioRef.current.play().catch(() => { });
+      questionAudioRef.current.play().catch(() => {});
     }
   };
 
@@ -189,7 +193,7 @@ export default function InterviewCoachClient() {
   const stopMic = useCallback(() => {
     try {
       streamRef.current?.getTracks()?.forEach(t => t.stop());
-    } catch { }
+    } catch {}
     streamRef.current = null;
   }, []);
 
@@ -258,7 +262,9 @@ export default function InterviewCoachClient() {
     const blob = await new Promise(resolve => {
       recorder.onstop = () => {
         // ✅ FIX: Force audio/webm type for Blob (not video/webm)
-        const mimeType = recorder.mimeType?.includes("mp4") ? "audio/mp4" : "audio/webm";
+        const mimeType = recorder.mimeType?.includes("mp4")
+          ? "audio/mp4"
+          : "audio/webm";
         const b = new Blob(chunksRef.current, {
           type: mimeType,
         });
@@ -393,7 +399,7 @@ export default function InterviewCoachClient() {
     return () => {
       try {
         recorderRef.current?.stop?.();
-      } catch { }
+      } catch {}
       stopMic();
       if (recordingTimerRef.current) clearInterval(recordingTimerRef.current);
     };
@@ -458,41 +464,75 @@ export default function InterviewCoachClient() {
                 </div>
                 <div className="flex-1">
                   <p className="text-lg font-bold text-blue-900 mb-2">
-                    {submitting ? t`Uploading your answer...` : t`AI is analyzing your answer...`}
+                    {submitting
+                      ? t`Uploading your answer...`
+                      : t`AI is analyzing your answer...`}
                   </p>
 
                   {/* Progress Steps */}
                   <div className="space-y-2 bg-white/50 rounded-lg p-3">
                     <div className="flex items-center gap-2">
-                      <div className={`h-4 w-4 rounded-full flex items-center justify-center ${submitting ? 'bg-blue-500' : 'bg-green-500'}`}>
-                        {!submitting && <span className="text-white text-xs">✓</span>}
-                        {submitting && <span className="h-2 w-2 rounded-full bg-white animate-pulse" />}
+                      <div
+                        className={`h-4 w-4 rounded-full flex items-center justify-center ${submitting ? "bg-blue-500" : "bg-green-500"}`}
+                      >
+                        {!submitting && (
+                          <span className="text-white text-xs">✓</span>
+                        )}
+                        {submitting && (
+                          <span className="h-2 w-2 rounded-full bg-white animate-pulse" />
+                        )}
                       </div>
-                      <span className={`text-sm ${submitting ? 'text-blue-700 font-bold' : 'text-green-700'}`}>
-                        {submitting ? t`Uploading audio...` : t`Audio uploaded ✓`}
+                      <span
+                        className={`text-sm ${submitting ? "text-blue-700 font-bold" : "text-green-700"}`}
+                      >
+                        {submitting
+                          ? t`Uploading audio...`
+                          : t`Audio uploaded ✓`}
                       </span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <div className={`h-4 w-4 rounded-full flex items-center justify-center ${isPolling ? 'bg-blue-500' : 'bg-gray-300'}`}>
-                        {isPolling && <span className="h-2 w-2 rounded-full bg-white animate-pulse" />}
+                      <div
+                        className={`h-4 w-4 rounded-full flex items-center justify-center ${isPolling ? "bg-blue-500" : "bg-gray-300"}`}
+                      >
+                        {isPolling && (
+                          <span className="h-2 w-2 rounded-full bg-white animate-pulse" />
+                        )}
                       </div>
-                      <span className={`text-sm ${isPolling ? 'text-blue-700 font-bold' : 'text-gray-400'}`}>
+                      <span
+                        className={`text-sm ${isPolling ? "text-blue-700 font-bold" : "text-gray-400"}`}
+                      >
                         {t`Speech-to-text & Emotion analysis`}
                       </span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <div className={`h-4 w-4 rounded-full flex items-center justify-center ${isPolling ? 'bg-indigo-500' : 'bg-gray-300'}`}>
-                        {isPolling && <span className="h-2 w-2 rounded-full bg-white animate-pulse" />}
+                      <div
+                        className={`h-4 w-4 rounded-full flex items-center justify-center ${isPolling ? "bg-indigo-500" : "bg-gray-300"}`}
+                      >
+                        {isPolling && (
+                          <span className="h-2 w-2 rounded-full bg-white animate-pulse" />
+                        )}
                       </div>
-                      <span className={`text-sm ${isPolling ? 'text-indigo-700 font-bold' : 'text-gray-400'}`}>
+                      <span
+                        className={`text-sm ${isPolling ? "text-indigo-700 font-bold" : "text-gray-400"}`}
+                      >
                         {t`AI evaluation & feedback generation`}
                       </span>
                     </div>
                   </div>
 
                   <p className="text-sm text-blue-600 mt-3 flex items-center gap-2 font-medium">
-                    <svg className="w-5 h-5 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    <svg
+                      className="w-5 h-5 animate-spin"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
                     </svg>
                     {t`Please wait 15-45 seconds...`}
                   </p>
@@ -510,7 +550,9 @@ export default function InterviewCoachClient() {
             questionAudioRef={questionAudioRef}
             isPlaying={isQuestionPlaying}
             isManualPlay={isManualPlay}
-            status={submitting ? "submitting" : isPolling ? "analyzing" : "ready"}
+            status={
+              submitting ? "submitting" : isPolling ? "analyzing" : "ready"
+            }
           />
 
           <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
@@ -529,7 +571,9 @@ export default function InterviewCoachClient() {
                 <div className="bg-red-50 border border-red-200 rounded-lg p-4">
                   <p className="text-sm font-semibold text-red-900">{t`Processing failed`}</p>
                   <p className="text-xs text-red-600 mt-1">
-                    {pollingError?.data?.message || pollingError?.message || t`Unknown error`}
+                    {pollingError?.data?.message ||
+                      pollingError?.message ||
+                      t`Unknown error`}
                   </p>
                 </div>
               )}

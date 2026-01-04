@@ -245,10 +245,11 @@ export default function CVPage() {
               <button
                 onClick={handleGenerateAI}
                 disabled={!canGenerate || loading}
-                className={`px-4 py-2 text-sm font-semibold text-white rounded-lg shadow-md ${!canGenerate || loading
-                  ? "bg-gray-400 cursor-not-allowed"
-                  : "bg-emerald-600 hover:bg-emerald-700"
-                  }`}
+                className={`px-4 py-2 text-sm font-semibold text-white rounded-lg shadow-md ${
+                  !canGenerate || loading
+                    ? "bg-gray-400 cursor-not-allowed"
+                    : "bg-emerald-600 hover:bg-emerald-700"
+                }`}
               >
                 {t`Generate CV with AI`}
               </button>
@@ -321,7 +322,6 @@ export default function CVPage() {
 
           {/* ===== CV VIEW - Render theo template ===== */}
           <div className="space-y-6 bg-white p-6 rounded-lg shadow-sm">
-
             {/* Render khác nhau tùy theo template */}
             {selectedTemplate === "basic" && (
               <BasicEditableView cv={cv} setCv={setCv} />
