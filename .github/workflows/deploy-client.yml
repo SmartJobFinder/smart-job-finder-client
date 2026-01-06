@@ -5,6 +5,8 @@ on:
     branches:
       - test
       - dev/hao-vn
+      - feature-call-api
+      - main
       - pkucpkam
       - develop
   workflow_dispatch:

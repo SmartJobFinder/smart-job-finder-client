@@ -9,6 +9,7 @@ import { Label } from "@/components/ui/label"; // ✅ THÊM IMPORT NÀY
 import { Loader2, ArrowLeft, Map } from "lucide-react"; // ✅ THÊM Map ICON
 import { toast } from "react-toastify";
 import Link from "next/link";
+import { t } from "@/i18n/i18n";
 
 import { updateCompany, getMyCompany } from "@/services/myCompanyService";
 import { getAllCategories } from "@/services/categoryService";
