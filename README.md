@@ -1,44 +1,48 @@
 # Smart Job Finder Client (Next.js)
 
-Ứng dụng web người dùng cho hệ thống Smart Job Finder, xây dựng bằng **Next.js App Router**. Hỗ trợ tìm kiếm việc làm, quản lý hồ sơ, dashboard nhà tuyển dụng, thông báo realtime và các tính năng AI (gợi ý việc làm, matching CV).
+The user-facing web application for the Smart Job Finder system, built with **Next.js App Router**. It supports job searching, profile management, recruiter dashboards, real-time notifications, and AI-powered features (Job recommendations, CV matching, Interview Coach).
 
 ## 📦 Tech stack
 
-- Next.js 15 (App Router) + React 19
-- Tailwind CSS 4, Radix UI, shadcn components
-- Redux Toolkit + RTK Query, Zustand
-- Axios, WebSocket (STOMP), Jitsi SDK
-- i18n với `ttag`
+- **Framework:** Next.js 15 (App Router) + React 19
+- **Styling:** Tailwind CSS 4, Radix UI, shadcn components
+- **State Management:** Redux Toolkit + RTK Query, Zustand
+- **Network:** Axios, WebSocket (STOMP), Jitsi SDK
+- **Localization:** i18n with `ttag`
 
-## � Screenshots
+## 📸 Screenshots
 
 ![Homepage](public/homepage-screenshot.png)
-_Trang chủ Smart Job Finder - Tìm việc làm phù hợp với đam mê & kỹ năng_
+_Smart Job Finder Homepage - Find jobs that match your passion & skills_
 
-## �🚀 Bắt đầu nhanh
+## 🚀 Quick Start
 
 ```bash
-git clone https://github.com/Group-3-KTC/job-find-user-app.git
+https://github.com/SmartJobFinder/smart-job-finder-client
 cd job-find-user-app
 npm install
+
+# Run development server
 npm run dev   # http://localhost:3000
 ```
 
-### Biến môi trường tối thiểu (`.env.local`)
+### Environment Variables (`.env.local`)
+
+Create a `.env.local` file with the following variables:
 
 ```bash
-NEXT_PUBLIC_API_PROXY_TARGET=http://localhost:8082   # backend gốc khi dev
-NEXT_PUBLIC_API_BASE_URL=/api/v1
-NEXT_PUBLIC_WS_ENDPOINT=/ws
-NEXT_PUBLIC_SUB_DEST=/user/queue/noti
+NEXT_PUBLIC_API_PROXY_TARGET=http://localhost:8082   # Backend URL for development proxy
+NEXT_PUBLIC_API_BASE_URL=/api/v1                     # API prefix
+NEXT_PUBLIC_WS_ENDPOINT=/ws                          # WebSocket endpoint
+NEXT_PUBLIC_SUB_DEST=/user/queue/noti                # Notification subscription destination
 ```
 
 ### Scripts
 
-- `npm run dev` — chạy dev server
-- `npm run build` — build production
-- `npm start` — chạy production build
-- `npm run lint` — ESLint
+- `npm run dev`: Run development server
+- `npm run build`: Build for production
+- `npm start`: Run production build
+- `npm run lint`: Run ESLint
 
 ## 🐳 Docker Deployment
 
@@ -49,20 +53,20 @@ NEXT_PUBLIC_SUB_DEST=/user/queue/noti
 
 ### Quick Start
 
-1. **Tạo file .env từ template**:
+1.  **Create .env from template**:
 
-   ```bash
-   cp .env.example .env
-   # Edit .env với các giá trị của bạn
-   ```
+    ```bash
+    cp .env.example .env
+    # Edit .env with your configuration
+    ```
 
-2. **Build và run với Docker Compose**:
+2.  **Build and run with Docker Compose**:
 
-   ```bash
-   docker-compose -f docker-compose.dev.yml up -d
-   ```
+    ```bash
+    docker-compose -f docker-compose.dev.yml up -d
+    ```
 
-3. **Truy cập ứng dụng**: http://localhost:3000
+3.  **Access the application**: http://localhost:3000
 
 ### Build Docker Image
 
@@ -88,47 +92,33 @@ docker run -d \
   smart-job-finder-client:latest
 ```
 
-### Docker Files
-
-- `Dockerfile` - Multi-stage build (Node 20 + standalone output)
-- `docker-compose.dev.yml` - Development/local deployment
-- `docker-compose.yml` - Production deployment (pre-built image)
-- `.dockerignore` - Build context exclusions
-- `.env.example` - Environment variables template
-
-## 🗂️ Cấu trúc chính
+## 🗂️ Project Structure
 
 ```
 src/
-  app/          # App Router pages/layouts
-  components/   # UI & shared components
-  features/     # Redux slices/features
-  services/     # RTK Query & axios services
-  store/        # Redux store cấu hình
+  app/          # Next.js App Router pages & layouts
+  components/   # Reusable UI components
+  features/     # Redux slices/features (Auth, Jobs, etc.)
+  services/     # RTK Query & Axios service definitions
+  store/        # Redux store configuration
   hooks/, lib/, utils/, constants/, validation/
-public/         # Static assets & i18n JSON
+public/         # Static assets & i18n JSON files
 ```
 
-## 🔑 Chức năng nổi bật
+## 🔑 Key Features
 
-- Tìm kiếm & lọc việc làm, xem chi tiết, ứng tuyển, lưu việc.
-- Hồ sơ người dùng: thông tin cá nhân, CV templates, CV matching.
-- Công ty: xem thông tin, theo dõi, lưu công ty.
-- Recruiter dashboard: tạo/quản lý tin tuyển dụng, ứng viên, analytics.
-- Phỏng vấn: lịch, video interview (Jitsi), AI interview coach.
-- Thông báo realtime qua WebSocket + toast.
+- **Job Search:** Advanced filtering, view details, apply with one click, save jobs.
+- **User Profile:** Manage personal info, CV templates, CV matching scores.
+- **Companies:** View company profiles, follow companies.
+- **Recruiter Dashboard:** Post/Manage jobs, manage candidates, analytics.
+- **Interviews:** Schedule tracking, video interviews (Jitsi), AI Interview Coach.
+- **Notifications:** Real-time updates via WebSocket + Toast notifications.
 
-## 🔐 Bảo mật & quyền truy cập
+## 🔐 Security & Access Control
 
-- JWT lưu trong HTTP-only cookie, tự refresh khi 401.
-- Middleware bảo vệ route: yêu cầu đăng nhập, phân quyền recruiter.
-- Rewrites dev proxy `/api` và `/ws` trỏ tới backend (config qua env).
-
-## 🧭 Tài liệu thêm
-
-- `docs/setup.md` – hướng dẫn cài đặt nhanh
-- `docs/project-structure-overview.md` – kiến trúc & luồng dữ liệu
-- `docs/api-usage-guide.md` – (nếu cần) mô tả các service API
+- **Auth:** JWT stored in HTTP-only cookies, auto-refresh on 401 errors.
+- **Middleware:** Route protection for authenticated users and recruiters.
+- **Proxy:** Dev proxy rewrites `/api` and `/ws` requests to the backend.
 
 ## 👥 Team
 

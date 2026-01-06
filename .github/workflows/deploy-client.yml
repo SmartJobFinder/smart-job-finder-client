@@ -3,9 +3,7 @@ name: Deploy Client to AWS
 on:
   push:
     branches:
-      - main
       - test
-      - feature-call-api
       - dev/hao-vn
       - pkucpkam
       - develop

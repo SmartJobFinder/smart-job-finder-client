@@ -3,7 +3,7 @@
 ## 1. Clone project
 
 ```
-git clone https://github.com/Group-3-KTC/job-find-user-app.git
+https://github.com/SmartJobFinder/smart-job-finder-client
 ```
 
 ## 2. Install dependencies
