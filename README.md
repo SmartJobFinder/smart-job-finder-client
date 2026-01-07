@@ -2,7 +2,7 @@
 
 The user-facing web application for the Smart Job Finder system, built with **Next.js App Router**. It supports job searching, profile management, recruiter dashboards, real-time notifications, and AI-powered features (Job recommendations, CV matching, Interview Coach).
 
-## 📦 Tech stack
+## Tech stack
 
 - **Framework:** Next.js 15 (App Router) + React 19
 - **Styling:** Tailwind CSS 4, Radix UI, shadcn components
@@ -10,12 +10,12 @@ The user-facing web application for the Smart Job Finder system, built with **Ne
 - **Network:** Axios, WebSocket (STOMP), Jitsi SDK
 - **Localization:** i18n with `ttag`
 
-## 📸 Screenshots
+## Screenshots
 
 ![Homepage](public/homepage-screenshot.png)
 _Smart Job Finder Homepage - Find jobs that match your passion & skills_
 
-## 🚀 Quick Start
+## Quick Start
 
 ```bash
 https://github.com/SmartJobFinder/smart-job-finder-client
@@ -44,7 +44,7 @@ NEXT_PUBLIC_SUB_DEST=/user/queue/noti                # Notification subscription
 - `npm start`: Run production build
 - `npm run lint`: Run ESLint
 
-## 🐳 Docker Deployment
+## Docker Deployment
 
 ### Prerequisites
 
@@ -92,7 +92,7 @@ docker run -d \
   smart-job-finder-client:latest
 ```
 
-## 🗂️ Project Structure
+## Project Structure
 
 ```
 src/
@@ -105,7 +105,7 @@ src/
 public/         # Static assets & i18n JSON files
 ```
 
-## 🔑 Key Features
+## Key Features
 
 - **Job Search:** Advanced filtering, view details, apply with one click, save jobs.
 - **User Profile:** Manage personal info, CV templates, CV matching scores.
@@ -114,13 +114,13 @@ public/         # Static assets & i18n JSON files
 - **Interviews:** Schedule tracking, video interviews (Jitsi), AI Interview Coach.
 - **Notifications:** Real-time updates via WebSocket + Toast notifications.
 
-## 🔐 Security & Access Control
+## Security & Access Control
 
 - **Auth:** JWT stored in HTTP-only cookies, auto-refresh on 401 errors.
 - **Middleware:** Route protection for authenticated users and recruiters.
 - **Proxy:** Dev proxy rewrites `/api` and `/ws` requests to the backend.
 
-## 👥 Team
+## Team
 
 - **[Võ Nhật Hào](https://github.com/nhathao512)**
 - **[Pham Văn Phúc](https://github.com/pkucpkam)**
